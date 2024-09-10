@@ -12,14 +12,21 @@
     
     <name>dispenser</name>
     <description>Progetto DIPS</description>
-    <url>https://nexus.ente.regione.emr.it/repository/parer-site/dips/${project.version}/</url>
 
     <distributionManagement>
-        <site>
-            <id>site</id>
-            <url>dav:https://nexus.ente.regione.emr.it/repository/parer-site/dips/${project.version}</url>
-        </site>
+        <repository>
+          <id>github</id>
+          <url>https://maven.pkg.github.com/RegioneER/parer-sacerdips</url>
+        </repository>      
     </distributionManagement>
+
+    <repositories>
+        <repository>
+            <id>github</id>
+            <url>https://maven.pkg.github.com/RegioneER/parer-framework-parerpom</url>           
+        </repository>          
+     </repositories>
+ 
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -178,7 +185,7 @@
     </modules>
 
     <scm>
-        <developerConnection>scm:git:git@gitlab.ente.regione.emr.it:parer/jboss/sacerdips.git</developerConnection>
+        <developerConnection>scm:git:https://github.com/RegioneER/parer-sacerdips.git</developerConnection>
         <tag>HEAD</tag>
    </scm>
 
