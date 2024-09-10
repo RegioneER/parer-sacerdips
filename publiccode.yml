@@ -51,7 +51,7 @@ localisation:
     - it
   localisationReady: true
 logo: |-
-  https://raw.githubusercontent.com/RegioneER/parer-sacer/master/src/docs/img/rer-logo.png
+   https://raw.githubusercontent.com/RegioneER/parer-sacerdips/master/src/docs/img/rer-logo.png
 maintenance:
   contacts:
     - email: areasviluppoparer@regione.emilia-romagna.it
