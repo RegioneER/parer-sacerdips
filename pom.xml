@@ -1,0 +1,227 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <artifactId>sacerdips-jboss</artifactId>
+    <version>5.1.1-SNAPSHOT</version>
+    <packaging>pom</packaging>
+    <parent>
+        <groupId>it.eng.parer</groupId>
+        <artifactId>parer-pom</artifactId>
+        <version>6.4.0</version>
+    </parent>
+    
+    <name>dispenser</name>
+    <description>Progetto DIPS</description>
+    <url>https://nexus.ente.regione.emr.it/repository/parer-site/dips/${project.version}/</url>
+
+    <distributionManagement>
+        <site>
+            <id>site</id>
+            <url>dav:https://nexus.ente.regione.emr.it/repository/parer-site/dips/${project.version}</url>
+        </site>
+    </distributionManagement>
+
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+        <!-- spagofat bom -->
+        <spagofat.version>6.15.0</spagofat.version>
+    </properties>
+
+    <dependencyManagement>
+    
+        <dependencies>
+            <dependency>
+                <groupId>${project.groupId}</groupId>
+                <artifactId>sacerdips-jboss-web</artifactId>
+                <version>${project.version}</version>
+                <type>war</type>
+            </dependency>
+            <dependency>
+                <groupId>${project.groupId}</groupId>
+                <artifactId>sacerdips-jboss-ejb</artifactId>
+                <type>ejb</type>
+                <version>${project.version}</version>				
+            </dependency>
+            <dependency>
+                <groupId>${project.groupId}</groupId>
+                <artifactId>sacerdips-jboss-slg</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>${project.groupId}</groupId>
+                <artifactId>sacerdips-jboss-jpa</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>${project.groupId}</groupId>
+                <artifactId>sacerdips-jboss-conf</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+            <!-- Xalan & co -->
+            <dependency>
+                <groupId>org.apache.cxf.build-utils</groupId>
+                <artifactId>cxf-buildtools</artifactId>
+                <version>${cxf-buildtools.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.apache.httpcomponents</groupId>
+                <artifactId>httpcore</artifactId>
+                <version>${httpcore.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.apache.httpcomponents</groupId>
+                <artifactId>httpmime</artifactId>
+                <version>${httpmime.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.apache.httpcomponents</groupId>
+                <artifactId>httpclient</artifactId>
+                <version>${httpclient.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>commons-logging</groupId>
+                <artifactId>commons-logging</artifactId>
+                <version>${commons-logging.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>commons-io</groupId>
+                <artifactId>commons-io</artifactId>
+                <version>${commons-io.version}</version>
+            </dependency>
+ 			<dependency>
+                <groupId>org.apache.commons</groupId>
+                <artifactId>commons-text</artifactId>
+                <version>${commons-text.version}</version>
+            </dependency>              
+            <dependency>
+				<groupId>org.apache.commons</groupId>
+				<artifactId>commons-lang3</artifactId>
+				<version>${commons-lang3.version}</version>
+			</dependency>
+            <dependency>
+                <groupId>junit</groupId>
+                <artifactId>junit</artifactId>
+                <version>${junit.version}</version>
+                <scope>test</scope>
+            </dependency>
+            <dependency>
+                <groupId>org.jboss.bom</groupId>
+                <artifactId>jboss-eap-jakartaee8-with-tools</artifactId>
+                <version>${jboss-eap-jakartaee8-with-tools.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+            <dependency>
+                <groupId>org.jboss.spec</groupId>
+                <artifactId>jboss-jakartaee-8.0</artifactId>
+                <type>pom</type>
+                <version>${jboss-jakartaee-8.0.version}</version>
+            </dependency>
+            <!-- Xerces & co -->
+            <dependency>
+                <groupId>xerces</groupId>
+                <artifactId>xercesImpl</artifactId>
+                <version>${xerces.version}</version>
+                <scope>runtime</scope>
+            </dependency>
+            <dependency>
+                <groupId>xalan</groupId>
+                <artifactId>xalan</artifactId>
+                <version>${xalan.version}</version>
+                <scope>runtime</scope>
+            </dependency>
+			<dependency>
+				<groupId>xalan</groupId>
+				<artifactId>serializer</artifactId>
+				<version>${xalan.version}</version>
+				<scope>runtime</scope>
+			</dependency>
+			 <!-- Provided by runtime (JB7) -->            
+			<dependency>
+                <groupId>javax.xml.bind</groupId>
+                <artifactId>jaxb-api</artifactId>
+                <version>${jaxb.version}</version>
+                <scope>provided</scope>
+            </dependency>
+            <!--JDK 11 -->
+            <dependency>
+                <groupId>javax.xml.ws</groupId>
+                <artifactId>jaxws-api</artifactId>
+                <version>${jaxws-api.version}</version>
+                <scope>provided</scope>
+            </dependency>
+             <dependency>
+                <groupId>xml-apis</groupId>
+                <artifactId>xml-apis</artifactId>
+                <version>${xml-apis.version}</version>
+                <scope>provided</scope>               
+            </dependency>	
+            <!-- Framework -->
+            <dependency>
+                <groupId>it.eng.parer</groupId>
+                <artifactId>spagofat</artifactId>
+                <version>${spagofat.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
+
+    <modules>
+        <module>dispenser-ear</module>
+        <module>dispenser-conf</module>
+        <module>dispenser-jpa</module>
+        <module>dispenser-slg</module>
+        <module>dispenser-ejb</module>
+        <module>dispenser-web</module>
+    </modules>
+
+    <scm>
+        <developerConnection>scm:git:git@gitlab.ente.regione.emr.it:parer/jboss/sacerdips.git</developerConnection>
+        <tag>HEAD</tag>
+   </scm>
+
+    <build>
+        <pluginManagement>
+            <plugins>
+                <!-- OWASP -->
+                <plugin>
+                    <groupId>org.owasp</groupId>
+                    <artifactId>dependency-check-maven</artifactId>
+                    <configuration>
+                        <suppressionFile>src/site/owasp/suppress.xml</suppressionFile>
+                    </configuration>
+                </plugin>
+            </plugins>
+        </pluginManagement>    
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-javadoc-plugin</artifactId>
+                <configuration>
+                    <!-- Esclusione dai javadoc delle classi generate da xmlbeans -->
+                    <excludePackageNames>it.eng.parer.dispenser.slite.gen.*:it.eng.parer.ws.xml.*</excludePackageNames>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+            </plugin>
+        </plugins>
+    </build>
+
+    <reporting>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-javadoc-plugin</artifactId>
+                <configuration>
+                    <!-- Esclusione dai javadoc delle classi generate da xmlbeans -->
+                    <excludePackageNames>it.eng.parer.dispenser.slite.gen.*:it.eng.parer.ws.xml.*</excludePackageNames>
+                </configuration>
+            </plugin>
+        </plugins>
+    </reporting>
+
+</project>

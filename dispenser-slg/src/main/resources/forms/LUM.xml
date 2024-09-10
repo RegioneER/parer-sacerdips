@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Form Description="RicercaLUM" xmlns="http://www.spagoLite.eng.it/xmlbean/form" xmlns:xsi="http://www.w3.org/2001/XMLSchema"
+      xsi:noNamespaceSchemaLocation="Form.xsd" >
+    
+    <Fields Name="Back" Description="Back" >
+        <Input Type="STRING" Description="" Name="Fake" Hidden="true"/>
+    </Fields>
+        
+    <!-- Lista dei referti collegati -->
+    <List Name="RefertiCollegatiList" Description="Referti collegati" hideInsertButton="true" hideDeleteButton="true" hideUpdateButton="true" >
+        <Input Type="INTEGER" Description="ID Strut" Name="id_strut" Hidden="true"/>
+        <Input Type="INTEGER" Description="ID referto collegato" Name="id_unita_doc_link" Hidden="true"/>
+        <Input Type="STRING" Description="Numero" Name="cdUd" Hidden="true"/>
+        <Input Type="STRING" Description="Data referto" Name="dataRefertoString" Hidden="true"/>
+        <Input Type="STRING" Description="ID referto collegato" Name="cd_key_unita_doc_link"/>
+        <Input Type="DATE" Description="Data creazione referto" Name="dt_reg_unita_doc"/>
+        <Input Type="STRING" Description="Tipo collegamento" Name="ds_link_unita_doc"/>
+        <!--<Input Type="STRING" Description="Referto disponibile" Name="referto_disponibile"/>-->
+        <Link Name="referto_disponibile" Description="Referto disponibile" Type="STRING" Target="loadRefertoDisponibile" Tooltip="Visualizza Referto" isTargetList="false"/>
+    </List>
+    
+</Form>

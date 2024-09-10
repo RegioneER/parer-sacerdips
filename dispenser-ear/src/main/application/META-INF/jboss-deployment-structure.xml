@@ -1,0 +1,28 @@
+<jboss-deployment-structure>
+    <deployment>
+        <dependencies>
+            <module name="org.dom4j" export="true" />            
+        </dependencies>    
+        <exclusions>
+            <module name="org.apache.xalan" />
+            <module name="org.apache.xerces" />
+            <module name="org.apache.commons.logging"/>
+        </exclusions>
+    </deployment>
+    <sub-deployment name="sacerdips-jboss-ejb-${project.version}.jar">
+        <!-- Exclusions allow you to prevent the server from automatically adding some dependencies     -->
+        <exclusions>
+            <module name="org.apache.xalan" />
+            <module name="org.apache.xerces" />
+            <module name="org.apache.commons.logging"/>
+        </exclusions>
+    </sub-deployment>    
+    <sub-deployment name="sacerdips-jboss-web-${project.version}.war">
+        <!-- Exclusions allow you to prevent the server from automatically adding some dependencies     -->
+        <exclusions>
+            <module name="org.apache.xalan" />
+            <module name="org.apache.xerces" />
+            <module name="org.apache.commons.logging"/>
+        </exclusions>
+    </sub-deployment>
+</jboss-deployment-structure>

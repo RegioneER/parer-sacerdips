@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Form Description="RicercaSISMA" xmlns="http://www.spagoLite.eng.it/xmlbean/form" xmlns:xsi="http://www.w3.org/2001/XMLSchema"
+      xsi:noNamespaceSchemaLocation="Form.xsd" >
+    
+    <Fields Name="Back" Description="Back" >
+        <Input Type="STRING" Description="" Name="Fake" Hidden="true"/>
+    </Fields>
+
+        <Fields Name="Level" Description="Level" >
+        <Input Type="INTEGER" Description="Livello di annidamento progetti ricostruzione" Name="level_progetto_ric" />    
+    </Fields>
+    
+    <ButtonList Name="SismaButtonList" Description="MessageBox" >
+        <Button Name="scaricaProgetto" Description="Scarica progetto" Type="STRING"/>        
+    </ButtonList>
+    
+    <Section Name="listaDocumentiSection" Description="" Legend="Elenco documenti" ShowButton="false" LoadOpened="true"/>
+    <Section Name="listaProgettiCollegatiSection" Description="" Legend="Altri progetti relativi al codice intervento" ShowButton="false" LoadOpened="true"/>
+        
+    <Fields Name="TipoDocumentoDetailFake" Description="Dettaglio tipo documento fake" >
+        <!-- Campo hidden usato per costruire la label personalizzata nel dettaglio del tipo documento -->
+        <Input Type="STRING" Description="Tipo documento" Name="nm_tipo_doc" Hidden="true"/>
+    </Fields>
+    
+    <!-- Lista dei documenti -->
+    <List Name="DocumentiUDList" Description="Lista documenti" hideInsertButton="true" hideDeleteButton="true" hideUpdateButton="true" >
+        <!-- <Input Type="INTEGER" Description="ID strut" Name="id_strut" Hidden="true"/> -->
+        <Input Type="INTEGER" Description="ID unita doc" Name="id_unita_doc" Hidden="true"/>
+        <Input Type="STRING" Description="Tipo documento" Name="nm_tipo_doc"/>
+        <Input Type="INTEGER" Description="Numero di file" Name="cntDoc"/>
+        <Input Type="STRING" Description="Download tipo documento" Name="scarica_ud_tipo_doc" />
+    </List>
+    
+    <!-- Lista dei componenti -->
+    <List Name="CompDocList" Description="Lista componenti" hideInsertButton="true" hideDeleteButton="true" hideUpdateButton="true" >
+        <Input Type="INTEGER" Description="ID componente" Name="id_comp_doc" Hidden="true"/>
+        <Input Type="STRING" Description="Nome componente" Name="ds_nome_comp_vers"/>
+        <Input Type="STRING" Description="Urn componente" Name="ds_urn_comp_calc"/>
+        <Input Type="STRING" Description="Download componente" Name="scarica_comp_tipo_doc" />
+    </List>
+    
+    <!-- Lista degli strumenti urbanistici collegati -->
+    <List Name="ProgettiCollegatiList" Description="Altri progetti relativi al codice intervento" hideInsertButton="true" hideDeleteButton="true" hideUpdateButton="true" >       
+        <Input Type="INTEGER" Description="ID strut" Name="id_strut" />
+        <Input Type="INTEGER" Description="ID unita doc" Name="id_unita_doc" />
+ <!--       <Input Type="INTEGER" Description="ID strumento collegato" Name="id_link_unita_doc" Hidden="true"/> -->
+        <Input Type="STRING" Description="Linea di finanziamento" Name="linea_finanziamento" />
+        <Input Type="STRING" Description="Codice intervento" Name="codice_intervento" Hidden="true"/>
+        <Input Type="STRING" Description="Denominazione intervento" Name="denominazione_intervento" />
+        <Input Type="STRING" Description="Soggetto attuatore" Name="soggetto_attuatore" />
+        <Input Type="STRING" Description="Provincia ubicazione immobile" Name="provincia_ubicazione_immobile" />
+        <Input Type="STRING" Description="Comune ubicazione immobile" Name="comune_ubicazione_immobile" />
+        <Input Type="STRING" Description="Fase progettuale" Name="fase_progettuale" />
+        <Input Type="STRING" Description="Identificativo atto soggetto attuatore" Name="id_atto_sa" />
+        <Input Type="STRING" Description="Anno atto soggetto attuatore" Name="anno_atto_sa" />
+        <Input Type="DATE" Description="Data versamento" Name="dt_creazione_ud"/>
+        <Link Type="STRING" Description="Scarica progetto" Name="scaricaProgetto"  Target="scaricaProgettoCollegato" Tooltip="Scarica progetto" isTargetList="false" />        
+    </List>
+    
+</Form>

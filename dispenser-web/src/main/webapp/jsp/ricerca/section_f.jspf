@@ -1,0 +1,23 @@
+<c:forEach items="${gruppoCampo.dipCampoRicercaOrdinati}" var="campo">
+	<c:if
+		test="${campo.niColonnaCampo == 0 && (campo.tiDatoCampo eq 'CHECKBOX')}">
+		<slf:lblField name="FormRicerca.${campo.nmCampo}" width="w100" controlWidth="w10"
+			labelWidth="w20" />
+		<sl:newLine />
+	</c:if>
+	<c:if
+		test="${campo.niColonnaCampo == 0 && (campo.tiDatoCampo ne 'CHECKBOX')}">
+		<slf:lblField name="FormRicerca.${campo.nmCampo}" width="w100" controlWidth="w40"
+			labelWidth="w20" />
+		<sl:newLine />
+	</c:if>
+	<c:if test="${campo.niColonnaCampo == 1 }">
+		<slf:lblField name="FormRicerca.${campo.nmCampo}" width="w40" controlWidth="w20"
+			labelWidth="w50" />
+	</c:if>
+	<c:if test="${campo.niColonnaCampo == 2 }">
+		<slf:lblField name="FormRicerca.${campo.nmCampo}" width="w40" controlWidth="w20"
+			labelWidth="w50" />
+		<sl:newLine />
+	</c:if>
+</c:forEach>

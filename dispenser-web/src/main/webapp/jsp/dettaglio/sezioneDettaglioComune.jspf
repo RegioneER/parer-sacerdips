@@ -1,0 +1,35 @@
+<%@ page import="it.eng.dispenser.web.form.DynamicSpagoLiteForm" pageEncoding="UTF-8"%>
+
+<slf:messageBox />
+<sl:contentTitle title="Dettaglio" codiceMenu="${ricercheLoader.ricerche[sessionScope['###_NOME_RICERCA']].nmEntryMenu}" 
+                 codiceOrganizzazione="${sessionScope['###_NOME_RICERCA']}"/>
+<sl:newLine skipLine="true" />
+<slf:listNavBarDetail name="<%= DynamicSpagoLiteForm.RicercaList.NAME%>" /> 
+<sl:newLine skipLine="true" />
+<slf:fieldSet  borderHidden="true">
+    <c:forEach
+        items="${ricercheLoader.ricerche[sessionScope['###_NOME_RICERCA']].dipGruppoDettaglios}"
+        var="gruppoDettaglio">
+        <c:if test="${gruppoDettaglio.niColonnaGruppo == 0 }">
+                <sl:newLine />
+                <slf:section name="DETT_${gruppoDettaglio.nmGruppoDettaglio}"
+                        styleClass="importantContainer w100">
+                        <%@include file="../dettaglio/section_f.jspf"%>
+                </slf:section>
+        </c:if>
+        <c:if test="${gruppoDettaglio.niColonnaGruppo == 1 }">
+                <sl:newLine />
+                <slf:section name="DETT_${gruppoDettaglio.nmGruppoDettaglio}"
+                        styleClass="importantContainer containerLeft w50">
+                        <%@include file="../dettaglio/section_h.jspf"%>
+                </slf:section>
+        </c:if>
+        <c:if test="${gruppoDettaglio.niColonnaGruppo == 2 }">
+                <slf:section name="DETT_${gruppoDettaglio.nmGruppoDettaglio}"
+                        styleClass="importantContainer containerRight w50">
+                        <%@include file="../dettaglio/section_h.jspf"%>
+                </slf:section>
+        </c:if>
+    </c:forEach>
+    <input type="hidden" name="riga" value="" />
+</slf:fieldSet>

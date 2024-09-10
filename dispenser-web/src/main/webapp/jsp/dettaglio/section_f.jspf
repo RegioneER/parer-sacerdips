@@ -1,0 +1,23 @@
+<c:forEach items="${gruppoDettaglio.dipElementoDettaglioOrdinati}" var="elemento">
+	<c:if
+		test="${elemento.niColonnaElemento == 0 && (elemento.dipAttribRisultato.tiDatoAttributo eq 'CHECKBOX')}">
+		<slf:lblField name="FormDettaglio.${elemento.dipAttribRisultato.nmAttributo}" width="w100" controlWidth="w10"
+			labelWidth="w20" />
+		<sl:newLine />
+	</c:if>
+	<c:if
+		test="${elemento.niColonnaElemento == 0 && (elemento.dipAttribRisultato.tiDatoAttributo ne 'CHECKBOX')}">
+		<slf:lblField name="FormDettaglio.${elemento.dipAttribRisultato.nmAttributo}" width="w100" controlWidth="w40"
+			labelWidth="w40" />
+		<sl:newLine />
+	</c:if>
+	<c:if test="${elemento.niColonnaElemento == 1 }">
+		<slf:lblField name="FormDettaglio.${elemento.dipAttribRisultato.nmAttributo}" width="w40" controlWidth="w20"
+			labelWidth="w50" />
+	</c:if>
+	<c:if test="${elemento.niColonnaElemento == 2 }">
+		<slf:lblField name="FormDettaglio.${elemento.dipAttribRisultato.nmAttributo}" width="w40" controlWidth="w20"
+			labelWidth="w50" />
+		<sl:newLine />
+	</c:if>
+</c:forEach>

@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Form Description="RicercaPUG" xmlns="http://www.spagoLite.eng.it/xmlbean/form" xmlns:xsi="http://www.w3.org/2001/XMLSchema"
+      xsi:noNamespaceSchemaLocation="Form.xsd" >
+    
+    <Fields Name="Back" Description="Back" >
+        <Input Type="STRING" Description="" Name="Fake" Hidden="true"/>
+    </Fields>
+    
+    <Fields Name="Level" Description="Level" >
+        <Input Type="INTEGER" Description="Livello di annidamento strumenti urbanistici" Name="level_strumento_urb" />    
+    </Fields>
+    
+    <ButtonList Name="PugButtonList" Description="MessageBox" >
+        <Button Name="scaricaStrumento" Description="Scarica strumento" Type="STRING"/>        
+    </ButtonList>
+    
+    <Section Name="listaDocumentiSection" Description="" Legend="Elenco documenti" ShowButton="false" LoadOpened="true"/>
+    <Section Name="listaStrumentiCollegatiSection" Description="" Legend="Strumenti urbanistici collegati" ShowButton="false" LoadOpened="true"/>
+        
+    <Fields Name="TipoDocumentoDetailFake" Description="Dettaglio tipo documento fake" >
+        <!-- Campo hidden usato per costruire la label personalizzata nel dettaglio del tipo documento -->
+        <Input Type="STRING" Description="Tipo documento" Name="nm_tipo_doc" Hidden="true"/>
+    </Fields>
+    
+    <!-- Lista dei documenti -->
+    <List Name="DocumentiUDList" Description="Lista documenti" hideInsertButton="true" hideDeleteButton="true" hideUpdateButton="true" >
+        <!-- <Input Type="INTEGER" Description="ID strut" Name="id_strut" Hidden="true"/> -->
+        <Input Type="INTEGER" Description="ID unita doc" Name="id_unita_doc" Hidden="true"/>
+        <Input Type="STRING" Description="Tipo documento" Name="nm_tipo_doc"/>
+        <Input Type="INTEGER" Description="Numero di file" Name="cntDoc"/>
+        <Input Type="STRING" Description="Download tipo documento" Name="scarica_ud_tipo_doc" />
+    </List>
+    
+    <!-- Lista dei componenti -->
+    <List Name="CompDocList" Description="Lista componenti" hideInsertButton="true" hideDeleteButton="true" hideUpdateButton="true" >
+        <Input Type="INTEGER" Description="ID componente" Name="id_comp_doc" Hidden="true"/>
+        <Input Type="STRING" Description="Nome componente" Name="ds_nome_comp_vers"/>
+        <Input Type="STRING" Description="Urn componente" Name="ds_urn_comp_calc"/>
+        <Input Type="STRING" Description="Download componente" Name="scarica_comp_tipo_doc" />
+    </List>
+    
+    <!-- Lista degli strumenti urbanistici collegati -->
+    <List Name="StrumentiCollegatiList" Description="Strumenti urbanistici collegati" hideInsertButton="true" hideDeleteButton="true" hideUpdateButton="true" >       
+        <Input Type="INTEGER" Description="ID strut" Name="id_strut" Hidden="true"/>
+        <Input Type="INTEGER" Description="ID strumento collegato" Name="id_link_unita_doc" Hidden="true"/>
+        <Input Type="STRING" Description="Ente" Name="tipo_ente" />
+        <Input Type="STRING" Description="Unione" Name="unione_comuni" />
+        <Input Type="STRING" Description="Provincia" Name="provincia_ente" />
+        <Input Type="STRING" Description="Registro" Name="cd_registro_key_unita_doc_link"/>
+        <Input Type="INTEGER" Description="Anno" Name="aa_key_unita_doc_link"/>
+        <Input Type="STRING" Description="Numero" Name="cd_key_unita_doc_link"/>
+        <Input Type="STRING" Description="Tipo strumento" Name="tipo_strumento"/>
+        <Input Type="STRING" Description="Fase di elaborazione" Name="fase_elaborazione"/>
+        <Input Type="DATE" Description="Data versamento" Name="dt_creazione"/>
+        <Input Type="DATE" Description="Data" Name="dt_registrazione"/>
+        <Input Type="STRING" Description="Oggetto" Name="oggetto"/>
+        <Input Type="STRING" Description="Download strumento urbanistico" Name="scarica_strumento" />
+    </List>
+    
+</Form>

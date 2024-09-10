@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://java.sun.com/xml/ns/javaee" xmlns:jsp="http://java.sun.com/xml/ns/javaee/jsp" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd" version="3.0">
+
+    <display-name>Sacerdips</display-name>
+    <welcome-file-list>
+        <welcome-file>index.jsp</welcome-file>
+    </welcome-file-list>
+
+    <filter>
+        <filter-name>Charset filter</filter-name>
+        <filter-class>it.eng.spagoCore.util.CharsetFilter</filter-class>
+        <init-param>
+            <param-name>requestEncoding</param-name>
+            <param-value>UTF-8</param-value>
+        </init-param>
+    </filter>
+    <filter-mapping>
+        <filter-name>Charset filter</filter-name>
+        <url-pattern>*.html</url-pattern>
+    </filter-mapping>
+    <!-- SSO CONFIGURATION -->
+    <filter>
+        <filter-name>springSecurityFilterChain</filter-name>
+        <filter-class>org.springframework.web.filter.DelegatingFilterProxy</filter-class>
+    </filter>
+    <filter-mapping>
+        <filter-name>springSecurityFilterChain</filter-name>
+        <url-pattern>*.html</url-pattern>
+        <url-pattern>*.jsp</url-pattern>
+        <url-pattern>/saml/*</url-pattern>
+    </filter-mapping>
+
+    <listener>
+        <listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
+    </listener>
+
+    <context-param>
+        <param-name>contextConfigLocation</param-name>
+        <param-value>classpath:/security/securityContext.xml</param-value>
+    </context-param>
+    
+    <listener>
+        <listener-class>it.eng.dispenser.web.util.AuditSessionListener</listener-class>
+    </listener>
+
+    <servlet>
+        <servlet-name>ConfigServlet</servlet-name>
+        <servlet-class>it.eng.spagoCore.configuration.ConfigServlet</servlet-class>
+        <load-on-startup>1</load-on-startup>
+    </servlet>
+
+    <servlet>
+        <servlet-name>SpringServlet</servlet-name>
+        <servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
+        <load-on-startup>2</load-on-startup>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>SpringServlet</servlet-name>
+        <url-pattern>*.html</url-pattern>
+    </servlet-mapping>    
+    <session-config>
+          <session-timeout>60</session-timeout>
+          <cookie-config>
+            <http-only>${web.session-config.cookie-config.http-only}</http-only>
+            <secure>${web.session-config.cookie-config.secure}</secure>
+          </cookie-config>
+          <tracking-mode>COOKIE</tracking-mode>
+    </session-config>
+
+    <jsp-config>
+        <taglib>
+            <taglib-uri>spagoLiteTags</taglib-uri>
+            <taglib-location>/WEB-INF/tld/spagoLite.tld</taglib-location>
+        </taglib>
+        <taglib>
+            <taglib-uri>spagoLitePrototypeTags</taglib-uri>
+            <taglib-location>/WEB-INF/tld/slPrototype.tld</taglib-location>
+        </taglib>
+        <taglib>
+            <taglib-uri>spagoLiteFormTags</taglib-uri>
+            <taglib-location>/WEB-INF/tld/slForm.tld</taglib-location>
+        </taglib>
+    </jsp-config>
+    <security-constraint>
+        <web-resource-collection>
+            <web-resource-name>JSP webapp</web-resource-name>
+            <url-pattern>/jsp/*</url-pattern>
+            <http-method>POST</http-method>
+            <http-method>GET</http-method>
+        </web-resource-collection>
+        <auth-constraint />
+    </security-constraint>
+    <error-page>
+        <error-code>401</error-code>
+        <location>/jsp/login/notAuthorized.jsp</location>
+    </error-page>
+    <error-page>
+        <error-code>403</error-code>
+        <location>/jsp/notAuthorizedError.jsp</location>
+    </error-page>
+    <error-page>
+        <error-code>405</error-code>
+        <location>/jsp/notAllowedError.jsp</location>
+    </error-page>    
+    <error-page>
+        <error-code>500</error-code>
+        <location>/jsp/genericError.jsp</location>
+    </error-page>
+    <persistence-unit-ref>
+        <persistence-unit-ref-name>jpa/DispenserJPA</persistence-unit-ref-name>
+        <persistence-unit-name>DispenserJPA</persistence-unit-name>
+    </persistence-unit-ref>
+</web-app>

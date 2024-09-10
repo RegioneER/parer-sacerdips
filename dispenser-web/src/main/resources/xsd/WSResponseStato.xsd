@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           elementFormDefault="qualified" attributeFormDefault="unqualified">
+  <xs:complexType  name="DatiUnitaDocType">
+    <xs:sequence>
+      <xs:element name="Versatore" type="SCVersatoreType" minOccurs="0"/>
+      <xs:element name="Chiave" type="ChiaveType"/>
+      <xs:element name="urnUD" type="TokenNonVuotoType"/>
+      <xs:element name="StatoConservazioneUD" type="StatoConservazioneType"/>
+    </xs:sequence>
+  </xs:complexType>
+  <!--  -->
+  <xs:complexType  name="SCVersatoreType">
+    <xs:sequence>
+      <xs:element name="Ambiente" type="TokenNonVuotoType"/>
+      <xs:element name="Ente" type="TokenNonVuotoType"/>
+      <xs:element name="Struttura" type="TokenNonVuotoType"/>
+      <xs:element name="UserID" type="TokenNonVuotoType"/>
+      <xs:element name="Utente" type="TokenNonVuotoType" minOccurs="0" maxOccurs="1"/>
+    </xs:sequence>
+  </xs:complexType>
+  <!--  -->
+  <xs:complexType name="ChiaveType">
+    <xs:sequence>
+      <xs:element name="Numero" type="TokenNonVuotoType"/>
+      <xs:element name="Anno" type="xs:nonNegativeInteger"/>
+      <xs:element name="TipoRegistro" type="TokenNonVuotoType"/>
+      <xs:element name="IDDocumento" type="TokenNVMax100Type" minOccurs="0" maxOccurs="1"/>
+      <xs:element name="OrdinePresentazioneComponente" type="IntMax5DgtType" minOccurs="0" maxOccurs="1"/>
+    </xs:sequence>
+  </xs:complexType>
+  <!--  -->
+  <xs:simpleType name="TokenNonVuotoType">
+    <xs:restriction base="xs:string">
+      <xs:minLength value="1"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <!--  -->
+  <xs:simpleType name="TokenNVMax100Type">
+    <xs:restriction base="xs:token">
+      <xs:minLength value="1"/>
+      <xs:maxLength value="100"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <!--  -->
+  <xs:simpleType name="IntMax5DgtType">
+    <xs:restriction base="xs:integer">
+      <xs:minInclusive value="0"/>
+      <xs:maxInclusive value="99999"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <!--  -->
+  <xs:complexType  name="EsitoGenericoType">
+    <xs:sequence>
+      <xs:element name="CodiceEsito" type="ECEsitoExtType"/>
+      <xs:element name="CodiceErrore" type="xs:string" minOccurs="0"/>
+      <xs:element name="MessaggioErrore" type="xs:string" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+  <!--  -->
+  <xs:complexType name="EsitoChiamataWSType">
+    <xs:sequence>
+      <xs:element name="VersioneWSCorretta" type="ECEsitoPosNegType"/>
+      <xs:element name="CredenzialiOperatore" type="ECEsitoPosNegType"/>
+      <xs:element name="IdentificazioneVersatore" type="xs:string" minOccurs="0"/>
+      <xs:element name="IdentificazioneChiave" type="ECEsitoPosNegType" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+  <!--  -->
+  <xs:simpleType name="ECEsitoExtType">
+    <xs:restriction base="xs:NMTOKEN">
+      <xs:enumeration value="POSITIVO"/>
+      <xs:enumeration value="NEGATIVO"/>
+      <xs:enumeration value="WARNING"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <!--  -->
+  <xs:simpleType name="ECEsitoPosNegType">
+    <xs:restriction base="xs:NMTOKEN">
+      <xs:enumeration value="POSITIVO"/>
+      <xs:enumeration value="NEGATIVO"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <!--  -->
+  <xs:complexType name="PCVolumeType">
+    <xs:sequence>
+      <xs:element name="IdVolume" type="xs:string" minOccurs="1"/>
+      <xs:element name="NomeVolume" type="xs:string" minOccurs="1"/>
+      <xs:element name="Directory" type="xs:token" minOccurs="1"/>
+    </xs:sequence>
+  </xs:complexType>
+  <!--  -->
+  <xs:simpleType name ="StatoConservazioneType">
+    <xs:restriction base="xs:NMTOKEN">
+      <xs:enumeration value="PRESA_IN_CARICO"/>
+      <xs:enumeration value="AIP_GENERATO"/>
+      <xs:enumeration value="AIP_IN_AGGIORNAMENTO"/>
+      <xs:enumeration value="IN_CUSTODIA"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <!--  -->
+  <!--  -->
+  <xs:element name="StatoConservazione">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="Versione" type="xs:string" minOccurs="0"/>
+        <xs:element name="VersioneXMLChiamata" type="xs:string" minOccurs="0"/>
+        <xs:element name="DataRichiestaStato" type="xs:dateTime"/>
+        <xs:element name="EsitoGenerale" type="EsitoGenericoType"/>
+        <xs:element name="EsitoChiamataWS" type="EsitoChiamataWSType"/>
+        <xs:element name="UnitaDocumentaria" type="DatiUnitaDocType" minOccurs="0"/>
+        <xs:element name="XMLRichiesta" type="xs:string" minOccurs="0"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <!--  -->
+  <!--  -->
+  <!--  -->
+  <xs:element name="IndiceProveConservazione">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="Versione" type="xs:string" minOccurs="0"/>
+        <xs:element name="VersioneXMLChiamata" type="xs:string" minOccurs="0"/>
+        <xs:element name="DataRichiestaStato" type="xs:dateTime"/>
+        <xs:element name="EsitoGenerale" type="EsitoGenericoType"/>
+        <xs:element name="EsitoChiamataWS" type="EsitoChiamataWSType"/>
+        <xs:element name="Chiave" type="ChiaveType"/>
+        <xs:element name="Nota" type="xs:string" minOccurs="0"/>
+        <xs:element name="Volumi" minOccurs="0">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Volume" type="PCVolumeType" maxOccurs="unbounded"/>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

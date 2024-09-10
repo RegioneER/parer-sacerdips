@@ -1,0 +1,87 @@
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+       xmlns:p="http://www.springframework.org/schema/p"
+       xmlns:aop="http://www.springframework.org/schema/aop"
+       xmlns:tx="http://www.springframework.org/schema/tx" 
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:mvc="http://www.springframework.org/schema/mvc"
+       xmlns:jee="http://www.springframework.org/schema/jee"
+       xmlns:task="http://www.springframework.org/schema/task"
+       xsi:schemaLocation="
+     http://www.springframework.org/schema/jee http://www.springframework.org/schema/jee/spring-jee.xsd
+     http://www.springframework.org/schema/task http://www.springframework.org/schema/task/spring-task.xsd
+     http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+     http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx.xsd
+     http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop.xsd
+     http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd
+     http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc.xsd">
+
+    <context:annotation-config/>
+    <context:component-scan base-package="it.eng.dispenser.web, it.eng.dispenser.component, it.eng.dispenser.ws" />
+    <mvc:annotation-driven/>
+
+    <bean name="paginator" class="it.eng.paginator.ejb.PaginatorImpl"/>
+
+    <bean name="/View.html" class="it.eng.spagoLite.actions.RedirectAction" scope="prototype" />	
+    <bean name="/Login.html" class="it.eng.spagoLite.actions.security.LoginAction" scope="prototype" />
+    <bean name="/Logout.html" class="it.eng.spagoLite.actions.security.LogoutAction" scope="prototype" />
+    
+    <bean name="/SceltaOrganizzazione.html" class="it.eng.dispenser.web.action.SceltaOrganizzazioneAction" scope="prototype" />
+    <bean name="/Home.html" class="it.eng.dispenser.web.action.HomeAction" scope="prototype" />
+    <bean name="/Ricerca.html" class="it.eng.dispenser.web.action.RicercaAction" scope="prototype" />
+    <bean name="/GestioneJob.html" class="it.eng.dispenser.web.action.GestioneJobAction" scope="prototype" />
+    <bean name="/NoteRilascio.html" class="it.eng.dispenser.web.action.NoteRilascioAction" scope="prototype" />
+    
+    <bean name="/LUM.html" class="it.eng.dispenser.web.action.LUMAction" scope="prototype" />
+    <bean name="/PAB.html" class="it.eng.dispenser.web.action.PABAction" scope="prototype" />
+    <bean name="/PUG.html" class="it.eng.dispenser.web.action.PUGAction" scope="prototype" />
+    <bean name="/SISMA.html" class="it.eng.dispenser.web.action.SISMAAction" scope="prototype" />
+    <bean name="/Pievesestina.html" class="it.eng.dispenser.web.action.PievesestinaAction" scope="prototype" />
+    
+    <bean id="viewResolver" class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+        <property name="prefix">
+            <value>/jsp/</value>
+        </property>
+        <property name="suffix">
+            <value>.jsp</value>
+        </property>
+        <property name="exposedContextBeanNames">
+            <list>
+                <value>ricercheLoader</value>
+            </list>
+        </property>
+    </bean>
+
+    <!-- JPA -->
+    <bean class="org.springframework.orm.jpa.support.PersistenceAnnotationBeanPostProcessor" />
+    <jee:jndi-lookup id="em" jndi-name="jpa/DispenserJPA" />
+    
+    <!-- Necessario per il configuratore  custom delle proprieta da DB -->
+    <!-- questo nome e' uguale a quello definito in persistence.xml -->
+    <jee:jndi-lookup id="dataSource" jndi-name="jboss/datasources/DispenserDs" />
+    <bean name="applicationProperties" class="it.eng.parer.dispenser.util.DataSourcePropertiesFactoryBean">
+        <property name="dataSource" ref="dataSource"/>
+    </bean>	
+    <bean name="propertySourcesPlaceholderConfigurer" class="it.eng.parer.dispenser.util.CustomPlaceholder">
+        <constructor-arg ref="applicationProperties" name="props" />
+    </bean>
+    
+    <!--  dichiaro il Global transaction manager JTA che chiamo con il nome di default ricercato da tx:annotation-driven -->
+    <bean id="transactionManager" class="org.springframework.transaction.jta.JtaTransactionManager" />
+
+    <!--  Abilita le annotazioni @Transactional -->
+    <tx:annotation-driven />
+    <task:annotation-driven />
+
+    <!-- Template per chiamate rest con impostazione del timeout -->
+    <bean class="org.springframework.web.client.RestTemplate">
+        <constructor-arg>
+            <bean class="org.springframework.http.client.SimpleClientHttpRequestFactory"
+              p:readTimeout="15000"
+              p:connectTimeout="15000" />
+        </constructor-arg>
+    </bean>
+    <!-- Template da inserire nelle applicazioni che usano SpagoLite e che utilizzano -->
+    <!-- l' Help On line. Deve implementare l'interfaccia IApplicationBasePropertiesSevice -->
+    <bean class="it.eng.dispenser.web.util.ApplicationBasePropertiesSeviceImpl" />
+</beans>
