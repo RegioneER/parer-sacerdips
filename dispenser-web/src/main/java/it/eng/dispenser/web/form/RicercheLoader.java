@@ -169,7 +169,8 @@ public class RicercheLoader {
             List<DipRicerca> res = retrieveRicerche();
             logger.info(String.format("Ricerche caricate: [%d]", (res == null ? 0 : res.size())));
             for (DipRicerca ricerca : res) {
-                // DA usare per test in locale su vpn lenta:if (ricerca.getNmRicerca().equalsIgnoreCase("LUM")) {
+                // DA usare per test in locale su vpn lenta:
+                // if (ricerca.getNmRicerca().equalsIgnoreCase("PUG")) {
                 ricerche.put(ricerca.getNmRicerca(), ricerca);
                 listaTemporaneaClausoleWith.put(ricerca.getNmRicerca(), new LinkedHashMap<Long, DipQueryWith>());
                 listaClausoleWithPerLista.put(ricerca.getNmRicerca(), new LinkedHashMap<Long, DipQueryWith>());
@@ -179,6 +180,7 @@ public class RicercheLoader {
                 loadAttributiDettaglio(ricerca);
                 // La lista temporanea una volta inizializzato tutto non serve piu'
                 listaTemporaneaClausoleWith.clear();
+                //
                 // } /// ------------------
             }
         } finally {

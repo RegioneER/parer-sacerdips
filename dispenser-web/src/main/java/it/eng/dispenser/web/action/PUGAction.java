@@ -651,7 +651,11 @@ public class PUGAction extends PUGAbstractAction {
             recXml.getChiave().setTipoDocumento(strut.getTipoDocumento());
             // MEV#22921 Parametrizzazione servizi di recupero
             recXml.getChiave().setTipoNomeFile(TokenFileNameType.NOME_FILE_URN_VERSATO);
-
+            // MEV#34466 - Ricerca strumenti urbanistici: introduzione del recupero dei file sbustati
+            String sbustamento = System.getProperty("sacerdips-sbustamento", "false");
+            if (sbustamento.equalsIgnoreCase("true")) {
+                recXml.getChiave().setFileSbustato(true);
+            }
             marshaller.marshal(recXml, writer);
             xmlRequest = writer.toString();
         } catch (JAXBException ex) {
