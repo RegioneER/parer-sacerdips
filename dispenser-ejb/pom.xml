@@ -3,7 +3,7 @@
     <parent>
         <groupId>it.eng.parer</groupId>
         <artifactId>sacerdips-jboss</artifactId>
-        <version>5.2.1-SNAPSHOT</version>
+        <version>5.4.0</version>
     </parent>
     <artifactId>sacerdips-jboss-ejb</artifactId>
     <packaging>ejb</packaging>
@@ -17,13 +17,12 @@
         </plugins>
     </build>
     <dependencies>
-        
         <dependency>
             <groupId>it.eng.parer</groupId>
             <artifactId>sacerdips-jboss-jpa</artifactId>
             <scope>provided</scope>
         </dependency>
-         <!-- BOM per JBoss EAP 7.4 (jboss-eap-jakartaee8) dependencies -->
+        <!-- BOM per JBoss EAP 7.4 (jboss-eap-jakartaee8) dependencies -->
         <!--  jboss-annotations-api_1.3_spec -->
         <dependency>
             <groupId>org.jboss.spec.javax.annotation</groupId>
@@ -41,6 +40,10 @@
             <groupId>org.jboss.spec.javax.xml.bind</groupId>
             <artifactId>jboss-jaxb-api_2.3_spec</artifactId>
             <scope>provided</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.hibernate</groupId>
+            <artifactId>hibernate-core</artifactId>
         </dependency>
 
         <dependency>
@@ -63,10 +66,10 @@
             <groupId>it.eng.parer</groupId>
             <artifactId>spagofat-middle</artifactId>
             <exclusions>
-            	<exclusion>
-            		<groupId>org.apache.logging.log4j</groupId>
-            		<artifactId>log4j-api</artifactId>
-            	</exclusion>
+                <exclusion>
+                    <groupId>org.apache.logging.log4j</groupId>
+                    <artifactId>log4j-api</artifactId>
+                </exclusion>
             </exclusions>
         </dependency>
         <dependency>
