@@ -36,14 +36,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 @Component("authenticator")
-public class DispenserAuthenticator extends Authenticator {
+public class SacerdipsAuthenticator extends Authenticator {
 
     @Autowired
     private DataSourcePropertiesFactoryBean applicationProperties;
 
-    /*
-     * @EJB(mappedName = "java:app/Dispenser-ejb/LoginLogHelper") private LoginLogHelper loginLogHelper;
-     */
     @Override
     protected String getAppName() {
         String nomeApplic = applicationProperties.getProperty(ConstDipParamApplic.NmParamApplic.NM_APPLIC.name());

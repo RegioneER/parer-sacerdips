@@ -1,8 +1,9 @@
-## 5.2.0 (09-12-2024)
+## 6.0.0 (08-04-2025)
 
 ### Bugfix: 1
-- [#31020](https://parermine.regione.emilia-romagna.it/issues/31020) Correzione campo durata in nuovo Monitoraggio job in DIPS
+- [#34749](https://parermine.regione.emilia-romagna.it/issues/34749) Correzione warning: Illegal reflective access
 
-### Novità: 2
-- [#34466](https://parermine.regione.emilia-romagna.it/issues/34466) Ricerca strumenti urbanistici: introduzione del recupero dei file sbustati 
-- [#33127](https://parermine.regione.emilia-romagna.it/issues/33127) Aggiornamento alle ultimi versioni librerie jakarata-ee8 per jboss 7.4
+### Novità: 3
+- [#37216](https://parermine.regione.emilia-romagna.it/issues/37216) Aggiornamento librerie ESAPI (OWASP) e SAML + Spring Security 5
+- [#35550](https://parermine.regione.emilia-romagna.it/issues/35550) Configurazione modulo jaxp-jdk per JBoss 7 per JDK 11
+- [#34002](https://parermine.regione.emilia-romagna.it/issues/34002) Migrazione alle nuove dipendenze / pattern legate a xecers, xalan, jaxb, ecc

@@ -36,6 +36,7 @@ import it.eng.spagoCore.error.EMFError;
 import it.eng.spagoLite.SessionManager;
 import it.eng.spagoLite.db.base.row.BaseRow;
 import it.eng.spagoLite.db.base.table.BaseTable;
+import it.eng.spagoLite.form.list.List;
 import it.eng.spagoLite.security.profile.Pagina;
 
 import java.sql.Timestamp;
@@ -102,58 +103,50 @@ public class RicercaAction extends RicercaAbstractAction {
 
     @Override
     public void undoDettaglio() throws EMFError {
-        // TODO Auto-generated method stub
-
+        //
     }
 
     @Override
     public void insertDettaglio() throws EMFError {
-        // TODO Auto-generated method stub
-
+        //
     }
 
     @Override
     public void saveDettaglio() throws EMFError {
-        // TODO Auto-generated method stub
-
+        //
     }
 
     @Override
     public void dettaglioOnClick() throws EMFError {
-
+        //
     }
 
     @Override
     public void elencoOnClick() throws EMFError {
         goBack();
-
     }
 
     @Override
     protected String getDefaultPublsherName() {
-        // TODO Auto-generated method stub
         return Application.Publisher.RICERCA;
     }
 
     @Override
     public void reloadAfterGoBack(String publisherName) {
-        // TODO Auto-generated method stub
-
+        //
     }
 
     @Override
     public String getControllerName() {
-        // TODO Auto-generated method stub
         return Application.Actions.RICERCA;
     }
 
     public void ricerca() throws EMFError, SQLException {
-        // TODO Auto-generated method stub
         getForm().getFormRicerca().post(getRequest());
         // VALIDARE LA FORM
 
         /* Se non e' stato configurato il validatore custom carica quello di default */
-        IValidator valid = null;
+        IValidator valid;
         if (springContext.containsBean(getRicercaSelezionata() + "Validator")) {
             valid = getRicercaSelezionataValidator();
         } else {
@@ -196,13 +189,11 @@ public class RicercaAction extends RicercaAbstractAction {
     }
 
     public void ultimaDataSyncro() throws JSONException {
-
         Timestamp res = ricercaBo.getUltimaDataSyncro(getRicercaSelezionata());
         SimpleDateFormat sdf = new SimpleDateFormat("dd-MM-yyyy HH:mm:ss");
         String date = (res != null) ? sdf.format(res) : null;
         JSONObject obj = new JSONObject().put("ultimaDataSyncro", date);
         redirectToAjax(obj);
-
     }
 
     /*
@@ -252,6 +243,11 @@ public class RicercaAction extends RicercaAbstractAction {
         default:
             return null;
         }
+    }
+
+    @Override
+    public void goToPageNavigation(List<?> list) throws EMFError {
+        throw new UnsupportedOperationException("Not supported yet.");
     }
 
 }

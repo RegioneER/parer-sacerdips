@@ -2,12 +2,12 @@
     <modelVersion>4.0.0</modelVersion>
 
     <artifactId>sacerdips-jboss</artifactId>
-    <version>5.2.1-SNAPSHOT</version>
+    <version>6.0.0</version>
     <packaging>pom</packaging>
     <parent>
         <groupId>it.eng.parer</groupId>
         <artifactId>parer-pom</artifactId>
-        <version>6.5.0</version>
+        <version>7.0.0-RC1</version>
     </parent>
     
     <name>dispenser</name>
@@ -31,7 +31,9 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
         <!-- spagofat bom -->
-        <spagofat.version>6.16.0</spagofat.version>
+        <spagofat.version>7.0.0-RC1</spagofat.version>
+        <!-- jaxp-jdk11 -->
+        <jaxp-jdk11.version>0.0.3</jaxp-jdk11.version>     
     </properties>
 
     <dependencyManagement>
@@ -111,25 +113,6 @@
                 <version>${junit.version}</version>
                 <scope>test</scope>
             </dependency>
-            <!-- Xerces & co -->
-            <dependency>
-                <groupId>xerces</groupId>
-                <artifactId>xercesImpl</artifactId>
-                <version>${xerces.version}</version>
-                <scope>runtime</scope>
-            </dependency>
-            <dependency>
-                <groupId>xalan</groupId>
-                <artifactId>xalan</artifactId>
-                <version>${xalan.version}</version>
-                <scope>runtime</scope>
-            </dependency>
-            <dependency>
-                <groupId>xalan</groupId>
-                <artifactId>serializer</artifactId>
-                <version>${xalan.version}</version>
-                <scope>runtime</scope>
-            </dependency>
             <!-- Provided by runtime (JB7) -->            
             <dependency>
                 <groupId>javax.xml.bind</groupId>
@@ -158,6 +141,21 @@
                 <type>pom</type>
                 <scope>import</scope>
             </dependency>
+            <dependency>
+                <groupId>org.opensaml</groupId>
+                <artifactId>opensaml-core</artifactId>
+                <version>${opensaml.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.opensaml</groupId>
+                <artifactId>opensaml-saml-api</artifactId>
+                <version>${opensaml.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.opensaml</groupId>
+                <artifactId>opensaml-saml-impl</artifactId>
+                <version>${opensaml.version}</version>
+            </dependency>                                   
         </dependencies>
     </dependencyManagement>
 

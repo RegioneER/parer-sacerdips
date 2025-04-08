@@ -33,7 +33,7 @@ import it.eng.dispenser.entity.constraint.ConstDipParamApplic;
 import it.eng.dispenser.grantedEntity.UsrUser;
 import it.eng.dispenser.slite.gen.Application;
 import it.eng.dispenser.util.ejb.LoginLogHelper;
-import it.eng.dispenser.web.security.DispenserAuthenticator;
+import it.eng.dispenser.web.security.SacerdipsAuthenticator;
 import it.eng.dispenser.web.util.AuditSessionListener;
 import it.eng.parer.dispenser.util.DataSourcePropertiesFactoryBean;
 import it.eng.parer.sacerlog.ejb.helper.SacerLogHelper;
@@ -49,7 +49,7 @@ public class SceltaOrganizzazioneAction extends ActionBase {
     private static final Logger log = LoggerFactory.getLogger(SceltaOrganizzazioneAction.class);
 
     @Autowired
-    private DispenserAuthenticator authenticator;
+    private SacerdipsAuthenticator authenticator;
 
     @EJB(mappedName = "java:app/Dispenser-ejb/LoginLogHelper")
     private LoginLogHelper loginLogHelper;

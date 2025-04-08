@@ -15,21 +15,22 @@
  * If not, see <https://www.gnu.org/licenses/>.
  */
 
-package it.eng.dispenser.web.security;
+package it.eng.dispenser.spring;
 
+import it.eng.spagoLite.spring.CustomSaml2AuthenticationSuccessHandler;
 import it.eng.dispenser.grantedEntity.UsrUser;
 import it.eng.dispenser.util.ejb.LoginLogHelper;
-
-import it.eng.spagoLite.security.saml.SliteSAMLUserDetail;
 import java.util.ArrayList;
 import java.util.List;
 import javax.ejb.EJB;
+import org.springframework.stereotype.Component;
 
 /**
  *
- * @author MIacolucci
+ * @author Marco Iacolucci
  */
-public class SacerDipsSAMLUserDetail extends SliteSAMLUserDetail {
+@Component
+public class SacerdipsSaml2AuthenticationSuccessHandler extends CustomSaml2AuthenticationSuccessHandler {
 
     @EJB(mappedName = "java:app/Dispenser-ejb/LoginLogHelper")
     private LoginLogHelper loginLogHelper;
@@ -74,4 +75,5 @@ public class SacerDipsSAMLUserDetail extends SliteSAMLUserDetail {
         }
         return al;
     }
+
 }
