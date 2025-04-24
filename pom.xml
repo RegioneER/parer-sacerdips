@@ -31,7 +31,7 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
         <!-- spagofat bom -->
-        <spagofat.version>7.0.0-RC1</spagofat.version>
+        <spagofat.version>7.0.0</spagofat.version>
         <!-- jaxp-jdk11 -->
         <jaxp-jdk11.version>0.0.3</jaxp-jdk11.version>     
     </properties>
