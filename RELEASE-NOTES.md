@@ -1,4 +1,4 @@
-## 5.4.0 (01-04-2025)
+## 6.0.0 (08-04-2025)
 
 ### Bugfix: 1
 - [#34749](https://parermine.regione.emilia-romagna.it/issues/34749) Correzione warning: Illegal reflective access
