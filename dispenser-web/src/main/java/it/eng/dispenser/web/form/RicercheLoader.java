@@ -78,6 +78,7 @@ import it.eng.spagoLite.form.fields.impl.CheckBox;
 import it.eng.spagoLite.form.fields.impl.ComboBox;
 import it.eng.spagoLite.form.fields.impl.Input;
 import it.eng.spagoLite.xmlbean.form.Field.Type;
+import org.springframework.scheduling.annotation.EnableScheduling;
 
 /**
  *
@@ -89,6 +90,7 @@ import it.eng.spagoLite.xmlbean.form.Field.Type;
  */
 @SuppressWarnings("unchecked")
 @Component
+@EnableScheduling
 public class RicercheLoader {
 
     private final Logger logger = LoggerFactory.getLogger(RicercheLoader.class);

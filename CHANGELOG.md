@@ -1,4 +1,9 @@
 
+## 5.4.0 (01-04-2025)
+
+### Novità: 1
+- [#37216](https://parermine.regione.emilia-romagna.it/issues/37216) Aggiornamento librerie ESAPI (OWASP) e SAML + Spring Security 5
+
 ## 5.3.0 (31-03-2025)
 
 ### Bugfix: 1

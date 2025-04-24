@@ -2,12 +2,12 @@
     <modelVersion>4.0.0</modelVersion>
 
     <artifactId>sacerdips-jboss</artifactId>
-    <version>5.3.1-SNAPSHOT</version>
+    <version>5.4.1-SNAPSHOT</version>
     <packaging>pom</packaging>
     <parent>
         <groupId>it.eng.parer</groupId>
         <artifactId>parer-pom</artifactId>
-        <version>6.5.0</version>
+        <version>7.0.0</version>
     </parent>
     
     <name>dispenser</name>
@@ -31,7 +31,7 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
         <!-- spagofat bom -->
-        <spagofat.version>6.16.0</spagofat.version>
+        <spagofat.version>7.0.0</spagofat.version>
         <!-- jaxp-jdk11 -->
         <jaxp-jdk11.version>0.0.3</jaxp-jdk11.version>     
     </properties>
@@ -113,8 +113,8 @@
                 <version>${junit.version}</version>
                 <scope>test</scope>
             </dependency>
-			 <!-- Provided by runtime (JB7) -->            
-			<dependency>
+            <!-- Provided by runtime (JB7) -->            
+            <dependency>
                 <groupId>javax.xml.bind</groupId>
                 <artifactId>jaxb-api</artifactId>
                 <version>${jaxb.version}</version>
@@ -141,6 +141,21 @@
                 <type>pom</type>
                 <scope>import</scope>
             </dependency>
+            <dependency>
+                <groupId>org.opensaml</groupId>
+                <artifactId>opensaml-core</artifactId>
+                <version>${opensaml.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.opensaml</groupId>
+                <artifactId>opensaml-saml-api</artifactId>
+                <version>${opensaml.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.opensaml</groupId>
+                <artifactId>opensaml-saml-impl</artifactId>
+                <version>${opensaml.version}</version>
+            </dependency>                                   
         </dependencies>
     </dependencyManagement>
 
