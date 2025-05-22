@@ -24,14 +24,14 @@ import java.io.StringWriter;
 import java.math.BigDecimal;
 import java.sql.SQLException;
 import java.text.ParseException;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 
 import javax.xml.bind.JAXBException;
 import javax.xml.bind.Marshaller;
 
 import org.apache.http.message.BasicNameValuePair;
+import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.slf4j.event.Level;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import it.eng.dispenser.bean.RecuperoWSBean;
@@ -78,6 +78,8 @@ import it.eng.spagoLite.form.fields.SingleValueField;
  */
 public class PUGAction extends PUGAbstractAction {
 
+    private Logger LOG = LoggerFactory.getLogger(PUGAction.class);
+
     @Autowired
     private PievesestinaBO pievesestinaBO;
     @Autowired
@@ -90,8 +92,6 @@ public class PUGAction extends PUGAbstractAction {
     private JAXBSingleton jaxbSingleton;
     @Autowired
     private DataSourcePropertiesFactoryBean applicationProperties;
-
-    private org.slf4j.Logger logger = LoggerFactory.getLogger(PUGAction.class);
 
     @Override
     public void initOnClick() throws EMFError {
@@ -150,7 +150,7 @@ public class PUGAction extends PUGAbstractAction {
                     forwardToPublisher(Application.Publisher.DETTAGLIO_TIPO_DOC);
                 } else {
                     try {
-                        logger.info("Caricamento dettaglio strumento urbanistico");
+                        LOG.info("Caricamento dettaglio strumento urbanistico");
                         // Salvo in sessione il "tipo" di lista dalla quale "proviene" l'ente, sarà RicercaList
                         String listName = DynamicSpagoLiteForm.getRicercaList(getForm()).getName();
                         // Prendendo i dati dalla form, popolo un oggetto List generico del tipo gestito dal framework
@@ -374,11 +374,11 @@ public class PUGAction extends PUGAbstractAction {
                 getForm().getLevel().getLevel_strumento_urb().setValue(String.valueOf(level));
             }
         } catch (EMFError e) {
-            logger.error("Errore nel ricaricamento della pagina " + publisherName, e);
+            LOG.error("Errore nel ricaricamento della pagina " + publisherName, e);
             getMessageBox().addError("Errore nel ricaricamento della pagina " + publisherName);
             forwardToPublisher(getLastPublisher());
         } catch (SQLException ex) {
-            Logger.getLogger(PUGAction.class.getName()).log(Level.SEVERE, null, ex);
+            LOG.error("Errore SQL: ", ex);
         }
     }
 
@@ -659,7 +659,7 @@ public class PUGAction extends PUGAbstractAction {
             marshaller.marshal(recXml, writer);
             xmlRequest = writer.toString();
         } catch (JAXBException ex) {
-            logger.error("Eccezione nella creazione dell'xml di richiesta per il download", ex);
+            LOG.error("Eccezione nella creazione dell'xml di richiesta per il download", ex);
             getMessageBox().addError("Eccezione nella creazione dell'xml di richiesta per il download");
         }
 

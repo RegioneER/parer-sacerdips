@@ -3,7 +3,7 @@
     <parent>
         <groupId>it.eng.parer</groupId>
         <artifactId>sacerdips-jboss</artifactId>
-        <version>6.0.1-SNAPSHOT</version>
+        <version>6.1.0</version>
     </parent>
     <artifactId>sacerdips-jboss-web</artifactId>
     <packaging>war</packaging>
@@ -117,11 +117,6 @@
             <groupId>it.eng.parer</groupId>
             <artifactId>sacerdips-jboss-ejb</artifactId>
             <type>ejb</type>
-            <scope>provided</scope>
-        </dependency>
-        <dependency>
-            <groupId>org.apache.cxf.build-utils</groupId>
-            <artifactId>cxf-buildtools</artifactId>
             <scope>provided</scope>
         </dependency>
         <dependency>

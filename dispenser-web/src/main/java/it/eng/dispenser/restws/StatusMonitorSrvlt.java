@@ -75,7 +75,11 @@ public class StatusMonitorSrvlt extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        Response405.fancy405(resp, Response405.NomeWebServiceRest.WS_STATUS_MONITOR);
+        try {
+            Response405.fancy405(resp, Response405.NomeWebServiceRest.WS_STATUS_MONITOR);
+        } catch (IOException e) {
+            log.error("Eccezione nella servlet di monitoraggio", e);
+        }
     }
 
     @Override

@@ -150,8 +150,7 @@ public class WebMvcConfiguration implements WebMvcConfigurer {
 
     @Bean(name = "transactionManager")
     public JtaTransactionManager transactionManager() {
-        JtaTransactionManager jta = new JtaTransactionManager();
-        return jta;
+        return new JtaTransactionManager();
     }
 
     @Bean(name = "em")
@@ -165,7 +164,7 @@ public class WebMvcConfiguration implements WebMvcConfigurer {
     }
 
     @Bean
-    public DataSource dataSource() throws NamingException {
+    public DataSource dataSource() {
         JndiDataSourceLookup j = new JndiDataSourceLookup();
         return j.getDataSource("jboss/datasources/DispenserDs");
     }
