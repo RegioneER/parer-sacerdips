@@ -79,6 +79,7 @@ public class DataSourcePropertiesFactoryBean implements FactoryBean<Properties> 
         });
     }
 
+    @NonNull
     @Override
     public Properties getObject() throws Exception {
         return props;

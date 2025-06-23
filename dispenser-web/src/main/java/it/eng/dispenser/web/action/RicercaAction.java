@@ -43,7 +43,7 @@ import java.sql.Timestamp;
 
 public class RicercaAction extends RicercaAbstractAction {
 
-    private static final Logger logger = LoggerFactory.getLogger(RicercaAction.class);
+    private static final Logger LOG = LoggerFactory.getLogger(RicercaAction.class);
     private static final int RICERCA_PAGE_SIZE = 100;
 
     @Autowired
@@ -75,7 +75,7 @@ public class RicercaAction extends RicercaAbstractAction {
         if (p != null && p.getChild(menuEntry) != null) {
             return true;
         } else {
-            logger.debug("Utente " + getUser().getUsername() + " non autorizzato all'esecuzione del metodo " + menuEntry
+            LOG.debug("Utente " + getUser().getUsername() + " non autorizzato all'esecuzione del metodo " + menuEntry
                     + " in pagina " + getLastPublisher());
             getMessageBox().addFatal("Utente " + getUser().getUsername()
                     + " non autorizzato all'esecuzione dell'azione " + menuEntry + " in pagina " + getLastPublisher());

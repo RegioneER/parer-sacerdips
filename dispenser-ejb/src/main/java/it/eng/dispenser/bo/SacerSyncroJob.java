@@ -57,6 +57,8 @@ import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Objects;
+
 import javax.annotation.Resource;
 import javax.ejb.EJB;
 import javax.ejb.LocalBean;
@@ -687,7 +689,8 @@ public class SacerSyncroJob {
                     // FINE MODIFICA PER PUG
 
                 } catch (IllegalAccessException | IllegalArgumentException | InvocationTargetException ex) {
-                    logger.warn("Errore nell'invocazione del metodo {} della classe AroUnitaDoc", metodo.getName(), ex);
+                    logger.warn("Errore nell'invocazione del metodo {} della classe AroUnitaDoc",
+                            Objects.nonNull(metodo) ? metodo.getName() : "?", ex);
                 }
             }
         }

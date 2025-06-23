@@ -75,7 +75,7 @@ public class AppInfosSrvlt extends HttpServlet {
             // load a properties file
             gitproperties.load(input);
         } catch (IOException e) {
-            log.error("Errore generico", e);
+            log.error("Errore durante il caricamento del file git.properties", e);
         }
     }
 

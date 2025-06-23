@@ -4,7 +4,7 @@
     <parent>
         <groupId>it.eng.parer</groupId>
         <artifactId>sacerdips-jboss</artifactId>
-        <version>6.0.1-SNAPSHOT</version>
+        <version>6.1.1-SNAPSHOT</version>
     </parent>
     <artifactId>sacerdips-jboss-ear</artifactId>
     <packaging>ear</packaging>
@@ -74,6 +74,7 @@
         <dependency>
             <groupId>org.apache.cxf.build-utils</groupId>
             <artifactId>cxf-buildtools</artifactId>
+            <scope>runtime</scope>
         </dependency>
         <dependency>
             <groupId>org.apache.httpcomponents</groupId>

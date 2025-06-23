@@ -24,14 +24,13 @@ import java.io.StringWriter;
 import java.math.BigDecimal;
 import java.sql.SQLException;
 import java.text.ParseException;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 
 import javax.ejb.EJB;
 import javax.xml.bind.JAXBException;
 import javax.xml.bind.Marshaller;
 
 import org.apache.http.message.BasicNameValuePair;
+import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 
@@ -78,6 +77,8 @@ import it.eng.spagoLite.form.fields.SingleValueField;
  */
 public class PABAction extends PABAbstractAction {
 
+    private static Logger LOG = LoggerFactory.getLogger(PABAction.class);
+
     @Autowired
     private PievesestinaBO pievesestinaBO;
     @Autowired
@@ -92,8 +93,6 @@ public class PABAction extends PABAbstractAction {
     private DataSourcePropertiesFactoryBean applicationProperties;
     @EJB(mappedName = "java:app/Dispenser-ejb/DispenserHelper")
     private DispenserHelper dispenserHelper;
-
-    private org.slf4j.Logger logger = LoggerFactory.getLogger(PABAction.class);
 
     private static final String ID_UNITA_DOC_NAME = "id_unita_doc";
     private static final String ID_STRUT_NAME = "id_strut";
@@ -310,7 +309,7 @@ public class PABAction extends PABAbstractAction {
             getMessageBox().addError("Errore nel ricaricamento della pagina " + publisherName);
             forwardToPublisher(getLastPublisher());
         } catch (SQLException ex) {
-            Logger.getLogger(PABAction.class.getName()).log(Level.SEVERE, null, ex);
+            LOG.error("Errore SQL: ", ex);
         }
     }
 
@@ -323,12 +322,15 @@ public class PABAction extends PABAbstractAction {
     public void loadDettaglioConListe(String... rigaElemento) throws EMFError, ParseException, SQLException {
         // Carico il dettaglio del progetto ricostruzione
         BaseRow row = null;
+        int rowidx = 0;
         if (rigaElemento != null) {
             row = (BaseRow) DynamicSpagoLiteForm.getRicercaList(getForm()).getTable()
                     .getRow(Integer.parseInt(rigaElemento[0]));
+            rowidx = Integer.parseInt(rigaElemento[0]);
 
         } else {
             row = (BaseRow) DynamicSpagoLiteForm.getRicercaList(getForm()).getTable().getCurrentRow();
+            rowidx = DynamicSpagoLiteForm.getRicercaList(getForm()).getTable().getCurrentRowIndex();
         }
 
         DynamicSpagoLiteForm form = ricercheLoader
@@ -349,7 +351,7 @@ public class PABAction extends PABAbstractAction {
         ((it.eng.spagoLite.form.list.List<SingleValueField<?>>) pug.getComponent(form.getRicercaList().getName()))
                 .setTable(DynamicSpagoLiteForm.getRicercaList(getForm()).getTable());
         ((it.eng.spagoLite.form.list.List<SingleValueField<?>>) pug.getComponent(form.getRicercaList().getName()))
-                .getTable().setCurrentRowIndex(Integer.parseInt(rigaElemento[0]));
+                .getTable().setCurrentRowIndex(rowidx);
         setForm(pug);
 
         // Al primo giro azzero lo stack

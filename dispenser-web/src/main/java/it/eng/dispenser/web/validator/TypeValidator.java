@@ -214,9 +214,8 @@ public class TypeValidator {
 
             Calendar dataCal = Calendar.getInstance();
 
-            if (data == null) {
-                dataCal.setTime(data);
-            } else {
+            // Se la data è nulla, utilizza un default (viene scatenato errore via MessageBox)
+            if (data != null) {
                 dataCal.setTime(data);
             }
 

@@ -50,7 +50,7 @@ import it.eng.spagoLite.security.Secure;
  */
 public class NoteRilascioAction extends NoteRilascioAbstractAction {
 
-    private static Logger logger = LoggerFactory.getLogger(NoteRilascioAction.class.getName());
+    private static Logger LOG = LoggerFactory.getLogger(NoteRilascioAction.class);
 
     @Autowired
     private NoteRilascioBO noteRilascioBO;
@@ -178,7 +178,7 @@ public class NoteRilascioAction extends NoteRilascioAbstractAction {
                 getSession().removeAttribute("isFromNotaRilascioPrec");
             }
         } catch (Exception e) {
-            logger.error(e.getMessage(), e);
+            LOG.error(e.getMessage(), e);
         }
     }
 
