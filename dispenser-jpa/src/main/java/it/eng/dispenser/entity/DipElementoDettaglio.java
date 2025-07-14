@@ -1,18 +1,14 @@
 /*
  * Engineering Ingegneria Informatica S.p.A.
  *
- * Copyright (C) 2023 Regione Emilia-Romagna
- * <p/>
- * This program is free software: you can redistribute it and/or modify it under the terms of
- * the GNU Affero General Public License as published by the Free Software Foundation,
- * either version 3 of the License, or (at your option) any later version.
- * <p/>
- * This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY;
- * without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
- * See the GNU Affero General Public License for more details.
- * <p/>
- * You should have received a copy of the GNU Affero General Public License along with this program.
- * If not, see <https://www.gnu.org/licenses/>.
+ * Copyright (C) 2023 Regione Emilia-Romagna <p/> This program is free software: you can
+ * redistribute it and/or modify it under the terms of the GNU Affero General Public License as
+ * published by the Free Software Foundation, either version 3 of the License, or (at your option)
+ * any later version. <p/> This program is distributed in the hope that it will be useful, but
+ * WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A
+ * PARTICULAR PURPOSE. See the GNU Affero General Public License for more details. <p/> You should
+ * have received a copy of the GNU Affero General Public License along with this program. If not,
+ * see <https://www.gnu.org/licenses/>.
  */
 
 package it.eng.dispenser.entity;
@@ -73,59 +69,59 @@ public class DipElementoDettaglio implements Serializable {
     }
 
     public long getIdElementoDettaglio() {
-        return this.idElementoDettaglio;
+	return this.idElementoDettaglio;
     }
 
     public void setIdElementoDettaglio(long idElementoDettaglio) {
-        this.idElementoDettaglio = idElementoDettaglio;
+	this.idElementoDettaglio = idElementoDettaglio;
     }
 
     public String getDsElementoDettaglio() {
-        return this.dsElementoDettaglio;
+	return this.dsElementoDettaglio;
     }
 
     public void setDsElementoDettaglio(String dsElementoDettaglio) {
-        this.dsElementoDettaglio = dsElementoDettaglio;
+	this.dsElementoDettaglio = dsElementoDettaglio;
     }
 
     public BigDecimal getNiColonnaElemento() {
-        return this.niColonnaElemento;
+	return this.niColonnaElemento;
     }
 
     public void setNiColonnaElemento(BigDecimal niColonnaElemento) {
-        this.niColonnaElemento = niColonnaElemento;
+	this.niColonnaElemento = niColonnaElemento;
     }
 
     public BigDecimal getNiRigaElemento() {
-        return this.niRigaElemento;
+	return this.niRigaElemento;
     }
 
     public void setNiRigaElemento(BigDecimal niRigaElemento) {
-        this.niRigaElemento = niRigaElemento;
+	this.niRigaElemento = niRigaElemento;
     }
 
     public DipAttribRisultato getDipAttribRisultato() {
-        return this.dipAttribRisultato;
+	return this.dipAttribRisultato;
     }
 
     public void setDipAttribRisultato(DipAttribRisultato dipAttribRisultato) {
-        this.dipAttribRisultato = dipAttribRisultato;
+	this.dipAttribRisultato = dipAttribRisultato;
     }
 
     public DipGruppoDettaglio getDipGruppoDettaglio() {
-        return this.dipGruppoDettaglio;
+	return this.dipGruppoDettaglio;
     }
 
     public void setDipGruppoDettaglio(DipGruppoDettaglio dipGruppoDettaglio) {
-        this.dipGruppoDettaglio = dipGruppoDettaglio;
+	this.dipGruppoDettaglio = dipGruppoDettaglio;
     }
 
     public String getFlVisibile() {
-        return flVisibile;
+	return flVisibile;
     }
 
     public void setFlVisibile(String flVisibile) {
-        this.flVisibile = flVisibile;
+	this.flVisibile = flVisibile;
     }
 
 }

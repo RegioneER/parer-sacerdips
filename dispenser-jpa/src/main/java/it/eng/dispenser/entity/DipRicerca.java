@@ -1,18 +1,14 @@
 /*
  * Engineering Ingegneria Informatica S.p.A.
  *
- * Copyright (C) 2023 Regione Emilia-Romagna
- * <p/>
- * This program is free software: you can redistribute it and/or modify it under the terms of
- * the GNU Affero General Public License as published by the Free Software Foundation,
- * either version 3 of the License, or (at your option) any later version.
- * <p/>
- * This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY;
- * without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
- * See the GNU Affero General Public License for more details.
- * <p/>
- * You should have received a copy of the GNU Affero General Public License along with this program.
- * If not, see <https://www.gnu.org/licenses/>.
+ * Copyright (C) 2023 Regione Emilia-Romagna <p/> This program is free software: you can
+ * redistribute it and/or modify it under the terms of the GNU Affero General Public License as
+ * published by the Free Software Foundation, either version 3 of the License, or (at your option)
+ * any later version. <p/> This program is distributed in the hope that it will be useful, but
+ * WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A
+ * PARTICULAR PURPOSE. See the GNU Affero General Public License for more details. <p/> You should
+ * have received a copy of the GNU Affero General Public License along with this program. If not,
+ * see <https://www.gnu.org/licenses/>.
  */
 
 package it.eng.dispenser.entity;
@@ -97,108 +93,109 @@ public class DipRicerca implements Serializable {
     }
 
     public long getIdRicerca() {
-        return this.idRicerca;
+	return this.idRicerca;
     }
 
     public void setIdRicerca(long idRicerca) {
-        this.idRicerca = idRicerca;
+	this.idRicerca = idRicerca;
     }
 
     public String getDsRicerca() {
-        return this.dsRicerca;
+	return this.dsRicerca;
     }
 
     public void setDsRicerca(String dsRicerca) {
-        this.dsRicerca = dsRicerca;
+	this.dsRicerca = dsRicerca;
     }
 
     public BigDecimal getNiResLimit() {
-        return this.niResLimit;
+	return this.niResLimit;
     }
 
     public void setNiResLimit(BigDecimal niResLimit) {
-        this.niResLimit = niResLimit;
+	this.niResLimit = niResLimit;
     }
 
     public String getNmEntryMenu() {
-        return this.nmEntryMenu;
+	return this.nmEntryMenu;
     }
 
     public void setNmEntryMenu(String nmEntryMenu) {
-        this.nmEntryMenu = nmEntryMenu;
+	this.nmEntryMenu = nmEntryMenu;
     }
 
     public String getNmRicerca() {
-        return this.nmRicerca;
+	return this.nmRicerca;
     }
 
     public void setNmRicerca(String nmRicerca) {
-        this.nmRicerca = nmRicerca;
+	this.nmRicerca = nmRicerca;
     }
 
     public String getTiTipoPresentazione() {
-        return this.tiTipoPresentazione;
+	return this.tiTipoPresentazione;
     }
 
     public void setTiTipoPresentazione(String tiTipoPresentazione) {
-        this.tiTipoPresentazione = tiTipoPresentazione;
+	this.tiTipoPresentazione = tiTipoPresentazione;
     }
 
     public String getTiTipoRecupero() {
-        return this.tiTipoRecupero;
+	return this.tiTipoRecupero;
     }
 
     public void setTiStatoRicerca(String tiStatoRicerca) {
-        this.tiStatoRicerca = tiStatoRicerca;
+	this.tiStatoRicerca = tiStatoRicerca;
     }
 
     public String getTiStatoRicerca() {
-        return this.tiStatoRicerca;
+	return this.tiStatoRicerca;
     }
 
     public void setTiTipoRecupero(String tiTipoRecupero) {
-        this.tiTipoRecupero = tiTipoRecupero;
+	this.tiTipoRecupero = tiTipoRecupero;
     }
 
     public List<DipAttribRisultato> getDipAttribRisultatos() {
-        return this.dipAttribRisultatos;
+	return this.dipAttribRisultatos;
     }
 
     public void setDipAttribRisultatos(List<DipAttribRisultato> dipAttribRisultatos) {
-        this.dipAttribRisultatos = dipAttribRisultatos;
+	this.dipAttribRisultatos = dipAttribRisultatos;
     }
 
     public List<DipGruppoDettaglio> getDipGruppoDettaglios() {
-        return this.dipGruppoDettaglios;
+	return this.dipGruppoDettaglios;
     }
 
     public void setDipGruppoDettaglios(List<DipGruppoDettaglio> dipGruppoDettaglios) {
-        this.dipGruppoDettaglios = dipGruppoDettaglios;
+	this.dipGruppoDettaglios = dipGruppoDettaglios;
     }
 
     public List<DipCombinazioneRicerca> getDipCombinazioneRicercas() {
-        return this.dipCombinazioneRicercas;
+	return this.dipCombinazioneRicercas;
     }
 
     public void setDipCombinazioneRicercas(List<DipCombinazioneRicerca> dipCombinazioneRicercas) {
-        this.dipCombinazioneRicercas = dipCombinazioneRicercas;
+	this.dipCombinazioneRicercas = dipCombinazioneRicercas;
     }
 
     private Set<DipGruppoCampi> getDipGruppoCampis() {
-        return this.dipGruppoCampis;
+	return this.dipGruppoCampis;
     }
 
     public List<DipGruppoCampi> getDipGruppoCampiOrdinati() {
-        Comparator<DipGruppoCampi> compareByRigaColonna = Comparator.comparing(DipGruppoCampi::getNiRigaGruppo)
-                .thenComparing(DipGruppoCampi::getNiColonnaGruppo);
+	Comparator<DipGruppoCampi> compareByRigaColonna = Comparator
+		.comparing(DipGruppoCampi::getNiRigaGruppo)
+		.thenComparing(DipGruppoCampi::getNiColonnaGruppo);
 
-        List<DipGruppoCampi> sorted = new ArrayList<>(this.dipGruppoCampis).stream().sorted(compareByRigaColonna)
-                .collect(Collectors.toList());
-        return sorted;
+	List<DipGruppoCampi> sorted = new ArrayList<>(this.dipGruppoCampis).stream()
+		.sorted(compareByRigaColonna).collect(Collectors.toList());
+	return sorted;
     }
 
     public void setDipGruppoCampis(Set<DipGruppoCampi> dipGruppoCampis) {
-        this.dipGruppoCampis = dipGruppoCampis;
+	this.dipGruppoCampis = dipGruppoCampis;
     }
 
 }

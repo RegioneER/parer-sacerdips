@@ -1,18 +1,14 @@
 /*
  * Engineering Ingegneria Informatica S.p.A.
  *
- * Copyright (C) 2023 Regione Emilia-Romagna
- * <p/>
- * This program is free software: you can redistribute it and/or modify it under the terms of
- * the GNU Affero General Public License as published by the Free Software Foundation,
- * either version 3 of the License, or (at your option) any later version.
- * <p/>
- * This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY;
- * without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
- * See the GNU Affero General Public License for more details.
- * <p/>
- * You should have received a copy of the GNU Affero General Public License along with this program.
- * If not, see <https://www.gnu.org/licenses/>.
+ * Copyright (C) 2023 Regione Emilia-Romagna <p/> This program is free software: you can
+ * redistribute it and/or modify it under the terms of the GNU Affero General Public License as
+ * published by the Free Software Foundation, either version 3 of the License, or (at your option)
+ * any later version. <p/> This program is distributed in the hope that it will be useful, but
+ * WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A
+ * PARTICULAR PURPOSE. See the GNU Affero General Public License for more details. <p/> You should
+ * have received a copy of the GNU Affero General Public License along with this program. If not,
+ * see <https://www.gnu.org/licenses/>.
  */
 
 package it.eng.dispenser.entity;
@@ -71,61 +67,61 @@ public class DipQueryWith implements Serializable {
     }
 
     public DipQueryWith(Long idQueryWith) {
-        this.idQueryWith = idQueryWith;
+	this.idQueryWith = idQueryWith;
     }
 
     public DipQueryWith(Long idQueryWith, String nmQueryWith, String dlQueryWith) {
-        this.idQueryWith = idQueryWith;
-        this.nmQueryWith = nmQueryWith;
-        this.dlQueryWith = dlQueryWith;
+	this.idQueryWith = idQueryWith;
+	this.nmQueryWith = nmQueryWith;
+	this.dlQueryWith = dlQueryWith;
     }
 
     public Long getIdQueryWith() {
-        return idQueryWith;
+	return idQueryWith;
     }
 
     public void setIdQueryWith(Long idQueryWith) {
-        this.idQueryWith = idQueryWith;
+	this.idQueryWith = idQueryWith;
     }
 
     public String getNmQueryWith() {
-        return nmQueryWith;
+	return nmQueryWith;
     }
 
     public void setNmQueryWith(String nmQueryWith) {
-        this.nmQueryWith = nmQueryWith;
+	this.nmQueryWith = nmQueryWith;
     }
 
     public String getDlQueryWith() {
-        return dlQueryWith;
+	return dlQueryWith;
     }
 
     public void setDlQueryWith(String dlQueryWith) {
-        this.dlQueryWith = dlQueryWith;
+	this.dlQueryWith = dlQueryWith;
     }
 
     public DipRicerca getIdRicerca() {
-        return dipRicerca;
+	return dipRicerca;
     }
 
     public void setIdRicerca(DipRicerca dipRicerca) {
-        this.dipRicerca = dipRicerca;
+	this.dipRicerca = dipRicerca;
     }
 
     public List<DipUsoWith> getDipUsoWithList() {
-        return dipUsoWithList;
+	return dipUsoWithList;
     }
 
     public void setDipUsoWithList(List<DipUsoWith> dipUsoWithList) {
-        this.dipUsoWithList = dipUsoWithList;
+	this.dipUsoWithList = dipUsoWithList;
     }
 
     public BigDecimal getNiOrdWith() {
-        return niOrdWith;
+	return niOrdWith;
     }
 
     public void setNiOrdWith(BigDecimal niOrdWith) {
-        this.niOrdWith = niOrdWith;
+	this.niOrdWith = niOrdWith;
     }
 
 }

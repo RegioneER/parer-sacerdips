@@ -1,18 +1,14 @@
 /*
  * Engineering Ingegneria Informatica S.p.A.
  *
- * Copyright (C) 2023 Regione Emilia-Romagna
- * <p/>
- * This program is free software: you can redistribute it and/or modify it under the terms of
- * the GNU Affero General Public License as published by the Free Software Foundation,
- * either version 3 of the License, or (at your option) any later version.
- * <p/>
- * This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY;
- * without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
- * See the GNU Affero General Public License for more details.
- * <p/>
- * You should have received a copy of the GNU Affero General Public License along with this program.
- * If not, see <https://www.gnu.org/licenses/>.
+ * Copyright (C) 2023 Regione Emilia-Romagna <p/> This program is free software: you can
+ * redistribute it and/or modify it under the terms of the GNU Affero General Public License as
+ * published by the Free Software Foundation, either version 3 of the License, or (at your option)
+ * any later version. <p/> This program is distributed in the hope that it will be useful, but
+ * WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A
+ * PARTICULAR PURPOSE. See the GNU Affero General Public License for more details. <p/> You should
+ * have received a copy of the GNU Affero General Public License along with this program. If not,
+ * see <https://www.gnu.org/licenses/>.
  */
 
 package it.eng.dispenser.entity;
@@ -42,7 +38,8 @@ public class AroDoc implements Serializable {
     private static final long serialVersionUID = 1L;
 
     @Id
-    // @SequenceGenerator(name = "ARO_DOC_IDDOC_GENERATOR", sequenceName = "SARO_DOC", schema = "SACER", allocationSize
+    // @SequenceGenerator(name = "ARO_DOC_IDDOC_GENERATOR", sequenceName = "SARO_DOC", schema =
+    // "SACER", allocationSize
     // = 1)
     // @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "ARO_DOC_IDDOC_GENERATOR")
     @Column(name = "ID_DOC")
@@ -135,233 +132,233 @@ public class AroDoc implements Serializable {
     }
 
     public long getIdDoc() {
-        return this.idDoc;
+	return this.idDoc;
     }
 
     public void setIdDoc(long idDoc) {
-        this.idDoc = idDoc;
+	this.idDoc = idDoc;
     }
 
     public String getCdKeyDocVers() {
-        return this.cdKeyDocVers;
+	return this.cdKeyDocVers;
     }
 
     public void setCdKeyDocVers(String cdKeyDocVers) {
-        this.cdKeyDocVers = cdKeyDocVers;
+	this.cdKeyDocVers = cdKeyDocVers;
     }
 
     public String getDlDoc() {
-        return this.dlDoc;
+	return this.dlDoc;
     }
 
     public void setDlDoc(String dlDoc) {
-        this.dlDoc = dlDoc;
+	this.dlDoc = dlDoc;
     }
 
     public String getDsAutoreDoc() {
-        return this.dsAutoreDoc;
+	return this.dsAutoreDoc;
     }
 
     public void setDsAutoreDoc(String dsAutoreDoc) {
-        this.dsAutoreDoc = dsAutoreDoc;
+	this.dsAutoreDoc = dsAutoreDoc;
     }
 
     public String getDsMsgEsitoVerifFirme() {
-        return this.dsMsgEsitoVerifFirme;
+	return this.dsMsgEsitoVerifFirme;
     }
 
     public void setDsMsgEsitoVerifFirme(String dsMsgEsitoVerifFirme) {
-        this.dsMsgEsitoVerifFirme = dsMsgEsitoVerifFirme;
+	this.dsMsgEsitoVerifFirme = dsMsgEsitoVerifFirme;
     }
 
     public Date getDtAnnul() {
-        return this.dtAnnul;
+	return this.dtAnnul;
     }
 
     public void setDtAnnul(Date dtAnnul) {
-        this.dtAnnul = dtAnnul;
+	this.dtAnnul = dtAnnul;
     }
 
     public Date getDtCreazione() {
-        return this.dtCreazione;
+	return this.dtCreazione;
     }
 
     public void setDtCreazione(Date dtCreazione) {
-        this.dtCreazione = dtCreazione;
+	this.dtCreazione = dtCreazione;
     }
 
     public String getFlDocFirmato() {
-        return this.flDocFirmato;
+	return this.flDocFirmato;
     }
 
     public void setFlDocFirmato(String flDocFirmato) {
-        this.flDocFirmato = flDocFirmato;
+	this.flDocFirmato = flDocFirmato;
     }
 
     public String getFlDocFisc() {
-        return this.flDocFisc;
+	return this.flDocFisc;
     }
 
     public void setFlDocFisc(String flDocFisc) {
-        this.flDocFisc = flDocFisc;
+	this.flDocFisc = flDocFisc;
     }
 
     public String getFlForzaAccettazione() {
-        return this.flForzaAccettazione;
+	return this.flForzaAccettazione;
     }
 
     public void setFlForzaAccettazione(String flForzaAccettazione) {
-        this.flForzaAccettazione = flForzaAccettazione;
+	this.flForzaAccettazione = flForzaAccettazione;
     }
 
     public String getFlForzaConservazione() {
-        return this.flForzaConservazione;
+	return this.flForzaConservazione;
     }
 
     public void setFlForzaConservazione(String flForzaConservazione) {
-        this.flForzaConservazione = flForzaConservazione;
+	this.flForzaConservazione = flForzaConservazione;
     }
 
     public BigDecimal getIdElencoVers() {
-        return this.idElencoVers;
+	return this.idElencoVers;
     }
 
     public void setIdElencoVers(BigDecimal idElencoVers) {
-        this.idElencoVers = idElencoVers;
+	this.idElencoVers = idElencoVers;
     }
 
     public BigDecimal getIdStrut() {
-        return this.idStrut;
+	return this.idStrut;
     }
 
     public void setIdStrut(BigDecimal idStrut) {
-        this.idStrut = idStrut;
+	this.idStrut = idStrut;
     }
 
     public BigDecimal getIdTipoDoc() {
-        return this.idTipoDoc;
+	return this.idTipoDoc;
     }
 
     public void setIdTipoDoc(BigDecimal idTipoDoc) {
-        this.idTipoDoc = idTipoDoc;
+	this.idTipoDoc = idTipoDoc;
     }
 
     public String getNmSistemaMigraz() {
-        return this.nmSistemaMigraz;
+	return this.nmSistemaMigraz;
     }
 
     public void setNmSistemaMigraz(String nmSistemaMigraz) {
-        this.nmSistemaMigraz = nmSistemaMigraz;
+	this.nmSistemaMigraz = nmSistemaMigraz;
     }
 
     public String getNtAnnul() {
-        return this.ntAnnul;
+	return this.ntAnnul;
     }
 
     public void setNtAnnul(String ntAnnul) {
-        this.ntAnnul = ntAnnul;
+	this.ntAnnul = ntAnnul;
     }
 
     public String getNtDoc() {
-        return this.ntDoc;
+	return this.ntDoc;
     }
 
     public void setNtDoc(String ntDoc) {
-        this.ntDoc = ntDoc;
+	this.ntDoc = ntDoc;
     }
 
     public BigDecimal getPgDoc() {
-        return this.pgDoc;
+	return this.pgDoc;
     }
 
     public void setPgDoc(BigDecimal pgDoc) {
-        this.pgDoc = pgDoc;
+	this.pgDoc = pgDoc;
     }
 
     public String getTiAnnul() {
-        return this.tiAnnul;
+	return this.tiAnnul;
     }
 
     public void setTiAnnul(String tiAnnul) {
-        this.tiAnnul = tiAnnul;
+	this.tiAnnul = tiAnnul;
     }
 
     public String getTiConservazione() {
-        return this.tiConservazione;
+	return this.tiConservazione;
     }
 
     public void setTiConservazione(String tiConservazione) {
-        this.tiConservazione = tiConservazione;
+	this.tiConservazione = tiConservazione;
     }
 
     public String getTiCreazione() {
-        return this.tiCreazione;
+	return this.tiCreazione;
     }
 
     public void setTiCreazione(String tiCreazione) {
-        this.tiCreazione = tiCreazione;
+	this.tiCreazione = tiCreazione;
     }
 
     public String getTiDoc() {
-        return this.tiDoc;
+	return this.tiDoc;
     }
 
     public void setTiDoc(String tiDoc) {
-        this.tiDoc = tiDoc;
+	this.tiDoc = tiDoc;
     }
 
     public String getTiEsitoVerifFirme() {
-        return this.tiEsitoVerifFirme;
+	return this.tiEsitoVerifFirme;
     }
 
     public void setTiEsitoVerifFirme(String tiEsitoVerifFirme) {
-        this.tiEsitoVerifFirme = tiEsitoVerifFirme;
+	this.tiEsitoVerifFirme = tiEsitoVerifFirme;
     }
 
     public String getTiStatoDoc() {
-        return this.tiStatoDoc;
+	return this.tiStatoDoc;
     }
 
     public void setTiStatoDoc(String tiStatoDoc) {
-        this.tiStatoDoc = tiStatoDoc;
+	this.tiStatoDoc = tiStatoDoc;
     }
 
     public String getTiStatoDocElencoVers() {
-        return this.tiStatoDocElencoVers;
+	return this.tiStatoDocElencoVers;
     }
 
     public void setTiStatoDocElencoVers(String tiStatoDocElencoVers) {
-        this.tiStatoDocElencoVers = tiStatoDocElencoVers;
+	this.tiStatoDocElencoVers = tiStatoDocElencoVers;
     }
 
     public AroUnitaDoc getAroUnitaDoc() {
-        return this.aroUnitaDoc;
+	return this.aroUnitaDoc;
     }
 
     public void setAroUnitaDoc(AroUnitaDoc aroUnitaDoc) {
-        this.aroUnitaDoc = aroUnitaDoc;
+	this.aroUnitaDoc = aroUnitaDoc;
     }
 
     public List<AroUsoXsdDatiSpec> getAroUsoXsdDatiSpecs() {
-        return this.aroUsoXsdDatiSpecs;
+	return this.aroUsoXsdDatiSpecs;
     }
 
     public void setAroUsoXsdDatiSpecs(List<AroUsoXsdDatiSpec> aroUsoXsdDatiSpecs) {
-        this.aroUsoXsdDatiSpecs = aroUsoXsdDatiSpecs;
+	this.aroUsoXsdDatiSpecs = aroUsoXsdDatiSpecs;
     }
 
     public AroUsoXsdDatiSpec addAroUsoXsdDatiSpec(AroUsoXsdDatiSpec aroUsoXsdDatiSpec) {
-        getAroUsoXsdDatiSpecs().add(aroUsoXsdDatiSpec);
-        aroUsoXsdDatiSpec.setAroDoc(this);
+	getAroUsoXsdDatiSpecs().add(aroUsoXsdDatiSpec);
+	aroUsoXsdDatiSpec.setAroDoc(this);
 
-        return aroUsoXsdDatiSpec;
+	return aroUsoXsdDatiSpec;
     }
 
     public AroUsoXsdDatiSpec removeAroUsoXsdDatiSpec(AroUsoXsdDatiSpec aroUsoXsdDatiSpec) {
-        getAroUsoXsdDatiSpecs().remove(aroUsoXsdDatiSpec);
-        aroUsoXsdDatiSpec.setAroDoc(null);
+	getAroUsoXsdDatiSpecs().remove(aroUsoXsdDatiSpec);
+	aroUsoXsdDatiSpec.setAroDoc(null);
 
-        return aroUsoXsdDatiSpec;
+	return aroUsoXsdDatiSpec;
     }
 
 }

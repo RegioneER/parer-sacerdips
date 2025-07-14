@@ -1,24 +1,19 @@
 /*
  * Engineering Ingegneria Informatica S.p.A.
  *
- * Copyright (C) 2023 Regione Emilia-Romagna
- * <p/>
- * This program is free software: you can redistribute it and/or modify it under the terms of
- * the GNU Affero General Public License as published by the Free Software Foundation,
- * either version 3 of the License, or (at your option) any later version.
- * <p/>
- * This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY;
- * without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
- * See the GNU Affero General Public License for more details.
- * <p/>
- * You should have received a copy of the GNU Affero General Public License along with this program.
- * If not, see <https://www.gnu.org/licenses/>.
+ * Copyright (C) 2023 Regione Emilia-Romagna <p/> This program is free software: you can
+ * redistribute it and/or modify it under the terms of the GNU Affero General Public License as
+ * published by the Free Software Foundation, either version 3 of the License, or (at your option)
+ * any later version. <p/> This program is distributed in the hope that it will be useful, but
+ * WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A
+ * PARTICULAR PURPOSE. See the GNU Affero General Public License for more details. <p/> You should
+ * have received a copy of the GNU Affero General Public License along with this program. If not,
+ * see <https://www.gnu.org/licenses/>.
  */
 
 /*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+ * To change this license header, choose License Headers in Project Properties. To change this
+ * template file, choose Tools | Templates and open the template in the editor.
  */
 package it.eng.dispenser.entity;
 
@@ -62,130 +57,130 @@ public class IamUser implements Serializable {
     @Id
     @Column(name = "ID_USER_IAM")
     public long getIdUserIam() {
-        return this.idUserIam;
+	return this.idUserIam;
     }
 
     public void setIdUserIam(long idUserIam) {
-        this.idUserIam = idUserIam;
+	this.idUserIam = idUserIam;
     }
 
     @Column(name = "CD_FISC")
     public String getCdFisc() {
-        return this.cdFisc;
+	return this.cdFisc;
     }
 
     public void setCdFisc(String cdFisc) {
-        this.cdFisc = cdFisc;
+	this.cdFisc = cdFisc;
     }
 
     @Column(name = "CD_PSW")
     public String getCdPsw() {
-        return this.cdPsw;
+	return this.cdPsw;
     }
 
     public void setCdPsw(String cdPsw) {
-        this.cdPsw = cdPsw;
+	this.cdPsw = cdPsw;
     }
 
     @Column(name = "CD_SALT")
     public String getCdSalt() {
-        return this.cdSalt;
+	return this.cdSalt;
     }
 
     public void setCdSalt(String cdSalt) {
-        this.cdSalt = cdSalt;
+	this.cdSalt = cdSalt;
     }
 
     @Column(name = "DS_EMAIL")
     public String getDsEmail() {
-        return this.dsEmail;
+	return this.dsEmail;
     }
 
     public void setDsEmail(String dsEmail) {
-        this.dsEmail = dsEmail;
+	this.dsEmail = dsEmail;
     }
 
     @Temporal(TemporalType.TIMESTAMP)
     @Column(name = "DT_REG_PSW")
     public Date getDtRegPsw() {
-        return this.dtRegPsw;
+	return this.dtRegPsw;
     }
 
     public void setDtRegPsw(Date dtRegPsw) {
-        this.dtRegPsw = dtRegPsw;
+	this.dtRegPsw = dtRegPsw;
     }
 
     @Temporal(TemporalType.TIMESTAMP)
     @Column(name = "DT_SCAD_PSW")
     public Date getDtScadPsw() {
-        return this.dtScadPsw;
+	return this.dtScadPsw;
     }
 
     public void setDtScadPsw(Date dtScadPsw) {
-        this.dtScadPsw = dtScadPsw;
+	this.dtScadPsw = dtScadPsw;
     }
 
     @Column(name = "FL_ATTIVO", columnDefinition = "char(1)")
     public String getFlAttivo() {
-        return this.flAttivo;
+	return this.flAttivo;
     }
 
     public void setFlAttivo(String flAttivo) {
-        this.flAttivo = flAttivo;
+	this.flAttivo = flAttivo;
     }
 
     @Column(name = "FL_CONTR_IP", columnDefinition = "char(1)")
     public String getFlContrIp() {
-        return this.flContrIp;
+	return this.flContrIp;
     }
 
     public void setFlContrIp(String flContrIp) {
-        this.flContrIp = flContrIp;
+	this.flContrIp = flContrIp;
     }
 
     @Column(name = "FL_USER_ADMIN", columnDefinition = "char(1)")
     public String getFlUserAdmin() {
-        return this.flUserAdmin;
+	return this.flUserAdmin;
     }
 
     public void setFlUserAdmin(String flUserAdmin) {
-        this.flUserAdmin = flUserAdmin;
+	this.flUserAdmin = flUserAdmin;
     }
 
     @Column(name = "NM_COGNOME_USER")
     public String getNmCognomeUser() {
-        return this.nmCognomeUser;
+	return this.nmCognomeUser;
     }
 
     public void setNmCognomeUser(String nmCognomeUser) {
-        this.nmCognomeUser = nmCognomeUser;
+	this.nmCognomeUser = nmCognomeUser;
     }
 
     @Column(name = "NM_NOME_USER")
     public String getNmNomeUser() {
-        return this.nmNomeUser;
+	return this.nmNomeUser;
     }
 
     public void setNmNomeUser(String nmNomeUser) {
-        this.nmNomeUser = nmNomeUser;
+	this.nmNomeUser = nmNomeUser;
     }
 
     @Column(name = "NM_USERID")
     public String getNmUserid() {
-        return this.nmUserid;
+	return this.nmUserid;
     }
 
     public void setNmUserid(String nmUserid) {
-        this.nmUserid = nmUserid;
+	this.nmUserid = nmUserid;
     }
 
     @Column(name = "TIPO_USER")
     public String getTipoUser() {
-        return this.tipoUser;
+	return this.tipoUser;
     }
 
     public void setTipoUser(String tipoUser) {
-        this.tipoUser = tipoUser;
+	this.tipoUser = tipoUser;
     }
 
 }
