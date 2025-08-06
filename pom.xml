@@ -9,7 +9,7 @@
     <parent>
         <groupId>it.eng.parer</groupId>
         <artifactId>parer-pom</artifactId>
-        <version>7.1.1-RC1</version>
+        <version>7.1.1</version>
     </parent>
 
 <distributionManagement>
@@ -30,7 +30,7 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
         <!-- spagofat bom -->
-        <spagofat.version>7.1.2-RC2</spagofat.version>
+        <spagofat.version>7.1.2</spagofat.version>
         <cxf-buildtools.version>4.1.0</cxf-buildtools.version>        
         <!-- jaxp-jdk11 -->
         <jaxp-jdk11.version>0.0.3</jaxp-jdk11.version>     

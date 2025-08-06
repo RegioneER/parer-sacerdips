@@ -143,7 +143,7 @@ public class PABAction extends PABAbstractAction {
 		    forwardToPublisher(Application.Publisher.DETTAGLIO_PABTIPO_DOC);
 		} else {
 		    try {
-			logger.info("Caricamento dettaglio progetto pab");
+			LOG.info("Caricamento dettaglio progetto pab");
 			// Salvo in sessione il "tipo" di lista dalla quale "proviene" l'ente, sarà
 			// RicercaList
 			String listName = DynamicSpagoLiteForm.getRicercaList(getForm()).getName();
@@ -329,7 +329,7 @@ public class PABAction extends PABAbstractAction {
 				.getString(CODICE_INTERVENTO_NAME));
 	    }
 	} catch (EMFError e) {
-	    logger.error("Errore nel ricaricamento della pagina " + publisherName, e);
+	    LOG.error("Errore nel ricaricamento della pagina " + publisherName, e);
 	    getMessageBox().addError("Errore nel ricaricamento della pagina " + publisherName);
 	    forwardToPublisher(getLastPublisher());
 	} catch (SQLException ex) {
@@ -540,7 +540,7 @@ public class PABAction extends PABAbstractAction {
 	    marshaller.marshal(recXml, writer);
 	    xmlRequest = writer.toString();
 	} catch (JAXBException ex) {
-	    logger.error("Eccezione nella creazione dell'xml di richiesta per il download", ex);
+	    LOG.error("Eccezione nella creazione dell'xml di richiesta per il download", ex);
 	    getMessageBox()
 		    .addError("Eccezione nella creazione dell'xml di richiesta per il download");
 	}
