@@ -1,18 +1,14 @@
 /*
  * Engineering Ingegneria Informatica S.p.A.
  *
- * Copyright (C) 2023 Regione Emilia-Romagna
- * <p/>
- * This program is free software: you can redistribute it and/or modify it under the terms of
- * the GNU Affero General Public License as published by the Free Software Foundation,
- * either version 3 of the License, or (at your option) any later version.
- * <p/>
- * This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY;
- * without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
- * See the GNU Affero General Public License for more details.
- * <p/>
- * You should have received a copy of the GNU Affero General Public License along with this program.
- * If not, see <https://www.gnu.org/licenses/>.
+ * Copyright (C) 2023 Regione Emilia-Romagna <p/> This program is free software: you can
+ * redistribute it and/or modify it under the terms of the GNU Affero General Public License as
+ * published by the Free Software Foundation, either version 3 of the License, or (at your option)
+ * any later version. <p/> This program is distributed in the hope that it will be useful, but
+ * WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A
+ * PARTICULAR PURPOSE. See the GNU Affero General Public License for more details. <p/> You should
+ * have received a copy of the GNU Affero General Public License along with this program. If not,
+ * see <https://www.gnu.org/licenses/>.
  */
 
 package it.eng.dispenser.entity;
@@ -43,9 +39,11 @@ public class AroRichAnnulVer implements Serializable {
     private static final long serialVersionUID = 1L;
 
     @Id
-    // @SequenceGenerator(name = "ARO_RICH_ANNUL_VERS_IDRICHANNULVERS_GENERATOR", sequenceName = "SARO_RICH_ANNUL_VERS",
+    // @SequenceGenerator(name = "ARO_RICH_ANNUL_VERS_IDRICHANNULVERS_GENERATOR", sequenceName =
+    // "SARO_RICH_ANNUL_VERS",
     // schema = "SACER")
-    // @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "ARO_RICH_ANNUL_VERS_IDRICHANNULVERS_GENERATOR")
+    // @GeneratedValue(strategy = GenerationType.SEQUENCE, generator =
+    // "ARO_RICH_ANNUL_VERS_IDRICHANNULVERS_GENERATOR")
     @Column(name = "ID_RICH_ANNUL_VERS")
     private long idRichAnnulVers;
 
@@ -94,126 +92,127 @@ public class AroRichAnnulVer implements Serializable {
     }
 
     public long getIdRichAnnulVers() {
-        return this.idRichAnnulVers;
+	return this.idRichAnnulVers;
     }
 
     public void setIdRichAnnulVers(long idRichAnnulVers) {
-        this.idRichAnnulVers = idRichAnnulVers;
+	this.idRichAnnulVers = idRichAnnulVers;
     }
 
     public String getCdRichAnnulVers() {
-        return this.cdRichAnnulVers;
+	return this.cdRichAnnulVers;
     }
 
     public void setCdRichAnnulVers(String cdRichAnnulVers) {
-        this.cdRichAnnulVers = cdRichAnnulVers;
+	this.cdRichAnnulVers = cdRichAnnulVers;
     }
 
     public String getDsRichAnnulVers() {
-        return this.dsRichAnnulVers;
+	return this.dsRichAnnulVers;
     }
 
     public void setDsRichAnnulVers(String dsRichAnnulVers) {
-        this.dsRichAnnulVers = dsRichAnnulVers;
+	this.dsRichAnnulVers = dsRichAnnulVers;
     }
 
     public Date getDtCreazioneRichAnnulVers() {
-        return this.dtCreazioneRichAnnulVers;
+	return this.dtCreazioneRichAnnulVers;
     }
 
     public void setDtCreazioneRichAnnulVers(Date dtCreazioneRichAnnulVers) {
-        this.dtCreazioneRichAnnulVers = dtCreazioneRichAnnulVers;
+	this.dtCreazioneRichAnnulVers = dtCreazioneRichAnnulVers;
     }
 
     public String getFlImmediata() {
-        return this.flImmediata;
+	return this.flImmediata;
     }
 
     public void setFlImmediata(String flImmediata) {
-        this.flImmediata = flImmediata;
+	this.flImmediata = flImmediata;
     }
 
     /*
      * public BigDecimal getIdStatoRichAnnulVersCor() { return this.idStatoRichAnnulVersCor; }
      *
-     * public void setIdStatoRichAnnulVersCor(BigDecimal idStatoRichAnnulVersCor) { this.idStatoRichAnnulVersCor =
-     * idStatoRichAnnulVersCor; }
+     * public void setIdStatoRichAnnulVersCor(BigDecimal idStatoRichAnnulVersCor) {
+     * this.idStatoRichAnnulVersCor = idStatoRichAnnulVersCor; }
      */
     /* Metodi inseriti a mano per ovviare alla mancanza della Foreign key */
     public AroStatoRichAnnulVer getAroStatoRichAnnulVersCor() {
-        return this.aroStatoRichAnnulVersCor;
+	return this.aroStatoRichAnnulVersCor;
     }
 
     public void setAroStatoRichAnnulVersCor(AroStatoRichAnnulVer aroStatoRichAnnulVer) {
-        this.aroStatoRichAnnulVersCor = aroStatoRichAnnulVer;
+	this.aroStatoRichAnnulVersCor = aroStatoRichAnnulVer;
     }
 
     public String getNtRichAnnulVers() {
-        return this.ntRichAnnulVers;
+	return this.ntRichAnnulVers;
     }
 
     public void setNtRichAnnulVers(String ntRichAnnulVers) {
-        this.ntRichAnnulVers = ntRichAnnulVers;
+	this.ntRichAnnulVers = ntRichAnnulVers;
     }
 
     public String getTiCreazioneRichAnnulVers() {
-        return this.tiCreazioneRichAnnulVers;
+	return this.tiCreazioneRichAnnulVers;
     }
 
     public void setTiCreazioneRichAnnulVers(String tiCreazioneRichAnnulVers) {
-        this.tiCreazioneRichAnnulVers = tiCreazioneRichAnnulVers;
+	this.tiCreazioneRichAnnulVers = tiCreazioneRichAnnulVers;
     }
 
     public List<AroItemRichAnnulVer> getAroItemRichAnnulVers() {
-        return this.aroItemRichAnnulVers;
+	return this.aroItemRichAnnulVers;
     }
 
     public void setAroItemRichAnnulVers(List<AroItemRichAnnulVer> aroItemRichAnnulVers) {
-        this.aroItemRichAnnulVers = aroItemRichAnnulVers;
+	this.aroItemRichAnnulVers = aroItemRichAnnulVers;
     }
 
     public AroItemRichAnnulVer addAroItemRichAnnulVer(AroItemRichAnnulVer aroItemRichAnnulVer) {
-        getAroItemRichAnnulVers().add(aroItemRichAnnulVer);
-        aroItemRichAnnulVer.setAroRichAnnulVer(this);
+	getAroItemRichAnnulVers().add(aroItemRichAnnulVer);
+	aroItemRichAnnulVer.setAroRichAnnulVer(this);
 
-        return aroItemRichAnnulVer;
+	return aroItemRichAnnulVer;
     }
 
     public AroItemRichAnnulVer removeAroItemRichAnnulVer(AroItemRichAnnulVer aroItemRichAnnulVer) {
-        getAroItemRichAnnulVers().remove(aroItemRichAnnulVer);
-        aroItemRichAnnulVer.setAroRichAnnulVer(null);
+	getAroItemRichAnnulVers().remove(aroItemRichAnnulVer);
+	aroItemRichAnnulVer.setAroRichAnnulVer(null);
 
-        return aroItemRichAnnulVer;
+	return aroItemRichAnnulVer;
     }
 
     public OrgStrut getOrgStrut() {
-        return this.orgStrut;
+	return this.orgStrut;
     }
 
     public void setOrgStrut(OrgStrut orgStrut) {
-        this.orgStrut = orgStrut;
+	this.orgStrut = orgStrut;
     }
 
     public List<AroStatoRichAnnulVer> getAroStatoRichAnnulVers() {
-        return this.aroStatoRichAnnulVers;
+	return this.aroStatoRichAnnulVers;
     }
 
     public void setAroStatoRichAnnulVers(List<AroStatoRichAnnulVer> aroStatoRichAnnulVers) {
-        this.aroStatoRichAnnulVers = aroStatoRichAnnulVers;
+	this.aroStatoRichAnnulVers = aroStatoRichAnnulVers;
     }
 
     public AroStatoRichAnnulVer addAroStatoRichAnnulVer(AroStatoRichAnnulVer aroStatoRichAnnulVer) {
-        getAroStatoRichAnnulVers().add(aroStatoRichAnnulVer);
-        aroStatoRichAnnulVer.setAroRichAnnulVer(this);
+	getAroStatoRichAnnulVers().add(aroStatoRichAnnulVer);
+	aroStatoRichAnnulVer.setAroRichAnnulVer(this);
 
-        return aroStatoRichAnnulVer;
+	return aroStatoRichAnnulVer;
     }
 
-    public AroStatoRichAnnulVer removeAroStatoRichAnnulVer(AroStatoRichAnnulVer aroStatoRichAnnulVer) {
-        getAroStatoRichAnnulVers().remove(aroStatoRichAnnulVer);
-        aroStatoRichAnnulVer.setAroRichAnnulVer(null);
+    public AroStatoRichAnnulVer removeAroStatoRichAnnulVer(
+	    AroStatoRichAnnulVer aroStatoRichAnnulVer) {
+	getAroStatoRichAnnulVers().remove(aroStatoRichAnnulVer);
+	aroStatoRichAnnulVer.setAroRichAnnulVer(null);
 
-        return aroStatoRichAnnulVer;
+	return aroStatoRichAnnulVer;
     }
 
 }

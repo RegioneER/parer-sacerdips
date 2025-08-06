@@ -1,18 +1,14 @@
 /*
  * Engineering Ingegneria Informatica S.p.A.
  *
- * Copyright (C) 2023 Regione Emilia-Romagna
- * <p/>
- * This program is free software: you can redistribute it and/or modify it under the terms of
- * the GNU Affero General Public License as published by the Free Software Foundation,
- * either version 3 of the License, or (at your option) any later version.
- * <p/>
- * This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY;
- * without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
- * See the GNU Affero General Public License for more details.
- * <p/>
- * You should have received a copy of the GNU Affero General Public License along with this program.
- * If not, see <https://www.gnu.org/licenses/>.
+ * Copyright (C) 2023 Regione Emilia-Romagna <p/> This program is free software: you can
+ * redistribute it and/or modify it under the terms of the GNU Affero General Public License as
+ * published by the Free Software Foundation, either version 3 of the License, or (at your option)
+ * any later version. <p/> This program is distributed in the hope that it will be useful, but
+ * WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A
+ * PARTICULAR PURPOSE. See the GNU Affero General Public License for more details. <p/> You should
+ * have received a copy of the GNU Affero General Public License along with this program. If not,
+ * see <https://www.gnu.org/licenses/>.
  */
 
 package it.eng.dispenser.entity;
@@ -37,7 +33,8 @@ public class AroValoreAttribDatiSpec implements Serializable {
     private static final long serialVersionUID = 1L;
 
     @Id
-    // @SequenceGenerator(name = "ARO_VALORE_ATTRIB_DATI_SPEC_IDVALOREATTRIBDATISPEC_GENERATOR", sequenceName =
+    // @SequenceGenerator(name = "ARO_VALORE_ATTRIB_DATI_SPEC_IDVALOREATTRIBDATISPEC_GENERATOR",
+    // sequenceName =
     // "SARO_VALORE_ATTRIB_DATI_SPEC", allocationSize = 1, schema = "SACER")
     // @GeneratedValue(strategy = GenerationType.SEQUENCE, generator =
     // "ARO_VALORE_ATTRIB_DATI_SPEC_IDVALOREATTRIBDATISPEC_GENERATOR")
@@ -64,43 +61,43 @@ public class AroValoreAttribDatiSpec implements Serializable {
     }
 
     public long getIdValoreAttribDatiSpec() {
-        return this.idValoreAttribDatiSpec;
+	return this.idValoreAttribDatiSpec;
     }
 
     public void setIdValoreAttribDatiSpec(long idValoreAttribDatiSpec) {
-        this.idValoreAttribDatiSpec = idValoreAttribDatiSpec;
+	this.idValoreAttribDatiSpec = idValoreAttribDatiSpec;
     }
 
     public String getDlValore() {
-        return this.dlValore;
+	return this.dlValore;
     }
 
     public void setDlValore(String dlValore) {
-        this.dlValore = dlValore;
+	this.dlValore = dlValore;
     }
 
     public BigDecimal getIdStrut() {
-        return this.idStrut;
+	return this.idStrut;
     }
 
     public void setIdStrut(BigDecimal idStrut) {
-        this.idStrut = idStrut;
+	this.idStrut = idStrut;
     }
 
     public AroUsoXsdDatiSpec getAroUsoXsdDatiSpec() {
-        return this.aroUsoXsdDatiSpec;
+	return this.aroUsoXsdDatiSpec;
     }
 
     public void setAroUsoXsdDatiSpec(AroUsoXsdDatiSpec aroUsoXsdDatiSpec) {
-        this.aroUsoXsdDatiSpec = aroUsoXsdDatiSpec;
+	this.aroUsoXsdDatiSpec = aroUsoXsdDatiSpec;
     }
 
     public DecAttribDatiSpec getDecAttribDatiSpec() {
-        return this.decAttribDatiSpec;
+	return this.decAttribDatiSpec;
     }
 
     public void setDecAttribDatiSpec(DecAttribDatiSpec decAttribDatiSpec) {
-        this.decAttribDatiSpec = decAttribDatiSpec;
+	this.decAttribDatiSpec = decAttribDatiSpec;
     }
 
 }

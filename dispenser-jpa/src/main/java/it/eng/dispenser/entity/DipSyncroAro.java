@@ -1,18 +1,14 @@
 /*
  * Engineering Ingegneria Informatica S.p.A.
  *
- * Copyright (C) 2023 Regione Emilia-Romagna
- * <p/>
- * This program is free software: you can redistribute it and/or modify it under the terms of
- * the GNU Affero General Public License as published by the Free Software Foundation,
- * either version 3 of the License, or (at your option) any later version.
- * <p/>
- * This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY;
- * without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
- * See the GNU Affero General Public License for more details.
- * <p/>
- * You should have received a copy of the GNU Affero General Public License along with this program.
- * If not, see <https://www.gnu.org/licenses/>.
+ * Copyright (C) 2023 Regione Emilia-Romagna <p/> This program is free software: you can
+ * redistribute it and/or modify it under the terms of the GNU Affero General Public License as
+ * published by the Free Software Foundation, either version 3 of the License, or (at your option)
+ * any later version. <p/> This program is distributed in the hope that it will be useful, but
+ * WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A
+ * PARTICULAR PURPOSE. See the GNU Affero General Public License for more details. <p/> You should
+ * have received a copy of the GNU Affero General Public License along with this program. If not,
+ * see <https://www.gnu.org/licenses/>.
  */
 
 package it.eng.dispenser.entity;
@@ -69,59 +65,59 @@ public class DipSyncroAro implements Serializable {
     }
 
     public long getIdSyncroAro() {
-        return this.idSyncroAro;
+	return this.idSyncroAro;
     }
 
     public void setIdSyncroAro(long idSyncroAro) {
-        this.idSyncroAro = idSyncroAro;
+	this.idSyncroAro = idSyncroAro;
     }
 
     public Date getDtUltimaDataElab() {
-        return this.dtUltimaDataElab;
+	return this.dtUltimaDataElab;
     }
 
     public void setDtUltimaDataElab(Date dtUltimaDataElab) {
-        this.dtUltimaDataElab = dtUltimaDataElab;
+	this.dtUltimaDataElab = dtUltimaDataElab;
     }
 
     public BigDecimal getIdStrut() {
-        return this.idStrut;
+	return this.idStrut;
     }
 
     public void setIdStrut(BigDecimal idStrut) {
-        this.idStrut = idStrut;
+	this.idStrut = idStrut;
     }
 
     public BigDecimal getNiDocAnnul() {
-        return this.niDocAnnul;
+	return this.niDocAnnul;
     }
 
     public void setNiDocAnnul(BigDecimal niDocAnnul) {
-        this.niDocAnnul = niDocAnnul;
+	this.niDocAnnul = niDocAnnul;
     }
 
     public BigDecimal getNiDocSincro() {
-        return this.niDocSincro;
+	return this.niDocSincro;
     }
 
     public void setNiDocSincro(BigDecimal niDocSincro) {
-        this.niDocSincro = niDocSincro;
+	this.niDocSincro = niDocSincro;
     }
 
     public BigDecimal getNiUdAnnul() {
-        return this.niUdAnnul;
+	return this.niUdAnnul;
     }
 
     public void setNiUdAnnul(BigDecimal niUdAnnul) {
-        this.niUdAnnul = niUdAnnul;
+	this.niUdAnnul = niUdAnnul;
     }
 
     public BigDecimal getNiUdSincro() {
-        return this.niUdSincro;
+	return this.niUdSincro;
     }
 
     public void setNiUdSincro(BigDecimal niUdSincro) {
-        this.niUdSincro = niUdSincro;
+	this.niUdSincro = niUdSincro;
     }
 
 }

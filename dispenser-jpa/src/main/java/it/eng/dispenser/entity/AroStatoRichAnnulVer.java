@@ -1,18 +1,14 @@
 /*
  * Engineering Ingegneria Informatica S.p.A.
  *
- * Copyright (C) 2023 Regione Emilia-Romagna
- * <p/>
- * This program is free software: you can redistribute it and/or modify it under the terms of
- * the GNU Affero General Public License as published by the Free Software Foundation,
- * either version 3 of the License, or (at your option) any later version.
- * <p/>
- * This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY;
- * without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
- * See the GNU Affero General Public License for more details.
- * <p/>
- * You should have received a copy of the GNU Affero General Public License along with this program.
- * If not, see <https://www.gnu.org/licenses/>.
+ * Copyright (C) 2023 Regione Emilia-Romagna <p/> This program is free software: you can
+ * redistribute it and/or modify it under the terms of the GNU Affero General Public License as
+ * published by the Free Software Foundation, either version 3 of the License, or (at your option)
+ * any later version. <p/> This program is distributed in the hope that it will be useful, but
+ * WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A
+ * PARTICULAR PURPOSE. See the GNU Affero General Public License for more details. <p/> You should
+ * have received a copy of the GNU Affero General Public License along with this program. If not,
+ * see <https://www.gnu.org/licenses/>.
  */
 
 package it.eng.dispenser.entity;
@@ -42,7 +38,8 @@ public class AroStatoRichAnnulVer implements Serializable {
     private static final long serialVersionUID = 1L;
 
     @Id
-    // @SequenceGenerator(name = "ARO_STATO_RICH_ANNUL_VERS_IDSTATORICHANNULVERS_GENERATOR", sequenceName =
+    // @SequenceGenerator(name = "ARO_STATO_RICH_ANNUL_VERS_IDSTATORICHANNULVERS_GENERATOR",
+    // sequenceName =
     // "SARO_STATO_RICH_ANNUL_VERS", schema = "SACER")
     // @GeneratedValue(strategy = GenerationType.SEQUENCE, generator =
     // "ARO_STATO_RICH_ANNUL_VERS_IDSTATORICHANNULVERS_GENERATOR")
@@ -74,59 +71,59 @@ public class AroStatoRichAnnulVer implements Serializable {
     }
 
     public long getIdStatoRichAnnulVers() {
-        return this.idStatoRichAnnulVers;
+	return this.idStatoRichAnnulVers;
     }
 
     public void setIdStatoRichAnnulVers(long idStatoRichAnnulVers) {
-        this.idStatoRichAnnulVers = idStatoRichAnnulVers;
+	this.idStatoRichAnnulVers = idStatoRichAnnulVers;
     }
 
     public String getDsNotaRichAnnulVers() {
-        return this.dsNotaRichAnnulVers;
+	return this.dsNotaRichAnnulVers;
     }
 
     public void setDsNotaRichAnnulVers(String dsNotaRichAnnulVers) {
-        this.dsNotaRichAnnulVers = dsNotaRichAnnulVers;
+	this.dsNotaRichAnnulVers = dsNotaRichAnnulVers;
     }
 
     public Date getDtRegStatoRichAnnulVers() {
-        return this.dtRegStatoRichAnnulVers;
+	return this.dtRegStatoRichAnnulVers;
     }
 
     public void setDtRegStatoRichAnnulVers(Date dtRegStatoRichAnnulVers) {
-        this.dtRegStatoRichAnnulVers = dtRegStatoRichAnnulVers;
+	this.dtRegStatoRichAnnulVers = dtRegStatoRichAnnulVers;
     }
 
     public BigDecimal getIdUserIam() {
-        return this.idUserIam;
+	return this.idUserIam;
     }
 
     public void setIdUserIam(BigDecimal idUserIam) {
-        this.idUserIam = idUserIam;
+	this.idUserIam = idUserIam;
     }
 
     public BigDecimal getPgStatoRichAnnulVers() {
-        return this.pgStatoRichAnnulVers;
+	return this.pgStatoRichAnnulVers;
     }
 
     public void setPgStatoRichAnnulVers(BigDecimal pgStatoRichAnnulVers) {
-        this.pgStatoRichAnnulVers = pgStatoRichAnnulVers;
+	this.pgStatoRichAnnulVers = pgStatoRichAnnulVers;
     }
 
     public String getTiStatoRichAnnulVers() {
-        return this.tiStatoRichAnnulVers;
+	return this.tiStatoRichAnnulVers;
     }
 
     public void setTiStatoRichAnnulVers(String tiStatoRichAnnulVers) {
-        this.tiStatoRichAnnulVers = tiStatoRichAnnulVers;
+	this.tiStatoRichAnnulVers = tiStatoRichAnnulVers;
     }
 
     public AroRichAnnulVer getAroRichAnnulVer() {
-        return this.aroRichAnnulVer;
+	return this.aroRichAnnulVer;
     }
 
     public void setAroRichAnnulVer(AroRichAnnulVer aroRichAnnulVer) {
-        this.aroRichAnnulVer = aroRichAnnulVer;
+	this.aroRichAnnulVer = aroRichAnnulVer;
     }
 
 }

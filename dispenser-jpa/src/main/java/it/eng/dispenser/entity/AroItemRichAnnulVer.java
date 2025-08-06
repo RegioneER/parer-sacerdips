@@ -1,18 +1,14 @@
 /*
  * Engineering Ingegneria Informatica S.p.A.
  *
- * Copyright (C) 2023 Regione Emilia-Romagna
- * <p/>
- * This program is free software: you can redistribute it and/or modify it under the terms of
- * the GNU Affero General Public License as published by the Free Software Foundation,
- * either version 3 of the License, or (at your option) any later version.
- * <p/>
- * This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY;
- * without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
- * See the GNU Affero General Public License for more details.
- * <p/>
- * You should have received a copy of the GNU Affero General Public License along with this program.
- * If not, see <https://www.gnu.org/licenses/>.
+ * Copyright (C) 2023 Regione Emilia-Romagna <p/> This program is free software: you can
+ * redistribute it and/or modify it under the terms of the GNU Affero General Public License as
+ * published by the Free Software Foundation, either version 3 of the License, or (at your option)
+ * any later version. <p/> This program is distributed in the hope that it will be useful, but
+ * WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A
+ * PARTICULAR PURPOSE. See the GNU Affero General Public License for more details. <p/> You should
+ * have received a copy of the GNU Affero General Public License along with this program. If not,
+ * see <https://www.gnu.org/licenses/>.
  */
 
 package it.eng.dispenser.entity;
@@ -39,7 +35,8 @@ public class AroItemRichAnnulVer implements Serializable {
     private static final long serialVersionUID = 1L;
 
     @Id
-    // @SequenceGenerator(name = "ARO_ITEM_RICH_ANNUL_VERS_IDITEMRICHANNULVERS_GENERATOR", sequenceName =
+    // @SequenceGenerator(name = "ARO_ITEM_RICH_ANNUL_VERS_IDITEMRICHANNULVERS_GENERATOR",
+    // sequenceName =
     // "SARO_ITEM_RICH_ANNUL_VERS", schema = "SACER")
     // @GeneratedValue(strategy = GenerationType.SEQUENCE, generator =
     // "ARO_ITEM_RICH_ANNUL_VERS_IDITEMRICHANNULVERS_GENERATOR")
@@ -81,83 +78,83 @@ public class AroItemRichAnnulVer implements Serializable {
     }
 
     public long getIdItemRichAnnulVers() {
-        return this.idItemRichAnnulVers;
+	return this.idItemRichAnnulVers;
     }
 
     public void setIdItemRichAnnulVers(long idItemRichAnnulVers) {
-        this.idItemRichAnnulVers = idItemRichAnnulVers;
+	this.idItemRichAnnulVers = idItemRichAnnulVers;
     }
 
     public BigDecimal getAaKeyUnitaDoc() {
-        return this.aaKeyUnitaDoc;
+	return this.aaKeyUnitaDoc;
     }
 
     public void setAaKeyUnitaDoc(BigDecimal aaKeyUnitaDoc) {
-        this.aaKeyUnitaDoc = aaKeyUnitaDoc;
+	this.aaKeyUnitaDoc = aaKeyUnitaDoc;
     }
 
     public String getCdKeyUnitaDoc() {
-        return this.cdKeyUnitaDoc;
+	return this.cdKeyUnitaDoc;
     }
 
     public void setCdKeyUnitaDoc(String cdKeyUnitaDoc) {
-        this.cdKeyUnitaDoc = cdKeyUnitaDoc;
+	this.cdKeyUnitaDoc = cdKeyUnitaDoc;
     }
 
     public String getCdRegistroKeyUnitaDoc() {
-        return this.cdRegistroKeyUnitaDoc;
+	return this.cdRegistroKeyUnitaDoc;
     }
 
     public void setCdRegistroKeyUnitaDoc(String cdRegistroKeyUnitaDoc) {
-        this.cdRegistroKeyUnitaDoc = cdRegistroKeyUnitaDoc;
+	this.cdRegistroKeyUnitaDoc = cdRegistroKeyUnitaDoc;
     }
 
     public BigDecimal getIdStrut() {
-        return this.idStrut;
+	return this.idStrut;
     }
 
     public void setIdStrut(BigDecimal idStrut) {
-        this.idStrut = idStrut;
+	this.idStrut = idStrut;
     }
 
     public BigDecimal getPgItemRichAnnulVers() {
-        return this.pgItemRichAnnulVers;
+	return this.pgItemRichAnnulVers;
     }
 
     public void setPgItemRichAnnulVers(BigDecimal pgItemRichAnnulVers) {
-        this.pgItemRichAnnulVers = pgItemRichAnnulVers;
+	this.pgItemRichAnnulVers = pgItemRichAnnulVers;
     }
 
     public String getTiItemRichAnnulVers() {
-        return this.tiItemRichAnnulVers;
+	return this.tiItemRichAnnulVers;
     }
 
     public void setTiItemRichAnnulVers(String tiItemRichAnnulVers) {
-        this.tiItemRichAnnulVers = tiItemRichAnnulVers;
+	this.tiItemRichAnnulVers = tiItemRichAnnulVers;
     }
 
     public String getTiStatoItem() {
-        return this.tiStatoItem;
+	return this.tiStatoItem;
     }
 
     public void setTiStatoItem(String tiStatoItem) {
-        this.tiStatoItem = tiStatoItem;
+	this.tiStatoItem = tiStatoItem;
     }
 
     public AroRichAnnulVer getAroRichAnnulVer() {
-        return this.aroRichAnnulVer;
+	return this.aroRichAnnulVer;
     }
 
     public void setAroRichAnnulVer(AroRichAnnulVer aroRichAnnulVer) {
-        this.aroRichAnnulVer = aroRichAnnulVer;
+	this.aroRichAnnulVer = aroRichAnnulVer;
     }
 
     public AroUnitaDoc getAroUnitaDoc() {
-        return this.aroUnitaDoc;
+	return this.aroUnitaDoc;
     }
 
     public void setAroUnitaDoc(AroUnitaDoc aroUnitaDoc) {
-        this.aroUnitaDoc = aroUnitaDoc;
+	this.aroUnitaDoc = aroUnitaDoc;
     }
 
 }

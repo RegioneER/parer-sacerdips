@@ -1,18 +1,14 @@
 /*
  * Engineering Ingegneria Informatica S.p.A.
  *
- * Copyright (C) 2023 Regione Emilia-Romagna
- * <p/>
- * This program is free software: you can redistribute it and/or modify it under the terms of
- * the GNU Affero General Public License as published by the Free Software Foundation,
- * either version 3 of the License, or (at your option) any later version.
- * <p/>
- * This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY;
- * without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
- * See the GNU Affero General Public License for more details.
- * <p/>
- * You should have received a copy of the GNU Affero General Public License along with this program.
- * If not, see <https://www.gnu.org/licenses/>.
+ * Copyright (C) 2023 Regione Emilia-Romagna <p/> This program is free software: you can
+ * redistribute it and/or modify it under the terms of the GNU Affero General Public License as
+ * published by the Free Software Foundation, either version 3 of the License, or (at your option)
+ * any later version. <p/> This program is distributed in the hope that it will be useful, but
+ * WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A
+ * PARTICULAR PURPOSE. See the GNU Affero General Public License for more details. <p/> You should
+ * have received a copy of the GNU Affero General Public License along with this program. If not,
+ * see <https://www.gnu.org/licenses/>.
  */
 
 package it.eng.dispenser.entity;
@@ -65,59 +61,59 @@ public class VrsSessioneVers implements Serializable {
     }
 
     public long getIdSessioneVers() {
-        return idSessioneVers;
+	return idSessioneVers;
     }
 
     public void setIdSessioneVers(long idSessioneVers) {
-        this.idSessioneVers = idSessioneVers;
+	this.idSessioneVers = idSessioneVers;
     }
 
     public long getIdUnitaDoc() {
-        return idUnitaDoc;
+	return idUnitaDoc;
     }
 
     public void setIdUnitaDoc(long idUnitaDoc) {
-        this.idUnitaDoc = idUnitaDoc;
+	this.idUnitaDoc = idUnitaDoc;
     }
 
     public long getIdStrut() {
-        return idStrut;
+	return idStrut;
     }
 
     public void setIdStrut(long idStrut) {
-        this.idStrut = idStrut;
+	this.idStrut = idStrut;
     }
 
     public Date getDtApertura() {
-        return dtApertura;
+	return dtApertura;
     }
 
     public void setDtApertura(Date dtApertura) {
-        this.dtApertura = dtApertura;
+	this.dtApertura = dtApertura;
     }
 
     public Date getDtChiusura() {
-        return dtChiusura;
+	return dtChiusura;
     }
 
     public void setDtChiusura(Date dtChiusura) {
-        this.dtChiusura = dtChiusura;
+	this.dtChiusura = dtChiusura;
     }
 
     public String getTiSessioneVers() {
-        return tiSessioneVers;
+	return tiSessioneVers;
     }
 
     public void setTiSessioneVers(String tiSessioneVers) {
-        this.tiSessioneVers = tiSessioneVers;
+	this.tiSessioneVers = tiSessioneVers;
     }
 
     public String getTiStatoSessioneVers() {
-        return tiStatoSessioneVers;
+	return tiStatoSessioneVers;
     }
 
     public void setTiStatoSessioneVers(String tiStatoSessioneVers) {
-        this.tiStatoSessioneVers = tiStatoSessioneVers;
+	this.tiStatoSessioneVers = tiStatoSessioneVers;
     }
 
 }

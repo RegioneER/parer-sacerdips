@@ -1,18 +1,14 @@
 /*
  * Engineering Ingegneria Informatica S.p.A.
  *
- * Copyright (C) 2023 Regione Emilia-Romagna
- * <p/>
- * This program is free software: you can redistribute it and/or modify it under the terms of
- * the GNU Affero General Public License as published by the Free Software Foundation,
- * either version 3 of the License, or (at your option) any later version.
- * <p/>
- * This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY;
- * without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
- * See the GNU Affero General Public License for more details.
- * <p/>
- * You should have received a copy of the GNU Affero General Public License along with this program.
- * If not, see <https://www.gnu.org/licenses/>.
+ * Copyright (C) 2023 Regione Emilia-Romagna <p/> This program is free software: you can
+ * redistribute it and/or modify it under the terms of the GNU Affero General Public License as
+ * published by the Free Software Foundation, either version 3 of the License, or (at your option)
+ * any later version. <p/> This program is distributed in the hope that it will be useful, but
+ * WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A
+ * PARTICULAR PURPOSE. See the GNU Affero General Public License for more details. <p/> You should
+ * have received a copy of the GNU Affero General Public License along with this program. If not,
+ * see <https://www.gnu.org/licenses/>.
  */
 
 package it.eng.dispenser.entity;
@@ -70,59 +66,59 @@ public class DipDefAttributo implements Serializable {
     }
 
     public BigDecimal getIdAttribDatiSpec() {
-        return this.idAttribDatiSpec;
+	return this.idAttribDatiSpec;
     }
 
     public void setIdAttribDatiSpec(BigDecimal idAttribDatiSpec) {
-        this.idAttribDatiSpec = idAttribDatiSpec;
+	this.idAttribDatiSpec = idAttribDatiSpec;
     }
 
     public BigDecimal getIdStrut() {
-        return this.idStrut;
+	return this.idStrut;
     }
 
     public void setIdStrut(BigDecimal idStrut) {
-        this.idStrut = idStrut;
+	this.idStrut = idStrut;
     }
 
     public long getIdDefAttributo() {
-        return idDefAttributo;
+	return idDefAttributo;
     }
 
     public void setIdDefAttributo(long idDefAttributo) {
-        this.idDefAttributo = idDefAttributo;
+	this.idDefAttributo = idDefAttributo;
     }
 
     public String getTiDefAttrib() {
-        return tiDefAttrib;
+	return tiDefAttrib;
     }
 
     public void setTiDefAttrib(String tiDefAttrib) {
-        this.tiDefAttrib = tiDefAttrib;
+	this.tiDefAttrib = tiDefAttrib;
     }
 
     public DipAttribRisultato getDipAttribRisultato() {
-        return dipAttribRisultato;
+	return dipAttribRisultato;
     }
 
     public void setDipAttribRisultato(DipAttribRisultato dipAttribRisultato) {
-        this.dipAttribRisultato = dipAttribRisultato;
+	this.dipAttribRisultato = dipAttribRisultato;
     }
 
     public String getNmDatoProfilo() {
-        return nmDatoProfilo;
+	return nmDatoProfilo;
     }
 
     public void setNmDatoProfilo(String nmDatoProfilo) {
-        this.nmDatoProfilo = nmDatoProfilo;
+	this.nmDatoProfilo = nmDatoProfilo;
     }
 
     public String getCdQueryCalc() {
-        return cdQueryCalc;
+	return cdQueryCalc;
     }
 
     public void setCdQueryCalc(String cdQueryCalc) {
-        this.cdQueryCalc = cdQueryCalc;
+	this.cdQueryCalc = cdQueryCalc;
     }
 
 }

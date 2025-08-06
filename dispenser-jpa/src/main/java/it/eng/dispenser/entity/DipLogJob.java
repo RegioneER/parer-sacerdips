@@ -1,18 +1,14 @@
 /*
  * Engineering Ingegneria Informatica S.p.A.
  *
- * Copyright (C) 2023 Regione Emilia-Romagna
- * <p/>
- * This program is free software: you can redistribute it and/or modify it under the terms of
- * the GNU Affero General Public License as published by the Free Software Foundation,
- * either version 3 of the License, or (at your option) any later version.
- * <p/>
- * This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY;
- * without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
- * See the GNU Affero General Public License for more details.
- * <p/>
- * You should have received a copy of the GNU Affero General Public License along with this program.
- * If not, see <https://www.gnu.org/licenses/>.
+ * Copyright (C) 2023 Regione Emilia-Romagna <p/> This program is free software: you can
+ * redistribute it and/or modify it under the terms of the GNU Affero General Public License as
+ * published by the Free Software Foundation, either version 3 of the License, or (at your option)
+ * any later version. <p/> This program is distributed in the hope that it will be useful, but
+ * WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A
+ * PARTICULAR PURPOSE. See the GNU Affero General Public License for more details. <p/> You should
+ * have received a copy of the GNU Affero General Public License along with this program. If not,
+ * see <https://www.gnu.org/licenses/>.
  */
 
 package it.eng.dispenser.entity;
@@ -62,51 +58,51 @@ public class DipLogJob implements Serializable {
     }
 
     public long getIdLogJob() {
-        return this.idLogJob;
+	return this.idLogJob;
     }
 
     public void setIdLogJob(long idLogJob) {
-        this.idLogJob = idLogJob;
+	this.idLogJob = idLogJob;
     }
 
     public String getDsErrore() {
-        return this.dsErrore;
+	return this.dsErrore;
     }
 
     public void setDsErrore(String dsErrore) {
-        this.dsErrore = dsErrore;
+	this.dsErrore = dsErrore;
     }
 
     public Timestamp getDtEvento() {
-        return this.dtEvento;
+	return this.dtEvento;
     }
 
     public void setDtEvento(Timestamp dtEvento) {
-        this.dtEvento = dtEvento;
+	this.dtEvento = dtEvento;
     }
 
     public String getNmJob() {
-        return this.nmJob;
+	return this.nmJob;
     }
 
     public void setNmJob(String nmJob) {
-        this.nmJob = nmJob;
+	this.nmJob = nmJob;
     }
 
     public String getTiEvento() {
-        return this.tiEvento;
+	return this.tiEvento;
     }
 
     public void setTiEvento(String tiEvento) {
-        this.tiEvento = tiEvento;
+	this.tiEvento = tiEvento;
     }
 
     public String getCdIndServer() {
-        return cdIndServer;
+	return cdIndServer;
     }
 
     public void setCdIndServer(String cdIndServer) {
-        this.cdIndServer = cdIndServer;
+	this.cdIndServer = cdIndServer;
     }
 
 }

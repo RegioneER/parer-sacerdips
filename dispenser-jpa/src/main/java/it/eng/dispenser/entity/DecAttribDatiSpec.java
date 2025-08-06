@@ -1,18 +1,14 @@
 /*
  * Engineering Ingegneria Informatica S.p.A.
  *
- * Copyright (C) 2023 Regione Emilia-Romagna
- * <p/>
- * This program is free software: you can redistribute it and/or modify it under the terms of
- * the GNU Affero General Public License as published by the Free Software Foundation,
- * either version 3 of the License, or (at your option) any later version.
- * <p/>
- * This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY;
- * without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
- * See the GNU Affero General Public License for more details.
- * <p/>
- * You should have received a copy of the GNU Affero General Public License along with this program.
- * If not, see <https://www.gnu.org/licenses/>.
+ * Copyright (C) 2023 Regione Emilia-Romagna <p/> This program is free software: you can
+ * redistribute it and/or modify it under the terms of the GNU Affero General Public License as
+ * published by the Free Software Foundation, either version 3 of the License, or (at your option)
+ * any later version. <p/> This program is distributed in the hope that it will be useful, but
+ * WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A
+ * PARTICULAR PURPOSE. See the GNU Affero General Public License for more details. <p/> You should
+ * have received a copy of the GNU Affero General Public License along with this program. If not,
+ * see <https://www.gnu.org/licenses/>.
  */
 
 package it.eng.dispenser.entity;
@@ -85,113 +81,116 @@ public class DecAttribDatiSpec implements Serializable {
     }
 
     public long getIdAttribDatiSpec() {
-        return this.idAttribDatiSpec;
+	return this.idAttribDatiSpec;
     }
 
     public void setIdAttribDatiSpec(long idAttribDatiSpec) {
-        this.idAttribDatiSpec = idAttribDatiSpec;
+	this.idAttribDatiSpec = idAttribDatiSpec;
     }
 
     public String getDsAttribDatiSpec() {
-        return this.dsAttribDatiSpec;
+	return this.dsAttribDatiSpec;
     }
 
     public void setDsAttribDatiSpec(String dsAttribDatiSpec) {
-        this.dsAttribDatiSpec = dsAttribDatiSpec;
+	this.dsAttribDatiSpec = dsAttribDatiSpec;
     }
 
     public java.math.BigDecimal getIdTipoCompDoc() {
-        return this.idTipoCompDoc;
+	return this.idTipoCompDoc;
     }
 
     public void setIdTipoCompDoc(java.math.BigDecimal idTipoCompDoc) {
-        this.idTipoCompDoc = idTipoCompDoc;
+	this.idTipoCompDoc = idTipoCompDoc;
     }
 
     public java.math.BigDecimal getIdTipoDoc() {
-        return this.idTipoDoc;
+	return this.idTipoDoc;
     }
 
     public void setIdTipoDoc(java.math.BigDecimal idTipoDoc) {
-        this.idTipoDoc = idTipoDoc;
+	this.idTipoDoc = idTipoDoc;
     }
 
     public java.math.BigDecimal getIdTipoUnitaDoc() {
-        return this.idTipoUnitaDoc;
+	return this.idTipoUnitaDoc;
     }
 
     public void setIdTipoUnitaDoc(java.math.BigDecimal idTipoUnitaDoc) {
-        this.idTipoUnitaDoc = idTipoUnitaDoc;
+	this.idTipoUnitaDoc = idTipoUnitaDoc;
     }
 
     public String getNmAttribDatiSpec() {
-        return this.nmAttribDatiSpec;
+	return this.nmAttribDatiSpec;
     }
 
     public void setNmAttribDatiSpec(String nmAttribDatiSpec) {
-        this.nmAttribDatiSpec = nmAttribDatiSpec;
+	this.nmAttribDatiSpec = nmAttribDatiSpec;
     }
 
     public String getNmSistemaMigraz() {
-        return this.nmSistemaMigraz;
+	return this.nmSistemaMigraz;
     }
 
     public void setNmSistemaMigraz(String nmSistemaMigraz) {
-        this.nmSistemaMigraz = nmSistemaMigraz;
+	this.nmSistemaMigraz = nmSistemaMigraz;
     }
 
     public String getTiAttribDatiSpec() {
-        return this.tiAttribDatiSpec;
+	return this.tiAttribDatiSpec;
     }
 
     public void setTiAttribDatiSpec(String tiAttribDatiSpec) {
-        this.tiAttribDatiSpec = tiAttribDatiSpec;
+	this.tiAttribDatiSpec = tiAttribDatiSpec;
     }
 
     public String getTiEntitaSacer() {
-        return this.tiEntitaSacer;
+	return this.tiEntitaSacer;
     }
 
     public void setTiEntitaSacer(String tiEntitaSacer) {
-        this.tiEntitaSacer = tiEntitaSacer;
+	this.tiEntitaSacer = tiEntitaSacer;
     }
 
     public String getTiUsoAttrib() {
-        return this.tiUsoAttrib;
+	return this.tiUsoAttrib;
     }
 
     public void setTiUsoAttrib(String tiUsoAttrib) {
-        this.tiUsoAttrib = tiUsoAttrib;
+	this.tiUsoAttrib = tiUsoAttrib;
     }
 
     public List<AroValoreAttribDatiSpec> getAroValoreAttribDatiSpecs() {
-        return this.aroValoreAttribDatiSpecs;
+	return this.aroValoreAttribDatiSpecs;
     }
 
-    public void setAroValoreAttribDatiSpecs(List<AroValoreAttribDatiSpec> aroValoreAttribDatiSpecs) {
-        this.aroValoreAttribDatiSpecs = aroValoreAttribDatiSpecs;
+    public void setAroValoreAttribDatiSpecs(
+	    List<AroValoreAttribDatiSpec> aroValoreAttribDatiSpecs) {
+	this.aroValoreAttribDatiSpecs = aroValoreAttribDatiSpecs;
     }
 
-    public AroValoreAttribDatiSpec addAroValoreAttribDatiSpec(AroValoreAttribDatiSpec aroValoreAttribDatiSpec) {
-        getAroValoreAttribDatiSpecs().add(aroValoreAttribDatiSpec);
-        aroValoreAttribDatiSpec.setDecAttribDatiSpec(this);
+    public AroValoreAttribDatiSpec addAroValoreAttribDatiSpec(
+	    AroValoreAttribDatiSpec aroValoreAttribDatiSpec) {
+	getAroValoreAttribDatiSpecs().add(aroValoreAttribDatiSpec);
+	aroValoreAttribDatiSpec.setDecAttribDatiSpec(this);
 
-        return aroValoreAttribDatiSpec;
+	return aroValoreAttribDatiSpec;
     }
 
-    public AroValoreAttribDatiSpec removeAroValoreAttribDatiSpec(AroValoreAttribDatiSpec aroValoreAttribDatiSpec) {
-        getAroValoreAttribDatiSpecs().remove(aroValoreAttribDatiSpec);
-        aroValoreAttribDatiSpec.setDecAttribDatiSpec(null);
+    public AroValoreAttribDatiSpec removeAroValoreAttribDatiSpec(
+	    AroValoreAttribDatiSpec aroValoreAttribDatiSpec) {
+	getAroValoreAttribDatiSpecs().remove(aroValoreAttribDatiSpec);
+	aroValoreAttribDatiSpec.setDecAttribDatiSpec(null);
 
-        return aroValoreAttribDatiSpec;
+	return aroValoreAttribDatiSpec;
     }
 
     public OrgStrut getOrgStrut() {
-        return this.orgStrut;
+	return this.orgStrut;
     }
 
     public void setOrgStrut(OrgStrut orgStrut) {
-        this.orgStrut = orgStrut;
+	this.orgStrut = orgStrut;
     }
 
 }

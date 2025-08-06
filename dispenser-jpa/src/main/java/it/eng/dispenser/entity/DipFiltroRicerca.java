@@ -1,18 +1,14 @@
 /*
  * Engineering Ingegneria Informatica S.p.A.
  *
- * Copyright (C) 2023 Regione Emilia-Romagna
- * <p/>
- * This program is free software: you can redistribute it and/or modify it under the terms of
- * the GNU Affero General Public License as published by the Free Software Foundation,
- * either version 3 of the License, or (at your option) any later version.
- * <p/>
- * This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY;
- * without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
- * See the GNU Affero General Public License for more details.
- * <p/>
- * You should have received a copy of the GNU Affero General Public License along with this program.
- * If not, see <https://www.gnu.org/licenses/>.
+ * Copyright (C) 2023 Regione Emilia-Romagna <p/> This program is free software: you can
+ * redistribute it and/or modify it under the terms of the GNU Affero General Public License as
+ * published by the Free Software Foundation, either version 3 of the License, or (at your option)
+ * any later version. <p/> This program is distributed in the hope that it will be useful, but
+ * WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A
+ * PARTICULAR PURPOSE. See the GNU Affero General Public License for more details. <p/> You should
+ * have received a copy of the GNU Affero General Public License along with this program. If not,
+ * see <https://www.gnu.org/licenses/>.
  */
 
 package it.eng.dispenser.entity;
@@ -81,89 +77,90 @@ public class DipFiltroRicerca implements Serializable {
     }
 
     public long getIdFiltroRicerca() {
-        return this.idFiltroRicerca;
+	return this.idFiltroRicerca;
     }
 
     public void setIdFiltroRicerca(long idFiltroRicerca) {
-        this.idFiltroRicerca = idFiltroRicerca;
+	this.idFiltroRicerca = idFiltroRicerca;
     }
 
     public String getFlStatico() {
-        return this.flStatico;
+	return this.flStatico;
     }
 
     public void setFlStatico(String flStatico) {
-        this.flStatico = flStatico;
+	this.flStatico = flStatico;
     }
 
     public BigDecimal getIdAttribDatiSpec() {
-        return this.idAttribDatiSpec;
+	return this.idAttribDatiSpec;
     }
 
     public void setIdAttribDatiSpec(BigDecimal idAttribDatiSpec) {
-        this.idAttribDatiSpec = idAttribDatiSpec;
+	this.idAttribDatiSpec = idAttribDatiSpec;
     }
 
     public String getNmFiltroRicerca() {
-        return this.nmFiltroRicerca;
+	return this.nmFiltroRicerca;
     }
 
     public void setNmFiltroRicerca(String nmFiltroRicerca) {
-        this.nmFiltroRicerca = nmFiltroRicerca;
+	this.nmFiltroRicerca = nmFiltroRicerca;
     }
 
     public String getTiTipoFiltro() {
-        return this.tiTipoFiltro;
+	return this.tiTipoFiltro;
     }
 
     public void setTiTipoFiltro(String tiTipoFiltro) {
-        this.tiTipoFiltro = tiTipoFiltro;
+	this.tiTipoFiltro = tiTipoFiltro;
     }
 
     public DipCampoRicerca getDipCampoRicerca() {
-        return this.dipCampoRicerca;
+	return this.dipCampoRicerca;
     }
 
     public void setDipCampoRicerca(DipCampoRicerca dipCampoRicerca) {
-        this.dipCampoRicerca = dipCampoRicerca;
+	this.dipCampoRicerca = dipCampoRicerca;
     }
 
     public DipCombinazioneRicerca getDipCombinazioneRicerca() {
-        return this.dipCombinazioneRicerca;
+	return this.dipCombinazioneRicerca;
     }
 
     public void setDipCombinazioneRicerca(DipCombinazioneRicerca dipCombinazioneRicerca) {
-        this.dipCombinazioneRicerca = dipCombinazioneRicerca;
+	this.dipCombinazioneRicerca = dipCombinazioneRicerca;
     }
 
     public List<DipValorePredefinito> getDipValorePredefinitos() {
-        return this.dipValorePredefinitos;
+	return this.dipValorePredefinitos;
     }
 
     public void setDipValorePredefinitos(List<DipValorePredefinito> dipValorePredefinitos) {
-        this.dipValorePredefinitos = dipValorePredefinitos;
+	this.dipValorePredefinitos = dipValorePredefinitos;
     }
 
     public DipValorePredefinito addDipValorePredefinito(DipValorePredefinito dipValorePredefinito) {
-        getDipValorePredefinitos().add(dipValorePredefinito);
-        dipValorePredefinito.setDipFiltroRicerca(this);
+	getDipValorePredefinitos().add(dipValorePredefinito);
+	dipValorePredefinito.setDipFiltroRicerca(this);
 
-        return dipValorePredefinito;
+	return dipValorePredefinito;
     }
 
-    public DipValorePredefinito removeDipValorePredefinito(DipValorePredefinito dipValorePredefinito) {
-        getDipValorePredefinitos().remove(dipValorePredefinito);
-        dipValorePredefinito.setDipFiltroRicerca(null);
+    public DipValorePredefinito removeDipValorePredefinito(
+	    DipValorePredefinito dipValorePredefinito) {
+	getDipValorePredefinitos().remove(dipValorePredefinito);
+	dipValorePredefinito.setDipFiltroRicerca(null);
 
-        return dipValorePredefinito;
+	return dipValorePredefinito;
     }
 
     public String getTiDatoFiltro() {
-        return tiDatoFiltro;
+	return tiDatoFiltro;
     }
 
     public void setTiDatoFiltro(String tiDatoFiltro) {
-        this.tiDatoFiltro = tiDatoFiltro;
+	this.tiDatoFiltro = tiDatoFiltro;
     }
 
 }

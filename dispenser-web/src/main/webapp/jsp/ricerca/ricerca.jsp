@@ -43,8 +43,10 @@
 		</slf:fieldSet>
 		<sl:newLine skipLine="true"/>
 		<sl:pulsantiera>
-			<slf:lblField name="<%=DynamicSpagoLiteForm.FormRicerca.RICERCA%>" codiceOrganizzazione="${sessionScope['###_NOME_RICERCA']}" />
-			<slf:lblField name="<%=DynamicSpagoLiteForm.FormRicerca.PULISCI%>" codiceOrganizzazione="${sessionScope['###_NOME_RICERCA']}" />
+			<slf:lblField name="<%=DynamicSpagoLiteForm.FormRicerca.NM_RICERCA%>" 
+                                      codiceOrganizzazione="${sessionScope['###_NOME_RICERCA']}" />
+			<slf:lblField name="<%=DynamicSpagoLiteForm.FormRicerca.NM_PULISCI%>" 
+                                      codiceOrganizzazione="${sessionScope['###_NOME_RICERCA']}" />
 		</sl:pulsantiera>
 		<sl:newLine skipLine="true"/>
 		<slf:list  name="<%= DynamicSpagoLiteForm.RicercaList.NAME%>" codiceOrganizzazione="${sessionScope['###_NOME_RICERCA']}" />
