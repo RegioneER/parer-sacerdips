@@ -1,16 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <Form Description="Gestione Job Sacerdips" xmlns="http://www.spagoLite.eng.it/xmlbean/form" xmlns:xsi="http://www.w3.org/2001/XMLSchema">
-
-	<Fields Name="AllineaMetadatiJob" Description="Elenco campi allineamento metadati" >
-		<CheckBox Name="attivo" Description="In esecuzione" Type="STRING" />
-		<Input Name="dtStartJob" Description="Da" Type="DATETIME" />
-		<Input Name="dtNextActivation" Description="Prossima attivazione" Type="DATETIME" />  
-                <Input Name="fl_data_accurata" Description="Nota" Type="STRING"/>      
-		<Button Name="startAllineaMetadati" Description="Start" Type="STRING" />
-                <Button Name="startOnceAllineaMetadati" Description="Esegui singolarmente" Type="STRING" />
-		<Button Name="stopAllineaMetadati" Description="Stop" Type="STRING" />
-	</Fields>
         
         <!-- NUOVA GESTIONE JOB -->
         <Section Description="" Legend="Filtri ricerca" LoadOpened="true" Name="FiltriRicercaJobSection" ShowButton="false"/>
