@@ -15,10 +15,10 @@ package it.eng.dispenser.ws.util;
 
 import java.io.ByteArrayInputStream;
 import java.io.IOException;
-import java.io.InputStream;
 import java.nio.charset.StandardCharsets;
 import java.security.KeyManagementException;
 import java.security.NoSuchAlgorithmException;
+import java.security.SecureRandom;
 import java.util.List;
 
 import javax.net.ssl.SSLContext;
@@ -30,20 +30,17 @@ import javax.xml.bind.Unmarshaller;
 import org.apache.http.HttpEntity;
 import org.apache.http.HttpResponse;
 import org.apache.http.NameValuePair;
-import org.apache.http.client.HttpClient;
+import org.apache.http.client.config.RequestConfig;
 import org.apache.http.client.entity.UrlEncodedFormEntity;
 import org.apache.http.client.methods.HttpPost;
-import org.apache.http.conn.ClientConnectionManager;
-import org.apache.http.conn.scheme.Scheme;
-import org.apache.http.conn.scheme.SchemeRegistry;
-import org.apache.http.conn.ssl.SSLSocketFactory;
+import org.apache.http.conn.ssl.NoopHostnameVerifier;
+import org.apache.http.conn.ssl.SSLConnectionSocketFactory;
+import org.apache.http.entity.ContentType;
 import org.apache.http.entity.mime.HttpMultipartMode;
-import org.apache.http.entity.mime.MultipartEntity;
-import org.apache.http.entity.mime.content.StringBody;
-import org.apache.http.impl.client.DefaultHttpClient;
-import org.apache.http.params.BasicHttpParams;
-import org.apache.http.params.HttpConnectionParams;
-import org.apache.http.params.HttpParams;
+import org.apache.http.entity.mime.MultipartEntityBuilder;
+import org.apache.http.impl.client.CloseableHttpClient;
+import org.apache.http.impl.client.HttpClientBuilder;
+import org.apache.http.impl.client.HttpClients;
 import org.apache.http.util.EntityUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -71,141 +68,150 @@ public class RichiestaWSClient {
 		input.getTimeout(), input.isMultipart());
     }
 
-    public EsitoConnessione callWs(TipoRichiesta tipoRichiesta, String url,
+    /*
+     * Metodo che effettua la chiamata al servizio web. La chiama avviene tramite un client HTTP che
+     * supporta HTTPS e bypassa la validazione del certificato SSL.
+     *
+     * Nota: la sessione viene chiusa dal chiamante che "consuma" l'oggetto o response ottenuta.
+     */
+    private EsitoConnessione callWs(TipoRichiesta tipoRichiesta, String url,
 	    List<NameValuePair> inputParams, int timeout, boolean multipart) {
 	EsitoConnessione esitoConnessione = new EsitoConnessione();
+
+	// create standard http client
+	CloseableHttpClient httpclient = createHttpClient(timeout);
 	try {
-	    boolean useHttps = true;
-
-	    HttpParams httpParameters = new BasicHttpParams();
-	    HttpConnectionParams.setConnectionTimeout(httpParameters, timeout);
-	    HttpConnectionParams.setSoTimeout(httpParameters, timeout);
-	    // crea una nuova istanza di HttpClient, predisponendo la chiamata
-	    // del metodo POST
-	    HttpClient httpclient = new DefaultHttpClient(httpParameters);
-	    if (useHttps) {
-		// se devo usare HTTPS...
-		// creo un array di TrustManager per considerare tutti i
-		// certificati server come validi.
-		// questo andrebbe rimpiazzato con uno che validi il certificato
-		// con un certstore...
-		X509TrustManager tm = new X509TrustManager() {
-		    @Override
-		    public java.security.cert.X509Certificate[] getAcceptedIssuers() {
-			return null;
-		    }
-
-		    @Override
-		    public void checkClientTrusted(java.security.cert.X509Certificate[] certs,
-			    String authType) {
-		    }
-
-		    @Override
-		    public void checkServerTrusted(java.security.cert.X509Certificate[] certs,
-			    String authType) {
-		    }
-		};
-
-		try {
-		    // Creo il contesto SSL utilizzando i trust manager creati
-		    SSLContext ctx = SSLContext.getInstance("TLS");
-		    ctx.init(null, new TrustManager[] {
-			    tm }, null);
-
-		    // Creo la connessione https
-		    SSLSocketFactory ssf = new SSLSocketFactory(ctx,
-			    SSLSocketFactory.ALLOW_ALL_HOSTNAME_VERIFIER);
-		    ClientConnectionManager ccm = httpclient.getConnectionManager();
-		    SchemeRegistry sr = ccm.getSchemeRegistry();
-		    sr.register(new Scheme("https", 443, ssf));
-		    httpclient = new DefaultHttpClient(ccm, httpclient.getParams());
-		} catch (NoSuchAlgorithmException | KeyManagementException e) {
-		    log.error("Errore interno nella preparazione della chiamata HTTPS "
-			    + e.getMessage());
-		}
-	    }
-
-	    log.debug("Chiamata del servizio all'url " + url);
+	    //
 	    HttpPost httpPost = new HttpPost(url);
 	    if (multipart) {
 		// Inizializza la request come multipart, nella modalità browser
 		// compatible che
 		// consente di inviare i dati come campi di una form web
-		MultipartEntity reqEntity = new MultipartEntity(
-			HttpMultipartMode.BROWSER_COMPATIBLE);
-
+		MultipartEntityBuilder builder = MultipartEntityBuilder.create()
+			.setMode(HttpMultipartMode.BROWSER_COMPATIBLE)
+			.setCharset(StandardCharsets.UTF_8);
 		for (NameValuePair param : inputParams) {
-		    reqEntity.addPart(param.getName(), new StringBody(param.getValue()));
+		    builder.addTextBody(param.getName(), param.getValue(),
+			    ContentType.TEXT_PLAIN.withCharset(StandardCharsets.UTF_8));
 		}
-
-		httpPost.setEntity(reqEntity);
+		httpPost.setEntity(builder.build());
 	    } else {
 		httpPost.setEntity(new UrlEncodedFormEntity(inputParams));
 	    }
 
-	    HttpResponse response = null;
-	    boolean timeoutException = false;
-	    int statusCode = 0;
-	    try {
-		response = httpclient.execute(httpPost);
-		statusCode = response.getStatusLine().getStatusCode();
-	    } catch (Exception ex) {
-		timeoutException = true;
-		log.debug("catch timeoutException " + ex);
-	    }
-	    if (statusCode == 404 || timeoutException) {
-		esitoConnessione.setErroreConnessione(true);
-		if (statusCode == 404) {
-		    esitoConnessione.setDescrErrConnessione("Errore 404");
-		} else {
-		    esitoConnessione.setDescrErrConnessione("Errore timeout");
-		}
+	    log.debug("Esecuzione richiesta {}", httpPost.getRequestLine());
+	    HttpResponse response = httpclient.execute(httpPost);
+	    int statusCode = response.getStatusLine().getStatusCode();
+	    log.debug("Response status: {}", statusCode);
+
+	    if (statusCode != 200) {
+		setError(esitoConnessione, "Il servizio restituisce errore " + statusCode);
 	    } else {
-		// recupera la risposta
-		if (response != null) {
-		    HttpEntity resEntity = response.getEntity();
-		    InputStream responseIS;
-		    if (resEntity != null) {
-			if (resEntity.getContentType().getValue().startsWith("application/zip")) {
-			    esitoConnessione.setCodiceEsito(EsitoConnessione.Esito.OK.name());
-			    esitoConnessione.setResponse(resEntity.getContent());
-			    // Aggiungo in un campo la lunghezza dell'oggetto,
-			    // per aggiungerla al download
-			    esitoConnessione
-				    .setXmlResponse(String.valueOf(resEntity.getContentLength()));
-			} else if (resEntity.getContentType().getValue()
-				.startsWith("application/xml")) {
-			    Unmarshaller um;
-			    byte[] entityBA = EntityUtils.toByteArray(resEntity);
-			    responseIS = new ByteArrayInputStream(entityBA);
-			    switch (tipoRichiesta) {
-			    case REC_DIP_UNI_DOC:
-			    case REC_COMP:
-			    case REC_PDF:
-			    case REC_AIP:
-				um = jaxbSingleton.getContextStatoConservazione()
-					.createUnmarshaller();
-				StatoConservazione responseRecupero = XmlUtils.unmarshallResponse(
-					um, responseIS, StatoConservazione.class);
-				esitoConnessione.setCodiceEsito(responseRecupero.getEsitoGenerale()
-					.getCodiceEsito() == ECEsitoExtType.NEGATIVO
-						? EsitoConnessione.Esito.KO.name()
-						: EsitoConnessione.Esito.OK.name());
-				esitoConnessione.setCodiceErrore(
-					responseRecupero.getEsitoGenerale().getCodiceErrore());
-				esitoConnessione.setMessaggioErrore(
-					responseRecupero.getEsitoGenerale().getMessaggioErrore());
-				esitoConnessione.setResponse(responseRecupero);
-				break;
-			    default:
-				break;
-			    }
-			    esitoConnessione
-				    .setXmlResponse(new String(entityBA, StandardCharsets.UTF_8));
-			}
-			esitoConnessione.setErroreConnessione(false);
-		    }
+		processResponse(response, tipoRichiesta, esitoConnessione);
+	    }
+	} catch (Exception ex) {
+	    final String msg = "Richiesta al servizio scaduta o fallita";
+	    log.error(msg, ex);
+	    setError(esitoConnessione, msg);
+	    // close client ONLY in case of error
+	    try {
+		httpclient.close();
+	    } catch (IOException e) {
+		log.error("Errore durante la chiusura del client HTTP", e);
+	    }
+	}
+
+	return esitoConnessione;
+    }
+
+    private CloseableHttpClient createHttpClient(int timeout) {
+	RequestConfig config = RequestConfig.custom().setConnectTimeout(timeout)
+		.setSocketTimeout(timeout).build();
+	HttpClientBuilder builder = HttpClients.custom().setDefaultRequestConfig(config);
+
+	try {
+	    // Create an SSLContext with TLS protocol
+	    SSLContext sslContext = SSLContext.getInstance("TLS");
+
+	    // Create a TrustManager that does not validate certificate chains
+	    X509TrustManager trustAllManager = new X509TrustManager() {
+		@Override
+		public java.security.cert.X509Certificate[] getAcceptedIssuers() {
+		    return new java.security.cert.X509Certificate[0];
 		}
+
+		@Override
+		public void checkClientTrusted(java.security.cert.X509Certificate[] certs,
+			String authType) {
+		}
+
+		@Override
+		public void checkServerTrusted(java.security.cert.X509Certificate[] certs,
+			String authType) {
+		}
+	    };
+
+	    // Initialize the SSLContext with the trust-all manager
+	    sslContext.init(null, new TrustManager[] {
+		    trustAllManager }, new SecureRandom());
+
+	    // Create a SSLConnectionSocketFactory that uses the SSLContext and bypasses
+	    // hostname verification
+	    SSLConnectionSocketFactory ssf = new SSLConnectionSocketFactory(sslContext,
+		    NoopHostnameVerifier.INSTANCE);
+
+	    // Set the SSLConnectionSocketFactory on the HttpClient builder
+	    builder.setSSLSocketFactory(ssf);
+	} catch (NoSuchAlgorithmException | KeyManagementException e) {
+	    log.error("Error preparing HTTPS connection: {}", e.getMessage());
+	}
+
+	return builder.build();
+    }
+
+    private void setError(EsitoConnessione esito, String errorMessage) {
+	esito.setErroreConnessione(true);
+	esito.setDescrErrConnessione(errorMessage);
+    }
+
+    private void processResponse(HttpResponse response, TipoRichiesta tipoRichiesta,
+	    EsitoConnessione esitoConnessione) {
+	try {
+	    HttpEntity resEntity = response.getEntity();
+	    if (resEntity != null) {
+		String contentType = resEntity.getContentType().getValue();
+		if (contentType.startsWith("application/zip")) {
+		    esitoConnessione.setCodiceEsito(EsitoConnessione.Esito.OK.name());
+		    esitoConnessione.setResponse(resEntity.getContent());
+		    esitoConnessione.setXmlResponse(String.valueOf(resEntity.getContentLength()));
+		} else if (contentType.startsWith("application/xml")) {
+		    Unmarshaller um;
+		    byte[] entityBA = EntityUtils.toByteArray(resEntity);
+		    ByteArrayInputStream responseIS = new ByteArrayInputStream(entityBA);
+		    switch (tipoRichiesta) {
+		    case REC_DIP_UNI_DOC:
+		    case REC_COMP:
+		    case REC_PDF:
+		    case REC_AIP:
+			um = jaxbSingleton.getContextStatoConservazione().createUnmarshaller();
+			StatoConservazione responseRecupero = XmlUtils.unmarshallResponse(um,
+				responseIS, StatoConservazione.class);
+			esitoConnessione.setCodiceEsito(responseRecupero.getEsitoGenerale()
+				.getCodiceEsito() == ECEsitoExtType.NEGATIVO
+					? EsitoConnessione.Esito.KO.name()
+					: EsitoConnessione.Esito.OK.name());
+			esitoConnessione.setCodiceErrore(
+				responseRecupero.getEsitoGenerale().getCodiceErrore());
+			esitoConnessione.setMessaggioErrore(
+				responseRecupero.getEsitoGenerale().getMessaggioErrore());
+			esitoConnessione.setResponse(responseRecupero);
+			break;
+		    default:
+			break;
+		    }
+		    esitoConnessione.setXmlResponse(new String(entityBA, StandardCharsets.UTF_8));
+		}
+		esitoConnessione.setErroreConnessione(false);
 	    }
 	} catch (IOException | JAXBException ex) {
 	    log.error("Impossibile decodificare il messaggio di risposta", ex);
@@ -218,6 +224,5 @@ public class RichiestaWSClient {
 	    esitoConnessione
 		    .setMessaggioErrore("Impossibile decodificare il messaggio di risposta");
 	}
-	return esitoConnessione;
     }
 }

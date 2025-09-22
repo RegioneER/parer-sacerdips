@@ -876,96 +876,12 @@ public class GestioneJobAction extends GestioneJobAbstractAction {
 
     @Override
     protected String getDefaultPublsherName() {
-	return Application.Publisher.GESTIONE_JOB;
+	return Application.Publisher.GESTIONE_JOB_RICERCA;
     }
 
-    @Secure(action = "Menu.AmministrazioneSistema.GestioneJob")
     @Override
     public void initOnClick() throws EMFError {
-	// Sets the correct menu tab
-	getUser().getMenu().reset();
-	getUser().getMenu().select("Menu.AmministrazioneSistema.GestioneJob");
-
-	// <editor-fold defaultstate="collapsed" desc="UI Gestione job per Sincronizzazione con
-	// Sacer">
-	Timestamp dataAttivazioneJob = getActivationDateJob(Constants.JobEnum.SACER_SYNCRO.name());
-	StatoJob allineaMetadati = new StatoJob(Constants.JobEnum.SACER_SYNCRO.name(),
-		getForm().getAllineaMetadatiJob().getFl_data_accurata(),
-		getForm().getAllineaMetadatiJob().getStartAllineaMetadati(),
-		getForm().getAllineaMetadatiJob().getStartOnceAllineaMetadati(),
-		getForm().getAllineaMetadatiJob().getStopAllineaMetadati(),
-		getForm().getAllineaMetadatiJob().getDtNextActivation(),
-		getForm().getAllineaMetadatiJob().getAttivo(),
-		getForm().getAllineaMetadatiJob().getDtStartJob(), dataAttivazioneJob);
-
-	gestisciStatoJob(allineaMetadati);
-	// </editor-fold>
-
-	forwardToPublisher(Application.Publisher.GESTIONE_JOB);
-    }
-
-    /**
-     * Cuore della classe: qui Ã¨ definita la logica STANDARD degli stati dei job a livello di
-     * <b>interfaccia web<b>. Per i job che devono implementare una logica non standard non Ã¨
-     * consigliabile utilizzare questo metodo. Si Ã¨ cercato di mantenere una simmetria tra
-     * esposizione/inibizione dei controlli grafici.
-     *
-     * @param statoJob Rappresentazione dello stato <b>a livello di interfaccia grafica</b> del job.
-     *
-     */
-    private void gestisciStatoJob(StatoJob statoJob) {
-	// se non Ã¨ ancora passato un minuto da quando Ã¨ stato premuto un pulsante non posso fare
-	// nulla
-	boolean operazioneInCorso = jbossTimerEjb.isEsecuzioneInCorso(statoJob.getNomeJob());
-
-	statoJob.getFlagDataAccurata().setViewMode();
-	statoJob.getFlagDataAccurata()
-		.setValue("L'operazione richiesta verrà effettuata entro il prossimo minuto.");
-	statoJob.getStart().setHidden(operazioneInCorso);
-	statoJob.getEsecuzioneSingola().setHidden(operazioneInCorso);
-	statoJob.getStop().setHidden(operazioneInCorso);
-	statoJob.getDataProssimaAttivazione().setHidden(operazioneInCorso);
-
-	statoJob.getFlagDataAccurata().setHidden(!operazioneInCorso);
-	if (operazioneInCorso) {
-	    return;
-	}
-
-	// Posso operare sulla pagina
-	Date nextActivation = jbossTimerEjb.getDataProssimaAttivazione(statoJob.getNomeJob());
-	boolean dataAccurata = jbossTimerEjb
-		.isDataProssimaAttivazioneAccurata(statoJob.getNomeJob());
-	DateFormat formato = new SimpleDateFormat(Constants.DATE_FORMAT_JOB);
-
-	/*
-	 * Se il job Ã¨ già schedulato o in esecuzione singola nascondo il pulsante Start/esecuzione
-	 * singola, mostro Stop e visualizzo la prossima attivazione. Viceversa se Ã¨ fermo mostro
-	 * Start e nascondo Stop
-	 */
-	if (nextActivation != null) {
-	    statoJob.getStart().setViewMode();
-	    statoJob.getEsecuzioneSingola().setViewMode();
-	    statoJob.getStop().setEditMode();
-	    statoJob.getDataProssimaAttivazione().setValue(formato.format(nextActivation));
-	} else {
-	    statoJob.getStart().setEditMode();
-	    statoJob.getEsecuzioneSingola().setEditMode();
-	    statoJob.getStop().setViewMode();
-	    statoJob.getDataProssimaAttivazione().setValue(null);
-	}
-
-	boolean flagHidden = nextActivation == null || dataAccurata;
-	// se la data c'Ã¨ ma non Ã¨ accurata non visualizzare la "data prossima attivazione"
-	statoJob.getDataProssimaAttivazione().setHidden(!flagHidden);
-
-	if (statoJob.getDataAttivazione() != null) {
-	    statoJob.getCheckAttivo().setChecked(true);
-	    statoJob.getDataRegistrazioneJob()
-		    .setValue(formato.format(new Date(statoJob.getDataAttivazione().getTime())));
-	} else {
-	    statoJob.getCheckAttivo().setChecked(false);
-	    statoJob.getDataRegistrazioneJob().setValue(null);
-	}
+	throw new UnsupportedOperationException(UNSOPPORTED_OPERATION_EXCEPTION);
     }
 
     // <editor-fold defaultstate="collapsed" desc="UI Classe che mappa lo stato dei job">
@@ -1101,92 +1017,6 @@ public class GestioneJobAction extends GestioneJobAbstractAction {
     @Override
     public void reloadAfterGoBack(String publisherName) {
 	getSession().removeAttribute(BACK_TO_RICERCA_JOB);
-    }
-    // </editor-fold>
-
-    // <editor-fold defaultstate="collapsed" desc="Methods to manage SacerSyncroJob schedulation">
-    /**
-     * Starts SacerSyncroJob schedulation.
-     *
-     * @throws EMFError errore generico
-     */
-    @Override
-    public void startAllineaMetadati() throws EMFError {
-	esegui(Constants.JobEnum.SACER_SYNCRO.name(), DESCRIZIONE_JOB, null, OPERAZIONE.START);
-    }
-
-    /**
-     * Starts a single execution of SacerSyncroJob.
-     *
-     * @throws EMFError errore generico
-     */
-    @Override
-    public void startOnceAllineaMetadati() throws EMFError {
-	esegui(Constants.JobEnum.SACER_SYNCRO.name(), DESCRIZIONE_JOB, null,
-		OPERAZIONE.ESECUZIONE_SINGOLA);
-    }
-
-    /**
-     * Stops SacerSyncroJob schedulation.
-     *
-     * @throws EMFError errore generico
-     */
-    @Override
-    public void stopAllineaMetadati() throws EMFError {
-	esegui(Constants.JobEnum.SACER_SYNCRO.name(), DESCRIZIONE_JOB, null, OPERAZIONE.STOP);
-    }
-    // </editor-fold>
-
-    // <editor-fold defaultstate="collapsed" desc="Esecuzione di un job STANDARD">
-    /**
-     * Esegui una delle seguenti operazioni:
-     * <ul>
-     * <li>{@link OPERAZIONE#START}</li>
-     * <li>{@link OPERAZIONE#ESECUZIONE_SINGOLA}</li>
-     * <li>{@link OPERAZIONE#STOP}</li>
-     * </ul>
-     *
-     * @param nomeJob          nome del job
-     * @param descrizioneJob   descrizione (che comparirà sul LOG) del job
-     * @param nomeApplicazione nome dell'applicazione. <b>Obbligatorio per i job che elaborano i LOG
-     *                         "PREMIS"</b>
-     * @param operazione       una delle tre operazioni dell'enum
-     *
-     * @throws EMFError Errore di esecuzione
-     */
-    private void esegui(String nomeJob, String descrizioneJob, String nomeApplicazione,
-	    OPERAZIONE operazione) throws EMFError {
-	// Messaggio sul LOG di sistema
-	StringBuilder info = new StringBuilder(descrizioneJob);
-	info.append(": ").append(operazione.description()).append(" [").append(nomeJob);
-	if (nomeApplicazione != null) {
-	    info.append("_").append(nomeApplicazione);
-	}
-	info.append("]");
-	log.info(info.toString());
-
-	String message = "Errore durante la schedulazione del job";
-
-	switch (operazione) {
-	case START:
-	    jbossTimerEjb.start(nomeJob, null);
-	    message = descrizioneJob + ": job correttamente schedulato";
-	    break;
-	case ESECUZIONE_SINGOLA:
-	    jbossTimerEjb.esecuzioneSingola(nomeJob, null);
-	    message = descrizioneJob + ": job correttamente schedulato per esecuzione singola";
-	    break;
-	case STOP:
-	    jbossTimerEjb.stop(nomeJob);
-	    message = descrizioneJob + ": schedulazione job annullata";
-	    break;
-	}
-
-	// Segnalo l'avvenuta operazione sul job
-	getMessageBox().addMessage(new Message(MessageLevel.INF, message));
-	getMessageBox().setViewMode(ViewMode.plain);
-	// Risetto la pagina rilanciando l'initOnClick
-	initOnClick();
     }
     // </editor-fold>
 }
