@@ -92,10 +92,12 @@ public class SecurityConfiguration extends ParerSecurityConfiguration {
 		    saml2.logoutResponse().logoutUrl("/saml/SingleLogout/alias/{registrationId}");
 		    saml2.logoutUrl("/logout");
 		});
-	http.headers().contentSecurityPolicy(
-		System.getProperty("http.sec.header.content-security-policy", ""));
+	http.headers().contentSecurityPolicy(System.getProperty(
+		"http.sec.header.content-security-policy",
+		"'default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' 'report-sample' *; style-src 'self' 'report-sample' 'unsafe-inline' *; img-src 'self' data: *;"));
 	http.headers().permissionsPolicy(
-		pol -> pol.policy(System.getProperty("http.sec.header.permissions-policy", "")));
+		pol -> pol.policy(System.getProperty("http.sec.header.permissions-policy",
+			"'cross-origin-isolated=*, vertical-scroll=*'")));
 
 	SecurityFilterChain catena = http.build();
 	List<Filter> filtri = catena.getFilters();
