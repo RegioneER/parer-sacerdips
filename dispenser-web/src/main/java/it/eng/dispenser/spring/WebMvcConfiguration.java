@@ -39,6 +39,7 @@ import javax.sql.DataSource;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.Scope;
 import org.springframework.context.support.PropertySourcesPlaceholderConfigurer;
 import org.springframework.core.Ordered;
 import org.springframework.http.client.SimpleClientHttpRequestFactory;
@@ -186,67 +187,80 @@ public class WebMvcConfiguration implements WebMvcConfigurer {
      * delle action ereditate dal framework
      */
     @Bean(value = "/View.html")
+    @Scope("prototype")
     RedirectAction redirectAction() {
 	return new RedirectAction();
     }
 
     @Bean(value = "/Login.html")
+    @Scope("prototype")
     LoginAction loginAction() {
 	return new LoginAction();
     }
 
     @Bean(value = "/Logout.html")
+    @Scope("prototype")
     LogoutAction logoutAction() {
 	return new LogoutAction();
     }
 
     /* Configurazione delle action specifiche del modulo web */
     @Bean(value = "/Home.html")
+    @Scope("prototype")
     HomeAction homeAction() {
 	return new HomeAction();
     }
 
     @Bean(value = "/SceltaOrganizzazione.html")
+    @Scope("prototype")
     SceltaOrganizzazioneAction sceltaOrganizzazioneAction() {
 	return new SceltaOrganizzazioneAction();
     }
 
     @Bean(value = "/NoteRilascio.html")
+    @Scope("prototype")
     NoteRilascioAction noteRilascioAction() {
 	return new NoteRilascioAction();
     }
 
     @Bean(value = "/Ricerca.html")
+    @Scope("prototype")
     RicercaAction ricercaAction() {
 	return new RicercaAction();
     }
 
     @Bean(value = "/GestioneJob.html")
+    @Scope("prototype")
     GestioneJobAction gestioneJobAction() {
 	return new GestioneJobAction();
     }
 
     @Bean(value = "/LUM.html")
-    LUMAction lUMAction() {
+    @Scope("prototype")
+    LUMAction lumAction() {
 	return new LUMAction();
     }
 
     @Bean(value = "/PAB.html")
-    PABAction pABAction() {
+    @Scope("prototype")
+    PABAction pabAction() {
 	return new PABAction();
     }
 
     @Bean(value = "/PUG.html")
-    PUGAction pUGAction() {
+    @Scope("prototype")
+    PUGAction pugAction() {
 	return new PUGAction();
     }
 
     @Bean(value = "/SISMA.html")
-    SISMAAction sISMAAction() {
+    @Scope("prototype")
+    SISMAAction sismaAction() {
 	return new SISMAAction();
     }
 
     @Bean(value = "/Pievesestina.html")
+    @Scope("prototype")
     PievesestinaAction pievesestinaAction() {
 	return new PievesestinaAction();
     }
