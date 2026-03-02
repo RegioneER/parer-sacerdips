@@ -48,40 +48,40 @@ public class DipValorePredefinito implements Serializable {
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "DIP_VALORE_PREDEFINITO_IDVALOREPREDEFINITO_GENERATOR")
     @Column(name = "ID_VALORE_PREDEFINITO")
     public long getIdValorePredefinito() {
-	return this.idValorePredefinito;
+        return this.idValorePredefinito;
     }
 
     public void setIdValorePredefinito(long idValorePredefinito) {
-	this.idValorePredefinito = idValorePredefinito;
+        this.idValorePredefinito = idValorePredefinito;
     }
 
     @Column(name = "DL_VALORE")
     public String getDlValore() {
-	return this.dlValore;
+        return this.dlValore;
     }
 
     public void setDlValore(String dlValore) {
-	this.dlValore = dlValore;
+        this.dlValore = dlValore;
     }
 
     @Column(name = "ID_REGISTRO_UNITA_DOC")
     public BigDecimal getIdRegistroUnitaDoc() {
-	return this.idRegistroUnitaDoc;
+        return this.idRegistroUnitaDoc;
     }
 
     public void setIdRegistroUnitaDoc(BigDecimal idRegistroUnitaDoc) {
-	this.idRegistroUnitaDoc = idRegistroUnitaDoc;
+        this.idRegistroUnitaDoc = idRegistroUnitaDoc;
     }
 
     // bi-directional many-to-one association to DipFiltroRicerca
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "ID_FILTRO_RICERCA")
     public DipFiltroRicerca getDipFiltroRicerca() {
-	return this.dipFiltroRicerca;
+        return this.dipFiltroRicerca;
     }
 
     public void setDipFiltroRicerca(DipFiltroRicerca dipFiltroRicerca) {
-	this.dipFiltroRicerca = dipFiltroRicerca;
+        this.dipFiltroRicerca = dipFiltroRicerca;
     }
 
 }

@@ -36,80 +36,80 @@ public class QryUdByVlMetaNumRowBean extends BaseRow implements JEEBaseRowInterf
     public static QryUdByVlMetaNumTableDescriptor TABLE_DESCRIPTOR = new QryUdByVlMetaNumTableDescriptor();
 
     public QryUdByVlMetaNumRowBean() {
-	super();
+        super();
     }
 
     public TableDescriptor getTableDescriptor() {
-	return TABLE_DESCRIPTOR;
+        return TABLE_DESCRIPTOR;
     }
 
     // getter e setter
     public BigDecimal getIdAttribDatiSpec() {
-	return getBigDecimal("id_attrib_dati_spec");
+        return getBigDecimal("id_attrib_dati_spec");
     }
 
     public void setIdAttribDatiSpec(BigDecimal idAttribDatiSpec) {
-	setObject("id_attrib_dati_spec", idAttribDatiSpec);
+        setObject("id_attrib_dati_spec", idAttribDatiSpec);
     }
 
     public BigDecimal getIdUnitaDoc() {
-	return getBigDecimal("id_unita_doc");
+        return getBigDecimal("id_unita_doc");
     }
 
     public void setIdUnitaDoc(BigDecimal idUnitaDoc) {
-	setObject("id_unita_doc", idUnitaDoc);
+        setObject("id_unita_doc", idUnitaDoc);
     }
 
     public BigDecimal getDlValore() {
-	return getBigDecimal("dl_valore");
+        return getBigDecimal("dl_valore");
     }
 
     public void setDlValore(BigDecimal dlValore) {
-	setObject("dl_valore", dlValore);
+        setObject("dl_valore", dlValore);
     }
 
     @Override
     public void entityToRowBean(Object obj) {
-	QryUdByVlMetaNum entity = (QryUdByVlMetaNum) obj;
-	this.setIdAttribDatiSpec(entity.getQryUdByVlMetaNumId().getIdAttribDatiSpec());
-	this.setIdUnitaDoc(entity.getQryUdByVlMetaNumId().getIdUnitaDoc());
-	this.setDlValore(entity.getDlValore());
+        QryUdByVlMetaNum entity = (QryUdByVlMetaNum) obj;
+        this.setIdAttribDatiSpec(entity.getQryUdByVlMetaNumId().getIdAttribDatiSpec());
+        this.setIdUnitaDoc(entity.getQryUdByVlMetaNumId().getIdUnitaDoc());
+        this.setDlValore(entity.getDlValore());
     }
 
     @Override
     public QryUdByVlMetaNum rowBeanToEntity() {
-	QryUdByVlMetaNumId id = new QryUdByVlMetaNumId();
-	id.setIdAttribDatiSpec(this.getIdAttribDatiSpec());
-	id.setIdUnitaDoc(this.getIdUnitaDoc());
-	QryUdByVlMetaNum entity = new QryUdByVlMetaNum();
-	entity.setQryUdByVlMetaNumId(id);
-	entity.setDlValore(this.getDlValore());
-	return entity;
+        QryUdByVlMetaNumId id = new QryUdByVlMetaNumId();
+        id.setIdAttribDatiSpec(this.getIdAttribDatiSpec());
+        id.setIdUnitaDoc(this.getIdUnitaDoc());
+        QryUdByVlMetaNum entity = new QryUdByVlMetaNum();
+        entity.setQryUdByVlMetaNumId(id);
+        entity.setDlValore(this.getDlValore());
+        return entity;
     }
 
     // gestione della paginazione
     public void setRownum(Integer rownum) {
-	setObject("rownum", rownum);
+        setObject("rownum", rownum);
     }
 
     public Integer getRownum() {
-	return Integer.parseInt(getObject("rownum").toString());
+        return Integer.parseInt(getObject("rownum").toString());
     }
 
     public void setRnum(Integer rnum) {
-	setObject("rnum", rnum);
+        setObject("rnum", rnum);
     }
 
     public Integer getRnum() {
-	return Integer.parseInt(getObject("rnum").toString());
+        return Integer.parseInt(getObject("rnum").toString());
     }
 
     public void setNumrecords(Integer numRecords) {
-	setObject("numrecords", numRecords);
+        setObject("numrecords", numRecords);
     }
 
     public Integer getNumrecords() {
-	return Integer.parseInt(getObject("numrecords").toString());
+        return Integer.parseInt(getObject("numrecords").toString());
     }
 
 }

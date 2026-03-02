@@ -54,43 +54,43 @@ public class DipParamApplic implements Serializable {
     }
 
     public long getIdParamApplic() {
-	return this.idParamApplic;
+        return this.idParamApplic;
     }
 
     public void setIdParamApplic(long idParamApplic) {
-	this.idParamApplic = idParamApplic;
+        this.idParamApplic = idParamApplic;
     }
 
     public String getDsParamApplic() {
-	return this.dsParamApplic;
+        return this.dsParamApplic;
     }
 
     public void setDsParamApplic(String dsParamApplic) {
-	this.dsParamApplic = dsParamApplic;
+        this.dsParamApplic = dsParamApplic;
     }
 
     public String getDsValoreParamApplic() {
-	return this.dsValoreParamApplic;
+        return this.dsValoreParamApplic;
     }
 
     public void setDsValoreParamApplic(String dsValoreParamApplic) {
-	this.dsValoreParamApplic = dsValoreParamApplic;
+        this.dsValoreParamApplic = dsValoreParamApplic;
     }
 
     public String getNmParamApplic() {
-	return this.nmParamApplic;
+        return this.nmParamApplic;
     }
 
     public void setNmParamApplic(String nmParamApplic) {
-	this.nmParamApplic = nmParamApplic;
+        this.nmParamApplic = nmParamApplic;
     }
 
     public String getTiParamApplic() {
-	return this.tiParamApplic;
+        return this.tiParamApplic;
     }
 
     public void setTiParamApplic(String tiParamApplic) {
-	this.tiParamApplic = tiParamApplic;
+        this.tiParamApplic = tiParamApplic;
     }
 
 }

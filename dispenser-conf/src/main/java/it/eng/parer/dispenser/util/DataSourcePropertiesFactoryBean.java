@@ -40,76 +40,80 @@ import it.eng.dispenser.entity.constraint.ConstDipParamApplic;
 public class DataSourcePropertiesFactoryBean implements FactoryBean<Properties> {
 
     private static final Logger log = LoggerFactory
-	    .getLogger(DataSourcePropertiesFactoryBean.class);
+            .getLogger(DataSourcePropertiesFactoryBean.class);
 
     private final Properties props = new Properties();
 
     public void setDataSource(@NonNull DataSource dataSource) {
 
-	JdbcTemplate jdbcTemplate = new JdbcTemplate(dataSource);
-	String sql = "SELECT NM_PARAM_APPLIC, DS_VALORE_PARAM_APPLIC FROM DIP_PARAM_APPLIC";
-	jdbcTemplate.query(sql, new ResultSetExtractor<Object>() {
+        JdbcTemplate jdbcTemplate = new JdbcTemplate(dataSource);
+        String sql = "SELECT NM_PARAM_APPLIC, DS_VALORE_PARAM_APPLIC FROM DIP_PARAM_APPLIC";
+        jdbcTemplate.query(sql, new ResultSetExtractor<Object>() {
 
-	    @Override
-	    public Object extractData(@NonNull ResultSet rs)
-		    throws SQLException, DataAccessException {
-		while (rs.next()) {
-		    props.put(rs.getString("NM_PARAM_APPLIC"),
-			    rs.getString("DS_VALORE_PARAM_APPLIC"));
-		    log.debug("Props da DB: [{}]-[{}]", rs.getString("NM_PARAM_APPLIC"),
-			    rs.getString("DS_VALORE_PARAM_APPLIC"));
-		}
-		/*
-		 * Settaggio valori di default se assenti su db
-		 */
-		String valore = null;
-		valore = (String) props
-			.get(ConstDipParamApplic.NmParamApplic.CACHE_DELAY_POLLING.name());
-		if (valore == null || valore.trim().equals("")) {
-		    props.put(ConstDipParamApplic.NmParamApplic.CACHE_DELAY_POLLING.name(),
-			    "60000");
-		}
-		valore = (String) props
-			.get(ConstDipParamApplic.NmParamApplic.SERVER_NAME_SYSTEM_PROPERTY.name());
-		if (valore == null || valore.trim().equals("")) {
-		    props.put(ConstDipParamApplic.NmParamApplic.SERVER_NAME_SYSTEM_PROPERTY.name(),
-			    "jboss.node.name");
-		}
+            @Override
+            public Object extractData(@NonNull ResultSet rs)
+                    throws SQLException, DataAccessException {
+                while (rs.next()) {
+                    props.put(rs.getString("NM_PARAM_APPLIC"),
+                            rs.getString("DS_VALORE_PARAM_APPLIC"));
+                    log.debug("Props da DB: [{}]-[{}]", rs.getString("NM_PARAM_APPLIC"),
+                            rs.getString("DS_VALORE_PARAM_APPLIC"));
+                }
+                /*
+                 * Settaggio valori di default se assenti su db
+                 */
+                String valore = null;
+                valore = (String) props
+                        .get(ConstDipParamApplic.NmParamApplic.CACHE_DELAY_POLLING.name());
+                if (valore == null || valore.trim().equals("")) {
+                    props.put(ConstDipParamApplic.NmParamApplic.CACHE_DELAY_POLLING.name(),
+                            "60000");
+                }
+                valore = (String) props
+                        .get(ConstDipParamApplic.NmParamApplic.SERVER_NAME_SYSTEM_PROPERTY.name());
+                if (valore == null || valore.trim().equals("")) {
+                    props.put(ConstDipParamApplic.NmParamApplic.SERVER_NAME_SYSTEM_PROPERTY.name(),
+                            "jboss.node.name");
+                }
 
-		return props;
-	    }
-	});
+                return props;
+            }
+        });
     }
 
-    @NonNull
     @Override
     public Properties getObject() throws Exception {
-	return props;
+        return props;
     }
 
     @Override
     public Class<?> getObjectType() {
-	return Properties.class;
+        return Properties.class;
     }
 
     @Override
     public boolean isSingleton() {
-	return true;
+        return true;
     }
 
     public String getProperty(String property) {
-	return getProperty(property, null);
+        return getProperty(property, null);
     }
 
     public String getProperty(String property, String defaultValue) {
-	String str = null;
-	try {
-	    Properties p = this.getObject();
-	    str = p.getProperty(property, defaultValue);
-	} catch (Exception e) {
-	    log.error(e.getMessage(), e);
-	}
-	return str;
+        String str = null;
+        try {
+            Properties p = this.getObject();
+            if (p != null) {
+                str = p.getProperty(property, defaultValue);
+            } else {
+                str = defaultValue;
+            }
+        } catch (Exception e) {
+            log.error(e.getMessage(), e);
+        }
+        return str;
     }
+
 
 }

@@ -16,7 +16,7 @@ package it.eng.dispenser.entity.constraint;
 public class ConstDipServer {
 
     public enum flgDaAllineare {
-	S, N;
+        S, N;
     }
 
 }

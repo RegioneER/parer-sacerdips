@@ -61,59 +61,59 @@ public class VrsSessioneVers implements Serializable {
     }
 
     public long getIdSessioneVers() {
-	return idSessioneVers;
+        return idSessioneVers;
     }
 
     public void setIdSessioneVers(long idSessioneVers) {
-	this.idSessioneVers = idSessioneVers;
+        this.idSessioneVers = idSessioneVers;
     }
 
     public long getIdUnitaDoc() {
-	return idUnitaDoc;
+        return idUnitaDoc;
     }
 
     public void setIdUnitaDoc(long idUnitaDoc) {
-	this.idUnitaDoc = idUnitaDoc;
+        this.idUnitaDoc = idUnitaDoc;
     }
 
     public long getIdStrut() {
-	return idStrut;
+        return idStrut;
     }
 
     public void setIdStrut(long idStrut) {
-	this.idStrut = idStrut;
+        this.idStrut = idStrut;
     }
 
     public Date getDtApertura() {
-	return dtApertura;
+        return dtApertura;
     }
 
     public void setDtApertura(Date dtApertura) {
-	this.dtApertura = dtApertura;
+        this.dtApertura = dtApertura;
     }
 
     public Date getDtChiusura() {
-	return dtChiusura;
+        return dtChiusura;
     }
 
     public void setDtChiusura(Date dtChiusura) {
-	this.dtChiusura = dtChiusura;
+        this.dtChiusura = dtChiusura;
     }
 
     public String getTiSessioneVers() {
-	return tiSessioneVers;
+        return tiSessioneVers;
     }
 
     public void setTiSessioneVers(String tiSessioneVers) {
-	this.tiSessioneVers = tiSessioneVers;
+        this.tiSessioneVers = tiSessioneVers;
     }
 
     public String getTiStatoSessioneVers() {
-	return tiStatoSessioneVers;
+        return tiStatoSessioneVers;
     }
 
     public void setTiStatoSessioneVers(String tiStatoSessioneVers) {
-	this.tiStatoSessioneVers = tiStatoSessioneVers;
+        this.tiStatoSessioneVers = tiStatoSessioneVers;
     }
 
 }

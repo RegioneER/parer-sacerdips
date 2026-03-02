@@ -29,19 +29,19 @@ public class RuntimeHelperException extends RuntimeException {
     }
 
     public RuntimeHelperException(String string) {
-	super(string);
+        super(string);
     }
 
     public RuntimeHelperException(String string, Throwable thrwbl) {
-	super(string, thrwbl);
+        super(string, thrwbl);
     }
 
     public RuntimeHelperException(Throwable thrwbl) {
-	super(thrwbl);
+        super(thrwbl);
     }
 
     public RuntimeHelperException(String string, Throwable thrwbl, boolean bln, boolean bln1) {
-	super(string, thrwbl, bln, bln1);
+        super(string, thrwbl, bln, bln1);
     }
 
 }

@@ -74,84 +74,84 @@ public class DipGruppoDettaglio implements Serializable {
     }
 
     public long getIdGruppoDettaglio() {
-	return this.idGruppoDettaglio;
+        return this.idGruppoDettaglio;
     }
 
     public void setIdGruppoDettaglio(long idGruppoDettaglio) {
-	this.idGruppoDettaglio = idGruppoDettaglio;
+        this.idGruppoDettaglio = idGruppoDettaglio;
     }
 
     public String getDsGruppoDettaglio() {
-	return this.dsGruppoDettaglio;
+        return this.dsGruppoDettaglio;
     }
 
     public void setDsGruppoDettaglio(String dsGruppoDettaglio) {
-	this.dsGruppoDettaglio = dsGruppoDettaglio;
+        this.dsGruppoDettaglio = dsGruppoDettaglio;
     }
 
     public BigDecimal getNiColonnaGruppo() {
-	return this.niColonnaGruppo;
+        return this.niColonnaGruppo;
     }
 
     public void setNiColonnaGruppo(BigDecimal niColonnaGruppo) {
-	this.niColonnaGruppo = niColonnaGruppo;
+        this.niColonnaGruppo = niColonnaGruppo;
     }
 
     public BigDecimal getNiRigaGruppo() {
-	return this.niRigaGruppo;
+        return this.niRigaGruppo;
     }
 
     public void setNiRigaGruppo(BigDecimal niRigaGruppo) {
-	this.niRigaGruppo = niRigaGruppo;
+        this.niRigaGruppo = niRigaGruppo;
     }
 
     public String getNmGruppoDettaglio() {
-	return this.nmGruppoDettaglio;
+        return this.nmGruppoDettaglio;
     }
 
     public void setNmGruppoDettaglio(String nmGruppoDettaglio) {
-	this.nmGruppoDettaglio = nmGruppoDettaglio;
+        this.nmGruppoDettaglio = nmGruppoDettaglio;
     }
 
     public List<DipElementoDettaglio> getDipElementoDettaglioOrdinati() {
-	Comparator<DipElementoDettaglio> compareByRigaColonna = Comparator
-		.comparing(DipElementoDettaglio::getNiRigaElemento)
-		.thenComparing(DipElementoDettaglio::getNiColonnaElemento);
+        Comparator<DipElementoDettaglio> compareByRigaColonna = Comparator
+                .comparing(DipElementoDettaglio::getNiRigaElemento)
+                .thenComparing(DipElementoDettaglio::getNiColonnaElemento);
 
-	List<DipElementoDettaglio> sorted = new ArrayList<>(this.dipElementoDettaglios).stream()
-		.sorted(compareByRigaColonna).collect(Collectors.toList());
-	return sorted;
+        List<DipElementoDettaglio> sorted = new ArrayList<>(this.dipElementoDettaglios).stream()
+                .sorted(compareByRigaColonna).collect(Collectors.toList());
+        return sorted;
     }
 
     private Set<DipElementoDettaglio> getDipElementoDettaglios() {
-	return this.dipElementoDettaglios;
+        return this.dipElementoDettaglios;
     }
 
     public void setDipElementoDettaglios(Set<DipElementoDettaglio> dipElementoDettaglios) {
-	this.dipElementoDettaglios = dipElementoDettaglios;
+        this.dipElementoDettaglios = dipElementoDettaglios;
     }
 
     public DipElementoDettaglio addDipElementoDettaglio(DipElementoDettaglio dipElementoDettaglio) {
-	getDipElementoDettaglios().add(dipElementoDettaglio);
-	dipElementoDettaglio.setDipGruppoDettaglio(this);
+        getDipElementoDettaglios().add(dipElementoDettaglio);
+        dipElementoDettaglio.setDipGruppoDettaglio(this);
 
-	return dipElementoDettaglio;
+        return dipElementoDettaglio;
     }
 
     public DipElementoDettaglio removeDipElementoDettaglio(
-	    DipElementoDettaglio dipElementoDettaglio) {
-	getDipElementoDettaglios().remove(dipElementoDettaglio);
-	dipElementoDettaglio.setDipGruppoDettaglio(null);
+            DipElementoDettaglio dipElementoDettaglio) {
+        getDipElementoDettaglios().remove(dipElementoDettaglio);
+        dipElementoDettaglio.setDipGruppoDettaglio(null);
 
-	return dipElementoDettaglio;
+        return dipElementoDettaglio;
     }
 
     public DipRicerca getDipRicerca() {
-	return this.dipRicerca;
+        return this.dipRicerca;
     }
 
     public void setDipRicerca(DipRicerca dipRicerca) {
-	this.dipRicerca = dipRicerca;
+        this.dipRicerca = dipRicerca;
     }
 
 }

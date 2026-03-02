@@ -36,100 +36,100 @@ public class QryDocByVlMetaStrRowBean extends BaseRow implements JEEBaseRowInter
     public static QryDocByVlMetaStrTableDescriptor TABLE_DESCRIPTOR = new QryDocByVlMetaStrTableDescriptor();
 
     public QryDocByVlMetaStrRowBean() {
-	super();
+        super();
     }
 
     public TableDescriptor getTableDescriptor() {
-	return TABLE_DESCRIPTOR;
+        return TABLE_DESCRIPTOR;
     }
 
     // getter e setter
     public BigDecimal getIdAttribDatiSpec() {
-	return getBigDecimal("id_attrib_dati_spec");
+        return getBigDecimal("id_attrib_dati_spec");
     }
 
     public void setIdAttribDatiSpec(BigDecimal idAttribDatiSpec) {
-	setObject("id_attrib_dati_spec", idAttribDatiSpec);
+        setObject("id_attrib_dati_spec", idAttribDatiSpec);
     }
 
     public BigDecimal getIdDoc() {
-	return getBigDecimal("id_doc");
+        return getBigDecimal("id_doc");
     }
 
     public void setIdDoc(BigDecimal idDoc) {
-	setObject("id_doc", idDoc);
+        setObject("id_doc", idDoc);
     }
 
     public BigDecimal getIdUnitaDoc() {
-	return getBigDecimal("id_unita_doc");
+        return getBigDecimal("id_unita_doc");
     }
 
     public void setIdUnitaDoc(BigDecimal idUnitaDoc) {
-	setObject("id_unita_doc", idUnitaDoc);
+        setObject("id_unita_doc", idUnitaDoc);
     }
 
     public String getDlPrefissoValore() {
-	return getString("dl_prefisso_valore");
+        return getString("dl_prefisso_valore");
     }
 
     public void setDlPrefissoValore(String dlPrefissoValore) {
-	setObject("dl_prefisso_valore", dlPrefissoValore);
+        setObject("dl_prefisso_valore", dlPrefissoValore);
     }
 
     public String getDlValore() {
-	return getString("dl_valore");
+        return getString("dl_valore");
     }
 
     public void setDlValore(String dlValore) {
-	setObject("dl_valore", dlValore);
+        setObject("dl_valore", dlValore);
     }
 
     @Override
     public void entityToRowBean(Object obj) {
-	QryDocByVlMetaStr entity = (QryDocByVlMetaStr) obj;
-	this.setIdAttribDatiSpec(entity.getQryDocByVlMetaStrId().getIdAttribDatiSpec());
-	this.setIdDoc(entity.getQryDocByVlMetaStrId().getIdDoc());
-	this.setIdUnitaDoc(entity.getQryDocByVlMetaStrId().getIdUnitaDoc());
-	this.setDlPrefissoValore(entity.getDlPrefissoValore());
-	this.setDlValore(entity.getDlValore());
+        QryDocByVlMetaStr entity = (QryDocByVlMetaStr) obj;
+        this.setIdAttribDatiSpec(entity.getQryDocByVlMetaStrId().getIdAttribDatiSpec());
+        this.setIdDoc(entity.getQryDocByVlMetaStrId().getIdDoc());
+        this.setIdUnitaDoc(entity.getQryDocByVlMetaStrId().getIdUnitaDoc());
+        this.setDlPrefissoValore(entity.getDlPrefissoValore());
+        this.setDlValore(entity.getDlValore());
     }
 
     @Override
     public QryDocByVlMetaStr rowBeanToEntity() {
-	QryDocByVlMetaStrId id = new QryDocByVlMetaStrId();
-	id.setIdAttribDatiSpec(this.getIdAttribDatiSpec());
-	id.setIdDoc(this.getIdDoc());
-	id.setIdUnitaDoc(this.getIdUnitaDoc());
-	QryDocByVlMetaStr entity = new QryDocByVlMetaStr();
-	entity.setQryDocByVlMetaStrId(id);
-	entity.setDlPrefissoValore(this.getDlPrefissoValore());
-	entity.setDlValore(this.getDlValore());
-	return entity;
+        QryDocByVlMetaStrId id = new QryDocByVlMetaStrId();
+        id.setIdAttribDatiSpec(this.getIdAttribDatiSpec());
+        id.setIdDoc(this.getIdDoc());
+        id.setIdUnitaDoc(this.getIdUnitaDoc());
+        QryDocByVlMetaStr entity = new QryDocByVlMetaStr();
+        entity.setQryDocByVlMetaStrId(id);
+        entity.setDlPrefissoValore(this.getDlPrefissoValore());
+        entity.setDlValore(this.getDlValore());
+        return entity;
     }
 
     // gestione della paginazione
     public void setRownum(Integer rownum) {
-	setObject("rownum", rownum);
+        setObject("rownum", rownum);
     }
 
     public Integer getRownum() {
-	return Integer.parseInt(getObject("rownum").toString());
+        return Integer.parseInt(getObject("rownum").toString());
     }
 
     public void setRnum(Integer rnum) {
-	setObject("rnum", rnum);
+        setObject("rnum", rnum);
     }
 
     public Integer getRnum() {
-	return Integer.parseInt(getObject("rnum").toString());
+        return Integer.parseInt(getObject("rnum").toString());
     }
 
     public void setNumrecords(Integer numRecords) {
-	setObject("numrecords", numRecords);
+        setObject("numrecords", numRecords);
     }
 
     public Integer getNumrecords() {
-	return Integer.parseInt(getObject("numrecords").toString());
+        return Integer.parseInt(getObject("numrecords").toString());
     }
 
 }

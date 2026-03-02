@@ -45,26 +45,26 @@ public class DipRicercaTableDescriptor extends TableDescriptor {
     private static Map<String, ColumnDescriptor> map = new LinkedHashMap<String, ColumnDescriptor>();
 
     static {
-	map.put(COL_ID_RICERCA, new ColumnDescriptor(COL_ID_RICERCA, Types.DECIMAL, 22, true));
-	map.put(COL_NM_RICERCA, new ColumnDescriptor(COL_NM_RICERCA, Types.VARCHAR, 100, false));
-	map.put(COL_DS_RICERCA, new ColumnDescriptor(COL_DS_RICERCA, Types.VARCHAR, 254, false));
-	map.put(COL_TI_TIPO_RECUPERO,
-		new ColumnDescriptor(COL_TI_TIPO_RECUPERO, Types.VARCHAR, 20, false));
-	map.put(COL_TI_TIPO_PRESENTAZIONE,
-		new ColumnDescriptor(COL_TI_TIPO_PRESENTAZIONE, Types.VARCHAR, 20, false));
-	map.put(COL_NI_RES_LIMIT, new ColumnDescriptor(COL_NI_RES_LIMIT, Types.DECIMAL, 22, false));
+        map.put(COL_ID_RICERCA, new ColumnDescriptor(COL_ID_RICERCA, Types.DECIMAL, 22, true));
+        map.put(COL_NM_RICERCA, new ColumnDescriptor(COL_NM_RICERCA, Types.VARCHAR, 100, false));
+        map.put(COL_DS_RICERCA, new ColumnDescriptor(COL_DS_RICERCA, Types.VARCHAR, 254, false));
+        map.put(COL_TI_TIPO_RECUPERO,
+                new ColumnDescriptor(COL_TI_TIPO_RECUPERO, Types.VARCHAR, 20, false));
+        map.put(COL_TI_TIPO_PRESENTAZIONE,
+                new ColumnDescriptor(COL_TI_TIPO_PRESENTAZIONE, Types.VARCHAR, 20, false));
+        map.put(COL_NI_RES_LIMIT, new ColumnDescriptor(COL_NI_RES_LIMIT, Types.DECIMAL, 22, false));
     }
 
     public Map<String, ColumnDescriptor> getColumnMap() {
-	return map;
+        return map;
     }
 
     public String getTableName() {
-	return TABLE_NAME;
+        return TABLE_NAME;
     }
 
     public String getStatement() {
-	return SELECT;
+        return SELECT;
     }
 
 }

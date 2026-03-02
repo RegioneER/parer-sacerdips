@@ -26,37 +26,37 @@ public class ParerTool extends SpringLiteTool {
     private static final String USER_PACKAGE = "it.eng.spagoLite.security";
 
     public ParerTool(String actionPath, String actionRerPath, String genPackage,
-	    String actionPackage, String formPackage) {
-	super(actionPath, actionRerPath, genPackage, actionPackage, formPackage);
+            String actionPackage, String formPackage) {
+        super(actionPath, actionRerPath, genPackage, actionPackage, formPackage);
     }
 
     public static void main(String[] args) throws IllegalArgumentException, SecurityException,
-	    NoSuchFieldException, IllegalAccessException {
+            NoSuchFieldException, IllegalAccessException {
 
-	System.setProperty("file.encoding", "UTF-8");
+        System.setProperty("file.encoding", "UTF-8");
 
-	if (args.length == 0) {
-	    throw new IllegalArgumentException();
-	}
-	String basedir = args[0];
-	for (String arg : args) {
-	    System.out.println("Parametro passato al main:" + arg);
-	}
+        if (args.length == 0) {
+            throw new IllegalArgumentException();
+        }
+        String basedir = args[0];
+        for (String arg : args) {
+            System.out.println("Parametro passato al main:" + arg);
+        }
 
-	System.out.println("Percorso corrente : " + new File(".").getAbsolutePath());
+        System.out.println("Percorso corrente : " + new File(".").getAbsolutePath());
 
-	String actionPath = basedir.replace("\\", "/")
-		+ "/../dispenser-web/src/main/java/it/eng/dispenser/web/action";
+        String actionPath = basedir.replace("\\", "/")
+                + "/../dispenser-web/src/main/java/it/eng/dispenser/web/action";
 
-	ParerTool myParerTool = new ParerTool(actionPath, null, GEN_PACKAGE, ACTION_PACKAGE,
-		FORM_PACKAGE);
+        ParerTool myParerTool = new ParerTool(actionPath, null, GEN_PACKAGE, ACTION_PACKAGE,
+                FORM_PACKAGE);
 
-	System.out.println("Charset.defaultCharset().name() :" + Charset.defaultCharset().name());
+        System.out.println("Charset.defaultCharset().name() :" + Charset.defaultCharset().name());
 
-	myParerTool.setSrcPath(basedir + "/target/generated-sources/slite");
-	myParerTool.setFormPath(basedir + "/src/main/resources/forms");
-	myParerTool.setJspPath(basedir + "/../dispenser-web/src/main/webapp/jsp");
-	myParerTool.setUserPackage(USER_PACKAGE);
-	myParerTool.run();
+        myParerTool.setSrcPath(basedir + "/target/generated-sources/slite");
+        myParerTool.setFormPath(basedir + "/src/main/resources/forms");
+        myParerTool.setJspPath(basedir + "/../dispenser-web/src/main/webapp/jsp");
+        myParerTool.setUserPackage(USER_PACKAGE);
+        myParerTool.run();
     }
 }

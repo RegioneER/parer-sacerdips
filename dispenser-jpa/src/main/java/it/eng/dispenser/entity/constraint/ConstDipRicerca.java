@@ -16,7 +16,7 @@ package it.eng.dispenser.entity.constraint;
 public class ConstDipRicerca {
 
     public enum tiStatoRicerca {
-	COMPLETA, IN_AGGIORNAMENTO;
+        COMPLETA, IN_AGGIORNAMENTO;
     }
 
 }

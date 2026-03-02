@@ -77,90 +77,90 @@ public class DipFiltroRicerca implements Serializable {
     }
 
     public long getIdFiltroRicerca() {
-	return this.idFiltroRicerca;
+        return this.idFiltroRicerca;
     }
 
     public void setIdFiltroRicerca(long idFiltroRicerca) {
-	this.idFiltroRicerca = idFiltroRicerca;
+        this.idFiltroRicerca = idFiltroRicerca;
     }
 
     public String getFlStatico() {
-	return this.flStatico;
+        return this.flStatico;
     }
 
     public void setFlStatico(String flStatico) {
-	this.flStatico = flStatico;
+        this.flStatico = flStatico;
     }
 
     public BigDecimal getIdAttribDatiSpec() {
-	return this.idAttribDatiSpec;
+        return this.idAttribDatiSpec;
     }
 
     public void setIdAttribDatiSpec(BigDecimal idAttribDatiSpec) {
-	this.idAttribDatiSpec = idAttribDatiSpec;
+        this.idAttribDatiSpec = idAttribDatiSpec;
     }
 
     public String getNmFiltroRicerca() {
-	return this.nmFiltroRicerca;
+        return this.nmFiltroRicerca;
     }
 
     public void setNmFiltroRicerca(String nmFiltroRicerca) {
-	this.nmFiltroRicerca = nmFiltroRicerca;
+        this.nmFiltroRicerca = nmFiltroRicerca;
     }
 
     public String getTiTipoFiltro() {
-	return this.tiTipoFiltro;
+        return this.tiTipoFiltro;
     }
 
     public void setTiTipoFiltro(String tiTipoFiltro) {
-	this.tiTipoFiltro = tiTipoFiltro;
+        this.tiTipoFiltro = tiTipoFiltro;
     }
 
     public DipCampoRicerca getDipCampoRicerca() {
-	return this.dipCampoRicerca;
+        return this.dipCampoRicerca;
     }
 
     public void setDipCampoRicerca(DipCampoRicerca dipCampoRicerca) {
-	this.dipCampoRicerca = dipCampoRicerca;
+        this.dipCampoRicerca = dipCampoRicerca;
     }
 
     public DipCombinazioneRicerca getDipCombinazioneRicerca() {
-	return this.dipCombinazioneRicerca;
+        return this.dipCombinazioneRicerca;
     }
 
     public void setDipCombinazioneRicerca(DipCombinazioneRicerca dipCombinazioneRicerca) {
-	this.dipCombinazioneRicerca = dipCombinazioneRicerca;
+        this.dipCombinazioneRicerca = dipCombinazioneRicerca;
     }
 
     public List<DipValorePredefinito> getDipValorePredefinitos() {
-	return this.dipValorePredefinitos;
+        return this.dipValorePredefinitos;
     }
 
     public void setDipValorePredefinitos(List<DipValorePredefinito> dipValorePredefinitos) {
-	this.dipValorePredefinitos = dipValorePredefinitos;
+        this.dipValorePredefinitos = dipValorePredefinitos;
     }
 
     public DipValorePredefinito addDipValorePredefinito(DipValorePredefinito dipValorePredefinito) {
-	getDipValorePredefinitos().add(dipValorePredefinito);
-	dipValorePredefinito.setDipFiltroRicerca(this);
+        getDipValorePredefinitos().add(dipValorePredefinito);
+        dipValorePredefinito.setDipFiltroRicerca(this);
 
-	return dipValorePredefinito;
+        return dipValorePredefinito;
     }
 
     public DipValorePredefinito removeDipValorePredefinito(
-	    DipValorePredefinito dipValorePredefinito) {
-	getDipValorePredefinitos().remove(dipValorePredefinito);
-	dipValorePredefinito.setDipFiltroRicerca(null);
+            DipValorePredefinito dipValorePredefinito) {
+        getDipValorePredefinitos().remove(dipValorePredefinito);
+        dipValorePredefinito.setDipFiltroRicerca(null);
 
-	return dipValorePredefinito;
+        return dipValorePredefinito;
     }
 
     public String getTiDatoFiltro() {
-	return tiDatoFiltro;
+        return tiDatoFiltro;
     }
 
     public void setTiDatoFiltro(String tiDatoFiltro) {
-	this.tiDatoFiltro = tiDatoFiltro;
+        this.tiDatoFiltro = tiDatoFiltro;
     }
 
 }

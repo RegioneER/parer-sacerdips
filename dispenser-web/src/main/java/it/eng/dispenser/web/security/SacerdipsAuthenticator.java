@@ -39,37 +39,37 @@ public class SacerdipsAuthenticator extends Authenticator {
 
     @Override
     protected String getAppName() {
-	String nomeApplic = applicationProperties
-		.getProperty(ConstDipParamApplic.NmParamApplic.NM_APPLIC.name());
-	if (StringUtils.isBlank(nomeApplic)) {
-	    throw new IllegalStateException("Parametro nome applicazione assente su database");
-	}
-	return nomeApplic;
+        String nomeApplic = applicationProperties
+                .getProperty(ConstDipParamApplic.NmParamApplic.NM_APPLIC.name());
+        if (StringUtils.isBlank(nomeApplic)) {
+            throw new IllegalStateException("Parametro nome applicazione assente su database");
+        }
+        return nomeApplic;
     }
 
     @Override
     public User recuperoAutorizzazioni(HttpSession httpSession) {
-	User utente = (User) SessionManager.getUser(httpSession);
-	RecuperoAutorizzazioni client = IAMSoapClients.recuperoAutorizzazioniClient(
-		applicationProperties
-			.getProperty(ConstDipParamApplic.NmParamApplic.USERID_RECUP_INFO.name()),
-		applicationProperties
-			.getProperty(ConstDipParamApplic.NmParamApplic.PSW_RECUP_INFO.name()),
-		applicationProperties.getProperty(
-			ConstDipParamApplic.NmParamApplic.URL_RECUP_AUTOR_USER.name()));
-	if (client == null) {
-	    throw new WebServiceException(
-		    "Non è stato possibile recuperare la lista delle autorizzazioni da SIAM");
-	}
-	RecuperoAutorizzazioniRisposta resp;
-	try {
-	    resp = client.recuperoAutorizzazioniPerNome(utente.getUsername(), getAppName(), null);
-	} catch (AuthWSException_Exception e) {
-	    throw new RuntimeException(e);
-	}
-	UserUtil.fillComponenti(utente, resp);
-	SessionManager.setUser(httpSession, utente);
-	return utente;
+        User utente = (User) SessionManager.getUser(httpSession);
+        RecuperoAutorizzazioni client = IAMSoapClients.recuperoAutorizzazioniClient(
+                applicationProperties
+                        .getProperty(ConstDipParamApplic.NmParamApplic.USERID_RECUP_INFO.name()),
+                applicationProperties
+                        .getProperty(ConstDipParamApplic.NmParamApplic.PSW_RECUP_INFO.name()),
+                applicationProperties.getProperty(
+                        ConstDipParamApplic.NmParamApplic.URL_RECUP_AUTOR_USER.name()));
+        if (client == null) {
+            throw new WebServiceException(
+                    "Non è stato possibile recuperare la lista delle autorizzazioni da SIAM");
+        }
+        RecuperoAutorizzazioniRisposta resp;
+        try {
+            resp = client.recuperoAutorizzazioniPerNome(utente.getUsername(), getAppName(), null);
+        } catch (AuthWSException_Exception e) {
+            throw new RuntimeException(e);
+        }
+        UserUtil.fillComponenti(utente, resp);
+        SessionManager.setUser(httpSession, utente);
+        return utente;
     }
 
 }

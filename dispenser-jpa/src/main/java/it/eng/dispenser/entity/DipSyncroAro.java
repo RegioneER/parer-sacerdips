@@ -65,59 +65,59 @@ public class DipSyncroAro implements Serializable {
     }
 
     public long getIdSyncroAro() {
-	return this.idSyncroAro;
+        return this.idSyncroAro;
     }
 
     public void setIdSyncroAro(long idSyncroAro) {
-	this.idSyncroAro = idSyncroAro;
+        this.idSyncroAro = idSyncroAro;
     }
 
     public Date getDtUltimaDataElab() {
-	return this.dtUltimaDataElab;
+        return this.dtUltimaDataElab;
     }
 
     public void setDtUltimaDataElab(Date dtUltimaDataElab) {
-	this.dtUltimaDataElab = dtUltimaDataElab;
+        this.dtUltimaDataElab = dtUltimaDataElab;
     }
 
     public BigDecimal getIdStrut() {
-	return this.idStrut;
+        return this.idStrut;
     }
 
     public void setIdStrut(BigDecimal idStrut) {
-	this.idStrut = idStrut;
+        this.idStrut = idStrut;
     }
 
     public BigDecimal getNiDocAnnul() {
-	return this.niDocAnnul;
+        return this.niDocAnnul;
     }
 
     public void setNiDocAnnul(BigDecimal niDocAnnul) {
-	this.niDocAnnul = niDocAnnul;
+        this.niDocAnnul = niDocAnnul;
     }
 
     public BigDecimal getNiDocSincro() {
-	return this.niDocSincro;
+        return this.niDocSincro;
     }
 
     public void setNiDocSincro(BigDecimal niDocSincro) {
-	this.niDocSincro = niDocSincro;
+        this.niDocSincro = niDocSincro;
     }
 
     public BigDecimal getNiUdAnnul() {
-	return this.niUdAnnul;
+        return this.niUdAnnul;
     }
 
     public void setNiUdAnnul(BigDecimal niUdAnnul) {
-	this.niUdAnnul = niUdAnnul;
+        this.niUdAnnul = niUdAnnul;
     }
 
     public BigDecimal getNiUdSincro() {
-	return this.niUdSincro;
+        return this.niUdSincro;
     }
 
     public void setNiUdSincro(BigDecimal niUdSincro) {
-	this.niUdSincro = niUdSincro;
+        this.niUdSincro = niUdSincro;
     }
 
 }

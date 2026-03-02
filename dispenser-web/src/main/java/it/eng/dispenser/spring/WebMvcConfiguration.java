@@ -13,6 +13,34 @@
 
 package it.eng.dispenser.spring;
 
+import java.util.HashMap;
+import java.util.Map;
+
+import javax.naming.NamingException;
+import javax.persistence.EntityManagerFactory;
+import javax.sql.DataSource;
+
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.ComponentScan;
+import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.Scope;
+import org.springframework.context.support.PropertySourcesPlaceholderConfigurer;
+import org.springframework.core.Ordered;
+import org.springframework.http.client.SimpleClientHttpRequestFactory;
+import org.springframework.jdbc.datasource.lookup.JndiDataSourceLookup;
+import org.springframework.jndi.JndiObjectFactoryBean;
+import org.springframework.orm.jpa.support.PersistenceAnnotationBeanPostProcessor;
+import org.springframework.transaction.annotation.EnableTransactionManagement;
+import org.springframework.transaction.jta.JtaTransactionManager;
+import org.springframework.web.client.RestTemplate;
+import org.springframework.web.context.WebApplicationContext;
+import org.springframework.web.servlet.config.annotation.EnableWebMvc;
+import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;
+import org.springframework.web.servlet.config.annotation.ViewControllerRegistry;
+import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
+import org.springframework.web.servlet.view.InternalResourceViewResolver;
+import org.springframework.web.servlet.view.JstlView;
+
 import it.eng.dispenser.web.action.GestioneJobAction;
 import it.eng.dispenser.web.action.HomeAction;
 import it.eng.dispenser.web.action.LUMAction;
@@ -31,30 +59,6 @@ import it.eng.parer.dispenser.util.DataSourcePropertiesFactoryBean;
 import it.eng.spagoLite.actions.RedirectAction;
 import it.eng.spagoLite.actions.security.LoginAction;
 import it.eng.spagoLite.actions.security.LogoutAction;
-import java.util.HashMap;
-import java.util.Map;
-import javax.naming.NamingException;
-import javax.persistence.EntityManagerFactory;
-import javax.sql.DataSource;
-import org.springframework.context.annotation.Bean;
-import org.springframework.context.annotation.ComponentScan;
-import org.springframework.context.annotation.Configuration;
-import org.springframework.context.annotation.Scope;
-import org.springframework.context.support.PropertySourcesPlaceholderConfigurer;
-import org.springframework.core.Ordered;
-import org.springframework.http.client.SimpleClientHttpRequestFactory;
-import org.springframework.jdbc.datasource.lookup.JndiDataSourceLookup;
-import org.springframework.jndi.JndiObjectFactoryBean;
-import org.springframework.orm.jpa.support.PersistenceAnnotationBeanPostProcessor;
-import org.springframework.transaction.annotation.EnableTransactionManagement;
-import org.springframework.transaction.jta.JtaTransactionManager;
-import org.springframework.web.client.RestTemplate;
-import org.springframework.web.servlet.config.annotation.EnableWebMvc;
-import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;
-import org.springframework.web.servlet.config.annotation.ViewControllerRegistry;
-import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
-import org.springframework.web.servlet.view.InternalResourceViewResolver;
-import org.springframework.web.servlet.view.JstlView;
 
 /**
  *
@@ -63,41 +67,41 @@ import org.springframework.web.servlet.view.JstlView;
 @EnableWebMvc
 @EnableTransactionManagement
 @ComponentScan(basePackages = {
-	"it.eng.dispenser.web", "it.eng.dispenser.component", "it.eng.dispenser.ws",
-	"it.eng.dispenser.spring", "it.eng.dispenser.web.action",
-	"it.eng.dispenser.slite.gen.action", "it.eng.spagoCore", "it.eng.spagoLite" })
+        "it.eng.dispenser.web", "it.eng.dispenser.component", "it.eng.dispenser.ws",
+        "it.eng.dispenser.spring", "it.eng.dispenser.web.action",
+        "it.eng.dispenser.slite.gen.action", "it.eng.spagoCore", "it.eng.spagoLite" })
 @Configuration
 public class WebMvcConfiguration implements WebMvcConfigurer {
 
     @Override
     public void addViewControllers(ViewControllerRegistry registry) {
-	registry.setOrder(Ordered.HIGHEST_PRECEDENCE);
+        registry.setOrder(Ordered.HIGHEST_PRECEDENCE);
     }
 
     @Override
     public void addResourceHandlers(ResourceHandlerRegistry registry) {
-	/*
-	 * qui si dichiarano le risorse statiche
-	 */
-	registry.addResourceHandler("/css/**", "/images/**", "/img/**", "/js/**", "/webjars/**")
-		.addResourceLocations("/css/", "/images/", "/img/", "/js/", "/webjars/")
-		.setCachePeriod(0);
-	registry.setOrder(Ordered.HIGHEST_PRECEDENCE);
+        /*
+         * qui si dichiarano le risorse statiche
+         */
+        registry.addResourceHandler("/css/**", "/images/**", "/img/**", "/js/**", "/webjars/**")
+                .addResourceLocations("/css/", "/images/", "/img/", "/js/", "/webjars/")
+                .setCachePeriod(3600); // Cache for 3600 seconds for better performance
+        registry.setOrder(Ordered.HIGHEST_PRECEDENCE);
     }
 
     @Bean
     public InternalResourceViewResolver resolver() {
-	InternalResourceViewResolver resolver = new InternalResourceViewResolver();
-	resolver.setViewClass(JstlView.class);
-	resolver.setPrefix("/jsp/");
-	resolver.setSuffix(".jsp");
-	resolver.setExposedContextBeanNames("ricercheLoader");
-	return resolver;
+        InternalResourceViewResolver resolver = new InternalResourceViewResolver();
+        resolver.setViewClass(JstlView.class);
+        resolver.setPrefix("/jsp/");
+        resolver.setSuffix(".jsp");
+        resolver.setExposedContextBeanNames("ricercheLoader");
+        return resolver;
     }
 
     @Bean(name = "paginator")
-    PaginatorImpl paginatorImpl() {
-	return new PaginatorImpl();
+    public PaginatorImpl paginatorImpl() {
+        return new PaginatorImpl();
     }
 
     /*
@@ -106,8 +110,8 @@ public class WebMvcConfiguration implements WebMvcConfigurer {
      *
      */
     @Bean
-    ApplicationBasePropertiesSeviceImpl applicationBasePropertiesSeviceImpl() {
-	return new ApplicationBasePropertiesSeviceImpl();
+    public ApplicationBasePropertiesSeviceImpl applicationBasePropertiesSeviceImpl() {
+        return new ApplicationBasePropertiesSeviceImpl();
     }
 
     /*
@@ -115,19 +119,20 @@ public class WebMvcConfiguration implements WebMvcConfigurer {
      * timeout
      */
     @Bean
-    RestTemplate restTemplate() {
-	SimpleClientHttpRequestFactory c = new SimpleClientHttpRequestFactory();
-	c.setReadTimeout(15000);
-	c.setConnectTimeout(15000);
-	return new RestTemplate(c);
+    public RestTemplate restTemplate() {
+        SimpleClientHttpRequestFactory factory = new SimpleClientHttpRequestFactory();
+        factory.setReadTimeout(30000);
+        factory.setConnectTimeout(15000);
+        factory.setBufferRequestBody(false); // Added for better performance with large requests
+        return new RestTemplate(factory);
     }
 
     /*
      * Classe che va a caricare le autorizzazioni da IAM
      */
     @Bean(name = "authenticator")
-    SacerdipsAuthenticator sacerdipsAuthenticator() {
-	return new SacerdipsAuthenticator();
+    public SacerdipsAuthenticator sacerdipsAuthenticator() {
+        return new SacerdipsAuthenticator();
     }
 
     /*
@@ -135,134 +140,138 @@ public class WebMvcConfiguration implements WebMvcConfigurer {
      * sistema che hanno come suffisso ad esempio "saceriam".
      */
     @Bean
-    String nomeApplicazione() {
-	return "sacerdips";
+    public String nomeApplicazione() {
+        return "sacerdips";
     }
 
     @Bean
     public EntityManagerFactory entityManagerFactory() throws NamingException {
-	JndiObjectFactoryBean jndiFactoryBean = new JndiObjectFactoryBean();
-	jndiFactoryBean.setJndiName("java:comp/env/jpa/DispenserJPA");
-	jndiFactoryBean.setProxyInterface(EntityManagerFactory.class);
-	jndiFactoryBean.afterPropertiesSet();
-	return (EntityManagerFactory) jndiFactoryBean.getObject();
+        JndiObjectFactoryBean jndiFactoryBean = new JndiObjectFactoryBean();
+        jndiFactoryBean.setJndiName("java:comp/env/jpa/DispenserJPA");
+        jndiFactoryBean.setProxyInterface(EntityManagerFactory.class);
+        jndiFactoryBean.setLookupOnStartup(true); // better performance
+        jndiFactoryBean.setCache(true); // better performance
+        jndiFactoryBean.afterPropertiesSet();
+        return (EntityManagerFactory) jndiFactoryBean.getObject();
     }
 
     @Bean(name = "transactionManager")
     public JtaTransactionManager transactionManager() {
-	return new JtaTransactionManager();
+        return new JtaTransactionManager();
     }
 
     @Bean(name = "em")
     public PersistenceAnnotationBeanPostProcessor persistenceAnnotationBeanPostProcessor() {
-	PersistenceAnnotationBeanPostProcessor pe = new PersistenceAnnotationBeanPostProcessor();
-	pe.setResourceRef(true);
-	Map<String, String> persistenceUnits = new HashMap<>();
-	persistenceUnits.put("DispenserJPA", "jpa/DispenserJPA");
-	pe.setPersistenceUnits(persistenceUnits);
-	return pe;
+        PersistenceAnnotationBeanPostProcessor pe = new PersistenceAnnotationBeanPostProcessor();
+        pe.setResourceRef(true);
+        Map<String, String> persistenceUnits = new HashMap<>();
+        persistenceUnits.put("DispenserJPA", "jpa/DispenserJPA");
+        pe.setPersistenceUnits(persistenceUnits);
+        return pe;
     }
 
     @Bean
     public DataSource dataSource() {
-	JndiDataSourceLookup j = new JndiDataSourceLookup();
-	return j.getDataSource("jboss/datasources/DispenserDs");
+        JndiDataSourceLookup j = new JndiDataSourceLookup();
+        j.setResourceRef(true); // Always use resource reference
+        return j.getDataSource("java:jboss/datasources/DispenserDs");
     }
 
     @Bean
     public DataSourcePropertiesFactoryBean applicationProperties(DataSource dataSource) {
-	DataSourcePropertiesFactoryBean d = new DataSourcePropertiesFactoryBean();
-	d.setDataSource(dataSource);
-	return d;
+        DataSourcePropertiesFactoryBean d = new DataSourcePropertiesFactoryBean();
+        d.setDataSource(dataSource);
+        return d;
     }
 
     @Bean
-    public PropertySourcesPlaceholderConfigurer propertySourcesPlaceholderConfigurer(
-	    DataSourcePropertiesFactoryBean ds) throws Exception {
-	return new CustomPlaceholder(ds.getObject());
+    public static PropertySourcesPlaceholderConfigurer propertySourcesPlaceholderConfigurer(
+            DataSourcePropertiesFactoryBean ds) throws Exception {
+        // Made static to ensure early initialization
+        return new CustomPlaceholder(ds.getObject());
     }
 
     /*
      * CONFIGURAZIONE DEI BEAN DELLE ACTION che prima erano nell'xml di springweb Configurazione
      * delle action ereditate dal framework
      */
-    @Bean(value = "/View.html")
-    @Scope("prototype")
-    RedirectAction redirectAction() {
-	return new RedirectAction();
+    @Bean(name = "/View.html")
+    @Scope(WebApplicationContext.SCOPE_REQUEST)
+    public RedirectAction redirectAction() {
+        return new RedirectAction();
     }
 
-    @Bean(value = "/Login.html")
-    @Scope("prototype")
-    LoginAction loginAction() {
-	return new LoginAction();
+    @Bean(name = "/Login.html")
+    @Scope(WebApplicationContext.SCOPE_REQUEST)
+    public LoginAction loginAction() {
+        return new LoginAction();
     }
 
-    @Bean(value = "/Logout.html")
-    @Scope("prototype")
-    LogoutAction logoutAction() {
-	return new LogoutAction();
+    @Bean(name = "/Logout.html")
+    @Scope(WebApplicationContext.SCOPE_REQUEST)
+    public LogoutAction logoutAction() {
+        return new LogoutAction();
     }
 
     /* Configurazione delle action specifiche del modulo web */
-    @Bean(value = "/Home.html")
-    @Scope("prototype")
-    HomeAction homeAction() {
-	return new HomeAction();
+    @Bean(name = "/Home.html")
+    @Scope(WebApplicationContext.SCOPE_REQUEST)
+    public HomeAction homeAction() {
+        return new HomeAction();
     }
 
-    @Bean(value = "/SceltaOrganizzazione.html")
-    @Scope("prototype")
-    SceltaOrganizzazioneAction sceltaOrganizzazioneAction() {
-	return new SceltaOrganizzazioneAction();
+    @Bean(name = "/SceltaOrganizzazione.html")
+    @Scope(WebApplicationContext.SCOPE_REQUEST)
+    public SceltaOrganizzazioneAction sceltaOrganizzazioneAction() {
+        return new SceltaOrganizzazioneAction();
     }
 
-    @Bean(value = "/NoteRilascio.html")
-    @Scope("prototype")
-    NoteRilascioAction noteRilascioAction() {
-	return new NoteRilascioAction();
+    @Bean(name = "/NoteRilascio.html")
+    @Scope(WebApplicationContext.SCOPE_REQUEST)
+    public NoteRilascioAction noteRilascioAction() {
+        return new NoteRilascioAction();
     }
 
-    @Bean(value = "/Ricerca.html")
-    @Scope("prototype")
-    RicercaAction ricercaAction() {
-	return new RicercaAction();
+    @Bean(name = "/Ricerca.html")
+    @Scope(WebApplicationContext.SCOPE_REQUEST)
+    public RicercaAction ricercaAction() {
+        return new RicercaAction();
     }
 
-    @Bean(value = "/GestioneJob.html")
-    @Scope("prototype")
-    GestioneJobAction gestioneJobAction() {
-	return new GestioneJobAction();
+    @Bean(name = "/GestioneJob.html")
+    @Scope(WebApplicationContext.SCOPE_REQUEST)
+    public GestioneJobAction gestioneJobAction() {
+        return new GestioneJobAction();
     }
 
-    @Bean(value = "/LUM.html")
-    @Scope("prototype")
-    LUMAction lumAction() {
-	return new LUMAction();
+    @Bean(name = "/LUM.html")
+    @Scope(WebApplicationContext.SCOPE_REQUEST)
+    public LUMAction lumAction() {
+        return new LUMAction();
     }
 
-    @Bean(value = "/PAB.html")
-    @Scope("prototype")
-    PABAction pabAction() {
-	return new PABAction();
+    @Bean(name = "/PAB.html")
+    @Scope(WebApplicationContext.SCOPE_REQUEST)
+    public PABAction pabAction() {
+        return new PABAction();
     }
 
-    @Bean(value = "/PUG.html")
-    @Scope("prototype")
-    PUGAction pugAction() {
-	return new PUGAction();
+    @Bean(name = "/PUG.html")
+    @Scope(WebApplicationContext.SCOPE_REQUEST)
+    public PUGAction pugAction() {
+        return new PUGAction();
     }
 
-    @Bean(value = "/SISMA.html")
-    @Scope("prototype")
-    SISMAAction sismaAction() {
-	return new SISMAAction();
+    @Bean(name = "/SISMA.html")
+    @Scope(WebApplicationContext.SCOPE_REQUEST)
+    public SISMAAction sismaAction() {
+        return new SISMAAction();
     }
 
-    @Bean(value = "/Pievesestina.html")
-    @Scope("prototype")
-    PievesestinaAction pievesestinaAction() {
-	return new PievesestinaAction();
+    @Bean(name = "/Pievesestina.html")
+    @Scope(WebApplicationContext.SCOPE_REQUEST)
+    public PievesestinaAction pievesestinaAction() {
+        return new PievesestinaAction();
     }
 
 }

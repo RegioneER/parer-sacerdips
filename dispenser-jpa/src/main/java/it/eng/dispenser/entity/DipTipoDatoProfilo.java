@@ -38,7 +38,7 @@ public class DipTipoDatoProfilo implements Serializable {
     private static final long serialVersionUID = 1L;
 
     public enum TipoConversione {
-	TIPO_UD, ENTE_STRUTTURA
+        TIPO_UD, ENTE_STRUTTURA
     }
 
     @Id
@@ -69,73 +69,73 @@ public class DipTipoDatoProfilo implements Serializable {
     }
 
     public DipTipoDatoProfilo(BigDecimal idTipoDatoProfilo) {
-	this.idTipoDatoProfilo = idTipoDatoProfilo;
+        this.idTipoDatoProfilo = idTipoDatoProfilo;
     }
 
     public DipTipoDatoProfilo(BigDecimal idTipoDatoProfilo, String nmTipoDatoProfilo,
-	    String tiOrigineDatoProfilo, Date dtIstituz, String nmColonnaDb, String tiDatoProfilo) {
-	this.idTipoDatoProfilo = idTipoDatoProfilo;
-	this.nmTipoDatoProfilo = nmTipoDatoProfilo;
-	this.tiOrigineDatoProfilo = tiOrigineDatoProfilo;
-	this.dtIstituz = dtIstituz;
-	this.nmColonnaDb = nmColonnaDb;
-	this.tiDatoProfilo = tiDatoProfilo;
+            String tiOrigineDatoProfilo, Date dtIstituz, String nmColonnaDb, String tiDatoProfilo) {
+        this.idTipoDatoProfilo = idTipoDatoProfilo;
+        this.nmTipoDatoProfilo = nmTipoDatoProfilo;
+        this.tiOrigineDatoProfilo = tiOrigineDatoProfilo;
+        this.dtIstituz = dtIstituz;
+        this.nmColonnaDb = nmColonnaDb;
+        this.tiDatoProfilo = tiDatoProfilo;
     }
 
     public BigDecimal getIdTipoDatoProfilo() {
-	return idTipoDatoProfilo;
+        return idTipoDatoProfilo;
     }
 
     public void setIdTipoDatoProfilo(BigDecimal idTipoDatoProfilo) {
-	this.idTipoDatoProfilo = idTipoDatoProfilo;
+        this.idTipoDatoProfilo = idTipoDatoProfilo;
     }
 
     public String getNmTipoDatoProfilo() {
-	return nmTipoDatoProfilo;
+        return nmTipoDatoProfilo;
     }
 
     public void setNmTipoDatoProfilo(String nmTipoDatoProfilo) {
-	this.nmTipoDatoProfilo = nmTipoDatoProfilo;
+        this.nmTipoDatoProfilo = nmTipoDatoProfilo;
     }
 
     public String getTiOrigineDatoProfilo() {
-	return tiOrigineDatoProfilo;
+        return tiOrigineDatoProfilo;
     }
 
     public void setTiOrigineDatoProfilo(String tiOrigineDatoProfilo) {
-	this.tiOrigineDatoProfilo = tiOrigineDatoProfilo;
+        this.tiOrigineDatoProfilo = tiOrigineDatoProfilo;
     }
 
     public Date getDtIstituz() {
-	return dtIstituz;
+        return dtIstituz;
     }
 
     public void setDtIstituz(Date dtIstituz) {
-	this.dtIstituz = dtIstituz;
+        this.dtIstituz = dtIstituz;
     }
 
     public String getNmColonnaDb() {
-	return nmColonnaDb;
+        return nmColonnaDb;
     }
 
     public void setNmColonnaDb(String nmColonnaDb) {
-	this.nmColonnaDb = nmColonnaDb;
+        this.nmColonnaDb = nmColonnaDb;
     }
 
     public String getTiDatoProfilo() {
-	return tiDatoProfilo;
+        return tiDatoProfilo;
     }
 
     public void setTiDatoProfilo(String tiDatoProfilo) {
-	this.tiDatoProfilo = tiDatoProfilo;
+        this.tiDatoProfilo = tiDatoProfilo;
     }
 
     public TipoConversione getTipoConversione() {
-	return tipoConversione;
+        return tipoConversione;
     }
 
     public void setTipoConversione(TipoConversione tipoConversione) {
-	this.tipoConversione = tipoConversione;
+        this.tipoConversione = tipoConversione;
     }
 
 }

@@ -33,19 +33,19 @@ public class QryUdByVlMetaNumTableBean extends AbstractBaseTable<QryUdByVlMetaNu
     public static QryUdByVlMetaNumTableDescriptor TABLE_DESCRIPTOR = new QryUdByVlMetaNumTableDescriptor();
 
     public QryUdByVlMetaNumTableBean() {
-	super();
+        super();
     }
 
     protected QryUdByVlMetaNumRowBean createRow() {
-	return new QryUdByVlMetaNumRowBean();
+        return new QryUdByVlMetaNumRowBean();
     }
 
     public TableDescriptor getTableDescriptor() {
-	return TABLE_DESCRIPTOR;
+        return TABLE_DESCRIPTOR;
     }
 
     @Deprecated
     public Iterator<QryUdByVlMetaNumRowBean> getRowsIterator() {
-	return iterator();
+        return iterator();
     }
 }

@@ -16,11 +16,11 @@ package it.eng.dispenser.entity.constraint;
 public class ConstDipTipoDatoProfilo {
 
     public enum tiOrigineDatoProfilo {
-	DOC_PRINC, UNI_DOC;
+        DOC_PRINC, UNI_DOC;
     }
 
     public enum tiDatoProfilo {
-	ALFANUMERICO, DATA, NUMERICO;
+        ALFANUMERICO, DATA, NUMERICO;
     }
 
 }

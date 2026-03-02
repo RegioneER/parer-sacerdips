@@ -46,32 +46,32 @@ public class DipCampoRicercaTableDescriptor extends TableDescriptor {
     private static Map<String, ColumnDescriptor> map = new LinkedHashMap<String, ColumnDescriptor>();
 
     static {
-	map.put(COL_ID_CAMPO_RICERCA,
-		new ColumnDescriptor(COL_ID_CAMPO_RICERCA, Types.DECIMAL, 22, true));
-	map.put(COL_NM_LABEL_CAMPO,
-		new ColumnDescriptor(COL_NM_LABEL_CAMPO, Types.VARCHAR, 100, false));
-	map.put(COL_ID_GRUPPO_CAMPI,
-		new ColumnDescriptor(COL_ID_GRUPPO_CAMPI, Types.DECIMAL, 22, false));
-	map.put(COL_TI_DATO_CAMPO,
-		new ColumnDescriptor(COL_TI_DATO_CAMPO, Types.VARCHAR, 20, false));
-	map.put(COL_DS_DESCRIZIONE_CAMPO,
-		new ColumnDescriptor(COL_DS_DESCRIZIONE_CAMPO, Types.VARCHAR, 254, false));
-	map.put(COL_NI_RIGA_CAMPO,
-		new ColumnDescriptor(COL_NI_RIGA_CAMPO, Types.DECIMAL, 22, false));
-	map.put(COL_NI_COLONNA_CAMPO,
-		new ColumnDescriptor(COL_NI_COLONNA_CAMPO, Types.DECIMAL, 22, false));
+        map.put(COL_ID_CAMPO_RICERCA,
+                new ColumnDescriptor(COL_ID_CAMPO_RICERCA, Types.DECIMAL, 22, true));
+        map.put(COL_NM_LABEL_CAMPO,
+                new ColumnDescriptor(COL_NM_LABEL_CAMPO, Types.VARCHAR, 100, false));
+        map.put(COL_ID_GRUPPO_CAMPI,
+                new ColumnDescriptor(COL_ID_GRUPPO_CAMPI, Types.DECIMAL, 22, false));
+        map.put(COL_TI_DATO_CAMPO,
+                new ColumnDescriptor(COL_TI_DATO_CAMPO, Types.VARCHAR, 20, false));
+        map.put(COL_DS_DESCRIZIONE_CAMPO,
+                new ColumnDescriptor(COL_DS_DESCRIZIONE_CAMPO, Types.VARCHAR, 254, false));
+        map.put(COL_NI_RIGA_CAMPO,
+                new ColumnDescriptor(COL_NI_RIGA_CAMPO, Types.DECIMAL, 22, false));
+        map.put(COL_NI_COLONNA_CAMPO,
+                new ColumnDescriptor(COL_NI_COLONNA_CAMPO, Types.DECIMAL, 22, false));
     }
 
     public Map<String, ColumnDescriptor> getColumnMap() {
-	return map;
+        return map;
     }
 
     public String getTableName() {
-	return TABLE_NAME;
+        return TABLE_NAME;
     }
 
     public String getStatement() {
-	return SELECT;
+        return SELECT;
     }
 
 }

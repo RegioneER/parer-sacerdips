@@ -38,28 +38,28 @@ public class PABValidator extends DefaultValidator {
     @SuppressWarnings("unchecked")
     @Override
     public boolean validate(Fields<Field> fields, MessageBox messageBox) {
-	boolean valido = super.validate(fields, messageBox);
-	for (Field field : fields) {
-	    Type.Enum typeField = field.getType();
-	    if (typeField.equals(Type.STRING)) {
-		String value = null;
-		SingleValueField<String> stringField = (SingleValueField<String>) field;
+        boolean valido = super.validate(fields, messageBox);
+        for (Field field : fields) {
+            Type.Enum typeField = field.getType();
+            if (typeField.equals(Type.STRING)) {
+                String value = null;
+                SingleValueField<String> stringField = (SingleValueField<String>) field;
 
-		if (field.getName().equalsIgnoreCase("ENTE_STRUTTURA")) {
-		    try {
-			value = stringField.parse();
-			if (value == null) {
-			    messageBox.addInfo(
-				    "Almeno il filtro Ente/Struttura deve essere valorizzato");
-			    valido = false;
-			}
-		    } catch (EMFError e) {
-			log.error("String parse error", e);
-		    }
-		}
-	    }
-	}
-	return valido;
+                if (field.getName().equalsIgnoreCase("ENTE_STRUTTURA")) {
+                    try {
+                        value = stringField.parse();
+                        if (value == null) {
+                            messageBox.addInfo(
+                                    "Almeno il filtro Ente/Struttura deve essere valorizzato");
+                            valido = false;
+                        }
+                    } catch (EMFError e) {
+                        log.error("String parse error", e);
+                    }
+                }
+            }
+        }
+        return valido;
     }
 
 }

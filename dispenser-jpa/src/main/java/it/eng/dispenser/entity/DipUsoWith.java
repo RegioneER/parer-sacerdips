@@ -54,31 +54,31 @@ public class DipUsoWith implements Serializable {
     }
 
     public DipUsoWith(long idUsoWith) {
-	this.idUsoWith = idUsoWith;
+        this.idUsoWith = idUsoWith;
     }
 
     public long getIdUsoWith() {
-	return idUsoWith;
+        return idUsoWith;
     }
 
     public void setIdUsoWith(long idUsoWith) {
-	this.idUsoWith = idUsoWith;
+        this.idUsoWith = idUsoWith;
     }
 
     public DipQueryWith getIdQueryWith() {
-	return idQueryWith;
+        return idQueryWith;
     }
 
     public void setIdQueryWith(DipQueryWith idQueryWith) {
-	this.idQueryWith = idQueryWith;
+        this.idQueryWith = idQueryWith;
     }
 
     public DipDefAttributo getIdDefAttributo() {
-	return idDefAttributo;
+        return idDefAttributo;
     }
 
     public void setIdDefAttributo(DipDefAttributo idDefAttributo) {
-	this.idDefAttributo = idDefAttributo;
+        this.idDefAttributo = idDefAttributo;
     }
 
 }

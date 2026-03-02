@@ -33,19 +33,19 @@ public class DipValorePredefinitoTableBean extends AbstractBaseTable<DipValorePr
     public static DipValorePredefinitoTableDescriptor TABLE_DESCRIPTOR = new DipValorePredefinitoTableDescriptor();
 
     public DipValorePredefinitoTableBean() {
-	super();
+        super();
     }
 
     protected DipValorePredefinitoRowBean createRow() {
-	return new DipValorePredefinitoRowBean();
+        return new DipValorePredefinitoRowBean();
     }
 
     public TableDescriptor getTableDescriptor() {
-	return TABLE_DESCRIPTOR;
+        return TABLE_DESCRIPTOR;
     }
 
     @Deprecated
     public Iterator<DipValorePredefinitoRowBean> getRowsIterator() {
-	return iterator();
+        return iterator();
     }
 }

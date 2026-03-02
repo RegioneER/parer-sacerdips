@@ -39,31 +39,31 @@ public class QryUdByVlMetaStr implements Serializable {
     private QryUdByVlMetaStrId qryUdByVlMetaStrId;
 
     public QryUdByVlMetaStr() {
-	// costruttore
+        // costruttore
     }
 
     public String getDlPrefissoValore() {
-	return this.dlPrefissoValore;
+        return this.dlPrefissoValore;
     }
 
     public void setDlPrefissoValore(String dlPrefissoValore) {
-	this.dlPrefissoValore = dlPrefissoValore;
+        this.dlPrefissoValore = dlPrefissoValore;
     }
 
     public String getDlValore() {
-	return this.dlValore;
+        return this.dlValore;
     }
 
     public void setDlValore(String dlValore) {
-	this.dlValore = dlValore;
+        this.dlValore = dlValore;
     }
 
     public QryUdByVlMetaStrId getQryUdByVlMetaStrId() {
-	return qryUdByVlMetaStrId;
+        return qryUdByVlMetaStrId;
     }
 
     public void setQryUdByVlMetaStrId(QryUdByVlMetaStrId qryUdByVlMetaStrId) {
-	this.qryUdByVlMetaStrId = qryUdByVlMetaStrId;
+        this.qryUdByVlMetaStrId = qryUdByVlMetaStrId;
     }
 
 }

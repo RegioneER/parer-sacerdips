@@ -59,78 +59,78 @@ public class DecTipoDoc implements Serializable {
     @Column(name = "ID_TIPO_DOC")
     @XmlID
     public long getIdTipoDoc() {
-	return this.idTipoDoc;
+        return this.idTipoDoc;
     }
 
     public void setIdTipoDoc(long idTipoDoc) {
-	this.idTipoDoc = idTipoDoc;
+        this.idTipoDoc = idTipoDoc;
     }
 
     @Column(name = "DL_NOTE_TIPO_DOC")
     public String getDlNoteTipoDoc() {
-	return this.dlNoteTipoDoc;
+        return this.dlNoteTipoDoc;
     }
 
     public void setDlNoteTipoDoc(String dlNoteTipoDoc) {
-	this.dlNoteTipoDoc = dlNoteTipoDoc;
+        this.dlNoteTipoDoc = dlNoteTipoDoc;
     }
 
     @Column(name = "DS_TIPO_DOC")
     public String getDsTipoDoc() {
-	return this.dsTipoDoc;
+        return this.dsTipoDoc;
     }
 
     public void setDsTipoDoc(String dsTipoDoc) {
-	this.dsTipoDoc = dsTipoDoc;
+        this.dsTipoDoc = dsTipoDoc;
     }
 
     @Temporal(TemporalType.TIMESTAMP)
     @Column(name = "DT_ISTITUZ")
     public Date getDtIstituz() {
-	return this.dtIstituz;
+        return this.dtIstituz;
     }
 
     public void setDtIstituz(Date dtIstituz) {
-	this.dtIstituz = dtIstituz;
+        this.dtIstituz = dtIstituz;
     }
 
     @Temporal(TemporalType.TIMESTAMP)
     @Column(name = "DT_SOPPRES")
     public Date getDtSoppres() {
-	return this.dtSoppres;
+        return this.dtSoppres;
     }
 
     public void setDtSoppres(Date dtSoppres) {
-	this.dtSoppres = dtSoppres;
+        this.dtSoppres = dtSoppres;
     }
 
     @Column(name = "FL_TIPO_DOC_PRINCIPALE", columnDefinition = "char(1)")
     public String getFlTipoDocPrincipale() {
-	return this.flTipoDocPrincipale;
+        return this.flTipoDocPrincipale;
     }
 
     public void setFlTipoDocPrincipale(String flTipoDocPrincipale) {
-	this.flTipoDocPrincipale = flTipoDocPrincipale;
+        this.flTipoDocPrincipale = flTipoDocPrincipale;
     }
 
     @Column(name = "NM_TIPO_DOC")
     public String getNmTipoDoc() {
-	return this.nmTipoDoc;
+        return this.nmTipoDoc;
     }
 
     public void setNmTipoDoc(String nmTipoDoc) {
-	this.nmTipoDoc = nmTipoDoc;
+        this.nmTipoDoc = nmTipoDoc;
     }
 
     // bi-directional many-to-one association to OrgStrut
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "ID_STRUT")
     public OrgStrut getOrgStrut() {
-	return this.orgStrut;
+        return this.orgStrut;
     }
 
     public void setOrgStrut(OrgStrut orgStrut) {
-	this.orgStrut = orgStrut;
+        this.orgStrut = orgStrut;
     }
 
 }

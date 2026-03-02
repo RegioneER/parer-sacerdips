@@ -40,19 +40,19 @@ public class QryDocByVlMetaNum implements Serializable {
     }
 
     public BigDecimal getDlValore() {
-	return this.dlValore;
+        return this.dlValore;
     }
 
     public void setDlValore(BigDecimal dlValore) {
-	this.dlValore = dlValore;
+        this.dlValore = dlValore;
     }
 
     public QryDocByVlMetaNumId getQryDocByVlMetaNumId() {
-	return qryDocByVlMetaNumId;
+        return qryDocByVlMetaNumId;
     }
 
     public void setQryDocByVlMetaNumId(QryDocByVlMetaNumId qryDocByVlMetaNumId) {
-	this.qryDocByVlMetaNumId = qryDocByVlMetaNumId;
+        this.qryDocByVlMetaNumId = qryDocByVlMetaNumId;
     }
 
 }

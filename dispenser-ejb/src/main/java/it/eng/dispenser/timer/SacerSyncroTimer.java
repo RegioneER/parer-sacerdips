@@ -50,96 +50,96 @@ public class SacerSyncroTimer extends JobTimer {
     private SacerSyncroJob sacerJob;
 
     public SacerSyncroTimer() {
-	super(Constants.JobEnum.SACER_SYNCRO.name());
-	logger.debug(SacerSyncroTimer.class.getName() + "creato");
+        super(Constants.JobEnum.SACER_SYNCRO.name());
+        logger.debug(SacerSyncroTimer.class.getName() + "creato");
     }
 
     @Override
     @Lock(LockType.WRITE)
     public void startSingleAction(String applicationName) {
-	boolean existTimer = false;
+        boolean existTimer = false;
 
-	for (Object obj : timerService.getTimers()) {
-	    Timer timer = (Timer) obj;
-	    String scheduled = (String) timer.getInfo();
-	    if (scheduled.equals(jobName)) {
-		existTimer = true;
-	    }
-	}
-	if (!existTimer) {
-	    timerService.createTimer(TIME_DURATION, jobName);
-	}
+        for (Object obj : timerService.getTimers()) {
+            Timer timer = (Timer) obj;
+            String scheduled = (String) timer.getInfo();
+            if (scheduled.equals(jobName)) {
+                existTimer = true;
+            }
+        }
+        if (!existTimer) {
+            timerService.createTimer(TIME_DURATION, jobName);
+        }
     }
 
     @Override
     @Lock(LockType.WRITE)
     public void startCronScheduled(CronSchedule sched, String applicationName) {
-	ScheduleExpression tmpScheduleExpression;
-	boolean existTimer = false;
+        ScheduleExpression tmpScheduleExpression;
+        boolean existTimer = false;
 
-	logger.info("Schedulazione: Ore: " + sched.getHour());
-	logger.info("Schedulazione: Minuti: " + sched.getMinute());
-	logger.info("Schedulazione: DOW: " + sched.getDayOfWeek());
-	logger.info("Schedulazione: DOM: " + sched.getDayOfMonth());
-	logger.info("Schedulazione: Mese: " + sched.getMonth());
+        logger.info("Schedulazione: Ore: " + sched.getHour());
+        logger.info("Schedulazione: Minuti: " + sched.getMinute());
+        logger.info("Schedulazione: DOW: " + sched.getDayOfWeek());
+        logger.info("Schedulazione: DOM: " + sched.getDayOfMonth());
+        logger.info("Schedulazione: Mese: " + sched.getMonth());
 
-	for (Object obj : timerService.getTimers()) {
-	    Timer timer = (Timer) obj;
-	    String scheduled = (String) timer.getInfo();
-	    if (scheduled.equals(jobName)) {
-		existTimer = true;
-	    }
-	}
-	if (!existTimer) {
-	    tmpScheduleExpression = new ScheduleExpression();
-	    tmpScheduleExpression.hour(sched.getHour());
-	    tmpScheduleExpression.minute(sched.getMinute());
-	    tmpScheduleExpression.dayOfWeek(sched.getDayOfWeek());
-	    tmpScheduleExpression.dayOfMonth(sched.getDayOfMonth());
-	    tmpScheduleExpression.month(sched.getMonth());
+        for (Object obj : timerService.getTimers()) {
+            Timer timer = (Timer) obj;
+            String scheduled = (String) timer.getInfo();
+            if (scheduled.equals(jobName)) {
+                existTimer = true;
+            }
+        }
+        if (!existTimer) {
+            tmpScheduleExpression = new ScheduleExpression();
+            tmpScheduleExpression.hour(sched.getHour());
+            tmpScheduleExpression.minute(sched.getMinute());
+            tmpScheduleExpression.dayOfWeek(sched.getDayOfWeek());
+            tmpScheduleExpression.dayOfMonth(sched.getDayOfMonth());
+            tmpScheduleExpression.month(sched.getMonth());
 
-	    logger.info("Lancio il timer SacerSyncroTimer...");
+            logger.info("Lancio il timer SacerSyncroTimer...");
 
-	    // Ripristinarlo prima di rilasciare !!!!
-	    timerService.createCalendarTimer(tmpScheduleExpression,
-		    new TimerConfig(jobName, false));
+            // Ripristinarlo prima di rilasciare !!!!
+            timerService.createCalendarTimer(tmpScheduleExpression,
+                    new TimerConfig(jobName, false));
 
-	    // SOLO PER TESTING e per eseguire il job ONE-SHOT
-	    // timerService.createSingleActionTimer(0, new TimerConfig(jobName, true));
+            // SOLO PER TESTING e per eseguire il job ONE-SHOT
+            // timerService.createSingleActionTimer(0, new TimerConfig(jobName, true));
 
-	}
+        }
     }
 
     @Override
     @Lock(LockType.WRITE)
     public void stop(String applicationName) {
-	for (Object obj : timerService.getTimers()) {
-	    Timer timer = (Timer) obj;
-	    String scheduled = (String) timer.getInfo();
-	    if (scheduled.equals(jobName)) {
-		timer.cancel();
-	    }
-	}
+        for (Object obj : timerService.getTimers()) {
+            Timer timer = (Timer) obj;
+            String scheduled = (String) timer.getInfo();
+            if (scheduled.equals(jobName)) {
+                timer.cancel();
+            }
+        }
     }
 
     @Timeout
     public void doJob(Timer timer) throws Exception {
-	logger.debug("Sincronizzazione con Sacer - Inizio schedulazione");
-	if (timer.getInfo().equals(jobName)) {
-	    thisTimer.startProcess();
-	}
+        logger.debug("Sincronizzazione con Sacer - Inizio schedulazione");
+        if (timer.getInfo().equals(jobName)) {
+            thisTimer.startProcess();
+        }
     }
 
     @Override
     public void startProcess() throws Exception {
-	jobHelper.writeAtomicLogJob(jobName, ConstDipLogJob.tiEvento.INIZIO_ESECUZIONE.name());
+        jobHelper.writeAtomicLogJob(jobName, ConstDipLogJob.tiEvento.INIZIO_ESECUZIONE.name());
 
-	try {
-	    sacerJob.sincronizzazioneConSacer();
-	} catch (Exception e) {
-	    logger.error("Sincronizzazione Sacer - Errore durante l'esecuzione del job ", e);
-	    jobHelper.writeAtomicLogJob(jobName, ConstDipLogJob.tiEvento.ERRORE.name(),
-		    "Errore: " + ExceptionUtils.getRootCauseMessage(e));
-	}
+        try {
+            sacerJob.sincronizzazioneConSacer();
+        } catch (Exception e) {
+            logger.error("Sincronizzazione Sacer - Errore durante l'esecuzione del job ", e);
+            jobHelper.writeAtomicLogJob(jobName, ConstDipLogJob.tiEvento.ERRORE.name(),
+                    "Errore: " + ExceptionUtils.getRootCauseMessage(e));
+        }
     }
 }

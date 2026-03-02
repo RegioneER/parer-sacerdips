@@ -43,26 +43,26 @@ public class DipValoreComboTableDescriptor extends TableDescriptor {
     private static Map<String, ColumnDescriptor> map = new LinkedHashMap<String, ColumnDescriptor>();
 
     static {
-	map.put(COL_ID_VALORE_COMBO,
-		new ColumnDescriptor(COL_ID_VALORE_COMBO, Types.DECIMAL, 22, true));
-	map.put(COL_ID_CAMPO_RICERCA,
-		new ColumnDescriptor(COL_ID_CAMPO_RICERCA, Types.DECIMAL, 22, false));
-	map.put(COL_NM_VALORE_COMBO,
-		new ColumnDescriptor(COL_NM_VALORE_COMBO, Types.VARCHAR, 100, false));
-	map.put(COL_CD_VALORE_COMBO,
-		new ColumnDescriptor(COL_CD_VALORE_COMBO, Types.VARCHAR, 100, false));
+        map.put(COL_ID_VALORE_COMBO,
+                new ColumnDescriptor(COL_ID_VALORE_COMBO, Types.DECIMAL, 22, true));
+        map.put(COL_ID_CAMPO_RICERCA,
+                new ColumnDescriptor(COL_ID_CAMPO_RICERCA, Types.DECIMAL, 22, false));
+        map.put(COL_NM_VALORE_COMBO,
+                new ColumnDescriptor(COL_NM_VALORE_COMBO, Types.VARCHAR, 100, false));
+        map.put(COL_CD_VALORE_COMBO,
+                new ColumnDescriptor(COL_CD_VALORE_COMBO, Types.VARCHAR, 100, false));
     }
 
     public Map<String, ColumnDescriptor> getColumnMap() {
-	return map;
+        return map;
     }
 
     public String getTableName() {
-	return TABLE_NAME;
+        return TABLE_NAME;
     }
 
     public String getStatement() {
-	return SELECT;
+        return SELECT;
     }
 
 }

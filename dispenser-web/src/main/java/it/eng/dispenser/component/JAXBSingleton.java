@@ -34,19 +34,19 @@ public class JAXBSingleton {
 
     @PostConstruct
     public void postConstruct() {
-	try {
-	    contextStatoConservazione = JAXBContext.newInstance(StatoConservazione.class);
-	    contextRecupero = JAXBContext.newInstance(Recupero.class);
-	} catch (JAXBException e) {
-	    log.error("Errore nella configurazione di JAXB", e);
-	}
+        try {
+            contextStatoConservazione = JAXBContext.newInstance(StatoConservazione.class);
+            contextRecupero = JAXBContext.newInstance(Recupero.class);
+        } catch (JAXBException e) {
+            log.error("Errore nella configurazione di JAXB", e);
+        }
     }
 
     public JAXBContext getContextStatoConservazione() {
-	return contextStatoConservazione;
+        return contextStatoConservazione;
     }
 
     public JAXBContext getContextRecupero() {
-	return contextRecupero;
+        return contextRecupero;
     }
 }

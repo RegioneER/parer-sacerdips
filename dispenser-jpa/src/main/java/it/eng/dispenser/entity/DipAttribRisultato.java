@@ -39,8 +39,8 @@ import javax.persistence.Table;
 @Entity
 @Table(name = "DIP_ATTRIB_RISULTATO")
 @NamedQueries(value = {
-	@NamedQuery(name = "DipAttribRisultato.findAllLista", query = "SELECT d FROM DipAttribRisultato d JOIN d.dipElementoLista del where d.dipRicerca.nmRicerca = :nmRicerca"),
-	@NamedQuery(name = "DipAttribRisultato.findAllDettaglio", query = "SELECT d FROM DipAttribRisultato d JOIN d.dipElementoDettaglio ded where d.dipRicerca.nmRicerca = :nmRicerca") })
+        @NamedQuery(name = "DipAttribRisultato.findAllLista", query = "SELECT d FROM DipAttribRisultato d JOIN d.dipElementoLista del where d.dipRicerca.nmRicerca = :nmRicerca"),
+        @NamedQuery(name = "DipAttribRisultato.findAllDettaglio", query = "SELECT d FROM DipAttribRisultato d JOIN d.dipElementoDettaglio ded where d.dipRicerca.nmRicerca = :nmRicerca") })
 public class DipAttribRisultato implements Serializable {
     private static final long serialVersionUID = 1L;
 
@@ -86,83 +86,83 @@ public class DipAttribRisultato implements Serializable {
     }
 
     public long getIdAttribRisultato() {
-	return this.idAttribRisultato;
+        return this.idAttribRisultato;
     }
 
     public void setIdAttribRisultato(long idAttribRisultato) {
-	this.idAttribRisultato = idAttribRisultato;
+        this.idAttribRisultato = idAttribRisultato;
     }
 
     public String getFlOrderby() {
-	return this.flOrderby;
+        return this.flOrderby;
     }
 
     public void setFlOrderby(String flOrderby) {
-	this.flOrderby = flOrderby;
+        this.flOrderby = flOrderby;
     }
 
     public BigDecimal getNiOrderby() {
-	return this.niOrderby;
+        return this.niOrderby;
     }
 
     public void setNiOrderby(BigDecimal niOrderby) {
-	this.niOrderby = niOrderby;
+        this.niOrderby = niOrderby;
     }
 
     public String getNmAttributo() {
-	return this.nmAttributo;
+        return this.nmAttributo;
     }
 
     public void setNmAttributo(String nmAttributo) {
-	this.nmAttributo = nmAttributo;
+        this.nmAttributo = nmAttributo;
     }
 
     public String getTiDatoAttributo() {
-	return this.tiDatoAttributo;
+        return this.tiDatoAttributo;
     }
 
     public void setTiDatoAttributo(String tiDatoAttributo) {
-	this.tiDatoAttributo = tiDatoAttributo;
+        this.tiDatoAttributo = tiDatoAttributo;
     }
 
     public String getTiOrderby() {
-	return this.tiOrderby;
+        return this.tiOrderby;
     }
 
     public void setTiOrderby(String tiOrderby) {
-	this.tiOrderby = tiOrderby;
+        this.tiOrderby = tiOrderby;
     }
 
     public DipRicerca getDipRicerca() {
-	return this.dipRicerca;
+        return this.dipRicerca;
     }
 
     public void setDipRicerca(DipRicerca dipRicerca) {
-	this.dipRicerca = dipRicerca;
+        this.dipRicerca = dipRicerca;
     }
 
     public DipElementoDettaglio getDipElementoDettaglio() {
-	return this.dipElementoDettaglio;
+        return this.dipElementoDettaglio;
     }
 
     public void setDipElementoDettaglio(DipElementoDettaglio dipElementoDettaglio) {
-	this.dipElementoDettaglio = dipElementoDettaglio;
+        this.dipElementoDettaglio = dipElementoDettaglio;
     }
 
     public DipElementoLista getDipElementoLista() {
-	return this.dipElementoLista;
+        return this.dipElementoLista;
     }
 
     public void setDipElementoLista(DipElementoLista dipElementoLista) {
-	this.dipElementoLista = dipElementoLista;
+        this.dipElementoLista = dipElementoLista;
     }
 
     public Set<DipDefAttributo> getDipDefAttributos() {
-	return dipDefAttributos;
+        return dipDefAttributos;
     }
 
     public void setDipDefAttributos(Set<DipDefAttributo> dipDefAttributos) {
-	this.dipDefAttributos = dipDefAttributos;
+        this.dipDefAttributos = dipDefAttributos;
     }
 
 }

@@ -43,10 +43,10 @@ public class MessaggiWSBundle {
     public static final String MON_AUTH_005 = "MON-AUTH-005";
 
     public static String getString(String key) {
-	return RESOURCE_BUNDLE.getString(key);
+        return RESOURCE_BUNDLE.getString(key);
     }
 
     public static String getString(String key, Object... params) {
-	return MessageFormat.format(RESOURCE_BUNDLE.getString(key), params);
+        return MessageFormat.format(RESOURCE_BUNDLE.getString(key), params);
     }
 }

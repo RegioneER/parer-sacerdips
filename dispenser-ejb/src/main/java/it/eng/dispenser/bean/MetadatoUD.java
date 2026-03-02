@@ -19,14 +19,14 @@ public class MetadatoUD extends Metadato {
     private static final long serialVersionUID = 1L;
 
     public MetadatoUD(long attrID, long udID, String value, String type) {
-	super(attrID, udID, value, type);
+        super(attrID, udID, value, type);
     }
 
     public MetadatoUD(BigDecimal attrID, BigDecimal udID, String value, String type) {
-	super(attrID, udID, value, type);
+        super(attrID, udID, value, type);
     }
 
     public BigDecimal getAttrID() {
-	return getMetadatoID();
+        return getMetadatoID();
     }
 }

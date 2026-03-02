@@ -36,90 +36,90 @@ public class QryUdByVlMetaStrRowBean extends BaseRow implements JEEBaseRowInterf
     public static QryUdByVlMetaStrTableDescriptor TABLE_DESCRIPTOR = new QryUdByVlMetaStrTableDescriptor();
 
     public QryUdByVlMetaStrRowBean() {
-	super();
+        super();
     }
 
     public TableDescriptor getTableDescriptor() {
-	return TABLE_DESCRIPTOR;
+        return TABLE_DESCRIPTOR;
     }
 
     // getter e setter
     public BigDecimal getIdAttribDatiSpec() {
-	return getBigDecimal("id_attrib_dati_spec");
+        return getBigDecimal("id_attrib_dati_spec");
     }
 
     public void setIdAttribDatiSpec(BigDecimal idAttribDatiSpec) {
-	setObject("id_attrib_dati_spec", idAttribDatiSpec);
+        setObject("id_attrib_dati_spec", idAttribDatiSpec);
     }
 
     public BigDecimal getIdUnitaDoc() {
-	return getBigDecimal("id_unita_doc");
+        return getBigDecimal("id_unita_doc");
     }
 
     public void setIdUnitaDoc(BigDecimal idUnitaDoc) {
-	setObject("id_unita_doc", idUnitaDoc);
+        setObject("id_unita_doc", idUnitaDoc);
     }
 
     public String getDlPrefissoValore() {
-	return getString("dl_prefisso_valore");
+        return getString("dl_prefisso_valore");
     }
 
     public void setDlPrefissoValore(String dlPrefissoValore) {
-	setObject("dl_prefisso_valore", dlPrefissoValore);
+        setObject("dl_prefisso_valore", dlPrefissoValore);
     }
 
     public String getDlValore() {
-	return getString("dl_valore");
+        return getString("dl_valore");
     }
 
     public void setDlValore(String dlValore) {
-	setObject("dl_valore", dlValore);
+        setObject("dl_valore", dlValore);
     }
 
     @Override
     public void entityToRowBean(Object obj) {
-	QryUdByVlMetaStr entity = (QryUdByVlMetaStr) obj;
-	this.setIdAttribDatiSpec(entity.getQryUdByVlMetaStrId().getIdAttribDatiSpec());
-	this.setIdUnitaDoc(entity.getQryUdByVlMetaStrId().getIdUnitaDoc());
-	this.setDlPrefissoValore(entity.getDlPrefissoValore());
-	this.setDlValore(entity.getDlValore());
+        QryUdByVlMetaStr entity = (QryUdByVlMetaStr) obj;
+        this.setIdAttribDatiSpec(entity.getQryUdByVlMetaStrId().getIdAttribDatiSpec());
+        this.setIdUnitaDoc(entity.getQryUdByVlMetaStrId().getIdUnitaDoc());
+        this.setDlPrefissoValore(entity.getDlPrefissoValore());
+        this.setDlValore(entity.getDlValore());
     }
 
     @Override
     public QryUdByVlMetaStr rowBeanToEntity() {
-	QryUdByVlMetaStrId id = new QryUdByVlMetaStrId();
-	id.setIdAttribDatiSpec(this.getIdAttribDatiSpec());
-	id.setIdUnitaDoc(this.getIdUnitaDoc());
-	QryUdByVlMetaStr entity = new QryUdByVlMetaStr();
-	entity.setQryUdByVlMetaStrId(id);
-	entity.setDlPrefissoValore(this.getDlPrefissoValore());
-	entity.setDlValore(this.getDlValore());
-	return entity;
+        QryUdByVlMetaStrId id = new QryUdByVlMetaStrId();
+        id.setIdAttribDatiSpec(this.getIdAttribDatiSpec());
+        id.setIdUnitaDoc(this.getIdUnitaDoc());
+        QryUdByVlMetaStr entity = new QryUdByVlMetaStr();
+        entity.setQryUdByVlMetaStrId(id);
+        entity.setDlPrefissoValore(this.getDlPrefissoValore());
+        entity.setDlValore(this.getDlValore());
+        return entity;
     }
 
     // gestione della paginazione
     public void setRownum(Integer rownum) {
-	setObject("rownum", rownum);
+        setObject("rownum", rownum);
     }
 
     public Integer getRownum() {
-	return Integer.parseInt(getObject("rownum").toString());
+        return Integer.parseInt(getObject("rownum").toString());
     }
 
     public void setRnum(Integer rnum) {
-	setObject("rnum", rnum);
+        setObject("rnum", rnum);
     }
 
     public Integer getRnum() {
-	return Integer.parseInt(getObject("rnum").toString());
+        return Integer.parseInt(getObject("rnum").toString());
     }
 
     public void setNumrecords(Integer numRecords) {
-	setObject("numrecords", numRecords);
+        setObject("numrecords", numRecords);
     }
 
     public Integer getNumrecords() {
-	return Integer.parseInt(getObject("numrecords").toString());
+        return Integer.parseInt(getObject("numrecords").toString());
     }
 
 }

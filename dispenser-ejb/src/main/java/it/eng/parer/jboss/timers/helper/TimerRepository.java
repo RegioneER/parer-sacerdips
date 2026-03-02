@@ -42,8 +42,8 @@ public class TimerRepository {
 
     @PostConstruct
     public void initialize() {
-	map = new HashMap<>();
-	map.put(Constants.JobEnum.SACER_SYNCRO.name(), sacerSyncroTimer);
+        map = new HashMap<>();
+        map.put(Constants.JobEnum.SACER_SYNCRO.name(), sacerSyncroTimer);
     }
 
     /**
@@ -53,7 +53,7 @@ public class TimerRepository {
      */
     @Lock(LockType.READ)
     public Set<String> getConfiguredTimersName() {
-	return map.keySet();
+        return map.keySet();
     }
 
     /**
@@ -65,6 +65,6 @@ public class TimerRepository {
      */
     @Lock(LockType.READ)
     public JbossJobTimer getConfiguredTimer(String jobName) {
-	return map.get(jobName);
+        return map.get(jobName);
     }
 }

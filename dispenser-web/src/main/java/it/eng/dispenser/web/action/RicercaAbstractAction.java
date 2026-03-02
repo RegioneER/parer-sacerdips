@@ -34,10 +34,10 @@ public abstract class RicercaAbstractAction extends ListAction<DynamicSpagoLiteF
 
     @Override
     public DynamicSpagoLiteForm newForm() {
-	String nomeRicerca = getRequest().getParameter(Constants.REQ_HTTP_NOME_RIC_PARAM) != null
-		? getRequest().getParameter(Constants.REQ_HTTP_NOME_RIC_PARAM)
-		: (String) getSession().getAttribute(Constants.SESSIONE_NOME_RIC);
-	return formloader.getSpagoLiteForm(nomeRicerca);
+        String nomeRicerca = getRequest().getParameter(Constants.REQ_HTTP_NOME_RIC_PARAM) != null
+                ? getRequest().getParameter(Constants.REQ_HTTP_NOME_RIC_PARAM)
+                : (String) getSession().getAttribute(Constants.SESSIONE_NOME_RIC);
+        return formloader.getSpagoLiteForm(nomeRicerca);
     }
 
     public abstract void initOnClick() throws EMFError;
@@ -50,11 +50,11 @@ public abstract class RicercaAbstractAction extends ListAction<DynamicSpagoLiteF
      * @throws EMFError errore generico
      */
     public void update(Fields<Field> field) throws EMFError {
-	if (getForm().getFormRicerca().equals(field)) {
-	    updateFormRicerca();
-	} else {
-	    return;
-	}
+        if (getForm().getFormRicerca().equals(field)) {
+            updateFormRicerca();
+        } else {
+            return;
+        }
     }
 
     /**
@@ -65,11 +65,11 @@ public abstract class RicercaAbstractAction extends ListAction<DynamicSpagoLiteF
      * @throws EMFError errore generico
      */
     public void select(Fields<Field> field) throws EMFError {
-	if (getForm().getFormRicerca().equals(field)) {
-	    selectFormRicerca();
-	} else {
-	    return;
-	}
+        if (getForm().getFormRicerca().equals(field)) {
+            selectFormRicerca();
+        } else {
+            return;
+        }
     }
 
     /**
@@ -80,11 +80,11 @@ public abstract class RicercaAbstractAction extends ListAction<DynamicSpagoLiteF
      * @throws EMFError errore generico
      */
     public void delete(Fields<Field> field) throws EMFError {
-	if (getForm().getFormRicerca().equals(field)) {
-	    deleteFormRicerca();
-	} else {
-	    return;
-	}
+        if (getForm().getFormRicerca().equals(field)) {
+            deleteFormRicerca();
+        } else {
+            return;
+        }
     }
 
     // Operazioni disponibili per la lista FormRicerca
@@ -105,11 +105,11 @@ public abstract class RicercaAbstractAction extends ListAction<DynamicSpagoLiteF
      * @throws EMFError errore generico
      */
     public void update(List<?> list) throws EMFError {
-	if (getForm().getRicercaList().equals(list)) {
-	    updateRicercaList();
-	} else {
-	    return;
-	}
+        if (getForm().getRicercaList().equals(list)) {
+            updateRicercaList();
+        } else {
+            return;
+        }
     }
 
     /**
@@ -120,11 +120,11 @@ public abstract class RicercaAbstractAction extends ListAction<DynamicSpagoLiteF
      * @throws EMFError errore generico
      */
     public void select(List<?> list) throws EMFError {
-	if (getForm().getRicercaList().equals(list)) {
-	    selectRicercaList();
-	} else {
-	    return;
-	}
+        if (getForm().getRicercaList().equals(list)) {
+            selectRicercaList();
+        } else {
+            return;
+        }
     }
 
     /**
@@ -135,11 +135,11 @@ public abstract class RicercaAbstractAction extends ListAction<DynamicSpagoLiteF
      * @throws EMFError errore generico
      */
     public void delete(List<?> list) throws EMFError {
-	if (getForm().getRicercaList().equals(list)) {
-	    deleteRicercaList();
-	} else {
-	    return;
-	}
+        if (getForm().getRicercaList().equals(list)) {
+            deleteRicercaList();
+        } else {
+            return;
+        }
     }
 
     /**
@@ -150,11 +150,11 @@ public abstract class RicercaAbstractAction extends ListAction<DynamicSpagoLiteF
      * @throws EMFError errore generico
      */
     public void postLazyLoad(List<?> list) throws EMFError {
-	if (getForm().getRicercaList().equals(list)) {
-	    postLazyLoadRicercaList();
-	} else {
-	    return;
-	}
+        if (getForm().getRicercaList().equals(list)) {
+            postLazyLoadRicercaList();
+        } else {
+            return;
+        }
     }
 
     // Operazioni disponibili per la lista RicercaList
@@ -178,17 +178,17 @@ public abstract class RicercaAbstractAction extends ListAction<DynamicSpagoLiteF
      * @throws EMFError errore generico
      */
     public void filterInactiveRecords(List<?> list) throws EMFError {
-	if (getForm().getRicercaList().equals(list)) {
-	    filterInactiveRecordsRicercaList();
-	} else {
-	    return;
-	}
+        if (getForm().getRicercaList().equals(list)) {
+            filterInactiveRecordsRicercaList();
+        } else {
+            return;
+        }
     }
 
     public void filterInactiveRecordsRicercaList() throws EMFError {
     }
 
     public final void wizard(Wizard wizard, WizardElement element,
-	    Wizard.WizardNavigation wizardNavigation) throws EMFError {
+            Wizard.WizardNavigation wizardNavigation) throws EMFError {
     }
 }

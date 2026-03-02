@@ -25,6 +25,6 @@ import it.eng.spagoLite.message.MessageBox;
 public class GestioneJobValidator extends TypeValidator {
 
     public GestioneJobValidator(MessageBox messageBox) {
-	super(messageBox);
+        super(messageBox);
     }
 }

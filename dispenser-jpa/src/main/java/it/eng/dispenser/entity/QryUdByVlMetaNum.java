@@ -36,22 +36,22 @@ public class QryUdByVlMetaNum implements Serializable {
     private QryUdByVlMetaNumId qryUdByVlMetaNumId;
 
     public QryUdByVlMetaNumId getQryUdByVlMetaNumId() {
-	return qryUdByVlMetaNumId;
+        return qryUdByVlMetaNumId;
     }
 
     public void setQryUdByVlMetaNumId(QryUdByVlMetaNumId qryUdByVlMetaNumId) {
-	this.qryUdByVlMetaNumId = qryUdByVlMetaNumId;
+        this.qryUdByVlMetaNumId = qryUdByVlMetaNumId;
     }
 
     public QryUdByVlMetaNum() {
     }
 
     public BigDecimal getDlValore() {
-	return this.dlValore;
+        return this.dlValore;
     }
 
     public void setDlValore(BigDecimal dlValore) {
-	this.dlValore = dlValore;
+        this.dlValore = dlValore;
     }
 
 }

@@ -28,48 +28,48 @@ public class DatoProfilo implements Serializable {
     private BigDecimal idTipoUnitaDoc;
 
     public DatoProfilo(long structID, String TipoDatoProfilo, long udID, Object value, String type,
-	    long idTipoUnitaDoc) {
-	this(new BigDecimal(structID), TipoDatoProfilo, new BigDecimal(udID), value, type,
-		new BigDecimal(idTipoUnitaDoc));
+            long idTipoUnitaDoc) {
+        this(new BigDecimal(structID), TipoDatoProfilo, new BigDecimal(udID), value, type,
+                new BigDecimal(idTipoUnitaDoc));
     }
 
     public DatoProfilo(BigDecimal structID, String TipoDatoProfilo, long udID, Object value,
-	    String type, BigDecimal idTipoUnitaDoc) {
-	this(structID, TipoDatoProfilo, new BigDecimal(udID), value, type, idTipoUnitaDoc);
+            String type, BigDecimal idTipoUnitaDoc) {
+        this(structID, TipoDatoProfilo, new BigDecimal(udID), value, type, idTipoUnitaDoc);
     }
 
     public DatoProfilo(BigDecimal structID, String TipoDatoProfilo, BigDecimal udID, Object value,
-	    String type, BigDecimal idTipoUnitaDoc) {
-	this.udID = udID;
-	this.value = value;
-	this.type = type;
-	this.structID = structID;
-	this.tipoDatoProfilo = TipoDatoProfilo;
-	this.idTipoUnitaDoc = idTipoUnitaDoc;
+            String type, BigDecimal idTipoUnitaDoc) {
+        this.udID = udID;
+        this.value = value;
+        this.type = type;
+        this.structID = structID;
+        this.tipoDatoProfilo = TipoDatoProfilo;
+        this.idTipoUnitaDoc = idTipoUnitaDoc;
     }
 
     public BigDecimal getStructID() {
-	return this.structID;
+        return this.structID;
     }
 
     public String getTipoDatoProfilo() {
-	return this.tipoDatoProfilo;
+        return this.tipoDatoProfilo;
     }
 
     public BigDecimal getUdID() {
-	return udID;
+        return udID;
     }
 
     public String getType() {
-	return type;
+        return type;
     }
 
     public Object getValue() {
-	return value;
+        return value;
     }
 
     public BigDecimal getIdTipoUnitaDoc() {
-	return idTipoUnitaDoc;
+        return idTipoUnitaDoc;
     }
 
 }

@@ -33,47 +33,47 @@ public class QryUdByVlMetaDtId implements Serializable {
     }
 
     public BigDecimal getIdAttribDatiSpec() {
-	return this.idAttribDatiSpec;
+        return this.idAttribDatiSpec;
     }
 
     public void setIdAttribDatiSpec(BigDecimal idAttribDatiSpec) {
-	this.idAttribDatiSpec = idAttribDatiSpec;
+        this.idAttribDatiSpec = idAttribDatiSpec;
     }
 
     public BigDecimal getIdUnitaDoc() {
-	return this.idUnitaDoc;
+        return this.idUnitaDoc;
     }
 
     public void setIdUnitaDoc(BigDecimal idUnitaDoc) {
-	this.idUnitaDoc = idUnitaDoc;
+        this.idUnitaDoc = idUnitaDoc;
     }
 
     @Override
     public int hashCode() {
-	int hash = 5;
-	hash = 71 * hash + Objects.hashCode(this.idAttribDatiSpec);
-	hash = 71 * hash + Objects.hashCode(this.idUnitaDoc);
-	return hash;
+        int hash = 5;
+        hash = 71 * hash + Objects.hashCode(this.idAttribDatiSpec);
+        hash = 71 * hash + Objects.hashCode(this.idUnitaDoc);
+        return hash;
     }
 
     @Override
     public boolean equals(Object obj) {
-	if (this == obj) {
-	    return true;
-	}
-	if (obj == null) {
-	    return false;
-	}
-	if (getClass() != obj.getClass()) {
-	    return false;
-	}
-	final QryUdByVlMetaDtId other = (QryUdByVlMetaDtId) obj;
-	if (!Objects.equals(this.idAttribDatiSpec, other.idAttribDatiSpec)) {
-	    return false;
-	}
-	if (!Objects.equals(this.idUnitaDoc, other.idUnitaDoc)) {
-	    return false;
-	}
-	return true;
+        if (this == obj) {
+            return true;
+        }
+        if (obj == null) {
+            return false;
+        }
+        if (getClass() != obj.getClass()) {
+            return false;
+        }
+        final QryUdByVlMetaDtId other = (QryUdByVlMetaDtId) obj;
+        if (!Objects.equals(this.idAttribDatiSpec, other.idAttribDatiSpec)) {
+            return false;
+        }
+        if (!Objects.equals(this.idUnitaDoc, other.idUnitaDoc)) {
+            return false;
+        }
+        return true;
     }
 }

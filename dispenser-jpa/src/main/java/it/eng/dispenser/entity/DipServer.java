@@ -51,27 +51,27 @@ public class DipServer implements Serializable {
     }
 
     public long getIdServer() {
-	return this.idServer;
+        return this.idServer;
     }
 
     public void setIdServer(long idServer) {
-	this.idServer = idServer;
+        this.idServer = idServer;
     }
 
     public String getCdServer() {
-	return this.cdServer;
+        return this.cdServer;
     }
 
     public void setCdServer(String cdServer) {
-	this.cdServer = cdServer;
+        this.cdServer = cdServer;
     }
 
     public String getFlDaAllineare() {
-	return this.flDaAllineare;
+        return this.flDaAllineare;
     }
 
     public void setFlDaAllineare(String flDaAllineare) {
-	this.flDaAllineare = flDaAllineare;
+        this.flDaAllineare = flDaAllineare;
     }
 
 }

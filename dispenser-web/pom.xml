@@ -3,7 +3,7 @@
     <parent>
         <groupId>it.eng.parer</groupId>
         <artifactId>sacerdips-jboss</artifactId>
-        <version>6.3.3-SNAPSHOT</version>
+        <version>6.4.0</version>
     </parent>
     <artifactId>sacerdips-jboss-web</artifactId>
     <packaging>war</packaging>

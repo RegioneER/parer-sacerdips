@@ -43,25 +43,25 @@ public class DipValorePredefinitoTableDescriptor extends TableDescriptor {
     private static Map<String, ColumnDescriptor> map = new LinkedHashMap<String, ColumnDescriptor>();
 
     static {
-	map.put(COL_ID_VALORE_PREDEFINITO,
-		new ColumnDescriptor(COL_ID_VALORE_PREDEFINITO, Types.DECIMAL, 22, true));
-	map.put(COL_ID_FILTRO_RICERCA,
-		new ColumnDescriptor(COL_ID_FILTRO_RICERCA, Types.DECIMAL, 22, false));
-	map.put(COL_DL_VALORE, new ColumnDescriptor(COL_DL_VALORE, Types.VARCHAR, 4000, false));
-	map.put(COL_ID_REGISTRO_UNITA_DOC,
-		new ColumnDescriptor(COL_ID_REGISTRO_UNITA_DOC, Types.DECIMAL, 22, false));
+        map.put(COL_ID_VALORE_PREDEFINITO,
+                new ColumnDescriptor(COL_ID_VALORE_PREDEFINITO, Types.DECIMAL, 22, true));
+        map.put(COL_ID_FILTRO_RICERCA,
+                new ColumnDescriptor(COL_ID_FILTRO_RICERCA, Types.DECIMAL, 22, false));
+        map.put(COL_DL_VALORE, new ColumnDescriptor(COL_DL_VALORE, Types.VARCHAR, 4000, false));
+        map.put(COL_ID_REGISTRO_UNITA_DOC,
+                new ColumnDescriptor(COL_ID_REGISTRO_UNITA_DOC, Types.DECIMAL, 22, false));
     }
 
     public Map<String, ColumnDescriptor> getColumnMap() {
-	return map;
+        return map;
     }
 
     public String getTableName() {
-	return TABLE_NAME;
+        return TABLE_NAME;
     }
 
     public String getStatement() {
-	return SELECT;
+        return SELECT;
     }
 
 }

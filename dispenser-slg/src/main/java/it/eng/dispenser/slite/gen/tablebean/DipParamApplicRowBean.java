@@ -35,100 +35,100 @@ public class DipParamApplicRowBean extends BaseRow implements JEEBaseRowInterfac
     public static DipParamApplicTableDescriptor TABLE_DESCRIPTOR = new DipParamApplicTableDescriptor();
 
     public DipParamApplicRowBean() {
-	super();
+        super();
     }
 
     public TableDescriptor getTableDescriptor() {
-	return TABLE_DESCRIPTOR;
+        return TABLE_DESCRIPTOR;
     }
 
     // getter e setter
     public BigDecimal getIdParamApplic() {
-	return getBigDecimal("id_param_applic");
+        return getBigDecimal("id_param_applic");
     }
 
     public void setIdParamApplic(BigDecimal idParamApplic) {
-	setObject("id_param_applic", idParamApplic);
+        setObject("id_param_applic", idParamApplic);
     }
 
     public String getNmParamApplic() {
-	return getString("nm_param_applic");
+        return getString("nm_param_applic");
     }
 
     public void setNmParamApplic(String nmParamApplic) {
-	setObject("nm_param_applic", nmParamApplic);
+        setObject("nm_param_applic", nmParamApplic);
     }
 
     public String getDsParamApplic() {
-	return getString("ds_param_applic");
+        return getString("ds_param_applic");
     }
 
     public void setDsParamApplic(String dsParamApplic) {
-	setObject("ds_param_applic", dsParamApplic);
+        setObject("ds_param_applic", dsParamApplic);
     }
 
     public String getDsValoreParamApplic() {
-	return getString("ds_valore_param_applic");
+        return getString("ds_valore_param_applic");
     }
 
     public void setDsValoreParamApplic(String dsValoreParamApplic) {
-	setObject("ds_valore_param_applic", dsValoreParamApplic);
+        setObject("ds_valore_param_applic", dsValoreParamApplic);
     }
 
     public String getTiParamApplic() {
-	return getString("ti_param_applic");
+        return getString("ti_param_applic");
     }
 
     public void setTiParamApplic(String tiParamApplic) {
-	setObject("ti_param_applic", tiParamApplic);
+        setObject("ti_param_applic", tiParamApplic);
     }
 
     @Override
     public void entityToRowBean(Object obj) {
-	DipParamApplic entity = (DipParamApplic) obj;
-	this.setIdParamApplic(new BigDecimal(entity.getIdParamApplic()));
-	this.setNmParamApplic(entity.getNmParamApplic());
-	this.setDsParamApplic(entity.getDsParamApplic());
-	this.setDsValoreParamApplic(entity.getDsValoreParamApplic());
-	this.setTiParamApplic(entity.getTiParamApplic());
+        DipParamApplic entity = (DipParamApplic) obj;
+        this.setIdParamApplic(new BigDecimal(entity.getIdParamApplic()));
+        this.setNmParamApplic(entity.getNmParamApplic());
+        this.setDsParamApplic(entity.getDsParamApplic());
+        this.setDsValoreParamApplic(entity.getDsValoreParamApplic());
+        this.setTiParamApplic(entity.getTiParamApplic());
     }
 
     @Override
     public DipParamApplic rowBeanToEntity() {
-	DipParamApplic entity = new DipParamApplic();
-	if (this.getIdParamApplic() != null) {
-	    entity.setIdParamApplic(this.getIdParamApplic().longValue());
-	}
-	entity.setNmParamApplic(this.getNmParamApplic());
-	entity.setDsParamApplic(this.getDsParamApplic());
-	entity.setDsValoreParamApplic(this.getDsValoreParamApplic());
-	entity.setTiParamApplic(this.getTiParamApplic());
-	return entity;
+        DipParamApplic entity = new DipParamApplic();
+        if (this.getIdParamApplic() != null) {
+            entity.setIdParamApplic(this.getIdParamApplic().longValue());
+        }
+        entity.setNmParamApplic(this.getNmParamApplic());
+        entity.setDsParamApplic(this.getDsParamApplic());
+        entity.setDsValoreParamApplic(this.getDsValoreParamApplic());
+        entity.setTiParamApplic(this.getTiParamApplic());
+        return entity;
     }
 
     // gestione della paginazione
     public void setRownum(Integer rownum) {
-	setObject("rownum", rownum);
+        setObject("rownum", rownum);
     }
 
     public Integer getRownum() {
-	return Integer.parseInt(getObject("rownum").toString());
+        return Integer.parseInt(getObject("rownum").toString());
     }
 
     public void setRnum(Integer rnum) {
-	setObject("rnum", rnum);
+        setObject("rnum", rnum);
     }
 
     public Integer getRnum() {
-	return Integer.parseInt(getObject("rnum").toString());
+        return Integer.parseInt(getObject("rnum").toString());
     }
 
     public void setNumrecords(Integer numRecords) {
-	setObject("numrecords", numRecords);
+        setObject("numrecords", numRecords);
     }
 
     public Integer getNumrecords() {
-	return Integer.parseInt(getObject("numrecords").toString());
+        return Integer.parseInt(getObject("numrecords").toString());
     }
 
 }

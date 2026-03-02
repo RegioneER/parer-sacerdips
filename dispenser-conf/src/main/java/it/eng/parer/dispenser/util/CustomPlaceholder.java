@@ -38,33 +38,33 @@ public class CustomPlaceholder extends PropertySourcesPlaceholderConfigurer {
     // "dispenser.system.property.server.name";
 
     public CustomPlaceholder() {
-	this(null);
+        this(null);
     }
 
     public CustomPlaceholder(Properties props) {
-	Map<String, Object> loadedSettings = new HashMap<String, Object>();
-	MutablePropertySources mutablePropertySources = new MutablePropertySources();
-	if (props != null) {
-	    Enumeration<Object> en = props.keys();
-	    while (en.hasMoreElements()) {
-		Object nextElement = en.nextElement();
-		loadedSettings.put(nextElement.toString(), props.get(nextElement));
-	    }
-	}
-	/*
-	 * Settaggio valori di default se assenti su db
-	 */
-	/*
-	 * String valore=null;
-	 * valore=(String)loadedSettings.get(ConstDipParamApplic.NmParamApplic.CACHE_DELAY_POLLING.
-	 * name()); if (valore==null||valore.trim().equals("")) {
-	 * loadedSettings.put(ConstDipParamApplic.NmParamApplic.CACHE_DELAY_POLLING.name(),
-	 * "30000"); } valore=(String)loadedSettings.get(ConstDipParamApplic.NmParamApplic.
-	 * SERVER_NAME_SYSTEM_PROPERTY.name()); if (valore==null||valore.trim().equals("")) {
-	 * loadedSettings.put(ConstDipParamApplic.NmParamApplic.SERVER_NAME_SYSTEM_PROPERTY.name(),
-	 * "com.sun.aas.instanceName"); }
-	 */
-	mutablePropertySources.addFirst(new MapPropertySource("custom", loadedSettings));
-	setPropertySources(mutablePropertySources);
+        Map<String, Object> loadedSettings = new HashMap<String, Object>();
+        MutablePropertySources mutablePropertySources = new MutablePropertySources();
+        if (props != null) {
+            Enumeration<Object> en = props.keys();
+            while (en.hasMoreElements()) {
+                Object nextElement = en.nextElement();
+                loadedSettings.put(nextElement.toString(), props.get(nextElement));
+            }
+        }
+        /*
+         * Settaggio valori di default se assenti su db
+         */
+        /*
+         * String valore=null;
+         * valore=(String)loadedSettings.get(ConstDipParamApplic.NmParamApplic.CACHE_DELAY_POLLING.
+         * name()); if (valore==null||valore.trim().equals("")) {
+         * loadedSettings.put(ConstDipParamApplic.NmParamApplic.CACHE_DELAY_POLLING.name(),
+         * "30000"); } valore=(String)loadedSettings.get(ConstDipParamApplic.NmParamApplic.
+         * SERVER_NAME_SYSTEM_PROPERTY.name()); if (valore==null||valore.trim().equals("")) {
+         * loadedSettings.put(ConstDipParamApplic.NmParamApplic.SERVER_NAME_SYSTEM_PROPERTY.name(),
+         * "com.sun.aas.instanceName"); }
+         */
+        mutablePropertySources.addFirst(new MapPropertySource("custom", loadedSettings));
+        setPropertySources(mutablePropertySources);
     }
 }

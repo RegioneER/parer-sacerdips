@@ -25,29 +25,29 @@ public abstract class Metadato implements Serializable {
     private String value;
 
     Metadato(long metadatoID, long udID, String value, String type) {
-	this(new BigDecimal(metadatoID), new BigDecimal(udID), value, type);
+        this(new BigDecimal(metadatoID), new BigDecimal(udID), value, type);
     }
 
     Metadato(BigDecimal metadatoID, BigDecimal udID, String value, String type) {
-	this.metadatoID = metadatoID;
-	this.udID = udID;
-	this.value = value;
-	this.type = type;
+        this.metadatoID = metadatoID;
+        this.udID = udID;
+        this.value = value;
+        this.type = type;
     }
 
     BigDecimal getMetadatoID() {
-	return this.metadatoID;
+        return this.metadatoID;
     }
 
     public BigDecimal getUdID() {
-	return this.udID;
+        return this.udID;
     }
 
     public String getValue() {
-	return this.value;
+        return this.value;
     }
 
     public String getType() {
-	return this.type;
+        return this.type;
     }
 }

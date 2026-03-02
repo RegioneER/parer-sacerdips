@@ -16,10 +16,10 @@ package it.eng.dispenser.entity.constraint;
 public class ConstAroUsoXsdDatiSpec {
 
     public enum TiEntitaSacerUsoXsd {
-	COMP, DOC, SUB_COMP, UNI_DOC
+        COMP, DOC, SUB_COMP, UNI_DOC
     }
 
     public enum TiUsoXsdUso {
-	MIGRAZ, VERS
+        MIGRAZ, VERS
     }
 }

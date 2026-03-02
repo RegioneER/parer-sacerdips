@@ -57,82 +57,82 @@ public class DipCombinazioneRicerca implements Serializable {
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "DIP_COMBINAZIONE_RICERCA_IDCOMBINAZIONERICERCA_GENERATOR")
     @Column(name = "ID_COMBINAZIONE_RICERCA")
     public long getIdCombinazioneRicerca() {
-	return this.idCombinazioneRicerca;
+        return this.idCombinazioneRicerca;
     }
 
     public void setIdCombinazioneRicerca(long idCombinazioneRicerca) {
-	this.idCombinazioneRicerca = idCombinazioneRicerca;
+        this.idCombinazioneRicerca = idCombinazioneRicerca;
     }
 
     @Column(name = "ID_STRUT")
     public BigDecimal getIdStrut() {
-	return this.idStrut;
+        return this.idStrut;
     }
 
     public void setIdStrut(BigDecimal idStrut) {
-	this.idStrut = idStrut;
+        this.idStrut = idStrut;
     }
 
     @Column(name = "ID_TIPO_DOC")
     public BigDecimal getIdTipoDoc() {
-	return this.idTipoDoc;
+        return this.idTipoDoc;
     }
 
     public void setIdTipoDoc(BigDecimal idTipoDoc) {
-	this.idTipoDoc = idTipoDoc;
+        this.idTipoDoc = idTipoDoc;
     }
 
     @Column(name = "ID_TIPO_UNITA_DOC")
     public BigDecimal getIdTipoUnitaDoc() {
-	return this.idTipoUnitaDoc;
+        return this.idTipoUnitaDoc;
     }
 
     public void setIdTipoUnitaDoc(BigDecimal idTipoUnitaDoc) {
-	this.idTipoUnitaDoc = idTipoUnitaDoc;
+        this.idTipoUnitaDoc = idTipoUnitaDoc;
     }
 
     @Column(name = "NM_NOME_COMBINAZIONE")
     public String getNmNomeCombinazione() {
-	return this.nmNomeCombinazione;
+        return this.nmNomeCombinazione;
     }
 
     public void setNmNomeCombinazione(String nmNomeCombinazione) {
-	this.nmNomeCombinazione = nmNomeCombinazione;
+        this.nmNomeCombinazione = nmNomeCombinazione;
     }
 
     // bi-directional many-to-one association to DipRicerca
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "ID_RICERCA")
     public DipRicerca getDipRicerca() {
-	return this.dipRicerca;
+        return this.dipRicerca;
     }
 
     public void setDipRicerca(DipRicerca dipRicerca) {
-	this.dipRicerca = dipRicerca;
+        this.dipRicerca = dipRicerca;
     }
 
     // bi-directional many-to-one association to DipFiltroRicerca
     @OneToMany(mappedBy = "dipCombinazioneRicerca")
     public List<DipFiltroRicerca> getDipFiltroRicercas() {
-	return this.dipFiltroRicercas;
+        return this.dipFiltroRicercas;
     }
 
     public void setDipFiltroRicercas(List<DipFiltroRicerca> dipFiltroRicercas) {
-	this.dipFiltroRicercas = dipFiltroRicercas;
+        this.dipFiltroRicercas = dipFiltroRicercas;
     }
 
     public DipFiltroRicerca addDipFiltroRicerca(DipFiltroRicerca dipFiltroRicerca) {
-	getDipFiltroRicercas().add(dipFiltroRicerca);
-	dipFiltroRicerca.setDipCombinazioneRicerca(this);
+        getDipFiltroRicercas().add(dipFiltroRicerca);
+        dipFiltroRicerca.setDipCombinazioneRicerca(this);
 
-	return dipFiltroRicerca;
+        return dipFiltroRicerca;
     }
 
     public DipFiltroRicerca removeDipFiltroRicerca(DipFiltroRicerca dipFiltroRicerca) {
-	getDipFiltroRicercas().remove(dipFiltroRicerca);
-	dipFiltroRicerca.setDipCombinazioneRicerca(null);
+        getDipFiltroRicercas().remove(dipFiltroRicerca);
+        dipFiltroRicerca.setDipCombinazioneRicerca(null);
 
-	return dipFiltroRicerca;
+        return dipFiltroRicerca;
     }
 
 }

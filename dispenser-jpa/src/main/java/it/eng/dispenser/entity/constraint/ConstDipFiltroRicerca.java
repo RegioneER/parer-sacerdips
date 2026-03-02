@@ -16,12 +16,12 @@ package it.eng.dispenser.entity.constraint;
 public class ConstDipFiltroRicerca {
 
     public enum TiDatoFiltro {
-	NUMERO, DATA_DA, DATA_A, STRINGA;
+        NUMERO, DATA_DA, DATA_A, STRINGA;
     }
 
     public enum TiTipoFiltro {
-	METADATO_UD, METADATO_DOC, DATO_PROFILO
-	// ,ANNO,REGISTRO,NUMERO
+        METADATO_UD, METADATO_DOC, DATO_PROFILO
+        // ,ANNO,REGISTRO,NUMERO
     }
 
 }

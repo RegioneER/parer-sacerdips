@@ -173,359 +173,359 @@ public class AroUnitaDoc implements Serializable {
     }
 
     public long getIdUnitaDoc() {
-	return this.idUnitaDoc;
+        return this.idUnitaDoc;
     }
 
     public void setIdUnitaDoc(long idUnitaDoc) {
-	this.idUnitaDoc = idUnitaDoc;
+        this.idUnitaDoc = idUnitaDoc;
     }
 
     public BigDecimal getAaKeyUnitaDoc() {
-	return this.aaKeyUnitaDoc;
+        return this.aaKeyUnitaDoc;
     }
 
     public void setAaKeyUnitaDoc(BigDecimal aaKeyUnitaDoc) {
-	this.aaKeyUnitaDoc = aaKeyUnitaDoc;
+        this.aaKeyUnitaDoc = aaKeyUnitaDoc;
     }
 
     public String getCdFascicPrinc() {
-	return this.cdFascicPrinc;
+        return this.cdFascicPrinc;
     }
 
     public void setCdFascicPrinc(String cdFascicPrinc) {
-	this.cdFascicPrinc = cdFascicPrinc;
+        this.cdFascicPrinc = cdFascicPrinc;
     }
 
     public String getCdKeyUnitaDoc() {
-	return this.cdKeyUnitaDoc;
+        return this.cdKeyUnitaDoc;
     }
 
     public void setCdKeyUnitaDoc(String cdKeyUnitaDoc) {
-	this.cdKeyUnitaDoc = cdKeyUnitaDoc;
+        this.cdKeyUnitaDoc = cdKeyUnitaDoc;
     }
 
     public String getCdRegistroKeyUnitaDoc() {
-	return this.cdRegistroKeyUnitaDoc;
+        return this.cdRegistroKeyUnitaDoc;
     }
 
     public void setCdRegistroKeyUnitaDoc(String cdRegistroKeyUnitaDoc) {
-	this.cdRegistroKeyUnitaDoc = cdRegistroKeyUnitaDoc;
+        this.cdRegistroKeyUnitaDoc = cdRegistroKeyUnitaDoc;
     }
 
     public String getCdSottofascicPrinc() {
-	return this.cdSottofascicPrinc;
+        return this.cdSottofascicPrinc;
     }
 
     public void setCdSottofascicPrinc(String cdSottofascicPrinc) {
-	this.cdSottofascicPrinc = cdSottofascicPrinc;
+        this.cdSottofascicPrinc = cdSottofascicPrinc;
     }
 
     public String getDlOggettoUnitaDoc() {
-	return this.dlOggettoUnitaDoc;
+        return this.dlOggettoUnitaDoc;
     }
 
     public void setDlOggettoUnitaDoc(String dlOggettoUnitaDoc) {
-	this.dlOggettoUnitaDoc = dlOggettoUnitaDoc;
+        this.dlOggettoUnitaDoc = dlOggettoUnitaDoc;
     }
 
     public String getDsClassifPrinc() {
-	return this.dsClassifPrinc;
+        return this.dsClassifPrinc;
     }
 
     public void setDsClassifPrinc(String dsClassifPrinc) {
-	this.dsClassifPrinc = dsClassifPrinc;
+        this.dsClassifPrinc = dsClassifPrinc;
     }
 
     public String getDsKeyOrd() {
-	return this.dsKeyOrd;
+        return this.dsKeyOrd;
     }
 
     public void setDsKeyOrd(String dsKeyOrd) {
-	this.dsKeyOrd = dsKeyOrd;
+        this.dsKeyOrd = dsKeyOrd;
     }
 
     public String getDsMsgEsitoVerifFirme() {
-	return this.dsMsgEsitoVerifFirme;
+        return this.dsMsgEsitoVerifFirme;
     }
 
     public void setDsMsgEsitoVerifFirme(String dsMsgEsitoVerifFirme) {
-	this.dsMsgEsitoVerifFirme = dsMsgEsitoVerifFirme;
+        this.dsMsgEsitoVerifFirme = dsMsgEsitoVerifFirme;
     }
 
     public String getDsOggettoFascicPrinc() {
-	return this.dsOggettoFascicPrinc;
+        return this.dsOggettoFascicPrinc;
     }
 
     public void setDsOggettoFascicPrinc(String dsOggettoFascicPrinc) {
-	this.dsOggettoFascicPrinc = dsOggettoFascicPrinc;
+        this.dsOggettoFascicPrinc = dsOggettoFascicPrinc;
     }
 
     public String getDsOggettoSottofascicPrinc() {
-	return this.dsOggettoSottofascicPrinc;
+        return this.dsOggettoSottofascicPrinc;
     }
 
     public void setDsOggettoSottofascicPrinc(String dsOggettoSottofascicPrinc) {
-	this.dsOggettoSottofascicPrinc = dsOggettoSottofascicPrinc;
+        this.dsOggettoSottofascicPrinc = dsOggettoSottofascicPrinc;
     }
 
     public String getDsUffCompUnitaDoc() {
-	return this.dsUffCompUnitaDoc;
+        return this.dsUffCompUnitaDoc;
     }
 
     public void setDsUffCompUnitaDoc(String dsUffCompUnitaDoc) {
-	this.dsUffCompUnitaDoc = dsUffCompUnitaDoc;
+        this.dsUffCompUnitaDoc = dsUffCompUnitaDoc;
     }
 
     public Date getDtAnnul() {
-	return this.dtAnnul;
+        return this.dtAnnul;
     }
 
     public void setDtAnnul(Date dtAnnul) {
-	this.dtAnnul = dtAnnul;
+        this.dtAnnul = dtAnnul;
     }
 
     public Date getDtCreazione() {
-	return this.dtCreazione;
+        return this.dtCreazione;
     }
 
     public void setDtCreazione(Date dtCreazione) {
-	this.dtCreazione = dtCreazione;
+        this.dtCreazione = dtCreazione;
     }
 
     public Date getDtRegUnitaDoc() {
-	return this.dtRegUnitaDoc;
+        return this.dtRegUnitaDoc;
     }
 
     public void setDtRegUnitaDoc(Date dtRegUnitaDoc) {
-	this.dtRegUnitaDoc = dtRegUnitaDoc;
+        this.dtRegUnitaDoc = dtRegUnitaDoc;
     }
 
     public String getFlCartaceo() {
-	return this.flCartaceo;
+        return this.flCartaceo;
     }
 
     public void setFlCartaceo(String flCartaceo) {
-	this.flCartaceo = flCartaceo;
+        this.flCartaceo = flCartaceo;
     }
 
     public String getFlForzaAccettazione() {
-	return this.flForzaAccettazione;
+        return this.flForzaAccettazione;
     }
 
     public void setFlForzaAccettazione(String flForzaAccettazione) {
-	this.flForzaAccettazione = flForzaAccettazione;
+        this.flForzaAccettazione = flForzaAccettazione;
     }
 
     public String getFlForzaCollegamento() {
-	return this.flForzaCollegamento;
+        return this.flForzaCollegamento;
     }
 
     public void setFlForzaCollegamento(String flForzaCollegamento) {
-	this.flForzaCollegamento = flForzaCollegamento;
+        this.flForzaCollegamento = flForzaCollegamento;
     }
 
     public String getFlForzaConservazione() {
-	return this.flForzaConservazione;
+        return this.flForzaConservazione;
     }
 
     public void setFlForzaConservazione(String flForzaConservazione) {
-	this.flForzaConservazione = flForzaConservazione;
+        this.flForzaConservazione = flForzaConservazione;
     }
 
     public String getFlUnitaDocFirmato() {
-	return this.flUnitaDocFirmato;
+        return this.flUnitaDocFirmato;
     }
 
     public void setFlUnitaDocFirmato(String flUnitaDocFirmato) {
-	this.flUnitaDocFirmato = flUnitaDocFirmato;
+        this.flUnitaDocFirmato = flUnitaDocFirmato;
     }
 
     public BigDecimal getIdElencoVers() {
-	return this.idElencoVers;
+        return this.idElencoVers;
     }
 
     public void setIdElencoVers(BigDecimal idElencoVers) {
-	this.idElencoVers = idElencoVers;
+        this.idElencoVers = idElencoVers;
     }
 
     public BigDecimal getIdRegistroUnitaDoc() {
-	return this.idRegistroUnitaDoc;
+        return this.idRegistroUnitaDoc;
     }
 
     public void setIdRegistroUnitaDoc(BigDecimal idRegistroUnitaDoc) {
-	this.idRegistroUnitaDoc = idRegistroUnitaDoc;
+        this.idRegistroUnitaDoc = idRegistroUnitaDoc;
     }
 
     public BigDecimal getIdSubStrut() {
-	return this.idSubStrut;
+        return this.idSubStrut;
     }
 
     public void setIdSubStrut(BigDecimal idSubStrut) {
-	this.idSubStrut = idSubStrut;
+        this.idSubStrut = idSubStrut;
     }
 
     public BigDecimal getIdTipoUnitaDoc() {
-	return this.idTipoUnitaDoc;
+        return this.idTipoUnitaDoc;
     }
 
     public void setIdTipoUnitaDoc(BigDecimal idTipoUnitaDoc) {
-	this.idTipoUnitaDoc = idTipoUnitaDoc;
+        this.idTipoUnitaDoc = idTipoUnitaDoc;
     }
 
     public BigDecimal getIdUserVers() {
-	return this.idUserVers;
+        return this.idUserVers;
     }
 
     public void setIdUserVers(BigDecimal idUserVers) {
-	this.idUserVers = idUserVers;
+        this.idUserVers = idUserVers;
     }
 
     public BigDecimal getNiAlleg() {
-	return this.niAlleg;
+        return this.niAlleg;
     }
 
     public void setNiAlleg(BigDecimal niAlleg) {
-	this.niAlleg = niAlleg;
+        this.niAlleg = niAlleg;
     }
 
     public BigDecimal getNiAnnessi() {
-	return this.niAnnessi;
+        return this.niAnnessi;
     }
 
     public void setNiAnnessi(BigDecimal niAnnessi) {
-	this.niAnnessi = niAnnessi;
+        this.niAnnessi = niAnnessi;
     }
 
     public BigDecimal getNiAnnot() {
-	return this.niAnnot;
+        return this.niAnnot;
     }
 
     public void setNiAnnot(BigDecimal niAnnot) {
-	this.niAnnot = niAnnot;
+        this.niAnnot = niAnnot;
     }
 
     public String getNmSistemaMigraz() {
-	return this.nmSistemaMigraz;
+        return this.nmSistemaMigraz;
     }
 
     public void setNmSistemaMigraz(String nmSistemaMigraz) {
-	this.nmSistemaMigraz = nmSistemaMigraz;
+        this.nmSistemaMigraz = nmSistemaMigraz;
     }
 
     public String getNtAnnul() {
-	return this.ntAnnul;
+        return this.ntAnnul;
     }
 
     public void setNtAnnul(String ntAnnul) {
-	this.ntAnnul = ntAnnul;
+        this.ntAnnul = ntAnnul;
     }
 
     public String getNtUnitaDoc() {
-	return this.ntUnitaDoc;
+        return this.ntUnitaDoc;
     }
 
     public void setNtUnitaDoc(String ntUnitaDoc) {
-	this.ntUnitaDoc = ntUnitaDoc;
+        this.ntUnitaDoc = ntUnitaDoc;
     }
 
     public BigDecimal getPgUnitaDoc() {
-	return this.pgUnitaDoc;
+        return this.pgUnitaDoc;
     }
 
     public void setPgUnitaDoc(BigDecimal pgUnitaDoc) {
-	this.pgUnitaDoc = pgUnitaDoc;
+        this.pgUnitaDoc = pgUnitaDoc;
     }
 
     public String getTiAnnul() {
-	return this.tiAnnul;
+        return this.tiAnnul;
     }
 
     public void setTiAnnul(String tiAnnul) {
-	this.tiAnnul = tiAnnul;
+        this.tiAnnul = tiAnnul;
     }
 
     public String getTiConservazione() {
-	return this.tiConservazione;
+        return this.tiConservazione;
     }
 
     public void setTiConservazione(String tiConservazione) {
-	this.tiConservazione = tiConservazione;
+        this.tiConservazione = tiConservazione;
     }
 
     public String getTiEsitoVerifFirme() {
-	return this.tiEsitoVerifFirme;
+        return this.tiEsitoVerifFirme;
     }
 
     public void setTiEsitoVerifFirme(String tiEsitoVerifFirme) {
-	this.tiEsitoVerifFirme = tiEsitoVerifFirme;
+        this.tiEsitoVerifFirme = tiEsitoVerifFirme;
     }
 
     public String getTiStatoConservazione() {
-	return this.tiStatoConservazione;
+        return this.tiStatoConservazione;
     }
 
     public void setTiStatoConservazione(String tiStatoConservazione) {
-	this.tiStatoConservazione = tiStatoConservazione;
+        this.tiStatoConservazione = tiStatoConservazione;
     }
 
     public String getTiStatoUdElencoVers() {
-	return this.tiStatoUdElencoVers;
+        return this.tiStatoUdElencoVers;
     }
 
     public void setTiStatoUdElencoVers(String tiStatoUdElencoVers) {
-	this.tiStatoUdElencoVers = tiStatoUdElencoVers;
+        this.tiStatoUdElencoVers = tiStatoUdElencoVers;
     }
 
     public List<AroDoc> getAroDocs() {
-	return this.aroDocs;
+        return this.aroDocs;
     }
 
     public void setAroDocs(List<AroDoc> aroDocs) {
-	this.aroDocs = aroDocs;
+        this.aroDocs = aroDocs;
     }
 
     public AroDoc addAroDoc(AroDoc aroDoc) {
-	getAroDocs().add(aroDoc);
-	aroDoc.setAroUnitaDoc(this);
+        getAroDocs().add(aroDoc);
+        aroDoc.setAroUnitaDoc(this);
 
-	return aroDoc;
+        return aroDoc;
     }
 
     public AroDoc removeAroDoc(AroDoc aroDoc) {
-	getAroDocs().remove(aroDoc);
-	aroDoc.setAroUnitaDoc(null);
+        getAroDocs().remove(aroDoc);
+        aroDoc.setAroUnitaDoc(null);
 
-	return aroDoc;
+        return aroDoc;
     }
 
     public OrgStrut getOrgStrut() {
-	return this.orgStrut;
+        return this.orgStrut;
     }
 
     public void setOrgStrut(OrgStrut orgStrut) {
-	this.orgStrut = orgStrut;
+        this.orgStrut = orgStrut;
     }
 
     public List<AroUsoXsdDatiSpec> getAroUsoXsdDatiSpecs() {
-	return this.aroUsoXsdDatiSpecs;
+        return this.aroUsoXsdDatiSpecs;
     }
 
     public void setAroUsoXsdDatiSpecs(List<AroUsoXsdDatiSpec> aroUsoXsdDatiSpecs) {
-	this.aroUsoXsdDatiSpecs = aroUsoXsdDatiSpecs;
+        this.aroUsoXsdDatiSpecs = aroUsoXsdDatiSpecs;
     }
 
     public AroUsoXsdDatiSpec addAroUsoXsdDatiSpec(AroUsoXsdDatiSpec aroUsoXsdDatiSpec) {
-	getAroUsoXsdDatiSpecs().add(aroUsoXsdDatiSpec);
-	aroUsoXsdDatiSpec.setAroUnitaDoc(this);
+        getAroUsoXsdDatiSpecs().add(aroUsoXsdDatiSpec);
+        aroUsoXsdDatiSpec.setAroUnitaDoc(this);
 
-	return aroUsoXsdDatiSpec;
+        return aroUsoXsdDatiSpec;
     }
 
     public AroUsoXsdDatiSpec removeAroUsoXsdDatiSpec(AroUsoXsdDatiSpec aroUsoXsdDatiSpec) {
-	getAroUsoXsdDatiSpecs().remove(aroUsoXsdDatiSpec);
-	aroUsoXsdDatiSpec.setAroUnitaDoc(null);
+        getAroUsoXsdDatiSpecs().remove(aroUsoXsdDatiSpec);
+        aroUsoXsdDatiSpec.setAroUnitaDoc(null);
 
-	return aroUsoXsdDatiSpec;
+        return aroUsoXsdDatiSpec;
     }
 
 }

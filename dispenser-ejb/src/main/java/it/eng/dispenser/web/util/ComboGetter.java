@@ -32,7 +32,7 @@ public class ComboGetter {
     public static final String CAMPO_ANNO = "anno";
 
     private ComboGetter() {
-	throw new IllegalStateException("Utility class");
+        throw new IllegalStateException("Utility class");
     }
 
     /*
@@ -40,28 +40,28 @@ public class ComboGetter {
      */
     @SafeVarargs
     public static <T extends Enum<?>> DecodeMap getMappaSortedGenericEnum(String key,
-	    T... enumerator) {
-	BaseTable bt = new BaseTable();
-	DecodeMap mappa = new DecodeMap();
-	for (T mod : sortEnum(enumerator)) {
-	    bt.add(createKeyValueBaseRow(key, mod.name()));
-	}
-	mappa.populatedMap(bt, key, key);
-	return mappa;
+            T... enumerator) {
+        BaseTable bt = new BaseTable();
+        DecodeMap mappa = new DecodeMap();
+        for (T mod : sortEnum(enumerator)) {
+            bt.add(createKeyValueBaseRow(key, mod.name()));
+        }
+        mappa.populatedMap(bt, key, key);
+        return mappa;
     }
 
     private static BaseRow createKeyValueBaseRow(String key, String value) {
 
-	BaseRow br = new BaseRow();
-	br.setString(key, value);
-	return br;
+        BaseRow br = new BaseRow();
+        br.setString(key, value);
+        return br;
     }
 
     public static <T extends Enum<?>> Collection<T> sortEnum(T[] enumValues) {
-	SortedMap<String, T> map = new TreeMap<>();
-	for (T val : enumValues) {
-	    map.put(val.name(), val);
-	}
-	return map.values();
+        SortedMap<String, T> map = new TreeMap<>();
+        for (T val : enumValues) {
+            map.put(val.name(), val);
+        }
+        return map.values();
     }
 }

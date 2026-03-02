@@ -39,30 +39,30 @@ public class QryDocByVlMetaStr implements Serializable {
     private QryDocByVlMetaStrId qryDocByVlMetaStrId;
 
     public QryDocByVlMetaStr() {
-	// costruttore
+        // costruttore
     }
 
     public String getDlPrefissoValore() {
-	return this.dlPrefissoValore;
+        return this.dlPrefissoValore;
     }
 
     public void setDlPrefissoValore(String dlPrefissoValore) {
-	this.dlPrefissoValore = dlPrefissoValore;
+        this.dlPrefissoValore = dlPrefissoValore;
     }
 
     public String getDlValore() {
-	return this.dlValore;
+        return this.dlValore;
     }
 
     public void setDlValore(String dlValore) {
-	this.dlValore = dlValore;
+        this.dlValore = dlValore;
     }
 
     public QryDocByVlMetaStrId getQryDocByVlMetaStrId() {
-	return qryDocByVlMetaStrId;
+        return qryDocByVlMetaStrId;
     }
 
     public void setQryDocByVlMetaStrId(QryDocByVlMetaStrId qryDocByVlMetaStrId) {
-	this.qryDocByVlMetaStrId = qryDocByVlMetaStrId;
+        this.qryDocByVlMetaStrId = qryDocByVlMetaStrId;
     }
 }

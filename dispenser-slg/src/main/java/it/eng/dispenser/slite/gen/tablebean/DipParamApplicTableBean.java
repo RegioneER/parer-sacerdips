@@ -33,19 +33,19 @@ public class DipParamApplicTableBean extends AbstractBaseTable<DipParamApplicRow
     public static DipParamApplicTableDescriptor TABLE_DESCRIPTOR = new DipParamApplicTableDescriptor();
 
     public DipParamApplicTableBean() {
-	super();
+        super();
     }
 
     protected DipParamApplicRowBean createRow() {
-	return new DipParamApplicRowBean();
+        return new DipParamApplicRowBean();
     }
 
     public TableDescriptor getTableDescriptor() {
-	return TABLE_DESCRIPTOR;
+        return TABLE_DESCRIPTOR;
     }
 
     @Deprecated
     public Iterator<DipParamApplicRowBean> getRowsIterator() {
-	return iterator();
+        return iterator();
     }
 }

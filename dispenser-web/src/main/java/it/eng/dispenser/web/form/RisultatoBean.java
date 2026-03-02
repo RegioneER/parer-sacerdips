@@ -30,86 +30,86 @@ public class RisultatoBean {
     private int maxResults;
 
     public List<String> getMetadatiByIdStrut(Long idStrut) {
-	return metadati.get(idStrut);
+        return metadati.get(idStrut);
     }
 
     public List<String> getDatiProfiloByIdStrut(Long idStrut) {
-	return datiProfilo.get(idStrut);
+        return datiProfilo.get(idStrut);
     }
 
     public List<String> getQueryCalcoloByIdStrut(Long idStrut) {
-	return queryCalcolo.get(idStrut);
+        return queryCalcolo.get(idStrut);
     }
 
     public Set<Long> getListaStrutture() {
-	return listaStrutture;
+        return listaStrutture;
     }
 
     public List<String> getOrderByList() {
-	return orderByList;
+        return orderByList;
     }
 
     public void putMetadato(Long idStrut, String value) {
-	List<String> md;
-	if ((md = metadati.get(idStrut)) == null) {
-	    md = new ArrayList<String>();
-	    md.add(value);
-	    metadati.put(idStrut, md);
-	} else {
-	    md.add(value);
-	}
+        List<String> md;
+        if ((md = metadati.get(idStrut)) == null) {
+            md = new ArrayList<String>();
+            md.add(value);
+            metadati.put(idStrut, md);
+        } else {
+            md.add(value);
+        }
     }
 
     public void putMetadatoUnico(Long idStrut, String value) {
-	List<String> md;
-	if ((md = metadati.get(idStrut)) == null) {
-	    md = new ArrayList<String>();
-	    md.add(value);
-	    metadati.put(idStrut, md);
-	} else {
-	    // Lo inserisce solo una volta!
-	    if (!md.contains(value)) {
-		md.add(value);
-	    }
-	}
+        List<String> md;
+        if ((md = metadati.get(idStrut)) == null) {
+            md = new ArrayList<String>();
+            md.add(value);
+            metadati.put(idStrut, md);
+        } else {
+            // Lo inserisce solo una volta!
+            if (!md.contains(value)) {
+                md.add(value);
+            }
+        }
     }
 
     public void putDatoProfilo(Long idStrut, String value) {
-	List<String> dp;
-	if ((dp = datiProfilo.get(idStrut)) == null) {
-	    dp = new ArrayList<String>();
-	    dp.add(value);
-	    datiProfilo.put(idStrut, dp);
-	} else {
-	    dp.add(value);
-	}
+        List<String> dp;
+        if ((dp = datiProfilo.get(idStrut)) == null) {
+            dp = new ArrayList<String>();
+            dp.add(value);
+            datiProfilo.put(idStrut, dp);
+        } else {
+            dp.add(value);
+        }
     }
 
     public void putQueryCalcolo(Long idStrut, String value) {
-	List<String> dp;
-	if ((dp = queryCalcolo.get(idStrut)) == null) {
-	    dp = new ArrayList<String>();
-	    dp.add(value);
-	    queryCalcolo.put(idStrut, dp);
-	} else {
-	    dp.add(value);
-	}
+        List<String> dp;
+        if ((dp = queryCalcolo.get(idStrut)) == null) {
+            dp = new ArrayList<String>();
+            dp.add(value);
+            queryCalcolo.put(idStrut, dp);
+        } else {
+            dp.add(value);
+        }
     }
 
     public boolean addIdStruttura(Long e) {
-	return listaStrutture.add(e);
+        return listaStrutture.add(e);
     }
 
     public boolean addOrderbyClause(String e) {
-	return orderByList.add(e);
+        return orderByList.add(e);
     }
 
     public int getMaxResults() {
-	return maxResults;
+        return maxResults;
     }
 
     public void setMaxResults(int maxResults) {
-	this.maxResults = maxResults;
+        this.maxResults = maxResults;
     }
 
 }

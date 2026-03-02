@@ -61,43 +61,43 @@ public class AroValoreAttribDatiSpec implements Serializable {
     }
 
     public long getIdValoreAttribDatiSpec() {
-	return this.idValoreAttribDatiSpec;
+        return this.idValoreAttribDatiSpec;
     }
 
     public void setIdValoreAttribDatiSpec(long idValoreAttribDatiSpec) {
-	this.idValoreAttribDatiSpec = idValoreAttribDatiSpec;
+        this.idValoreAttribDatiSpec = idValoreAttribDatiSpec;
     }
 
     public String getDlValore() {
-	return this.dlValore;
+        return this.dlValore;
     }
 
     public void setDlValore(String dlValore) {
-	this.dlValore = dlValore;
+        this.dlValore = dlValore;
     }
 
     public BigDecimal getIdStrut() {
-	return this.idStrut;
+        return this.idStrut;
     }
 
     public void setIdStrut(BigDecimal idStrut) {
-	this.idStrut = idStrut;
+        this.idStrut = idStrut;
     }
 
     public AroUsoXsdDatiSpec getAroUsoXsdDatiSpec() {
-	return this.aroUsoXsdDatiSpec;
+        return this.aroUsoXsdDatiSpec;
     }
 
     public void setAroUsoXsdDatiSpec(AroUsoXsdDatiSpec aroUsoXsdDatiSpec) {
-	this.aroUsoXsdDatiSpec = aroUsoXsdDatiSpec;
+        this.aroUsoXsdDatiSpec = aroUsoXsdDatiSpec;
     }
 
     public DecAttribDatiSpec getDecAttribDatiSpec() {
-	return this.decAttribDatiSpec;
+        return this.decAttribDatiSpec;
     }
 
     public void setDecAttribDatiSpec(DecAttribDatiSpec decAttribDatiSpec) {
-	this.decAttribDatiSpec = decAttribDatiSpec;
+        this.decAttribDatiSpec = decAttribDatiSpec;
     }
 
 }

@@ -33,19 +33,19 @@ public class DipValoreComboTableBean extends AbstractBaseTable<DipValoreComboRow
     public static DipValoreComboTableDescriptor TABLE_DESCRIPTOR = new DipValoreComboTableDescriptor();
 
     public DipValoreComboTableBean() {
-	super();
+        super();
     }
 
     protected DipValoreComboRowBean createRow() {
-	return new DipValoreComboRowBean();
+        return new DipValoreComboRowBean();
     }
 
     public TableDescriptor getTableDescriptor() {
-	return TABLE_DESCRIPTOR;
+        return TABLE_DESCRIPTOR;
     }
 
     @Deprecated
     public Iterator<DipValoreComboRowBean> getRowsIterator() {
-	return iterator();
+        return iterator();
     }
 }

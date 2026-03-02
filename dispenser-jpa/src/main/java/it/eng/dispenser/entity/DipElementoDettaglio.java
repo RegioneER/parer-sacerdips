@@ -69,59 +69,59 @@ public class DipElementoDettaglio implements Serializable {
     }
 
     public long getIdElementoDettaglio() {
-	return this.idElementoDettaglio;
+        return this.idElementoDettaglio;
     }
 
     public void setIdElementoDettaglio(long idElementoDettaglio) {
-	this.idElementoDettaglio = idElementoDettaglio;
+        this.idElementoDettaglio = idElementoDettaglio;
     }
 
     public String getDsElementoDettaglio() {
-	return this.dsElementoDettaglio;
+        return this.dsElementoDettaglio;
     }
 
     public void setDsElementoDettaglio(String dsElementoDettaglio) {
-	this.dsElementoDettaglio = dsElementoDettaglio;
+        this.dsElementoDettaglio = dsElementoDettaglio;
     }
 
     public BigDecimal getNiColonnaElemento() {
-	return this.niColonnaElemento;
+        return this.niColonnaElemento;
     }
 
     public void setNiColonnaElemento(BigDecimal niColonnaElemento) {
-	this.niColonnaElemento = niColonnaElemento;
+        this.niColonnaElemento = niColonnaElemento;
     }
 
     public BigDecimal getNiRigaElemento() {
-	return this.niRigaElemento;
+        return this.niRigaElemento;
     }
 
     public void setNiRigaElemento(BigDecimal niRigaElemento) {
-	this.niRigaElemento = niRigaElemento;
+        this.niRigaElemento = niRigaElemento;
     }
 
     public DipAttribRisultato getDipAttribRisultato() {
-	return this.dipAttribRisultato;
+        return this.dipAttribRisultato;
     }
 
     public void setDipAttribRisultato(DipAttribRisultato dipAttribRisultato) {
-	this.dipAttribRisultato = dipAttribRisultato;
+        this.dipAttribRisultato = dipAttribRisultato;
     }
 
     public DipGruppoDettaglio getDipGruppoDettaglio() {
-	return this.dipGruppoDettaglio;
+        return this.dipGruppoDettaglio;
     }
 
     public void setDipGruppoDettaglio(DipGruppoDettaglio dipGruppoDettaglio) {
-	this.dipGruppoDettaglio = dipGruppoDettaglio;
+        this.dipGruppoDettaglio = dipGruppoDettaglio;
     }
 
     public String getFlVisibile() {
-	return flVisibile;
+        return flVisibile;
     }
 
     public void setFlVisibile(String flVisibile) {
-	this.flVisibile = flVisibile;
+        this.flVisibile = flVisibile;
     }
 
 }

@@ -16,14 +16,14 @@ package it.eng.dispenser.entity.constraint;
 public class ConstDecAttribDatiSpec {
 
     public enum TiAttribDatiSpec {
-	ALFANUMERICO, DATA, NUMERICO
+        ALFANUMERICO, DATA, NUMERICO
     }
 
     public enum tiEntitaSacer {
-	COMP, DOC, SUB_COMP, UNI_DOC
+        COMP, DOC, SUB_COMP, UNI_DOC
     }
 
     public enum tiUsoAttrib {
-	MIGRAZ, VERS
+        MIGRAZ, VERS
     }
 }

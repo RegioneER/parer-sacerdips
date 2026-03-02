@@ -28,93 +28,93 @@ public class RichiestaWSInput {
     private boolean multipart;
 
     public enum TipoRichiesta {
-	REC_DIP_UNI_DOC, REC_COMP, REC_PDF, REC_AIP
+        REC_DIP_UNI_DOC, REC_COMP, REC_PDF, REC_AIP
     }
 
     public enum CampiRichiesta {
-	VERSIONE, LOGINNAME, PASSWORD, XMLSIP
+        VERSIONE, LOGINNAME, PASSWORD, XMLSIP
     }
 
     public RichiestaWSInput(TipoRichiesta tipoRichiesta) {
-	this.tipoRichiesta = tipoRichiesta;
-	this.multipart = false;
+        this.tipoRichiesta = tipoRichiesta;
+        this.multipart = false;
     }
 
     public RichiestaWSInput(TipoRichiesta tipoRichiesta, String urlRichiesta, Integer timeout,
-	    boolean multipart, NameValuePair... paramsCollection) {
-	this(tipoRichiesta);
-	this.urlRichiesta = urlRichiesta;
-	this.timeout = timeout;
-	this.multipart = multipart;
-	this.params = paramsCollection != null ? Arrays.asList(paramsCollection)
-		: new ArrayList<NameValuePair>();
+            boolean multipart, NameValuePair... paramsCollection) {
+        this(tipoRichiesta);
+        this.urlRichiesta = urlRichiesta;
+        this.timeout = timeout;
+        this.multipart = multipart;
+        this.params = paramsCollection != null ? Arrays.asList(paramsCollection)
+                : new ArrayList<NameValuePair>();
     }
 
     public RichiestaWSInput(TipoRichiesta tipoRichiesta, String urlRichiesta, Integer timeout,
-	    boolean multipart, List<NameValuePair> params) {
-	this(tipoRichiesta);
-	this.urlRichiesta = urlRichiesta;
-	this.timeout = timeout;
-	this.multipart = multipart;
-	this.params = params;
+            boolean multipart, List<NameValuePair> params) {
+        this(tipoRichiesta);
+        this.urlRichiesta = urlRichiesta;
+        this.timeout = timeout;
+        this.multipart = multipart;
+        this.params = params;
     }
 
     public RichiestaWSInput(TipoRichiesta tipoRichiesta, String urlRichiesta, Integer timeout,
-	    NameValuePair... paramsCollection) {
-	this(tipoRichiesta);
-	this.urlRichiesta = urlRichiesta;
-	this.timeout = timeout;
-	this.multipart = false;
-	this.params = paramsCollection != null ? Arrays.asList(paramsCollection)
-		: new ArrayList<NameValuePair>();
+            NameValuePair... paramsCollection) {
+        this(tipoRichiesta);
+        this.urlRichiesta = urlRichiesta;
+        this.timeout = timeout;
+        this.multipart = false;
+        this.params = paramsCollection != null ? Arrays.asList(paramsCollection)
+                : new ArrayList<NameValuePair>();
     }
 
     public RichiestaWSInput(TipoRichiesta tipoRichiesta, String urlRichiesta, Integer timeout,
-	    List<NameValuePair> params) {
-	this(tipoRichiesta);
-	this.urlRichiesta = urlRichiesta;
-	this.timeout = timeout;
-	this.multipart = false;
-	this.params = params;
+            List<NameValuePair> params) {
+        this(tipoRichiesta);
+        this.urlRichiesta = urlRichiesta;
+        this.timeout = timeout;
+        this.multipart = false;
+        this.params = params;
     }
 
     public String getUrlRichiesta() {
-	return urlRichiesta;
+        return urlRichiesta;
     }
 
     public void setUrlRichiesta(String urlRichiesta) {
-	this.urlRichiesta = urlRichiesta;
+        this.urlRichiesta = urlRichiesta;
     }
 
     public Integer getTimeout() {
-	return timeout;
+        return timeout;
     }
 
     public void setTimeout(Integer timeout) {
-	this.timeout = timeout;
+        this.timeout = timeout;
     }
 
     public List<NameValuePair> getParams() {
-	return params;
+        return params;
     }
 
     public void setParams(List<NameValuePair> params) {
-	this.params = params;
+        this.params = params;
     }
 
     public TipoRichiesta getTipoRichiesta() {
-	return tipoRichiesta;
+        return tipoRichiesta;
     }
 
     public void setTipoRichiesta(TipoRichiesta tipoRichiesta) {
-	this.tipoRichiesta = tipoRichiesta;
+        this.tipoRichiesta = tipoRichiesta;
     }
 
     public boolean isMultipart() {
-	return multipart;
+        return multipart;
     }
 
     public void setMultipart(boolean multipart) {
-	this.multipart = multipart;
+        this.multipart = multipart;
     }
 }

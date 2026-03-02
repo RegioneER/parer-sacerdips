@@ -38,20 +38,20 @@ public class ApplicationBasePropertiesSeviceImpl implements IApplicationBaseProp
 
     @Override
     public ApplicationBaseProperties getApplicationBaseProperties() {
-	String nmApplic = applicationProperties
-		.getProperty(ConstDipParamApplic.NmParamApplic.NM_APPLIC.name());
-	String user = applicationProperties
-		.getProperty(ConstDipParamApplic.NmParamApplic.USERID_RECUP_INFO.name());
-	String password = applicationProperties
-		.getProperty(ConstDipParamApplic.NmParamApplic.PSW_RECUP_INFO.name());
-	String url = applicationProperties
-		.getProperty(ConstDipParamApplic.NmParamApplic.URL_RECUP_HELP.name());
-	// String url="http://localhost:8080/saceriam/rest/recuperoHelp.json";
+        String nmApplic = applicationProperties
+                .getProperty(ConstDipParamApplic.NmParamApplic.NM_APPLIC.name());
+        String user = applicationProperties
+                .getProperty(ConstDipParamApplic.NmParamApplic.USERID_RECUP_INFO.name());
+        String password = applicationProperties
+                .getProperty(ConstDipParamApplic.NmParamApplic.PSW_RECUP_INFO.name());
+        String url = applicationProperties
+                .getProperty(ConstDipParamApplic.NmParamApplic.URL_RECUP_HELP.name());
+        // String url="http://localhost:8080/saceriam/rest/recuperoHelp.json";
 
-	ApplicationBaseProperties prop = new ApplicationBaseProperties(nmApplic, user, password,
-		url);
+        ApplicationBaseProperties prop = new ApplicationBaseProperties(nmApplic, user, password,
+                url);
 
-	return prop;
+        return prop;
     }
 
 }

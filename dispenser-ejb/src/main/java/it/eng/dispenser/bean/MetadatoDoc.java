@@ -21,21 +21,21 @@ public class MetadatoDoc extends Metadato {
     private BigDecimal docID;
 
     public MetadatoDoc(long attrID, long docID, long udID, String value, String type) {
-	super(attrID, udID, value, type);
-	this.docID = new BigDecimal(docID);
+        super(attrID, udID, value, type);
+        this.docID = new BigDecimal(docID);
     }
 
     public MetadatoDoc(BigDecimal attrID, BigDecimal docID, BigDecimal udID, String value,
-	    String type) {
-	super(attrID, udID, value, type);
-	this.docID = docID;
+            String type) {
+        super(attrID, udID, value, type);
+        this.docID = docID;
     }
 
     public BigDecimal getAttrID() {
-	return getMetadatoID();
+        return getMetadatoID();
     }
 
     public BigDecimal getDocID() {
-	return this.docID;
+        return this.docID;
     }
 }

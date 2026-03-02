@@ -36,22 +36,22 @@ public class QryUdByVlMetaDt implements Serializable {
     private QryUdByVlMetaDtId qryUdByVlMetaDtId;
 
     public QryUdByVlMetaDtId getQryUdByVlMetaDtId() {
-	return qryUdByVlMetaDtId;
+        return qryUdByVlMetaDtId;
     }
 
     public void setQryUdByVlMetaDtId(QryUdByVlMetaDtId qryUdByVlMetaDtId) {
-	this.qryUdByVlMetaDtId = qryUdByVlMetaDtId;
+        this.qryUdByVlMetaDtId = qryUdByVlMetaDtId;
     }
 
     public QryUdByVlMetaDt() {
     }
 
     public Timestamp getDlValore() {
-	return this.dlValore;
+        return this.dlValore;
     }
 
     public void setDlValore(Timestamp dlValore) {
-	this.dlValore = dlValore;
+        this.dlValore = dlValore;
     }
 
 }

@@ -16,7 +16,7 @@ package it.eng.dispenser.entity.constraint;
 public class ConstDipAttribRisultato {
 
     public enum TiDatoAttributo {
-	STRINGA, DATA, COMBO, CHECK, RADIO, NUMERO;
+        STRINGA, DATA, COMBO, CHECK, RADIO, NUMERO;
     }
 
 }

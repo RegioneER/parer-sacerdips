@@ -40,18 +40,18 @@ public abstract class AbsRequestPrsr {
      * @return IP del client presente su request
      */
     public String leggiIpVersante(HttpServletRequest request) {
-	String ipVers = request.getHeader("RERFwFor");
-	// cerco l'header custom della RER
-	if (ipVers == null || ipVers.isEmpty()) {
-	    ipVers = request.getHeader("X-FORWARDED-FOR");
-	    // se non c'e`, uso l'header standard
-	}
-	if (ipVers == null || ipVers.isEmpty()) {
-	    ipVers = request.getRemoteAddr();
-	    // se non c'e` perche' la macchina e' esposta direttamente,
-	    // leggo l'IP fisico del chiamante
-	}
-	return ipVers;
+        String ipVers = request.getHeader("RERFwFor");
+        // cerco l'header custom della RER
+        if (ipVers == null || ipVers.isEmpty()) {
+            ipVers = request.getHeader("X-FORWARDED-FOR");
+            // se non c'e`, uso l'header standard
+        }
+        if (ipVers == null || ipVers.isEmpty()) {
+            ipVers = request.getRemoteAddr();
+            // se non c'e` perche' la macchina e' esposta direttamente,
+            // leggo l'IP fisico del chiamante
+        }
+        return ipVers;
     }
 
 }

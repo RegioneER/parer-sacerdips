@@ -38,128 +38,128 @@ public class NavigatorBeanManager implements Serializable {
      * Restituisce il BeanManager dalla sessione e lo crea se nullo
      */
     public static NavigatorBeanManager getNavigatorBeanManager(HttpSession session) {
-	NavigatorBeanManager nbm = (NavigatorBeanManager) session
-		.getAttribute(NAVIGATOR_BEAN_SESSION_MANAGER);
-	if (nbm == null) {
-	    nbm = new NavigatorBeanManager();
-	    session.setAttribute(NAVIGATOR_BEAN_SESSION_MANAGER, nbm);
-	}
-	return nbm;
+        NavigatorBeanManager nbm = (NavigatorBeanManager) session
+                .getAttribute(NAVIGATOR_BEAN_SESSION_MANAGER);
+        if (nbm == null) {
+            nbm = new NavigatorBeanManager();
+            session.setAttribute(NAVIGATOR_BEAN_SESSION_MANAGER, nbm);
+        }
+        return nbm;
     }
 
     public NavigatorBeanManager() {
-	navigatorBeanStack = new ArrayList<>();
+        navigatorBeanStack = new ArrayList<>();
     }
 
     public List<NavigatorBean> pushNavigatorBeanStack(BigDecimal idObjectDetail1,
-	    BigDecimal idObjectDetail2, String sourceList, BaseTableInterface<?> sourceTable,
-	    int currentRowIndex, int pageSize, int level) {
-	navigatorBeanStack.add(new NavigatorBean(idObjectDetail1, idObjectDetail2, sourceList,
-		sourceTable, currentRowIndex, pageSize, level));
-	return navigatorBeanStack;
+            BigDecimal idObjectDetail2, String sourceList, BaseTableInterface<?> sourceTable,
+            int currentRowIndex, int pageSize, int level) {
+        navigatorBeanStack.add(new NavigatorBean(idObjectDetail1, idObjectDetail2, sourceList,
+                sourceTable, currentRowIndex, pageSize, level));
+        return navigatorBeanStack;
     }
 
     public NavigatorBean popNavigatorBeanStack() {
-	NavigatorBean last = null;
-	if (navigatorBeanStack != null && !navigatorBeanStack.isEmpty()) {
-	    last = navigatorBeanStack.remove(navigatorBeanStack.size() - 1);
-	}
-	return last;
+        NavigatorBean last = null;
+        if (navigatorBeanStack != null && !navigatorBeanStack.isEmpty()) {
+            last = navigatorBeanStack.remove(navigatorBeanStack.size() - 1);
+        }
+        return last;
     }
 
     public NavigatorBean getLastNavigatorBeanStack() {
-	NavigatorBean last = null;
-	if (navigatorBeanStack != null && !navigatorBeanStack.isEmpty()) {
-	    last = navigatorBeanStack.get(navigatorBeanStack.size() - 1);
-	}
-	return last;
+        NavigatorBean last = null;
+        if (navigatorBeanStack != null && !navigatorBeanStack.isEmpty()) {
+            last = navigatorBeanStack.get(navigatorBeanStack.size() - 1);
+        }
+        return last;
     }
 
     public void resetNavigatorBeanStack() {
-	navigatorBeanStack = new ArrayList<>();
+        navigatorBeanStack = new ArrayList<>();
     }
 
     public List<NavigatorBean> getNavigatorBeanStack() {
-	return navigatorBeanStack;
+        return navigatorBeanStack;
     }
 
     public class NavigatorBean implements Serializable {
 
-	private static final long serialVersionUID = 1L;
-	BigDecimal idObject1;
-	BigDecimal idObject2;
-	String sourceList;
-	BaseTableInterface<?> sourceTable;
-	int currentRowIndex;
-	int pageSize;
-	int level = 1;
+        private static final long serialVersionUID = 1L;
+        BigDecimal idObject1;
+        BigDecimal idObject2;
+        String sourceList;
+        BaseTableInterface<?> sourceTable;
+        int currentRowIndex;
+        int pageSize;
+        int level = 1;
 
-	public NavigatorBean(BigDecimal idObject1, BigDecimal idObject2, String sourceList,
-		BaseTableInterface<?> sourceTable, int currentRowIndex, int pageSize, int level) {
-	    this.idObject1 = idObject1;
-	    this.idObject2 = idObject2;
-	    this.sourceTable = sourceTable;
-	    this.sourceList = sourceList;
-	    this.currentRowIndex = currentRowIndex;
-	    this.pageSize = pageSize;
-	    this.level = level;
-	}
+        public NavigatorBean(BigDecimal idObject1, BigDecimal idObject2, String sourceList,
+                BaseTableInterface<?> sourceTable, int currentRowIndex, int pageSize, int level) {
+            this.idObject1 = idObject1;
+            this.idObject2 = idObject2;
+            this.sourceTable = sourceTable;
+            this.sourceList = sourceList;
+            this.currentRowIndex = currentRowIndex;
+            this.pageSize = pageSize;
+            this.level = level;
+        }
 
-	public BigDecimal getIdObject1() {
-	    return idObject1;
-	}
+        public BigDecimal getIdObject1() {
+            return idObject1;
+        }
 
-	public void setIdObject1(BigDecimal idObject1) {
-	    this.idObject1 = idObject1;
-	}
+        public void setIdObject1(BigDecimal idObject1) {
+            this.idObject1 = idObject1;
+        }
 
-	public BigDecimal getIdObject2() {
-	    return idObject2;
-	}
+        public BigDecimal getIdObject2() {
+            return idObject2;
+        }
 
-	public void setIdObject2(BigDecimal idObject2) {
-	    this.idObject2 = idObject2;
-	}
+        public void setIdObject2(BigDecimal idObject2) {
+            this.idObject2 = idObject2;
+        }
 
-	public String getSourceList() {
-	    return sourceList;
-	}
+        public String getSourceList() {
+            return sourceList;
+        }
 
-	public void setSourceList(String sourceList) {
-	    this.sourceList = sourceList;
-	}
+        public void setSourceList(String sourceList) {
+            this.sourceList = sourceList;
+        }
 
-	public BaseTableInterface<?> getSourceTable() {
-	    return sourceTable;
-	}
+        public BaseTableInterface<?> getSourceTable() {
+            return sourceTable;
+        }
 
-	public void setSourceTable(BaseTableInterface<?> sourceTable) {
-	    this.sourceTable = sourceTable;
-	}
+        public void setSourceTable(BaseTableInterface<?> sourceTable) {
+            this.sourceTable = sourceTable;
+        }
 
-	public int getCurrentRowIndex() {
-	    return currentRowIndex;
-	}
+        public int getCurrentRowIndex() {
+            return currentRowIndex;
+        }
 
-	public void setCurrentRowIndex(int currentRowIndex) {
-	    this.currentRowIndex = currentRowIndex;
-	}
+        public void setCurrentRowIndex(int currentRowIndex) {
+            this.currentRowIndex = currentRowIndex;
+        }
 
-	public int getPageSize() {
-	    return pageSize;
-	}
+        public int getPageSize() {
+            return pageSize;
+        }
 
-	public void setPageSize(int pageSize) {
-	    this.pageSize = pageSize;
-	}
+        public void setPageSize(int pageSize) {
+            this.pageSize = pageSize;
+        }
 
-	public void addLevel() {
-	    this.level++;
-	}
+        public void addLevel() {
+            this.level++;
+        }
 
-	public int getLevel() {
-	    return level;
-	}
+        public int getLevel() {
+            return level;
+        }
 
     }
 }

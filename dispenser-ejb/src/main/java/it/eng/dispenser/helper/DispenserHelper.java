@@ -40,30 +40,30 @@ public class DispenserHelper extends GenericHelper {
     private EntityManager entityManager;
 
     public BigDecimal getStrutFittiziaByStrutReale(BigDecimal idStrutReale) {
-	BigDecimal idStrutFittizia = null;
-	Query q = entityManager.createQuery(
-		"SELECT u FROM StrutReferenziatePug u WHERE u.idStrutReale = :idStrutReale");
-	q.setParameter("idStrutReale", idStrutReale);
-	List<StrutReferenziatePug> l = q.getResultList();
-	if (l != null && l.size() > 0) {
-	    StrutReferenziatePug strutReferenziatePug = l.iterator().next();
-	    idStrutFittizia = strutReferenziatePug.getIdStrutFittizia();
-	}
-	return idStrutFittizia;
+        BigDecimal idStrutFittizia = null;
+        Query q = entityManager.createQuery(
+                "SELECT u FROM StrutReferenziatePug u WHERE u.idStrutReale = :idStrutReale");
+        q.setParameter("idStrutReale", idStrutReale);
+        List<StrutReferenziatePug> l = q.getResultList();
+        if (l != null && l.size() > 0) {
+            StrutReferenziatePug strutReferenziatePug = l.iterator().next();
+            idStrutFittizia = strutReferenziatePug.getIdStrutFittizia();
+        }
+        return idStrutFittizia;
     }
 
     public DecTipoUnitaDoc getDecTipoUnitaDocByStrutAndNome(BigDecimal idStrut,
-	    String nmTipoUnitaDoc) {
-	DecTipoUnitaDoc decTipoUnitaDoc = null;
-	Query q = entityManager.createQuery(
-		"SELECT u FROM DecTipoUnitaDoc u WHERE u.idStrut = :idStrut AND u.nmTipoUnitaDoc=:nmTipoUnitaDoc");
-	q.setParameter("idStrut", idStrut);
-	q.setParameter("nmTipoUnitaDoc", nmTipoUnitaDoc);
-	List<DecTipoUnitaDoc> l = q.getResultList();
-	if (l != null && l.size() > 0) {
-	    decTipoUnitaDoc = l.iterator().next();
-	}
-	return decTipoUnitaDoc;
+            String nmTipoUnitaDoc) {
+        DecTipoUnitaDoc decTipoUnitaDoc = null;
+        Query q = entityManager.createQuery(
+                "SELECT u FROM DecTipoUnitaDoc u WHERE u.idStrut = :idStrut AND u.nmTipoUnitaDoc=:nmTipoUnitaDoc");
+        q.setParameter("idStrut", idStrut);
+        q.setParameter("nmTipoUnitaDoc", nmTipoUnitaDoc);
+        List<DecTipoUnitaDoc> l = q.getResultList();
+        if (l != null && l.size() > 0) {
+            decTipoUnitaDoc = l.iterator().next();
+        }
+        return decTipoUnitaDoc;
     }
 
     /*
@@ -71,14 +71,14 @@ public class DispenserHelper extends GenericHelper {
      * quello passato ma escudendo la UD passata come parametro.
      */
     public Set<BigDecimal> findUdsByDlPrefissoValoreString(BigDecimal idStrut,
-	    String dlPrefissoValore, BigDecimal idUnitaDoc) {
-	Query q = getEntityManager().createQuery("SELECT DISTINCT q.qryUdByVlMetaStrId.idUnitaDoc "
-		+ "FROM QryUdByVlMetaStr q, AroUnitaDoc ud WHERE q.qryUdByVlMetaStrId.idUnitaDoc=ud.idUnitaDoc "
-		+ "AND  ud.orgStrut.idStrut=:idStrut AND q.dlPrefissoValore=:dlPrefissoValore AND ud.idUnitaDoc<>:idUnitaDoc");
-	q.setParameter("idStrut", idStrut.longValueExact());
-	q.setParameter("idUnitaDoc", idUnitaDoc.longValueExact());
-	q.setParameter("dlPrefissoValore", dlPrefissoValore);
-	List<BigDecimal> l = q.getResultList();
-	return new HashSet<>(l);
+            String dlPrefissoValore, BigDecimal idUnitaDoc) {
+        Query q = getEntityManager().createQuery("SELECT DISTINCT q.qryUdByVlMetaStrId.idUnitaDoc "
+                + "FROM QryUdByVlMetaStr q, AroUnitaDoc ud WHERE q.qryUdByVlMetaStrId.idUnitaDoc=ud.idUnitaDoc "
+                + "AND  ud.orgStrut.idStrut=:idStrut AND q.dlPrefissoValore=:dlPrefissoValore AND ud.idUnitaDoc<>:idUnitaDoc");
+        q.setParameter("idStrut", idStrut.longValueExact());
+        q.setParameter("idUnitaDoc", idUnitaDoc.longValueExact());
+        q.setParameter("dlPrefissoValore", dlPrefissoValore);
+        List<BigDecimal> l = q.getResultList();
+        return new HashSet<>(l);
     }
 }

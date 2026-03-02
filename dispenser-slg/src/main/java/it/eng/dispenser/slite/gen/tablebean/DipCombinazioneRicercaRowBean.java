@@ -36,117 +36,117 @@ public class DipCombinazioneRicercaRowBean extends BaseRow implements JEEBaseRow
     public static DipCombinazioneRicercaTableDescriptor TABLE_DESCRIPTOR = new DipCombinazioneRicercaTableDescriptor();
 
     public DipCombinazioneRicercaRowBean() {
-	super();
+        super();
     }
 
     public TableDescriptor getTableDescriptor() {
-	return TABLE_DESCRIPTOR;
+        return TABLE_DESCRIPTOR;
     }
 
     // getter e setter
     public BigDecimal getIdCombinazioneRicerca() {
-	return getBigDecimal("id_combinazione_ricerca");
+        return getBigDecimal("id_combinazione_ricerca");
     }
 
     public void setIdCombinazioneRicerca(BigDecimal idCombinazioneRicerca) {
-	setObject("id_combinazione_ricerca", idCombinazioneRicerca);
+        setObject("id_combinazione_ricerca", idCombinazioneRicerca);
     }
 
     public BigDecimal getIdRicerca() {
-	return getBigDecimal("id_ricerca");
+        return getBigDecimal("id_ricerca");
     }
 
     public void setIdRicerca(BigDecimal idRicerca) {
-	setObject("id_ricerca", idRicerca);
+        setObject("id_ricerca", idRicerca);
     }
 
     public String getNmNomeCombinazione() {
-	return getString("nm_nome_combinazione");
+        return getString("nm_nome_combinazione");
     }
 
     public void setNmNomeCombinazione(String nmNomeCombinazione) {
-	setObject("nm_nome_combinazione", nmNomeCombinazione);
+        setObject("nm_nome_combinazione", nmNomeCombinazione);
     }
 
     public BigDecimal getIdStrut() {
-	return getBigDecimal("id_strut");
+        return getBigDecimal("id_strut");
     }
 
     public void setIdStrut(BigDecimal idStrut) {
-	setObject("id_strut", idStrut);
+        setObject("id_strut", idStrut);
     }
 
     public BigDecimal getIdTipoDoc() {
-	return getBigDecimal("id_tipo_doc");
+        return getBigDecimal("id_tipo_doc");
     }
 
     public void setIdTipoDoc(BigDecimal idTipoDoc) {
-	setObject("id_tipo_doc", idTipoDoc);
+        setObject("id_tipo_doc", idTipoDoc);
     }
 
     public BigDecimal getIdTipoUnitaDoc() {
-	return getBigDecimal("id_tipo_unita_doc");
+        return getBigDecimal("id_tipo_unita_doc");
     }
 
     public void setIdTipoUnitaDoc(BigDecimal idTipoUnitaDoc) {
-	setObject("id_tipo_unita_doc", idTipoUnitaDoc);
+        setObject("id_tipo_unita_doc", idTipoUnitaDoc);
     }
 
     @Override
     public void entityToRowBean(Object obj) {
-	DipCombinazioneRicerca entity = (DipCombinazioneRicerca) obj;
-	this.setIdCombinazioneRicerca(new BigDecimal(entity.getIdCombinazioneRicerca()));
-	if (entity.getDipRicerca() != null) {
-	    this.setIdRicerca(new BigDecimal(entity.getDipRicerca().getIdRicerca()));
-	}
-	this.setNmNomeCombinazione(entity.getNmNomeCombinazione());
-	this.setIdStrut(entity.getIdStrut());
-	this.setIdTipoDoc(entity.getIdTipoDoc());
-	this.setIdTipoUnitaDoc(entity.getIdTipoUnitaDoc());
+        DipCombinazioneRicerca entity = (DipCombinazioneRicerca) obj;
+        this.setIdCombinazioneRicerca(new BigDecimal(entity.getIdCombinazioneRicerca()));
+        if (entity.getDipRicerca() != null) {
+            this.setIdRicerca(new BigDecimal(entity.getDipRicerca().getIdRicerca()));
+        }
+        this.setNmNomeCombinazione(entity.getNmNomeCombinazione());
+        this.setIdStrut(entity.getIdStrut());
+        this.setIdTipoDoc(entity.getIdTipoDoc());
+        this.setIdTipoUnitaDoc(entity.getIdTipoUnitaDoc());
     }
 
     @Override
     public DipCombinazioneRicerca rowBeanToEntity() {
-	DipCombinazioneRicerca entity = new DipCombinazioneRicerca();
-	if (this.getIdCombinazioneRicerca() != null) {
-	    entity.setIdCombinazioneRicerca(this.getIdCombinazioneRicerca().longValue());
-	}
-	if (this.getIdRicerca() != null) {
-	    if (entity.getDipRicerca() == null) {
-		entity.setDipRicerca(new DipRicerca());
-	    }
-	    entity.getDipRicerca().setIdRicerca(this.getIdRicerca().longValue());
-	}
-	entity.setNmNomeCombinazione(this.getNmNomeCombinazione());
-	entity.setIdStrut(this.getIdStrut());
-	entity.setIdTipoDoc(this.getIdTipoDoc());
-	entity.setIdTipoUnitaDoc(this.getIdTipoUnitaDoc());
-	return entity;
+        DipCombinazioneRicerca entity = new DipCombinazioneRicerca();
+        if (this.getIdCombinazioneRicerca() != null) {
+            entity.setIdCombinazioneRicerca(this.getIdCombinazioneRicerca().longValue());
+        }
+        if (this.getIdRicerca() != null) {
+            if (entity.getDipRicerca() == null) {
+                entity.setDipRicerca(new DipRicerca());
+            }
+            entity.getDipRicerca().setIdRicerca(this.getIdRicerca().longValue());
+        }
+        entity.setNmNomeCombinazione(this.getNmNomeCombinazione());
+        entity.setIdStrut(this.getIdStrut());
+        entity.setIdTipoDoc(this.getIdTipoDoc());
+        entity.setIdTipoUnitaDoc(this.getIdTipoUnitaDoc());
+        return entity;
     }
 
     // gestione della paginazione
     public void setRownum(Integer rownum) {
-	setObject("rownum", rownum);
+        setObject("rownum", rownum);
     }
 
     public Integer getRownum() {
-	return Integer.parseInt(getObject("rownum").toString());
+        return Integer.parseInt(getObject("rownum").toString());
     }
 
     public void setRnum(Integer rnum) {
-	setObject("rnum", rnum);
+        setObject("rnum", rnum);
     }
 
     public Integer getRnum() {
-	return Integer.parseInt(getObject("rnum").toString());
+        return Integer.parseInt(getObject("rnum").toString());
     }
 
     public void setNumrecords(Integer numRecords) {
-	setObject("numrecords", numRecords);
+        setObject("numrecords", numRecords);
     }
 
     public Integer getNumrecords() {
-	return Integer.parseInt(getObject("numrecords").toString());
+        return Integer.parseInt(getObject("numrecords").toString());
     }
 
 }

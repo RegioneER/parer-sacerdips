@@ -23,7 +23,7 @@ import it.eng.spagoLite.db.oracle.bean.column.TableDescriptor;
  *
  */
 public class DipCombinazioneRicercaTableBean
-	extends AbstractBaseTable<DipCombinazioneRicercaRowBean> {
+        extends AbstractBaseTable<DipCombinazioneRicercaRowBean> {
 
     /*
      * @Generated( value = "it.eg.dbtool.db.oracle.beangen.Oracle4JPAClientBeanGen$TableBeanWriter",
@@ -34,19 +34,19 @@ public class DipCombinazioneRicercaTableBean
     public static DipCombinazioneRicercaTableDescriptor TABLE_DESCRIPTOR = new DipCombinazioneRicercaTableDescriptor();
 
     public DipCombinazioneRicercaTableBean() {
-	super();
+        super();
     }
 
     protected DipCombinazioneRicercaRowBean createRow() {
-	return new DipCombinazioneRicercaRowBean();
+        return new DipCombinazioneRicercaRowBean();
     }
 
     public TableDescriptor getTableDescriptor() {
-	return TABLE_DESCRIPTOR;
+        return TABLE_DESCRIPTOR;
     }
 
     @Deprecated
     public Iterator<DipCombinazioneRicercaRowBean> getRowsIterator() {
-	return iterator();
+        return iterator();
     }
 }

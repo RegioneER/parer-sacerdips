@@ -26,7 +26,7 @@ public class Costanti {
     public static final String WS_STATUS_MONITOR_VRSN = "1.0";
 
     public static final String[] WS_STATUS_MONITOR_COMP = {
-	    "1.0" };
+            "1.0" };
 
     public static final String WS_STATUS_MONITOR_NOME = "StatusMonitor";
 
@@ -35,15 +35,15 @@ public class Costanti {
     public static final String WS_APPINFO_VRSN = "1.0";
 
     public static final String[] WS_APPINFO_COMP = {
-	    "1.0" };
+            "1.0" };
 
     // del tutto inutile, inserita per rendere simile l'implementazione a quella di SACER
     public enum ModificatoriWS {
-	// TAG_VERIFICA_FORMATI_OLD,
-	// TAG_VERIFICA_FORMATI_1_25,
-	// TAG_MIGRAZIONE,
-	// TAG_DATISPEC_EXT,
-	// TAG_ESTESI_1_3_OUT // ID documento, tag Versatore
+        // TAG_VERIFICA_FORMATI_OLD,
+        // TAG_VERIFICA_FORMATI_1_25,
+        // TAG_MIGRAZIONE,
+        // TAG_DATISPEC_EXT,
+        // TAG_ESTESI_1_3_OUT // ID documento, tag Versatore
     }
 
 }

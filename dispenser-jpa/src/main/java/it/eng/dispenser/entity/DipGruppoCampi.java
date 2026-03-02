@@ -74,47 +74,47 @@ public class DipGruppoCampi implements Serializable {
     }
 
     public long getIdGruppoCampi() {
-	return this.idGruppoCampi;
+        return this.idGruppoCampi;
     }
 
     public void setIdGruppoCampi(long idGruppoCampi) {
-	this.idGruppoCampi = idGruppoCampi;
+        this.idGruppoCampi = idGruppoCampi;
     }
 
     public String getDsGruppo() {
-	return this.dsGruppo;
+        return this.dsGruppo;
     }
 
     public void setDsGruppo(String dsGruppo) {
-	this.dsGruppo = dsGruppo;
+        this.dsGruppo = dsGruppo;
     }
 
     public BigDecimal getNiColonnaGruppo() {
-	return this.niColonnaGruppo;
+        return this.niColonnaGruppo;
     }
 
     public void setNiColonnaGruppo(BigDecimal niColonnaGruppo) {
-	this.niColonnaGruppo = niColonnaGruppo;
+        this.niColonnaGruppo = niColonnaGruppo;
     }
 
     public BigDecimal getNiRigaGruppo() {
-	return this.niRigaGruppo;
+        return this.niRigaGruppo;
     }
 
     public void setNiRigaGruppo(BigDecimal niRigaGruppo) {
-	this.niRigaGruppo = niRigaGruppo;
+        this.niRigaGruppo = niRigaGruppo;
     }
 
     public String getNmGruppo() {
-	return this.nmGruppo;
+        return this.nmGruppo;
     }
 
     public void setNmGruppo(String nmGruppo) {
-	this.nmGruppo = nmGruppo;
+        this.nmGruppo = nmGruppo;
     }
 
     private Set<DipCampoRicerca> getDipCampoRicercas() {
-	return this.dipCampoRicercas;
+        return this.dipCampoRicercas;
     }
 
     /**
@@ -125,39 +125,39 @@ public class DipGruppoCampi implements Serializable {
      */
 
     public List<DipCampoRicerca> getDipCampoRicercaOrdinati() {
-	Comparator<DipCampoRicerca> compareByRigaColonna = Comparator
-		.comparing(DipCampoRicerca::getNiRigaCampo)
-		.thenComparing(DipCampoRicerca::getNiColonnaCampo);
+        Comparator<DipCampoRicerca> compareByRigaColonna = Comparator
+                .comparing(DipCampoRicerca::getNiRigaCampo)
+                .thenComparing(DipCampoRicerca::getNiColonnaCampo);
 
-	List<DipCampoRicerca> sorted = new ArrayList<>(this.dipCampoRicercas).stream()
-		.sorted(compareByRigaColonna).collect(Collectors.toList());
-	return sorted;
+        List<DipCampoRicerca> sorted = new ArrayList<>(this.dipCampoRicercas).stream()
+                .sorted(compareByRigaColonna).collect(Collectors.toList());
+        return sorted;
     }
 
     public void setDipCampoRicercas(Set<DipCampoRicerca> dipCampoRicercas) {
-	this.dipCampoRicercas = dipCampoRicercas;
+        this.dipCampoRicercas = dipCampoRicercas;
     }
 
     public DipCampoRicerca addDipCampoRicerca(DipCampoRicerca dipCampoRicerca) {
-	getDipCampoRicercas().add(dipCampoRicerca);
-	dipCampoRicerca.setDipGruppoCampi(this);
+        getDipCampoRicercas().add(dipCampoRicerca);
+        dipCampoRicerca.setDipGruppoCampi(this);
 
-	return dipCampoRicerca;
+        return dipCampoRicerca;
     }
 
     public DipCampoRicerca removeDipCampoRicerca(DipCampoRicerca dipCampoRicerca) {
-	getDipCampoRicercas().remove(dipCampoRicerca);
-	dipCampoRicerca.setDipGruppoCampi(null);
+        getDipCampoRicercas().remove(dipCampoRicerca);
+        dipCampoRicerca.setDipGruppoCampi(null);
 
-	return dipCampoRicerca;
+        return dipCampoRicerca;
     }
 
     public DipRicerca getDipRicerca() {
-	return this.dipRicerca;
+        return this.dipRicerca;
     }
 
     public void setDipRicerca(DipRicerca dipRicerca) {
-	this.dipRicerca = dipRicerca;
+        this.dipRicerca = dipRicerca;
     }
 
 }

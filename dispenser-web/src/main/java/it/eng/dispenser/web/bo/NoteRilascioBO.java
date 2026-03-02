@@ -50,93 +50,93 @@ public class NoteRilascioBO {
     @SuppressWarnings("unchecked")
     @Transactional
     public SIAplNotaRilascioTableBean getAplNoteRilascioTableBean(String nmApplic) throws EMFError {
-	SIAplNotaRilascioTableBean noteRilascioTableBean = new SIAplNotaRilascioTableBean();
+        SIAplNotaRilascioTableBean noteRilascioTableBean = new SIAplNotaRilascioTableBean();
 
-	String queryStr = "SELECT applic FROM SIAplApplic applic WHERE applic.nmApplic = :nomeappl";
-	Query q1 = em.createQuery(queryStr);
-	q1.setParameter("nomeappl", nmApplic);
-	SIAplApplic applic = (SIAplApplic) q1.getSingleResult();
-	long idApplic = applic.getIdApplic();
+        String queryStr = "SELECT applic FROM SIAplApplic applic WHERE applic.nmApplic = :nomeappl";
+        Query q1 = em.createQuery(queryStr);
+        q1.setParameter("nomeappl", nmApplic);
+        SIAplApplic applic = (SIAplApplic) q1.getSingleResult();
+        long idApplic = applic.getIdApplic();
 
-	queryStr = "SELECT notaRilascio FROM SIAplNotaRilascio notaRilascio "
-		+ "WHERE notaRilascio.siAplApplic.idApplic = :idApplic "
-		+ "ORDER BY notaRilascio.dtVersione DESC";
-	Query q2 = em.createQuery(queryStr);
-	q2.setParameter("idApplic", idApplic);
-	List<SIAplNotaRilascio> list = q2.getResultList();
-	try {
-	    if (!list.isEmpty()) {
-		for (SIAplNotaRilascio notaRilascio : list) {
-		    SIAplNotaRilascioRowBean row = new SIAplNotaRilascioRowBean();
-		    row = (SIAplNotaRilascioRowBean) Transform.entity2RowBean(notaRilascio);
-		    row.setString("nm_applic", notaRilascio.getSiAplApplic().getNmApplic());
-		    noteRilascioTableBean.add(row);
-		}
-	    }
-	} catch (Exception e) {
-	    log.error(e.getMessage(), e);
-	}
-	return noteRilascioTableBean;
+        queryStr = "SELECT notaRilascio FROM SIAplNotaRilascio notaRilascio "
+                + "WHERE notaRilascio.siAplApplic.idApplic = :idApplic "
+                + "ORDER BY notaRilascio.dtVersione DESC";
+        Query q2 = em.createQuery(queryStr);
+        q2.setParameter("idApplic", idApplic);
+        List<SIAplNotaRilascio> list = q2.getResultList();
+        try {
+            if (!list.isEmpty()) {
+                for (SIAplNotaRilascio notaRilascio : list) {
+                    SIAplNotaRilascioRowBean row = new SIAplNotaRilascioRowBean();
+                    row = (SIAplNotaRilascioRowBean) Transform.entity2RowBean(notaRilascio);
+                    row.setString("nm_applic", notaRilascio.getSiAplApplic().getNmApplic());
+                    noteRilascioTableBean.add(row);
+                }
+            }
+        } catch (Exception e) {
+            log.error(e.getMessage(), e);
+        }
+        return noteRilascioTableBean;
     }
 
     public SIAplApplicRowBean getAplApplicRowBean(BigDecimal idApplic) {
-	SIAplApplicRowBean applicRowBean = new SIAplApplicRowBean();
-	SIAplApplic applic = em.find(SIAplApplic.class, idApplic.longValue());
-	try {
-	    if (applic != null) {
-		applicRowBean = (SIAplApplicRowBean) Transform.entity2RowBean(applic);
-	    }
-	} catch (Exception e) {
-	    log.error(e.getMessage(), e);
-	}
-	return applicRowBean;
+        SIAplApplicRowBean applicRowBean = new SIAplApplicRowBean();
+        SIAplApplic applic = em.find(SIAplApplic.class, idApplic.longValue());
+        try {
+            if (applic != null) {
+                applicRowBean = (SIAplApplicRowBean) Transform.entity2RowBean(applic);
+            }
+        } catch (Exception e) {
+            log.error(e.getMessage(), e);
+        }
+        return applicRowBean;
     }
 
     @SuppressWarnings("unchecked")
     public SIAplNotaRilascioTableBean getAplNoteRilascioPrecTableBean(BigDecimal idApplic,
-	    BigDecimal idNotaRilascio, Date dtVersione) {
-	SIAplNotaRilascioTableBean noteRilascioPrecTableBean = new SIAplNotaRilascioTableBean();
+            BigDecimal idNotaRilascio, Date dtVersione) {
+        SIAplNotaRilascioTableBean noteRilascioPrecTableBean = new SIAplNotaRilascioTableBean();
 
-	String queryStr = "SELECT notaRilascio FROM SIAplNotaRilascio notaRilascio "
-		+ "JOIN notaRilascio.siAplApplic applic "
-		+ "WHERE notaRilascio.idNotaRilascio != :idNotaRilascio "
-		+ "AND applic.idApplic = :idApplic ";
-	Query query = em.createQuery(queryStr);
-	query.setParameter("idNotaRilascio", idNotaRilascio.longValue());
-	query.setParameter("idApplic", idApplic.longValue());
-	List<SIAplNotaRilascio> noteRilascioPrecList = query.getResultList();
-	CollectionUtils.filter(noteRilascioPrecList,
-		object -> (object).getDtVersione().compareTo(dtVersione) < 0);
-	try {
-	    if (noteRilascioPrecList != null && !noteRilascioPrecList.isEmpty()) {
-		noteRilascioPrecTableBean = (SIAplNotaRilascioTableBean) Transform
-			.entities2TableBean(noteRilascioPrecList);
-	    }
-	} catch (Exception e) {
-	    log.error(e.getMessage(), e);
-	}
-	return noteRilascioPrecTableBean;
+        String queryStr = "SELECT notaRilascio FROM SIAplNotaRilascio notaRilascio "
+                + "JOIN notaRilascio.siAplApplic applic "
+                + "WHERE notaRilascio.idNotaRilascio != :idNotaRilascio "
+                + "AND applic.idApplic = :idApplic ";
+        Query query = em.createQuery(queryStr);
+        query.setParameter("idNotaRilascio", idNotaRilascio.longValue());
+        query.setParameter("idApplic", idApplic.longValue());
+        List<SIAplNotaRilascio> noteRilascioPrecList = query.getResultList();
+        CollectionUtils.filter(noteRilascioPrecList,
+                object -> (object).getDtVersione().compareTo(dtVersione) < 0);
+        try {
+            if (noteRilascioPrecList != null && !noteRilascioPrecList.isEmpty()) {
+                noteRilascioPrecTableBean = (SIAplNotaRilascioTableBean) Transform
+                        .entities2TableBean(noteRilascioPrecList);
+            }
+        } catch (Exception e) {
+            log.error(e.getMessage(), e);
+        }
+        return noteRilascioPrecTableBean;
     }
 
     @Transactional
     public SIAplNotaRilascioRowBean getAplNotaRilascioRowBean(BigDecimal idNotaRilascio)
-	    throws EMFError {
-	SIAplNotaRilascioRowBean notaRilascioRowBean = new SIAplNotaRilascioRowBean();
-	if (idNotaRilascio != null) {
-	    SIAplNotaRilascio notaRilascio = em.find(SIAplNotaRilascio.class,
-		    idNotaRilascio.longValue());
-	    if (notaRilascio != null) {
-		try {
-		    notaRilascioRowBean = (SIAplNotaRilascioRowBean) Transform
-			    .entity2RowBean(notaRilascio);
-		    notaRilascioRowBean.setString("nm_applic",
-			    notaRilascio.getSiAplApplic().getNmApplic());
-		} catch (Exception e) {
-		    log.error("Errore durante il recupero della nota rilascio "
-			    + ExceptionUtils.getRootCauseMessage(e), e);
-		}
-	    }
-	}
-	return notaRilascioRowBean;
+            throws EMFError {
+        SIAplNotaRilascioRowBean notaRilascioRowBean = new SIAplNotaRilascioRowBean();
+        if (idNotaRilascio != null) {
+            SIAplNotaRilascio notaRilascio = em.find(SIAplNotaRilascio.class,
+                    idNotaRilascio.longValue());
+            if (notaRilascio != null) {
+                try {
+                    notaRilascioRowBean = (SIAplNotaRilascioRowBean) Transform
+                            .entity2RowBean(notaRilascio);
+                    notaRilascioRowBean.setString("nm_applic",
+                            notaRilascio.getSiAplApplic().getNmApplic());
+                } catch (Exception e) {
+                    log.error("Errore durante il recupero della nota rilascio "
+                            + ExceptionUtils.getRootCauseMessage(e), e);
+                }
+            }
+        }
+        return notaRilascioRowBean;
     }
 }

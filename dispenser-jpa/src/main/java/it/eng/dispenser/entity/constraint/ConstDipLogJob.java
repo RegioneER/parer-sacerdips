@@ -16,7 +16,7 @@ package it.eng.dispenser.entity.constraint;
 public class ConstDipLogJob {
 
     public enum tiEvento {
-	INIZIO_ESECUZIONE, FINE_ESECUZIONE, ERRORE;
+        INIZIO_ESECUZIONE, FINE_ESECUZIONE, ERRORE;
     }
 
 }

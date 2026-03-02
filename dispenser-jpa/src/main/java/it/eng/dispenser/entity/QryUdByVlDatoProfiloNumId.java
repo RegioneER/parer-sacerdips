@@ -35,60 +35,60 @@ public class QryUdByVlDatoProfiloNumId implements Serializable {
     }
 
     public BigDecimal getIdStrut() {
-	return this.idStrut;
+        return this.idStrut;
     }
 
     public void setIdStrut(BigDecimal idStrut) {
-	this.idStrut = idStrut;
+        this.idStrut = idStrut;
     }
 
     public BigDecimal getIdUnitaDoc() {
-	return this.idUnitaDoc;
+        return this.idUnitaDoc;
     }
 
     public void setIdUnitaDoc(BigDecimal idUnitaDoc) {
-	this.idUnitaDoc = idUnitaDoc;
+        this.idUnitaDoc = idUnitaDoc;
     }
 
     public String getTiDatoProfilo() {
-	return this.tiDatoProfilo;
+        return this.tiDatoProfilo;
     }
 
     public void setTiDatoProfilo(String tiDatoProfilo) {
-	this.tiDatoProfilo = tiDatoProfilo;
+        this.tiDatoProfilo = tiDatoProfilo;
     }
 
     @Override
     public int hashCode() {
-	int hash = 3;
-	hash = 53 * hash + Objects.hashCode(this.idStrut);
-	hash = 53 * hash + Objects.hashCode(this.idUnitaDoc);
-	hash = 53 * hash + Objects.hashCode(this.tiDatoProfilo);
-	return hash;
+        int hash = 3;
+        hash = 53 * hash + Objects.hashCode(this.idStrut);
+        hash = 53 * hash + Objects.hashCode(this.idUnitaDoc);
+        hash = 53 * hash + Objects.hashCode(this.tiDatoProfilo);
+        return hash;
     }
 
     @Override
     public boolean equals(Object obj) {
-	if (this == obj) {
-	    return true;
-	}
-	if (obj == null) {
-	    return false;
-	}
-	if (getClass() != obj.getClass()) {
-	    return false;
-	}
-	final QryUdByVlDatoProfiloNumId other = (QryUdByVlDatoProfiloNumId) obj;
-	if (!Objects.equals(this.tiDatoProfilo, other.tiDatoProfilo)) {
-	    return false;
-	}
-	if (!Objects.equals(this.idStrut, other.idStrut)) {
-	    return false;
-	}
-	if (!Objects.equals(this.idUnitaDoc, other.idUnitaDoc)) {
-	    return false;
-	}
-	return true;
+        if (this == obj) {
+            return true;
+        }
+        if (obj == null) {
+            return false;
+        }
+        if (getClass() != obj.getClass()) {
+            return false;
+        }
+        final QryUdByVlDatoProfiloNumId other = (QryUdByVlDatoProfiloNumId) obj;
+        if (!Objects.equals(this.tiDatoProfilo, other.tiDatoProfilo)) {
+            return false;
+        }
+        if (!Objects.equals(this.idStrut, other.idStrut)) {
+            return false;
+        }
+        if (!Objects.equals(this.idUnitaDoc, other.idUnitaDoc)) {
+            return false;
+        }
+        return true;
     }
 
 }

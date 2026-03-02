@@ -26,13 +26,13 @@ public class Constants {
     public static final String DATE_FORMAT = "dd/MM/yyyy";
 
     static {
-	Calendar cal = Calendar.getInstance();
-	cal.set(2011, 12, 1);
-	DATE_INITIAL_PARER = cal.getTime();
+        Calendar cal = Calendar.getInstance();
+        cal.set(2011, 12, 1);
+        DATE_INITIAL_PARER = cal.getTime();
 
-	// Init value of the field ARO_UNITA_DOC.DT_ANNUL
-	cal.set(2444, 12, 31);
-	DATE_ANNUL_INIT = cal.getTime();
+        // Init value of the field ARO_UNITA_DOC.DT_ANNUL
+        cal.set(2444, 12, 31);
+        DATE_ANNUL_INIT = cal.getTime();
     }
 
     // JOB CONTANTS
@@ -50,28 +50,28 @@ public class Constants {
     public static final String SESSIONE_FORM_RIC = "###_FORM_RICERCA";
 
     public enum DOWNLOAD_ATTRS {
-	DOWNLOAD_ACTION, DOWNLOAD_FILENAME, DOWNLOAD_FILEPATH, DOWNLOAD_DELETEFILE,
-	DOWNLOAD_CONTENTTYPE
+        DOWNLOAD_ACTION, DOWNLOAD_FILENAME, DOWNLOAD_FILEPATH, DOWNLOAD_DELETEFILE,
+        DOWNLOAD_CONTENTTYPE
     }
 
     public enum JobEnum {
-	SACER_SYNCRO, WS_MONITORAGGIO_STATUS
+        SACER_SYNCRO, WS_MONITORAGGIO_STATUS
     }
 
     public enum NomiJob {
 
-	SACER_SYNCRO;
+        SACER_SYNCRO;
 
-	public static NomiJob[] getEnums(NomiJob... vals) {
-	    return vals;
-	}
+        public static NomiJob[] getEnums(NomiJob... vals) {
+            return vals;
+        }
 
-	public static NomiJob[] getComboSchedulazioniJob() {
-	    return getEnums(SACER_SYNCRO);
-	}
+        public static NomiJob[] getComboSchedulazioniJob() {
+            return getEnums(SACER_SYNCRO);
+        }
     }
 
     public enum StatoTimer {
-	ATTIVO, DISATTIVO, IN_ESECUZIONE;
+        ATTIVO, DISATTIVO, IN_ESECUZIONE;
     }
 }

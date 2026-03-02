@@ -27,50 +27,50 @@ import org.springframework.stereotype.Component;
  */
 @Component
 public class SacerdipsSaml2AuthenticationSuccessHandler
-	extends CustomSaml2AuthenticationSuccessHandler {
+        extends CustomSaml2AuthenticationSuccessHandler {
 
     @EJB(mappedName = "java:app/Dispenser-ejb/LoginLogHelper")
     private LoginLogHelper loginLogHelper;
 
     @Override
     protected List<UtenteDb> findUtentiPerCodiceFiscale(String codiceFiscale) {
-	ArrayList<UtenteDb> al = new ArrayList<>();
-	List<UsrUser> l = loginLogHelper.findByCodiceFiscale(codiceFiscale);
-	for (UsrUser usrUser : l) {
-	    UtenteDb u = new UtenteDb();
-	    u.setId(usrUser.getIdUserIam());
-	    u.setCodiceFiscale(usrUser.getCdFisc());
-	    u.setDataScadenzaPassword(u.getDataScadenzaPassword());
-	    u.setUsername(usrUser.getNmUserid());
-	    al.add(u);
-	}
-	return al;
+        ArrayList<UtenteDb> al = new ArrayList<>();
+        List<UsrUser> l = loginLogHelper.findByCodiceFiscale(codiceFiscale);
+        for (UsrUser usrUser : l) {
+            UtenteDb u = new UtenteDb();
+            u.setId(usrUser.getIdUserIam());
+            u.setCodiceFiscale(usrUser.getCdFisc());
+            u.setDataScadenzaPassword(u.getDataScadenzaPassword());
+            u.setUsername(usrUser.getNmUserid());
+            al.add(u);
+        }
+        return al;
     }
 
     @Override
     protected UtenteDb getUtentePerUsername(String username) {
-	UsrUser usrUser = loginLogHelper.findUser(username);
-	UtenteDb u = new UtenteDb();
-	u.setId(usrUser.getIdUserIam());
-	u.setCodiceFiscale(usrUser.getCdFisc());
-	u.setDataScadenzaPassword(u.getDataScadenzaPassword());
-	u.setUsername(usrUser.getNmUserid());
-	return u;
+        UsrUser usrUser = loginLogHelper.findUser(username);
+        UtenteDb u = new UtenteDb();
+        u.setId(usrUser.getIdUserIam());
+        u.setCodiceFiscale(usrUser.getCdFisc());
+        u.setDataScadenzaPassword(u.getDataScadenzaPassword());
+        u.setUsername(usrUser.getNmUserid());
+        return u;
     }
 
     @Override
     protected List<UtenteDb> findUtentiPerUsernameCaseInsensitive(String username) {
-	List<UtenteDb> al = new ArrayList<>();
-	List<UsrUser> l = loginLogHelper.findUtentiPerUsernameCaseInsensitive(username);
-	for (UsrUser usrUser : l) {
-	    UtenteDb u = new UtenteDb();
-	    u.setId(usrUser.getIdUserIam());
-	    u.setCodiceFiscale(usrUser.getCdFisc());
-	    u.setDataScadenzaPassword(u.getDataScadenzaPassword());
-	    u.setUsername(usrUser.getNmUserid());
-	    al.add(u);
-	}
-	return al;
+        List<UtenteDb> al = new ArrayList<>();
+        List<UsrUser> l = loginLogHelper.findUtentiPerUsernameCaseInsensitive(username);
+        for (UsrUser usrUser : l) {
+            UtenteDb u = new UtenteDb();
+            u.setId(usrUser.getIdUserIam());
+            u.setCodiceFiscale(usrUser.getCdFisc());
+            u.setDataScadenzaPassword(u.getDataScadenzaPassword());
+            u.setUsername(usrUser.getNmUserid());
+            al.add(u);
+        }
+        return al;
     }
 
 }

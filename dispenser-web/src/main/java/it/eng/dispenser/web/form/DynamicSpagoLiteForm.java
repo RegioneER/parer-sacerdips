@@ -32,34 +32,34 @@ public class DynamicSpagoLiteForm extends BaseForm {
     public static final String NM_DESCRIPTION = "Ricerca";
 
     public DynamicSpagoLiteForm() {
-	super(NM_DESCRIPTION);
-	addComponent(new FormRicerca());
-	addComponent(new FormDettaglio());
-	addComponent(new RicercaList());
+        super(NM_DESCRIPTION);
+        addComponent(new FormRicerca());
+        addComponent(new FormDettaglio());
+        addComponent(new RicercaList());
     }
 
     public static FormRicerca getFormRicerca(BaseForm form) {
-	return (FormRicerca) form.getComponent(FormRicerca.NAME);
+        return (FormRicerca) form.getComponent(FormRicerca.NAME);
     }
 
     public static RicercaList getRicercaList(BaseForm form) {
-	return (RicercaList) form.getComponent(RicercaList.NAME);
+        return (RicercaList) form.getComponent(RicercaList.NAME);
     }
 
     public static FormDettaglio getFormDettaglio(BaseForm form) {
-	return (FormDettaglio) form.getComponent(FormDettaglio.NAME);
+        return (FormDettaglio) form.getComponent(FormDettaglio.NAME);
     }
 
     public FormRicerca getFormRicerca() {
-	return (FormRicerca) getComponent(FormRicerca.NAME);
+        return (FormRicerca) getComponent(FormRicerca.NAME);
     }
 
     public RicercaList getRicercaList() {
-	return (RicercaList) getComponent(RicercaList.NAME);
+        return (RicercaList) getComponent(RicercaList.NAME);
     }
 
     public FormDettaglio getFormDettaglio() {
-	return (FormDettaglio) getComponent(FormDettaglio.NAME);
+        return (FormDettaglio) getComponent(FormDettaglio.NAME);
     }
 
     /**
@@ -69,125 +69,125 @@ public class DynamicSpagoLiteForm extends BaseForm {
      */
     public static class FormRicerca extends Fields<Field> {
 
-	public static String NAME = "FormRicerca";
-	public static String DESCRIPTION = "Form di ricerca";
-	public static final String ricerca = "Ricerca";
-	public static final String pulisci = "Pulisci";
+        public static String NAME = "FormRicerca";
+        public static String DESCRIPTION = "Form di ricerca";
+        public static final String ricerca = "Ricerca";
+        public static final String pulisci = "Pulisci";
 
-	public static final String NM_RICERCA = NAME + "." + ricerca;
-	public static final String NM_PULISCI = NAME + "." + pulisci;
+        public static final String NM_RICERCA = NAME + "." + ricerca;
+        public static final String NM_PULISCI = NAME + "." + pulisci;
 
-	public FormRicerca() {
-	    super(null, NAME, DESCRIPTION);
-	    addComponent(new Button(this, ricerca, "Ricerca", "", Type.STRING, null, false, false,
-		    false, false, false, true));
-	    addComponent(new Button(this, pulisci, "Pulisci", "", Type.STRING, null, false, false,
-		    false, false, false, true));
-	}
+        public FormRicerca() {
+            super(null, NAME, DESCRIPTION);
+            addComponent(new Button(this, ricerca, "Ricerca", "", Type.STRING, null, false, false,
+                    false, false, false, true));
+            addComponent(new Button(this, pulisci, "Pulisci", "", Type.STRING, null, false, false,
+                    false, false, false, true));
+        }
 
-	public ComboBox<String> getComboBox(String name) {
-	    return (ComboBox<String>) getComponent(name);
-	}
+        public ComboBox<String> getComboBox(String name) {
+            return (ComboBox<String>) getComponent(name);
+        }
 
-	public Input<String> getString(String name) {
-	    return (Input<String>) getComponent(name);
-	}
+        public Input<String> getString(String name) {
+            return (Input<String>) getComponent(name);
+        }
 
-	public CheckBox<String> getCheckBox(String name) {
-	    return (CheckBox<String>) getComponent(name);
-	}
+        public CheckBox<String> getCheckBox(String name) {
+            return (CheckBox<String>) getComponent(name);
+        }
 
-	public Input<Timestamp> getDate(String name) {
-	    return (Input<Timestamp>) getComponent(name);
-	}
+        public Input<Timestamp> getDate(String name) {
+            return (Input<Timestamp>) getComponent(name);
+        }
 
-	public Input<BigDecimal> getBigDecimal(String name) {
-	    return (Input<BigDecimal>) getComponent(name);
-	}
+        public Input<BigDecimal> getBigDecimal(String name) {
+            return (Input<BigDecimal>) getComponent(name);
+        }
 
-	public Button<String> getRicerca() {
-	    return (Button<String>) getComponent(ricerca);
-	}
+        public Button<String> getRicerca() {
+            return (Button<String>) getComponent(ricerca);
+        }
 
-	public Button<String> getPulisci() {
-	    return (Button<String>) getComponent(pulisci);
-	}
+        public Button<String> getPulisci() {
+            return (Button<String>) getComponent(pulisci);
+        }
 
     }
 
     public static class FormDettaglio extends Fields<Field> {
 
-	public static String NAME = "FormDettaglio";
-	public static String DESCRIPTION = "Form di dettaglio";
+        public static String NAME = "FormDettaglio";
+        public static String DESCRIPTION = "Form di dettaglio";
 
-	// public static final String DETTAGLIO = NAME + "." + dettaglio;
+        // public static final String DETTAGLIO = NAME + "." + dettaglio;
 
-	public FormDettaglio() {
-	    super(null, NAME, DESCRIPTION);
+        public FormDettaglio() {
+            super(null, NAME, DESCRIPTION);
 
-	}
+        }
 
-	public ComboBox<String> getComboBox(String name) {
-	    return (ComboBox<String>) getComponent(name);
-	}
+        public ComboBox<String> getComboBox(String name) {
+            return (ComboBox<String>) getComponent(name);
+        }
 
-	public Input<String> getString(String name) {
-	    return (Input<String>) getComponent(name);
-	}
+        public Input<String> getString(String name) {
+            return (Input<String>) getComponent(name);
+        }
 
-	public CheckBox<String> getCheckBox(String name) {
-	    return (CheckBox<String>) getComponent(name);
-	}
+        public CheckBox<String> getCheckBox(String name) {
+            return (CheckBox<String>) getComponent(name);
+        }
 
-	public Input<Timestamp> getDate(String name) {
-	    return (Input<Timestamp>) getComponent(name);
-	}
+        public Input<Timestamp> getDate(String name) {
+            return (Input<Timestamp>) getComponent(name);
+        }
 
-	public Input<BigDecimal> getBigDecimal(String name) {
-	    return (Input<BigDecimal>) getComponent(name);
-	}
+        public Input<BigDecimal> getBigDecimal(String name) {
+            return (Input<BigDecimal>) getComponent(name);
+        }
 
-	// case CHECK:
-	// comp = new CheckBox<String>(form.getFormRicerca(), campo.getNmCampo(),
-	// campo.getDsCampo(), "",
-	// Type.STRING, null, false, false, false, false);
-	// break;
-	// case COMBO:
-	// comp = new ComboBox<String>(form.getFormRicerca(), campo.getNmCampo(),
-	// campo.getDsCampo(), "",
-	// Type.STRING, null, false, false, false, false, 0);
-	// populateCombo((ComboBox<String>) comp, campo.getDipValoreCombos());
-	//
-	// break;
-	// case DATA:
-	// comp = new Input<Timestamp>(form.getFormRicerca(), campo.getNmCampo(),
-	// campo.getDsCampo(), "",
-	// Type.DATE, null, false, false, false, false, 0, null, null, null);
-	// break;
-	// case RADIO:
-	// break;
-	// case STRINGA:
-	// comp = new Input<String>(form.getFormRicerca(), campo.getNmCampo(), campo.getDsCampo(),
-	// "",
-	// Type.STRING, null, false, false, false, false, 0, null, null, null);
-	// case NUMERO:
-	// comp = new Input<Integer>(form.getFormRicerca(), campo.getNmCampo(), campo.getDsCampo(),
-	// "",
-	// Type.INTEGER, null, false, false, false, false, 0, null, null, null);
-	// break;
+        // case CHECK:
+        // comp = new CheckBox<String>(form.getFormRicerca(), campo.getNmCampo(),
+        // campo.getDsCampo(), "",
+        // Type.STRING, null, false, false, false, false);
+        // break;
+        // case COMBO:
+        // comp = new ComboBox<String>(form.getFormRicerca(), campo.getNmCampo(),
+        // campo.getDsCampo(), "",
+        // Type.STRING, null, false, false, false, false, 0);
+        // populateCombo((ComboBox<String>) comp, campo.getDipValoreCombos());
+        //
+        // break;
+        // case DATA:
+        // comp = new Input<Timestamp>(form.getFormRicerca(), campo.getNmCampo(),
+        // campo.getDsCampo(), "",
+        // Type.DATE, null, false, false, false, false, 0, null, null, null);
+        // break;
+        // case RADIO:
+        // break;
+        // case STRINGA:
+        // comp = new Input<String>(form.getFormRicerca(), campo.getNmCampo(), campo.getDsCampo(),
+        // "",
+        // Type.STRING, null, false, false, false, false, 0, null, null, null);
+        // case NUMERO:
+        // comp = new Input<Integer>(form.getFormRicerca(), campo.getNmCampo(), campo.getDsCampo(),
+        // "",
+        // Type.INTEGER, null, false, false, false, false, 0, null, null, null);
+        // break;
 
     }
 
     public static class RicercaList extends List<SingleValueField<?>> {
 
-	public static String NAME = "RicercaList";
-	public static String DESCRIPTION = "Lista di ricerca";
+        public static String NAME = "RicercaList";
+        public static String DESCRIPTION = "Lista di ricerca";
 
-	public RicercaList() {
-	    super(null, NAME, DESCRIPTION, Status.view, DESCRIPTION, null, false, false, false,
-		    false, false, null);
+        public RicercaList() {
+            super(null, NAME, DESCRIPTION, Status.view, DESCRIPTION, null, false, false, false,
+                    false, false, null);
 
-	}
+        }
 
     }
 

@@ -49,40 +49,40 @@ public class DipValoreCombo implements Serializable {
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "DIP_VALORE_COMBO_IDVALORECOMBO_GENERATOR")
     @Column(name = "ID_VALORE_COMBO")
     public long getIdValoreCombo() {
-	return this.idValoreCombo;
+        return this.idValoreCombo;
     }
 
     public void setIdValoreCombo(long idValoreCombo) {
-	this.idValoreCombo = idValoreCombo;
+        this.idValoreCombo = idValoreCombo;
     }
 
     @Column(name = "CD_VALORE_COMBO")
     public String getCdValoreCombo() {
-	return this.cdValoreCombo;
+        return this.cdValoreCombo;
     }
 
     public void setCdValoreCombo(String cdValoreCombo) {
-	this.cdValoreCombo = cdValoreCombo;
+        this.cdValoreCombo = cdValoreCombo;
     }
 
     @Column(name = "NM_VALORE_COMBO")
     public String getNmValoreCombo() {
-	return this.nmValoreCombo;
+        return this.nmValoreCombo;
     }
 
     public void setNmValoreCombo(String nmValoreCombo) {
-	this.nmValoreCombo = nmValoreCombo;
+        this.nmValoreCombo = nmValoreCombo;
     }
 
     // bi-directional many-to-one association to DipCampoRicerca
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "ID_CAMPO_RICERCA")
     public DipCampoRicerca getDipCampoRicerca() {
-	return this.dipCampoRicerca;
+        return this.dipCampoRicerca;
     }
 
     public void setDipCampoRicerca(DipCampoRicerca dipCampoRicerca) {
-	this.dipCampoRicerca = dipCampoRicerca;
+        this.dipCampoRicerca = dipCampoRicerca;
     }
 
 }

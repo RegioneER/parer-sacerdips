@@ -44,79 +44,79 @@ public class GenericHelper {
     private EntityManager entityManager;
 
     public EntityManager getEntityManager() {
-	return entityManager;
+        return entityManager;
     }
 
     public void setEntityManager(EntityManager entityManager) {
-	this.entityManager = entityManager;
+        this.entityManager = entityManager;
     }
 
     public <T> void insertEntity(T entity, boolean forceFlush) {
-	if (entity != null) {
-	    logger.debug(String.format("%s %s", "Persisting instance of class",
-		    entity.getClass().getSimpleName()));
-	    entityManager.persist(entity);
-	    if (forceFlush) {
-		entityManager.flush();
-	    }
-	}
+        if (entity != null) {
+            logger.debug(String.format("%s %s", "Persisting instance of class",
+                    entity.getClass().getSimpleName()));
+            entityManager.persist(entity);
+            if (forceFlush) {
+                entityManager.flush();
+            }
+        }
     }
 
     public <T> void removeEntity(T entity, boolean forceFlush) {
-	if (entity != null) {
-	    logger.debug(String.format("%s %s", "Removing instance of class",
-		    entity.getClass().getSimpleName()));
-	    entityManager.remove(entity);
-	    if (forceFlush) {
-		entityManager.flush();
-	    }
-	}
+        if (entity != null) {
+            logger.debug(String.format("%s %s", "Removing instance of class",
+                    entity.getClass().getSimpleName()));
+            entityManager.remove(entity);
+            if (forceFlush) {
+                entityManager.flush();
+            }
+        }
     }
 
     public <T> T findById(Class<T> entityClass, BigDecimal id) {
-	return findById(entityClass, id.longValue());
+        return findById(entityClass, id.longValue());
     }
 
     public <T> T findById(Class<T> entityClass, Serializable id) {
-	logger.debug(String.format("%s %s %s %s", "Getting instance of class",
-		entityClass.getSimpleName(), "with id:", id));
-	try {
-	    T instance = entityManager.find(entityClass, id);
-	    logger.debug(MSG_GET_SUCCESSFUL);
-	    return instance;
-	} catch (RuntimeException re) {
-	    throw new RuntimeHelperException("Errore nella fine dell'entità", re);
-	}
+        logger.debug(String.format("%s %s %s %s", "Getting instance of class",
+                entityClass.getSimpleName(), "with id:", id));
+        try {
+            T instance = entityManager.find(entityClass, id);
+            logger.debug(MSG_GET_SUCCESSFUL);
+            return instance;
+        } catch (RuntimeException re) {
+            throw new RuntimeHelperException("Errore nella fine dell'entità", re);
+        }
     }
 
     public <T> T findByIdWithLock(Class<T> entityClass, BigDecimal id) {
-	return findByIdWithLock(entityClass, id.longValue());
+        return findByIdWithLock(entityClass, id.longValue());
     }
 
     public <T> T findByIdWithLock(Class<T> entityClass, Serializable id) {
-	logger.debug("Getting instance of class {} with id: {}, with exclusive lock",
-		entityClass.getSimpleName(), id);
-	T instance = null;
-	try {
-	    instance = entityManager.find(entityClass, id, LockModeType.PESSIMISTIC_WRITE);
-	    logger.debug(MSG_GET_SUCCESSFUL);
-	} catch (LockTimeoutException lte) {
-	    logger.error(String.format("%s --- Impossibile acquisire il lock",
-		    GenericHelper.class.getSimpleName(), lte));
-	}
-	return instance;
+        logger.debug("Getting instance of class {} with id: {}, with exclusive lock",
+                entityClass.getSimpleName(), id);
+        T instance = null;
+        try {
+            instance = entityManager.find(entityClass, id, LockModeType.PESSIMISTIC_WRITE);
+            logger.debug(MSG_GET_SUCCESSFUL);
+        } catch (LockTimeoutException lte) {
+            logger.error(String.format("%s --- Impossibile acquisire il lock",
+                    GenericHelper.class.getSimpleName(), lte));
+        }
+        return instance;
     }
 
     public <T> T findViewById(Class<T> entityViewClass, Serializable id) {
-	logger.debug("Getting instance of class {} with id: {}", entityViewClass.getSimpleName(),
-		id);
-	try {
-	    T instance = entityManager.find(entityViewClass, id);
-	    logger.debug(MSG_GET_SUCCESSFUL);
-	    return instance;
-	} catch (RuntimeException re) {
-	    throw new RuntimeHelperException("Errore nella find view", re);
-	}
+        logger.debug("Getting instance of class {} with id: {}", entityViewClass.getSimpleName(),
+                id);
+        try {
+            T instance = entityManager.find(entityViewClass, id);
+            logger.debug(MSG_GET_SUCCESSFUL);
+            return instance;
+        } catch (RuntimeException re) {
+            throw new RuntimeHelperException("Errore nella find view", re);
+        }
     }
 
 }

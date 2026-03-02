@@ -41,29 +41,29 @@ public class StrutReferenziatePug implements Serializable {
     @Id
     @Column(name = "ID_STRUT_REFERENZIATE_PUG")
     public long getIdStrutReferenziatePug() {
-	return this.idStrutReferenziatePug;
+        return this.idStrutReferenziatePug;
     }
 
     public void setIdStrutReferenziatePug(long idStrutReferenziatePug) {
-	this.idStrutReferenziatePug = idStrutReferenziatePug;
+        this.idStrutReferenziatePug = idStrutReferenziatePug;
     }
 
     @Column(name = "ID_STRUT_FITTIZIA")
     public BigDecimal getIdStrutFittizia() {
-	return this.idStrutFittizia;
+        return this.idStrutFittizia;
     }
 
     public void setIdStrutFittizia(BigDecimal idStrutFittizia) {
-	this.idStrutFittizia = idStrutFittizia;
+        this.idStrutFittizia = idStrutFittizia;
     }
 
     @Column(name = "ID_STRUT_REALE")
     public BigDecimal getIdStrutReale() {
-	return this.idStrutReale;
+        return this.idStrutReale;
     }
 
     public void setIdStrutReale(BigDecimal idStrutReale) {
-	this.idStrutReale = idStrutReale;
+        this.idStrutReale = idStrutReale;
     }
 
 }

@@ -36,138 +36,138 @@ public class DipSyncroAroRowBean extends BaseRow implements JEEBaseRowInterface 
     public static DipSyncroAroTableDescriptor TABLE_DESCRIPTOR = new DipSyncroAroTableDescriptor();
 
     public DipSyncroAroRowBean() {
-	super();
+        super();
     }
 
     public TableDescriptor getTableDescriptor() {
-	return TABLE_DESCRIPTOR;
+        return TABLE_DESCRIPTOR;
     }
 
     // getter e setter
     public BigDecimal getIdSyncroAro() {
-	return getBigDecimal("id_syncro_aro");
+        return getBigDecimal("id_syncro_aro");
     }
 
     public void setIdSyncroAro(BigDecimal idSyncroAro) {
-	setObject("id_syncro_aro", idSyncroAro);
+        setObject("id_syncro_aro", idSyncroAro);
     }
 
     public BigDecimal getIdStrut() {
-	return getBigDecimal("id_strut");
+        return getBigDecimal("id_strut");
     }
 
     public void setIdStrut(BigDecimal idStrut) {
-	setObject("id_strut", idStrut);
+        setObject("id_strut", idStrut);
     }
 
     public Timestamp getDtUltimaDataElab() {
-	return getTimestamp("dt_ultima_data_elab");
+        return getTimestamp("dt_ultima_data_elab");
     }
 
     public void setDtUltimaDataElab(Timestamp dtUltimaDataElab) {
-	setObject("dt_ultima_data_elab", dtUltimaDataElab);
+        setObject("dt_ultima_data_elab", dtUltimaDataElab);
     }
 
     public BigDecimal getNiUdSincro() {
-	return getBigDecimal("ni_ud_sincro");
+        return getBigDecimal("ni_ud_sincro");
     }
 
     public void setNiUdSincro(BigDecimal niUdSincro) {
-	setObject("ni_ud_sincro", niUdSincro);
+        setObject("ni_ud_sincro", niUdSincro);
     }
 
     public BigDecimal getNiDocSincro() {
-	return getBigDecimal("ni_doc_sincro");
+        return getBigDecimal("ni_doc_sincro");
     }
 
     public void setNiDocSincro(BigDecimal niDocSincro) {
-	setObject("ni_doc_sincro", niDocSincro);
+        setObject("ni_doc_sincro", niDocSincro);
     }
 
     public BigDecimal getNiMetadatiSincro() {
-	return getBigDecimal("ni_metadati_sincro");
+        return getBigDecimal("ni_metadati_sincro");
     }
 
     public void setNiMetadatiSincro(BigDecimal niMetadatiSincro) {
-	setObject("ni_metadati_sincro", niMetadatiSincro);
+        setObject("ni_metadati_sincro", niMetadatiSincro);
     }
 
     public BigDecimal getNiUdAnnul() {
-	return getBigDecimal("ni_ud_annul");
+        return getBigDecimal("ni_ud_annul");
     }
 
     public void setNiUdAnnul(BigDecimal niUdAnnul) {
-	setObject("ni_ud_annul", niUdAnnul);
+        setObject("ni_ud_annul", niUdAnnul);
     }
 
     public BigDecimal getNiDocAnnul() {
-	return getBigDecimal("ni_doc_annul");
+        return getBigDecimal("ni_doc_annul");
     }
 
     public void setNiDocAnnul(BigDecimal niDocAnnul) {
-	setObject("ni_doc_annul", niDocAnnul);
+        setObject("ni_doc_annul", niDocAnnul);
     }
 
     public BigDecimal getNiMetadatiAnnul() {
-	return getBigDecimal("ni_metadati_annul");
+        return getBigDecimal("ni_metadati_annul");
     }
 
     public void setNiMetadatiAnnul(BigDecimal niMetadatiAnnul) {
-	setObject("ni_metadati_annul", niMetadatiAnnul);
+        setObject("ni_metadati_annul", niMetadatiAnnul);
     }
 
     @Override
     public void entityToRowBean(Object obj) {
-	DipSyncroAro entity = (DipSyncroAro) obj;
-	this.setIdSyncroAro(new BigDecimal(entity.getIdSyncroAro()));
-	this.setIdStrut(entity.getIdStrut());
-	if (entity.getDtUltimaDataElab() != null) {
-	    this.setDtUltimaDataElab(new Timestamp(entity.getDtUltimaDataElab().getTime()));
-	}
-	this.setNiUdSincro(entity.getNiUdSincro());
-	this.setNiDocSincro(entity.getNiDocSincro());
-	this.setNiUdAnnul(entity.getNiUdAnnul());
-	this.setNiDocAnnul(entity.getNiDocAnnul());
+        DipSyncroAro entity = (DipSyncroAro) obj;
+        this.setIdSyncroAro(new BigDecimal(entity.getIdSyncroAro()));
+        this.setIdStrut(entity.getIdStrut());
+        if (entity.getDtUltimaDataElab() != null) {
+            this.setDtUltimaDataElab(new Timestamp(entity.getDtUltimaDataElab().getTime()));
+        }
+        this.setNiUdSincro(entity.getNiUdSincro());
+        this.setNiDocSincro(entity.getNiDocSincro());
+        this.setNiUdAnnul(entity.getNiUdAnnul());
+        this.setNiDocAnnul(entity.getNiDocAnnul());
     }
 
     @Override
     public DipSyncroAro rowBeanToEntity() {
-	DipSyncroAro entity = new DipSyncroAro();
-	if (this.getIdSyncroAro() != null) {
-	    entity.setIdSyncroAro(this.getIdSyncroAro().longValue());
-	}
-	entity.setIdStrut(this.getIdStrut());
-	entity.setDtUltimaDataElab(this.getDtUltimaDataElab());
-	entity.setNiUdSincro(this.getNiUdSincro());
-	entity.setNiDocSincro(this.getNiDocSincro());
-	entity.setNiUdAnnul(this.getNiUdAnnul());
-	entity.setNiDocAnnul(this.getNiDocAnnul());
-	return entity;
+        DipSyncroAro entity = new DipSyncroAro();
+        if (this.getIdSyncroAro() != null) {
+            entity.setIdSyncroAro(this.getIdSyncroAro().longValue());
+        }
+        entity.setIdStrut(this.getIdStrut());
+        entity.setDtUltimaDataElab(this.getDtUltimaDataElab());
+        entity.setNiUdSincro(this.getNiUdSincro());
+        entity.setNiDocSincro(this.getNiDocSincro());
+        entity.setNiUdAnnul(this.getNiUdAnnul());
+        entity.setNiDocAnnul(this.getNiDocAnnul());
+        return entity;
     }
 
     // gestione della paginazione
     public void setRownum(Integer rownum) {
-	setObject("rownum", rownum);
+        setObject("rownum", rownum);
     }
 
     public Integer getRownum() {
-	return Integer.parseInt(getObject("rownum").toString());
+        return Integer.parseInt(getObject("rownum").toString());
     }
 
     public void setRnum(Integer rnum) {
-	setObject("rnum", rnum);
+        setObject("rnum", rnum);
     }
 
     public Integer getRnum() {
-	return Integer.parseInt(getObject("rnum").toString());
+        return Integer.parseInt(getObject("rnum").toString());
     }
 
     public void setNumrecords(Integer numRecords) {
-	setObject("numrecords", numRecords);
+        setObject("numrecords", numRecords);
     }
 
     public Integer getNumrecords() {
-	return Integer.parseInt(getObject("numrecords").toString());
+        return Integer.parseInt(getObject("numrecords").toString());
     }
 
 }

@@ -46,31 +46,31 @@ public class JobHelper {
     private AppServerInstance appServerInstance;
 
     private DipLogJob writeLogJob(String jobName, String opType, String descr) {
-	Date now = new Date();
-	Timestamp date = new Timestamp(now.getTime());
+        Date now = new Date();
+        Timestamp date = new Timestamp(now.getTime());
 
-	DipLogJob dipLogJob = new DipLogJob();
-	dipLogJob.setDtEvento(date);
-	dipLogJob.setNmJob(jobName);
-	dipLogJob.setTiEvento(opType);
-	dipLogJob.setCdIndServer(appServerInstance.getName());
+        DipLogJob dipLogJob = new DipLogJob();
+        dipLogJob.setDtEvento(date);
+        dipLogJob.setNmJob(jobName);
+        dipLogJob.setTiEvento(opType);
+        dipLogJob.setCdIndServer(appServerInstance.getName());
 
-	if (descr != null) {
-	    dipLogJob.setDsErrore(StringUtils.abbreviate(descr, 1024));
-	}
+        if (descr != null) {
+            dipLogJob.setDsErrore(StringUtils.abbreviate(descr, 1024));
+        }
 
-	DipLogJob logJob = em.merge(dipLogJob);
-	em.flush();
-	return logJob;
+        DipLogJob logJob = em.merge(dipLogJob);
+        em.flush();
+        return logJob;
     }
 
     @TransactionAttribute(TransactionAttributeType.REQUIRES_NEW)
     public DipLogJob writeAtomicLogJob(String jobName, String opType) {
-	return writeLogJob(jobName, opType, null);
+        return writeLogJob(jobName, opType, null);
     }
 
     @TransactionAttribute(TransactionAttributeType.REQUIRES_NEW)
     public DipLogJob writeAtomicLogJob(String jobName, String opType, String descr) {
-	return writeLogJob(jobName, opType, descr);
+        return writeLogJob(jobName, opType, descr);
     }
 }

@@ -66,59 +66,59 @@ public class DipDefAttributo implements Serializable {
     }
 
     public BigDecimal getIdAttribDatiSpec() {
-	return this.idAttribDatiSpec;
+        return this.idAttribDatiSpec;
     }
 
     public void setIdAttribDatiSpec(BigDecimal idAttribDatiSpec) {
-	this.idAttribDatiSpec = idAttribDatiSpec;
+        this.idAttribDatiSpec = idAttribDatiSpec;
     }
 
     public BigDecimal getIdStrut() {
-	return this.idStrut;
+        return this.idStrut;
     }
 
     public void setIdStrut(BigDecimal idStrut) {
-	this.idStrut = idStrut;
+        this.idStrut = idStrut;
     }
 
     public long getIdDefAttributo() {
-	return idDefAttributo;
+        return idDefAttributo;
     }
 
     public void setIdDefAttributo(long idDefAttributo) {
-	this.idDefAttributo = idDefAttributo;
+        this.idDefAttributo = idDefAttributo;
     }
 
     public String getTiDefAttrib() {
-	return tiDefAttrib;
+        return tiDefAttrib;
     }
 
     public void setTiDefAttrib(String tiDefAttrib) {
-	this.tiDefAttrib = tiDefAttrib;
+        this.tiDefAttrib = tiDefAttrib;
     }
 
     public DipAttribRisultato getDipAttribRisultato() {
-	return dipAttribRisultato;
+        return dipAttribRisultato;
     }
 
     public void setDipAttribRisultato(DipAttribRisultato dipAttribRisultato) {
-	this.dipAttribRisultato = dipAttribRisultato;
+        this.dipAttribRisultato = dipAttribRisultato;
     }
 
     public String getNmDatoProfilo() {
-	return nmDatoProfilo;
+        return nmDatoProfilo;
     }
 
     public void setNmDatoProfilo(String nmDatoProfilo) {
-	this.nmDatoProfilo = nmDatoProfilo;
+        this.nmDatoProfilo = nmDatoProfilo;
     }
 
     public String getCdQueryCalc() {
-	return cdQueryCalc;
+        return cdQueryCalc;
     }
 
     public void setCdQueryCalc(String cdQueryCalc) {
-	this.cdQueryCalc = cdQueryCalc;
+        this.cdQueryCalc = cdQueryCalc;
     }
 
 }

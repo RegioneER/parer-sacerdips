@@ -33,19 +33,19 @@ public class QryDocByVlMetaNumTableBean extends AbstractBaseTable<QryDocByVlMeta
     public static QryDocByVlMetaNumTableDescriptor TABLE_DESCRIPTOR = new QryDocByVlMetaNumTableDescriptor();
 
     public QryDocByVlMetaNumTableBean() {
-	super();
+        super();
     }
 
     protected QryDocByVlMetaNumRowBean createRow() {
-	return new QryDocByVlMetaNumRowBean();
+        return new QryDocByVlMetaNumRowBean();
     }
 
     public TableDescriptor getTableDescriptor() {
-	return TABLE_DESCRIPTOR;
+        return TABLE_DESCRIPTOR;
     }
 
     @Deprecated
     public Iterator<QryDocByVlMetaNumRowBean> getRowsIterator() {
-	return iterator();
+        return iterator();
     }
 }

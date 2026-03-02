@@ -45,27 +45,27 @@ public class QryUdByVlDatoProfiloDt implements Serializable {
     }
 
     public Timestamp getDlValore() {
-	return this.dlValore;
+        return this.dlValore;
     }
 
     public void setDlValore(Timestamp dlValore) {
-	this.dlValore = dlValore;
+        this.dlValore = dlValore;
     }
 
     public BigDecimal getIdTipoUnitaDoc() {
-	return idTipoUnitaDoc;
+        return idTipoUnitaDoc;
     }
 
     public void setIdTipoUnitaDoc(BigDecimal idTipoUnitaDoc) {
-	this.idTipoUnitaDoc = idTipoUnitaDoc;
+        this.idTipoUnitaDoc = idTipoUnitaDoc;
     }
 
     public QryUdByVlDatoProfiloDtId getQryUdByVlDatoProfiloDtId() {
-	return qryUdByVlDatoProfiloDtId;
+        return qryUdByVlDatoProfiloDtId;
     }
 
     public void setQryUdByVlDatoProfiloDtId(QryUdByVlDatoProfiloDtId qryUdByVlDatoProfiloDtId) {
-	this.qryUdByVlDatoProfiloDtId = qryUdByVlDatoProfiloDtId;
+        this.qryUdByVlDatoProfiloDtId = qryUdByVlDatoProfiloDtId;
     }
 
 }

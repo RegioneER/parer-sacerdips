@@ -62,43 +62,43 @@ public class DipElementoLista implements Serializable {
     }
 
     public long getIdElementoLista() {
-	return this.idElementoLista;
+        return this.idElementoLista;
     }
 
     public void setIdElementoLista(long idElementoLista) {
-	this.idElementoLista = idElementoLista;
+        this.idElementoLista = idElementoLista;
     }
 
     public String getDsElementoLista() {
-	return this.dsElementoLista;
+        return this.dsElementoLista;
     }
 
     public void setDsElementoLista(String dsElementoLista) {
-	this.dsElementoLista = dsElementoLista;
+        this.dsElementoLista = dsElementoLista;
     }
 
     public String getFlVisibile() {
-	return this.flVisibile;
+        return this.flVisibile;
     }
 
     public void setFlVisibile(String flVisibile) {
-	this.flVisibile = flVisibile;
+        this.flVisibile = flVisibile;
     }
 
     public BigDecimal getNiNumOrdine() {
-	return this.niNumOrdine;
+        return this.niNumOrdine;
     }
 
     public void setNiNumOrdine(BigDecimal niNumOrdine) {
-	this.niNumOrdine = niNumOrdine;
+        this.niNumOrdine = niNumOrdine;
     }
 
     public DipAttribRisultato getDipAttribRisultato() {
-	return this.dipAttribRisultato;
+        return this.dipAttribRisultato;
     }
 
     public void setDipAttribRisultato(DipAttribRisultato dipAttribRisultato) {
-	this.dipAttribRisultato = dipAttribRisultato;
+        this.dipAttribRisultato = dipAttribRisultato;
     }
 
 }

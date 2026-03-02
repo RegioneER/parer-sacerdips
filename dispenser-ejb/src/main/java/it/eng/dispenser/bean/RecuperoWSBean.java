@@ -30,93 +30,93 @@ public class RecuperoWSBean implements Serializable {
     private String tipoDocumento;
 
     public RecuperoWSBean(String ambiente, String ente, String struttura, String registro,
-	    BigDecimal anno, String numero) {
-	this.ambiente = ambiente;
-	this.ente = ente;
-	this.struttura = struttura;
-	this.registro = registro;
-	this.anno = anno;
-	this.numero = numero;
+            BigDecimal anno, String numero) {
+        this.ambiente = ambiente;
+        this.ente = ente;
+        this.struttura = struttura;
+        this.registro = registro;
+        this.anno = anno;
+        this.numero = numero;
     }
 
     public RecuperoWSBean(String ambiente, String ente, String struttura, String registro,
-	    BigDecimal anno, String numero, String idDocumento,
-	    BigDecimal ordinePresentazioneComponente, String tipoDocumento) {
-	this(ambiente, ente, struttura, registro, anno, numero);
-	this.idDocumento = idDocumento;
-	this.ordinePresentazioneComponente = ordinePresentazioneComponente;
-	this.tipoDocumento = tipoDocumento;
+            BigDecimal anno, String numero, String idDocumento,
+            BigDecimal ordinePresentazioneComponente, String tipoDocumento) {
+        this(ambiente, ente, struttura, registro, anno, numero);
+        this.idDocumento = idDocumento;
+        this.ordinePresentazioneComponente = ordinePresentazioneComponente;
+        this.tipoDocumento = tipoDocumento;
     }
 
     public String getAmbiente() {
-	return ambiente;
+        return ambiente;
     }
 
     public void setAmbiente(String ambiente) {
-	this.ambiente = ambiente;
+        this.ambiente = ambiente;
     }
 
     public String getEnte() {
-	return ente;
+        return ente;
     }
 
     public void setEnte(String ente) {
-	this.ente = ente;
+        this.ente = ente;
     }
 
     public String getStruttura() {
-	return struttura;
+        return struttura;
     }
 
     public void setStruttura(String struttura) {
-	this.struttura = struttura;
+        this.struttura = struttura;
     }
 
     public String getRegistro() {
-	return registro;
+        return registro;
     }
 
     public void setRegistro(String registro) {
-	this.registro = registro;
+        this.registro = registro;
     }
 
     public BigDecimal getAnno() {
-	return anno;
+        return anno;
     }
 
     public void setAnno(BigDecimal anno) {
-	this.anno = anno;
+        this.anno = anno;
     }
 
     public String getNumero() {
-	return numero;
+        return numero;
     }
 
     public void setNumero(String numero) {
-	this.numero = numero;
+        this.numero = numero;
     }
 
     public String getIdDocumento() {
-	return idDocumento;
+        return idDocumento;
     }
 
     public void setIdDocumento(String idDocumento) {
-	this.idDocumento = idDocumento;
+        this.idDocumento = idDocumento;
     }
 
     public BigDecimal getOrdinePresentazioneComponente() {
-	return ordinePresentazioneComponente;
+        return ordinePresentazioneComponente;
     }
 
     public void setOrdinePresentazioneComponente(BigDecimal ordinePresentazioneComponente) {
-	this.ordinePresentazioneComponente = ordinePresentazioneComponente;
+        this.ordinePresentazioneComponente = ordinePresentazioneComponente;
     }
 
     public String getTipoDocumento() {
-	return tipoDocumento;
+        return tipoDocumento;
     }
 
     public void setTipoDocumento(String tipoDocumento) {
-	this.tipoDocumento = tipoDocumento;
+        this.tipoDocumento = tipoDocumento;
     }
 }

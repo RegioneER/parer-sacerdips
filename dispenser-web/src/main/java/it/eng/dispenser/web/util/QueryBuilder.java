@@ -24,34 +24,34 @@ public class QueryBuilder {
     private final List<Object> params = new ArrayList<Object>();
 
     public void addQueryForIntersect(String query, Object... parametri) {
-	if (sb.length() > 0) {
-	    sb.append(" INTERSECT ");
-	}
-	sb.append("(");
-	sb.append(query);
-	sb.append(")");
-	for (Object param : parametri)
-	    params.add(param);
+        if (sb.length() > 0) {
+            sb.append(" INTERSECT ");
+        }
+        sb.append("(");
+        sb.append(query);
+        sb.append(")");
+        for (Object param : parametri)
+            params.add(param);
     }
 
     public void addQueryForUnion(String query) {
-	if (sb.length() > 0) {
-	    sb.append(" UNION ");
-	}
-	sb.append("(");
-	sb.append(query);
-	sb.append(")");
+        if (sb.length() > 0) {
+            sb.append(" UNION ");
+        }
+        sb.append("(");
+        sb.append(query);
+        sb.append(")");
     }
 
     public void addQueryForUnion(String query, Object... parametri) {
-	if (sb.length() > 0) {
-	    sb.append(" UNION ");
-	}
-	sb.append("(");
-	sb.append(query);
-	sb.append(")");
-	for (Object param : parametri)
-	    params.add(param);
+        if (sb.length() > 0) {
+            sb.append(" UNION ");
+        }
+        sb.append("(");
+        sb.append(query);
+        sb.append(")");
+        for (Object param : parametri)
+            params.add(param);
     }
 
     /**
@@ -60,24 +60,24 @@ public class QueryBuilder {
      * @param orderByCommaSepList order by list
      */
     public void addOrderByClause(String orderByCommaSepList) {
-	sb.insert(0, "SELECT * FROM (");
-	sb.append(") ORDER BY ");
-	sb.append(orderByCommaSepList);
+        sb.insert(0, "SELECT * FROM (");
+        sb.append(") ORDER BY ");
+        sb.append(orderByCommaSepList);
     }
 
     public void addLimitClauseOra12c(int maxrows) {
-	sb.append(" FETCH FIRST ");
-	sb.append(maxrows);
-	sb.append(" ROWS ONLY");
+        sb.append(" FETCH FIRST ");
+        sb.append(maxrows);
+        sb.append(" ROWS ONLY");
     }
 
     public String returnQuery() {
-	return sb.toString();
+        return sb.toString();
     }
 
     public void setQueryParams(Query q2) {
-	for (int i = 0, j = 1; i < params.size(); i++, j++)
-	    q2.setParameter(j, params.get(i));
+        for (int i = 0, j = 1; i < params.size(); i++, j++)
+            q2.setParameter(j, params.get(i));
 
     }
 

@@ -16,7 +16,7 @@ package it.eng.dispenser.entity.constraint;
 public class ConstDipDefAttributo {
 
     public enum TiTipoColonna {
-	METADATO_UD, METADATO_DOC, DATO_PROFILO, DATO_CALCOLATO;
+        METADATO_UD, METADATO_DOC, DATO_PROFILO, DATO_CALCOLATO;
     }
 
 }

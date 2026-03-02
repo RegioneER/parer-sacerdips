@@ -75,92 +75,92 @@ public class AroUsoXsdDatiSpec implements Serializable {
     }
 
     public long getIdUsoXsdDatiSpec() {
-	return this.idUsoXsdDatiSpec;
+        return this.idUsoXsdDatiSpec;
     }
 
     public void setIdUsoXsdDatiSpec(long idUsoXsdDatiSpec) {
-	this.idUsoXsdDatiSpec = idUsoXsdDatiSpec;
+        this.idUsoXsdDatiSpec = idUsoXsdDatiSpec;
     }
 
     public BigDecimal getIdCompDoc() {
-	return this.idCompDoc;
+        return this.idCompDoc;
     }
 
     public void setIdCompDoc(BigDecimal idCompDoc) {
-	this.idCompDoc = idCompDoc;
+        this.idCompDoc = idCompDoc;
     }
 
     public BigDecimal getIdStrut() {
-	return this.idStrut;
+        return this.idStrut;
     }
 
     public void setIdStrut(BigDecimal idStrut) {
-	this.idStrut = idStrut;
+        this.idStrut = idStrut;
     }
 
     public BigDecimal getIdXsdDatiSpec() {
-	return this.idXsdDatiSpec;
+        return this.idXsdDatiSpec;
     }
 
     public void setIdXsdDatiSpec(BigDecimal idXsdDatiSpec) {
-	this.idXsdDatiSpec = idXsdDatiSpec;
+        this.idXsdDatiSpec = idXsdDatiSpec;
     }
 
     public String getTiEntitaSacer() {
-	return this.tiEntitaSacer;
+        return this.tiEntitaSacer;
     }
 
     public void setTiEntitaSacer(String tiEntitaSacer) {
-	this.tiEntitaSacer = tiEntitaSacer;
+        this.tiEntitaSacer = tiEntitaSacer;
     }
 
     public String getTiUsoXsd() {
-	return this.tiUsoXsd;
+        return this.tiUsoXsd;
     }
 
     public void setTiUsoXsd(String tiUsoXsd) {
-	this.tiUsoXsd = tiUsoXsd;
+        this.tiUsoXsd = tiUsoXsd;
     }
 
     public AroDoc getAroDoc() {
-	return this.aroDoc;
+        return this.aroDoc;
     }
 
     public void setAroDoc(AroDoc aroDoc) {
-	this.aroDoc = aroDoc;
+        this.aroDoc = aroDoc;
     }
 
     public AroUnitaDoc getAroUnitaDoc() {
-	return this.aroUnitaDoc;
+        return this.aroUnitaDoc;
     }
 
     public void setAroUnitaDoc(AroUnitaDoc aroUnitaDoc) {
-	this.aroUnitaDoc = aroUnitaDoc;
+        this.aroUnitaDoc = aroUnitaDoc;
     }
 
     public List<AroValoreAttribDatiSpec> getAroValoreAttribDatiSpecs() {
-	return this.aroValoreAttribDatiSpecs;
+        return this.aroValoreAttribDatiSpecs;
     }
 
     public void setAroValoreAttribDatiSpecs(
-	    List<AroValoreAttribDatiSpec> aroValoreAttribDatiSpecs) {
-	this.aroValoreAttribDatiSpecs = aroValoreAttribDatiSpecs;
+            List<AroValoreAttribDatiSpec> aroValoreAttribDatiSpecs) {
+        this.aroValoreAttribDatiSpecs = aroValoreAttribDatiSpecs;
     }
 
     public AroValoreAttribDatiSpec addAroValoreAttribDatiSpec(
-	    AroValoreAttribDatiSpec aroValoreAttribDatiSpec) {
-	getAroValoreAttribDatiSpecs().add(aroValoreAttribDatiSpec);
-	aroValoreAttribDatiSpec.setAroUsoXsdDatiSpec(this);
+            AroValoreAttribDatiSpec aroValoreAttribDatiSpec) {
+        getAroValoreAttribDatiSpecs().add(aroValoreAttribDatiSpec);
+        aroValoreAttribDatiSpec.setAroUsoXsdDatiSpec(this);
 
-	return aroValoreAttribDatiSpec;
+        return aroValoreAttribDatiSpec;
     }
 
     public AroValoreAttribDatiSpec removeAroValoreAttribDatiSpec(
-	    AroValoreAttribDatiSpec aroValoreAttribDatiSpec) {
-	getAroValoreAttribDatiSpecs().remove(aroValoreAttribDatiSpec);
-	aroValoreAttribDatiSpec.setAroUsoXsdDatiSpec(null);
+            AroValoreAttribDatiSpec aroValoreAttribDatiSpec) {
+        getAroValoreAttribDatiSpecs().remove(aroValoreAttribDatiSpec);
+        aroValoreAttribDatiSpec.setAroUsoXsdDatiSpec(null);
 
-	return aroValoreAttribDatiSpec;
+        return aroValoreAttribDatiSpec;
     }
 
 }

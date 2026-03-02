@@ -33,19 +33,19 @@ public class DipRicercaTableBean extends AbstractBaseTable<DipRicercaRowBean> {
     public static DipRicercaTableDescriptor TABLE_DESCRIPTOR = new DipRicercaTableDescriptor();
 
     public DipRicercaTableBean() {
-	super();
+        super();
     }
 
     protected DipRicercaRowBean createRow() {
-	return new DipRicercaRowBean();
+        return new DipRicercaRowBean();
     }
 
     public TableDescriptor getTableDescriptor() {
-	return TABLE_DESCRIPTOR;
+        return TABLE_DESCRIPTOR;
     }
 
     @Deprecated
     public Iterator<DipRicercaRowBean> getRowsIterator() {
-	return iterator();
+        return iterator();
     }
 }

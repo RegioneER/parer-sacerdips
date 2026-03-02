@@ -33,19 +33,19 @@ public class QryDocByVlMetaStrTableBean extends AbstractBaseTable<QryDocByVlMeta
     public static QryDocByVlMetaStrTableDescriptor TABLE_DESCRIPTOR = new QryDocByVlMetaStrTableDescriptor();
 
     public QryDocByVlMetaStrTableBean() {
-	super();
+        super();
     }
 
     protected QryDocByVlMetaStrRowBean createRow() {
-	return new QryDocByVlMetaStrRowBean();
+        return new QryDocByVlMetaStrRowBean();
     }
 
     public TableDescriptor getTableDescriptor() {
-	return TABLE_DESCRIPTOR;
+        return TABLE_DESCRIPTOR;
     }
 
     @Deprecated
     public Iterator<QryDocByVlMetaStrRowBean> getRowsIterator() {
-	return iterator();
+        return iterator();
     }
 }

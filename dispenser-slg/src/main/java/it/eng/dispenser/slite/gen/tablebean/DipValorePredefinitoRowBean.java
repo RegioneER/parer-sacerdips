@@ -36,98 +36,98 @@ public class DipValorePredefinitoRowBean extends BaseRow implements JEEBaseRowIn
     public static DipValorePredefinitoTableDescriptor TABLE_DESCRIPTOR = new DipValorePredefinitoTableDescriptor();
 
     public DipValorePredefinitoRowBean() {
-	super();
+        super();
     }
 
     public TableDescriptor getTableDescriptor() {
-	return TABLE_DESCRIPTOR;
+        return TABLE_DESCRIPTOR;
     }
 
     // getter e setter
     public BigDecimal getIdValorePredefinito() {
-	return getBigDecimal("id_valore_predefinito");
+        return getBigDecimal("id_valore_predefinito");
     }
 
     public void setIdValorePredefinito(BigDecimal idValorePredefinito) {
-	setObject("id_valore_predefinito", idValorePredefinito);
+        setObject("id_valore_predefinito", idValorePredefinito);
     }
 
     public BigDecimal getIdFiltroRicerca() {
-	return getBigDecimal("id_filtro_ricerca");
+        return getBigDecimal("id_filtro_ricerca");
     }
 
     public void setIdFiltroRicerca(BigDecimal idFiltroRicerca) {
-	setObject("id_filtro_ricerca", idFiltroRicerca);
+        setObject("id_filtro_ricerca", idFiltroRicerca);
     }
 
     public String getDlValore() {
-	return getString("dl_valore");
+        return getString("dl_valore");
     }
 
     public void setDlValore(String dlValore) {
-	setObject("dl_valore", dlValore);
+        setObject("dl_valore", dlValore);
     }
 
     public BigDecimal getIdRegistroUnitaDoc() {
-	return getBigDecimal("id_registro_unita_doc");
+        return getBigDecimal("id_registro_unita_doc");
     }
 
     public void setIdRegistroUnitaDoc(BigDecimal idRegistroUnitaDoc) {
-	setObject("id_registro_unita_doc", idRegistroUnitaDoc);
+        setObject("id_registro_unita_doc", idRegistroUnitaDoc);
     }
 
     @Override
     public void entityToRowBean(Object obj) {
-	DipValorePredefinito entity = (DipValorePredefinito) obj;
-	this.setIdValorePredefinito(new BigDecimal(entity.getIdValorePredefinito()));
-	if (entity.getDipFiltroRicerca() != null) {
-	    this.setIdFiltroRicerca(
-		    new BigDecimal(entity.getDipFiltroRicerca().getIdFiltroRicerca()));
-	}
-	this.setDlValore(entity.getDlValore());
-	this.setIdRegistroUnitaDoc(entity.getIdRegistroUnitaDoc());
+        DipValorePredefinito entity = (DipValorePredefinito) obj;
+        this.setIdValorePredefinito(new BigDecimal(entity.getIdValorePredefinito()));
+        if (entity.getDipFiltroRicerca() != null) {
+            this.setIdFiltroRicerca(
+                    new BigDecimal(entity.getDipFiltroRicerca().getIdFiltroRicerca()));
+        }
+        this.setDlValore(entity.getDlValore());
+        this.setIdRegistroUnitaDoc(entity.getIdRegistroUnitaDoc());
     }
 
     @Override
     public DipValorePredefinito rowBeanToEntity() {
-	DipValorePredefinito entity = new DipValorePredefinito();
-	if (this.getIdValorePredefinito() != null) {
-	    entity.setIdValorePredefinito(this.getIdValorePredefinito().longValue());
-	}
-	if (this.getIdFiltroRicerca() != null) {
-	    if (entity.getDipFiltroRicerca() == null) {
-		entity.setDipFiltroRicerca(new DipFiltroRicerca());
-	    }
-	    entity.getDipFiltroRicerca().setIdFiltroRicerca(this.getIdFiltroRicerca().longValue());
-	}
-	entity.setDlValore(this.getDlValore());
-	entity.setIdRegistroUnitaDoc(this.getIdRegistroUnitaDoc());
-	return entity;
+        DipValorePredefinito entity = new DipValorePredefinito();
+        if (this.getIdValorePredefinito() != null) {
+            entity.setIdValorePredefinito(this.getIdValorePredefinito().longValue());
+        }
+        if (this.getIdFiltroRicerca() != null) {
+            if (entity.getDipFiltroRicerca() == null) {
+                entity.setDipFiltroRicerca(new DipFiltroRicerca());
+            }
+            entity.getDipFiltroRicerca().setIdFiltroRicerca(this.getIdFiltroRicerca().longValue());
+        }
+        entity.setDlValore(this.getDlValore());
+        entity.setIdRegistroUnitaDoc(this.getIdRegistroUnitaDoc());
+        return entity;
     }
 
     // gestione della paginazione
     public void setRownum(Integer rownum) {
-	setObject("rownum", rownum);
+        setObject("rownum", rownum);
     }
 
     public Integer getRownum() {
-	return Integer.parseInt(getObject("rownum").toString());
+        return Integer.parseInt(getObject("rownum").toString());
     }
 
     public void setRnum(Integer rnum) {
-	setObject("rnum", rnum);
+        setObject("rnum", rnum);
     }
 
     public Integer getRnum() {
-	return Integer.parseInt(getObject("rnum").toString());
+        return Integer.parseInt(getObject("rnum").toString());
     }
 
     public void setNumrecords(Integer numRecords) {
-	setObject("numrecords", numRecords);
+        setObject("numrecords", numRecords);
     }
 
     public Integer getNumrecords() {
-	return Integer.parseInt(getObject("numrecords").toString());
+        return Integer.parseInt(getObject("numrecords").toString());
     }
 
 }

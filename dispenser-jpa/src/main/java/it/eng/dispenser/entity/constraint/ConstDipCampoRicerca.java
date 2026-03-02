@@ -16,7 +16,7 @@ package it.eng.dispenser.entity.constraint;
 public class ConstDipCampoRicerca {
 
     public enum TiDatoCampo {
-	STRINGA, DATA, COMBO, CHECK, RADIO, NUMERO, COMBOAUTOCOMPILA;
+        STRINGA, DATA, COMBO, CHECK, RADIO, NUMERO, COMBOAUTOCOMPILA;
     }
 
 }

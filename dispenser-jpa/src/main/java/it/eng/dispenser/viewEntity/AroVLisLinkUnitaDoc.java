@@ -43,94 +43,94 @@ public class AroVLisLinkUnitaDoc implements Serializable {
 
     @Column(name = "AA_KEY_UNITA_DOC_LINK")
     public BigDecimal getAaKeyUnitaDocLink() {
-	return this.aaKeyUnitaDocLink;
+        return this.aaKeyUnitaDocLink;
     }
 
     public void setAaKeyUnitaDocLink(BigDecimal aaKeyUnitaDocLink) {
-	this.aaKeyUnitaDocLink = aaKeyUnitaDocLink;
+        this.aaKeyUnitaDocLink = aaKeyUnitaDocLink;
     }
 
     @Column(name = "CD_KEY_UNITA_DOC_LINK")
     public String getCdKeyUnitaDocLink() {
-	return this.cdKeyUnitaDocLink;
+        return this.cdKeyUnitaDocLink;
     }
 
     public void setCdKeyUnitaDocLink(String cdKeyUnitaDocLink) {
-	this.cdKeyUnitaDocLink = cdKeyUnitaDocLink;
+        this.cdKeyUnitaDocLink = cdKeyUnitaDocLink;
     }
 
     @Column(name = "CD_REGISTRO_KEY_UNITA_DOC_LINK")
     public String getCdRegistroKeyUnitaDocLink() {
-	return this.cdRegistroKeyUnitaDocLink;
+        return this.cdRegistroKeyUnitaDocLink;
     }
 
     public void setCdRegistroKeyUnitaDocLink(String cdRegistroKeyUnitaDocLink) {
-	this.cdRegistroKeyUnitaDocLink = cdRegistroKeyUnitaDocLink;
+        this.cdRegistroKeyUnitaDocLink = cdRegistroKeyUnitaDocLink;
     }
 
     @Column(name = "DS_LINK_UNITA_DOC")
     public String getDsLinkUnitaDoc() {
-	return this.dsLinkUnitaDoc;
+        return this.dsLinkUnitaDoc;
     }
 
     public void setDsLinkUnitaDoc(String dsLinkUnitaDoc) {
-	this.dsLinkUnitaDoc = dsLinkUnitaDoc;
+        this.dsLinkUnitaDoc = dsLinkUnitaDoc;
     }
 
     @Temporal(TemporalType.DATE)
     @Column(name = "DT_REG_UNITA_DOC")
     public Date getDtRegUnitaDoc() {
-	return this.dtRegUnitaDoc;
+        return this.dtRegUnitaDoc;
     }
 
     public void setDtRegUnitaDoc(Date dtRegUnitaDoc) {
-	this.dtRegUnitaDoc = dtRegUnitaDoc;
+        this.dtRegUnitaDoc = dtRegUnitaDoc;
     }
 
     @Column(name = "FL_RISOLTO", columnDefinition = "char(1)")
     public String getFlRisolto() {
-	return this.flRisolto;
+        return this.flRisolto;
     }
 
     public void setFlRisolto(String flRisolto) {
-	this.flRisolto = flRisolto;
+        this.flRisolto = flRisolto;
     }
 
     @Id
     @Column(name = "ID_LINK_UNITA_DOC")
     public BigDecimal getIdLinkUnitaDoc() {
-	return this.idLinkUnitaDoc;
+        return this.idLinkUnitaDoc;
     }
 
     public void setIdLinkUnitaDoc(BigDecimal idLinkUnitaDoc) {
-	this.idLinkUnitaDoc = idLinkUnitaDoc;
+        this.idLinkUnitaDoc = idLinkUnitaDoc;
     }
 
     @Column(name = "ID_STRUT")
     public BigDecimal getIdStrut() {
-	return this.idStrut;
+        return this.idStrut;
     }
 
     public void setIdStrut(BigDecimal idStrut) {
-	this.idStrut = idStrut;
+        this.idStrut = idStrut;
     }
 
     @Column(name = "ID_UNITA_DOC")
     public BigDecimal getIdUnitaDoc() {
-	return this.idUnitaDoc;
+        return this.idUnitaDoc;
     }
 
     public void setIdUnitaDoc(BigDecimal idUnitaDoc) {
-	this.idUnitaDoc = idUnitaDoc;
+        this.idUnitaDoc = idUnitaDoc;
     }
 
     @Column(name = "ID_UNITA_DOC_COLLEG")
     public BigDecimal getIdUnitaDocColleg() {
-	return this.idUnitaDocColleg;
+        return this.idUnitaDocColleg;
     }
 
     public void setIdUnitaDocColleg(BigDecimal idUnitaDocColleg) {
-	this.idUnitaDocColleg = idUnitaDocColleg;
+        this.idUnitaDocColleg = idUnitaDocColleg;
     }
 
 }

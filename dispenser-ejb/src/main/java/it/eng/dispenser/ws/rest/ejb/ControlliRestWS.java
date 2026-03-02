@@ -45,73 +45,73 @@ public class ControlliRestWS {
     private EntityManager entityManager;
 
     public RispostaControlli checkCredenzialiEAuth(String loginName, String password,
-	    String indirizzoIP, IWSDesc descrizione) {
-	User utente = null;
-	String LOGIN_FALLITO_MSG = "Username e/o password errate/a";
-	RispostaControlli rispostaControlli;
-	rispostaControlli = new RispostaControlli();
-	rispostaControlli.setrBoolean(false);
+            String indirizzoIP, IWSDesc descrizione) {
+        User utente = null;
+        String LOGIN_FALLITO_MSG = "Username e/o password errate/a";
+        RispostaControlli rispostaControlli;
+        rispostaControlli = new RispostaControlli();
+        rispostaControlli.setrBoolean(false);
 
-	log.info("Indirizzo IP del chiamante: {}", indirizzoIP);
+        log.info("Indirizzo IP del chiamante: {}", indirizzoIP);
 
-	if (loginName == null || loginName.isEmpty()) {
-	    rispostaControlli.setCodErr(MessaggiWSBundle.MON_AUTH_001);
-	    rispostaControlli.setDsErr(MessaggiWSBundle.getString(MessaggiWSBundle.MON_AUTH_001));
-	    return rispostaControlli;
-	}
+        if (loginName == null || loginName.isEmpty()) {
+            rispostaControlli.setCodErr(MessaggiWSBundle.MON_AUTH_001);
+            rispostaControlli.setDsErr(MessaggiWSBundle.getString(MessaggiWSBundle.MON_AUTH_001));
+            return rispostaControlli;
+        }
 
-	try {
-	    IamUser iamUser;
-	    String queryStr = "select iu from IamUser iu where iu.nmUserid = :nmUseridIn";
-	    javax.persistence.Query query = entityManager.createQuery(queryStr, IamUser.class);
-	    query.setParameter("nmUseridIn", loginName);
-	    iamUser = (IamUser) query.getSingleResult();
-	    byte[] salt = PwdUtil.decodeUFT8Base64String(iamUser.getCdSalt());
-	    String pwd = PwdUtil.encodePBKDF2Password(salt, password);
-	    if (pwd.equals(iamUser.getCdPsw())) {
-		Date ora = new Date();
-		if (ora.after(iamUser.getDtScadPsw())) {
-		    // utente scaduto
-		    rispostaControlli.setCodErr(MessaggiWSBundle.MON_AUTH_002);
-		    rispostaControlli.setDsErr(
-			    MessaggiWSBundle.getString(MessaggiWSBundle.MON_AUTH_002, loginName));
-		} else if (iamUser.getFlAttivo() == null || !iamUser.getFlAttivo().equals("1")) {
-		    // utente non attivo
-		    rispostaControlli.setCodErr(MessaggiWSBundle.MON_AUTH_003);
-		    rispostaControlli.setDsErr(
-			    MessaggiWSBundle.getString(MessaggiWSBundle.MON_AUTH_003, loginName));
-		} else if (iamUser.getTipoUser() == null
-			|| !iamUser.getTipoUser().equals("AUTOMA")) {
-		    // utente non autorizzato
-		    rispostaControlli.setCodErr(MessaggiWSBundle.MON_AUTH_004);
-		    rispostaControlli.setDsErr(MessaggiWSBundle.getString(
-			    MessaggiWSBundle.MON_AUTH_004, loginName, descrizione.getNomeWs()));
-		} else {
-		    utente = new User();
-		    utente.setUsername(loginName);
-		    utente.setIdUtente(iamUser.getIdUserIam());
-		    rispostaControlli.setrObject(utente);
-		    rispostaControlli.setrBoolean(true);
-		}
-	    } else {
-		// login fallito, password errata
-		rispostaControlli.setCodErr(MessaggiWSBundle.MON_AUTH_005);
-		rispostaControlli.setDsErr(MessaggiWSBundle.getString(MessaggiWSBundle.MON_AUTH_005,
-			LOGIN_FALLITO_MSG));
-	    }
-	} catch (NoResultException e) {
-	    // login fallito, utente non esistente
-	    rispostaControlli.setCodErr(MessaggiWSBundle.MON_AUTH_005);
-	    rispostaControlli.setDsErr(
-		    MessaggiWSBundle.getString(MessaggiWSBundle.MON_AUTH_005, LOGIN_FALLITO_MSG));
-	    return rispostaControlli;
-	} catch (Exception e) {
-	    rispostaControlli.setCodErr(MessaggiWSBundle.ERR_666);
-	    rispostaControlli.setDsErr(MessaggiWSBundle.getString(MessaggiWSBundle.ERR_666,
-		    "Eccezione nella fase di autenticazione del EJB " + e.getMessage()));
-	    log.error("Eccezione nella fase di autenticazione del EJB ", e);
-	}
+        try {
+            IamUser iamUser;
+            String queryStr = "select iu from IamUser iu where iu.nmUserid = :nmUseridIn";
+            javax.persistence.Query query = entityManager.createQuery(queryStr, IamUser.class);
+            query.setParameter("nmUseridIn", loginName);
+            iamUser = (IamUser) query.getSingleResult();
+            byte[] salt = PwdUtil.decodeUFT8Base64String(iamUser.getCdSalt());
+            String pwd = PwdUtil.encodePBKDF2Password(salt, password);
+            if (pwd.equals(iamUser.getCdPsw())) {
+                Date ora = new Date();
+                if (ora.after(iamUser.getDtScadPsw())) {
+                    // utente scaduto
+                    rispostaControlli.setCodErr(MessaggiWSBundle.MON_AUTH_002);
+                    rispostaControlli.setDsErr(
+                            MessaggiWSBundle.getString(MessaggiWSBundle.MON_AUTH_002, loginName));
+                } else if (iamUser.getFlAttivo() == null || !iamUser.getFlAttivo().equals("1")) {
+                    // utente non attivo
+                    rispostaControlli.setCodErr(MessaggiWSBundle.MON_AUTH_003);
+                    rispostaControlli.setDsErr(
+                            MessaggiWSBundle.getString(MessaggiWSBundle.MON_AUTH_003, loginName));
+                } else if (iamUser.getTipoUser() == null
+                        || !iamUser.getTipoUser().equals("AUTOMA")) {
+                    // utente non autorizzato
+                    rispostaControlli.setCodErr(MessaggiWSBundle.MON_AUTH_004);
+                    rispostaControlli.setDsErr(MessaggiWSBundle.getString(
+                            MessaggiWSBundle.MON_AUTH_004, loginName, descrizione.getNomeWs()));
+                } else {
+                    utente = new User();
+                    utente.setUsername(loginName);
+                    utente.setIdUtente(iamUser.getIdUserIam());
+                    rispostaControlli.setrObject(utente);
+                    rispostaControlli.setrBoolean(true);
+                }
+            } else {
+                // login fallito, password errata
+                rispostaControlli.setCodErr(MessaggiWSBundle.MON_AUTH_005);
+                rispostaControlli.setDsErr(MessaggiWSBundle.getString(MessaggiWSBundle.MON_AUTH_005,
+                        LOGIN_FALLITO_MSG));
+            }
+        } catch (NoResultException e) {
+            // login fallito, utente non esistente
+            rispostaControlli.setCodErr(MessaggiWSBundle.MON_AUTH_005);
+            rispostaControlli.setDsErr(
+                    MessaggiWSBundle.getString(MessaggiWSBundle.MON_AUTH_005, LOGIN_FALLITO_MSG));
+            return rispostaControlli;
+        } catch (Exception e) {
+            rispostaControlli.setCodErr(MessaggiWSBundle.ERR_666);
+            rispostaControlli.setDsErr(MessaggiWSBundle.getString(MessaggiWSBundle.ERR_666,
+                    "Eccezione nella fase di autenticazione del EJB " + e.getMessage()));
+            log.error("Eccezione nella fase di autenticazione del EJB ", e);
+        }
 
-	return rispostaControlli;
+        return rispostaControlli;
     }
 }

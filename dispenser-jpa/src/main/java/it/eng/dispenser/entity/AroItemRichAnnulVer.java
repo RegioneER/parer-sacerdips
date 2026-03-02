@@ -78,83 +78,83 @@ public class AroItemRichAnnulVer implements Serializable {
     }
 
     public long getIdItemRichAnnulVers() {
-	return this.idItemRichAnnulVers;
+        return this.idItemRichAnnulVers;
     }
 
     public void setIdItemRichAnnulVers(long idItemRichAnnulVers) {
-	this.idItemRichAnnulVers = idItemRichAnnulVers;
+        this.idItemRichAnnulVers = idItemRichAnnulVers;
     }
 
     public BigDecimal getAaKeyUnitaDoc() {
-	return this.aaKeyUnitaDoc;
+        return this.aaKeyUnitaDoc;
     }
 
     public void setAaKeyUnitaDoc(BigDecimal aaKeyUnitaDoc) {
-	this.aaKeyUnitaDoc = aaKeyUnitaDoc;
+        this.aaKeyUnitaDoc = aaKeyUnitaDoc;
     }
 
     public String getCdKeyUnitaDoc() {
-	return this.cdKeyUnitaDoc;
+        return this.cdKeyUnitaDoc;
     }
 
     public void setCdKeyUnitaDoc(String cdKeyUnitaDoc) {
-	this.cdKeyUnitaDoc = cdKeyUnitaDoc;
+        this.cdKeyUnitaDoc = cdKeyUnitaDoc;
     }
 
     public String getCdRegistroKeyUnitaDoc() {
-	return this.cdRegistroKeyUnitaDoc;
+        return this.cdRegistroKeyUnitaDoc;
     }
 
     public void setCdRegistroKeyUnitaDoc(String cdRegistroKeyUnitaDoc) {
-	this.cdRegistroKeyUnitaDoc = cdRegistroKeyUnitaDoc;
+        this.cdRegistroKeyUnitaDoc = cdRegistroKeyUnitaDoc;
     }
 
     public BigDecimal getIdStrut() {
-	return this.idStrut;
+        return this.idStrut;
     }
 
     public void setIdStrut(BigDecimal idStrut) {
-	this.idStrut = idStrut;
+        this.idStrut = idStrut;
     }
 
     public BigDecimal getPgItemRichAnnulVers() {
-	return this.pgItemRichAnnulVers;
+        return this.pgItemRichAnnulVers;
     }
 
     public void setPgItemRichAnnulVers(BigDecimal pgItemRichAnnulVers) {
-	this.pgItemRichAnnulVers = pgItemRichAnnulVers;
+        this.pgItemRichAnnulVers = pgItemRichAnnulVers;
     }
 
     public String getTiItemRichAnnulVers() {
-	return this.tiItemRichAnnulVers;
+        return this.tiItemRichAnnulVers;
     }
 
     public void setTiItemRichAnnulVers(String tiItemRichAnnulVers) {
-	this.tiItemRichAnnulVers = tiItemRichAnnulVers;
+        this.tiItemRichAnnulVers = tiItemRichAnnulVers;
     }
 
     public String getTiStatoItem() {
-	return this.tiStatoItem;
+        return this.tiStatoItem;
     }
 
     public void setTiStatoItem(String tiStatoItem) {
-	this.tiStatoItem = tiStatoItem;
+        this.tiStatoItem = tiStatoItem;
     }
 
     public AroRichAnnulVer getAroRichAnnulVer() {
-	return this.aroRichAnnulVer;
+        return this.aroRichAnnulVer;
     }
 
     public void setAroRichAnnulVer(AroRichAnnulVer aroRichAnnulVer) {
-	this.aroRichAnnulVer = aroRichAnnulVer;
+        this.aroRichAnnulVer = aroRichAnnulVer;
     }
 
     public AroUnitaDoc getAroUnitaDoc() {
-	return this.aroUnitaDoc;
+        return this.aroUnitaDoc;
     }
 
     public void setAroUnitaDoc(AroUnitaDoc aroUnitaDoc) {
-	this.aroUnitaDoc = aroUnitaDoc;
+        this.aroUnitaDoc = aroUnitaDoc;
     }
 
 }

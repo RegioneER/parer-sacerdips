@@ -71,59 +71,59 @@ public class AroStatoRichAnnulVer implements Serializable {
     }
 
     public long getIdStatoRichAnnulVers() {
-	return this.idStatoRichAnnulVers;
+        return this.idStatoRichAnnulVers;
     }
 
     public void setIdStatoRichAnnulVers(long idStatoRichAnnulVers) {
-	this.idStatoRichAnnulVers = idStatoRichAnnulVers;
+        this.idStatoRichAnnulVers = idStatoRichAnnulVers;
     }
 
     public String getDsNotaRichAnnulVers() {
-	return this.dsNotaRichAnnulVers;
+        return this.dsNotaRichAnnulVers;
     }
 
     public void setDsNotaRichAnnulVers(String dsNotaRichAnnulVers) {
-	this.dsNotaRichAnnulVers = dsNotaRichAnnulVers;
+        this.dsNotaRichAnnulVers = dsNotaRichAnnulVers;
     }
 
     public Date getDtRegStatoRichAnnulVers() {
-	return this.dtRegStatoRichAnnulVers;
+        return this.dtRegStatoRichAnnulVers;
     }
 
     public void setDtRegStatoRichAnnulVers(Date dtRegStatoRichAnnulVers) {
-	this.dtRegStatoRichAnnulVers = dtRegStatoRichAnnulVers;
+        this.dtRegStatoRichAnnulVers = dtRegStatoRichAnnulVers;
     }
 
     public BigDecimal getIdUserIam() {
-	return this.idUserIam;
+        return this.idUserIam;
     }
 
     public void setIdUserIam(BigDecimal idUserIam) {
-	this.idUserIam = idUserIam;
+        this.idUserIam = idUserIam;
     }
 
     public BigDecimal getPgStatoRichAnnulVers() {
-	return this.pgStatoRichAnnulVers;
+        return this.pgStatoRichAnnulVers;
     }
 
     public void setPgStatoRichAnnulVers(BigDecimal pgStatoRichAnnulVers) {
-	this.pgStatoRichAnnulVers = pgStatoRichAnnulVers;
+        this.pgStatoRichAnnulVers = pgStatoRichAnnulVers;
     }
 
     public String getTiStatoRichAnnulVers() {
-	return this.tiStatoRichAnnulVers;
+        return this.tiStatoRichAnnulVers;
     }
 
     public void setTiStatoRichAnnulVers(String tiStatoRichAnnulVers) {
-	this.tiStatoRichAnnulVers = tiStatoRichAnnulVers;
+        this.tiStatoRichAnnulVers = tiStatoRichAnnulVers;
     }
 
     public AroRichAnnulVer getAroRichAnnulVer() {
-	return this.aroRichAnnulVer;
+        return this.aroRichAnnulVer;
     }
 
     public void setAroRichAnnulVer(AroRichAnnulVer aroRichAnnulVer) {
-	this.aroRichAnnulVer = aroRichAnnulVer;
+        this.aroRichAnnulVer = aroRichAnnulVer;
     }
 
 }

@@ -32,15 +32,15 @@ public class PievesestinaBO {
     private EntityManager em;
 
     public RecuperoWSBean getUdData(BigDecimal idStrut, BigDecimal idUnitaDoc) {
-	Query q = em.createQuery("SELECT NEW it.eng.dispenser.bean.RecuperoWSBean("
-		+ "ambiente.nmAmbiente, ente.nmEnte, strut.nmStrut, ud.cdRegistroKeyUnitaDoc, ud.aaKeyUnitaDoc, ud.cdKeyUnitaDoc"
-		+ ") FROM AroUnitaDoc ud JOIN ud.orgStrut strut JOIN strut.orgEnte ente "
-		+ "JOIN ente.orgAmbiente ambiente WHERE ud.orgStrut.idStrut = :idStrut AND ud.idUnitaDoc = :idUnitaDoc");
-	q.setParameter("idStrut", idStrut.longValue());
-	q.setParameter("idUnitaDoc", idUnitaDoc.longValue());
+        Query q = em.createQuery("SELECT NEW it.eng.dispenser.bean.RecuperoWSBean("
+                + "ambiente.nmAmbiente, ente.nmEnte, strut.nmStrut, ud.cdRegistroKeyUnitaDoc, ud.aaKeyUnitaDoc, ud.cdKeyUnitaDoc"
+                + ") FROM AroUnitaDoc ud JOIN ud.orgStrut strut JOIN strut.orgEnte ente "
+                + "JOIN ente.orgAmbiente ambiente WHERE ud.orgStrut.idStrut = :idStrut AND ud.idUnitaDoc = :idUnitaDoc");
+        q.setParameter("idStrut", idStrut.longValue());
+        q.setParameter("idUnitaDoc", idUnitaDoc.longValue());
 
-	RecuperoWSBean obj = (RecuperoWSBean) q.getSingleResult();
+        RecuperoWSBean obj = (RecuperoWSBean) q.getSingleResult();
 
-	return obj;
+        return obj;
     }
 }

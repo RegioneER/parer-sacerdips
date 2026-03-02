@@ -45,49 +45,49 @@ public class DipsTimerHelper extends AbstractJbossTimerHelper implements JbossTi
 
     @Override
     public String getApplicationName() {
-	TypedQuery<DipParamApplic> query = em.createQuery(
-		"select d from DipParamApplic d where d.nmParamApplic= :nmApplic",
-		DipParamApplic.class);
-	query.setParameter("nmApplic", "NM_APPLIC");
-	List<DipParamApplic> list = query.setMaxResults(1).getResultList();
-	if (list.size() < 1) {
-	    return null;
-	}
-	return list.get(0).getDsValoreParamApplic();
+        TypedQuery<DipParamApplic> query = em.createQuery(
+                "select d from DipParamApplic d where d.nmParamApplic= :nmApplic",
+                DipParamApplic.class);
+        query.setParameter("nmApplic", "NM_APPLIC");
+        List<DipParamApplic> list = query.setMaxResults(1).getResultList();
+        if (list.size() < 1) {
+            return null;
+        }
+        return list.get(0).getDsValoreParamApplic();
     }
 
     @Override
     public List<JobTable> getJobs() {
-	List<JobTable> resultList = em.createQuery("Select d From DipDecJob d", JobTable.class)
-		.getResultList();
-	return resultList;
+        List<JobTable> resultList = em.createQuery("Select d From DipDecJob d", JobTable.class)
+                .getResultList();
+        return resultList;
     }
 
     @Override
     public JobTable getJob(String jobName) throws TimerNotFoundException {
-	TypedQuery<JobTable> query = em
-		.createQuery("Select d From DipDecJob d Where d.nmJob = :nmJob", JobTable.class)
-		.setParameter("nmJob", jobName);
-	List<JobTable> list = query.setMaxResults(1).getResultList();
+        TypedQuery<JobTable> query = em
+                .createQuery("Select d From DipDecJob d Where d.nmJob = :nmJob", JobTable.class)
+                .setParameter("nmJob", jobName);
+        List<JobTable> list = query.setMaxResults(1).getResultList();
 
-	if (list.size() < 1) {
-	    throw new TimerNotFoundException(jobName);
-	}
-	return list.get(0);
+        if (list.size() < 1) {
+            throw new TimerNotFoundException(jobName);
+        }
+        return list.get(0);
     }
 
     @Override
     public JbossJobTimer getTimer(String jobName) throws TimerNotFoundException {
-	JbossJobTimer job = timerRepository.getConfiguredTimer(jobName);
-	if (job != null) {
-	    return job;
-	}
-	throw new TimerNotFoundException(jobName);
+        JbossJobTimer job = timerRepository.getConfiguredTimer(jobName);
+        if (job != null) {
+            return job;
+        }
+        throw new TimerNotFoundException(jobName);
     }
 
     @Override
     public Set<String> getApplicationTimerNames() {
-	return timerRepository.getConfiguredTimersName();
+        return timerRepository.getConfiguredTimersName();
     }
 
 }

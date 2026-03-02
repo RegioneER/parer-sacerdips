@@ -33,19 +33,19 @@ public class DipSyncroAroTableBean extends AbstractBaseTable<DipSyncroAroRowBean
     public static DipSyncroAroTableDescriptor TABLE_DESCRIPTOR = new DipSyncroAroTableDescriptor();
 
     public DipSyncroAroTableBean() {
-	super();
+        super();
     }
 
     protected DipSyncroAroRowBean createRow() {
-	return new DipSyncroAroRowBean();
+        return new DipSyncroAroRowBean();
     }
 
     public TableDescriptor getTableDescriptor() {
-	return TABLE_DESCRIPTOR;
+        return TABLE_DESCRIPTOR;
     }
 
     @Deprecated
     public Iterator<DipSyncroAroRowBean> getRowsIterator() {
-	return iterator();
+        return iterator();
     }
 }

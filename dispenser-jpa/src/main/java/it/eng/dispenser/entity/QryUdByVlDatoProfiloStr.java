@@ -44,39 +44,39 @@ public class QryUdByVlDatoProfiloStr implements Serializable {
     private QryUdByVlDatoProfiloStrId qryUdByVlDatoProfiloStrId;
 
     public QryUdByVlDatoProfiloStr() {
-	// costruttore
+        // costruttore
     }
 
     public QryUdByVlDatoProfiloStrId getQryUdByVlDatoProfiloStrId() {
-	return qryUdByVlDatoProfiloStrId;
+        return qryUdByVlDatoProfiloStrId;
     }
 
     public void setQryUdByVlDatoProfiloStrId(QryUdByVlDatoProfiloStrId qryUdByVlDatoProfiloStrId) {
-	this.qryUdByVlDatoProfiloStrId = qryUdByVlDatoProfiloStrId;
+        this.qryUdByVlDatoProfiloStrId = qryUdByVlDatoProfiloStrId;
     }
 
     public String getDlPrefissoValore() {
-	return this.dlPrefissoValore;
+        return this.dlPrefissoValore;
     }
 
     public void setDlPrefissoValore(String dlPrefissoValore) {
-	this.dlPrefissoValore = dlPrefissoValore;
+        this.dlPrefissoValore = dlPrefissoValore;
     }
 
     public String getDlValore() {
-	return this.dlValore;
+        return this.dlValore;
     }
 
     public void setDlValore(String dlValore) {
-	this.dlValore = dlValore;
+        this.dlValore = dlValore;
     }
 
     public BigDecimal getIdTipoUnitaDoc() {
-	return idTipoUnitaDoc;
+        return idTipoUnitaDoc;
     }
 
     public void setIdTipoUnitaDoc(BigDecimal idTipoUnitaDoc) {
-	this.idTipoUnitaDoc = idTipoUnitaDoc;
+        this.idTipoUnitaDoc = idTipoUnitaDoc;
     }
 
 }

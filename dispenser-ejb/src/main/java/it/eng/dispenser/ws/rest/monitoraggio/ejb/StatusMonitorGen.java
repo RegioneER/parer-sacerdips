@@ -50,42 +50,42 @@ public class StatusMonitorGen {
     // @EJB
     // AltriStatusMonitor altriStatusMonitor;
     public void calcolaStatusGlobale(RispostaWSStatusMonitor rispostaWs, StatusMonExt mon) {
-	RispostaControlli rc;
+        RispostaControlli rc;
 
-	// determino il timestamp dell'ultima esecuzione oppure 24 ore da questo istante
-	// se non è mai stato eseguito.
-	// la data mi serve per verificare se dall'ultima verifica dello stato
-	// si sono verificati degli allarmi su un job
-	Date ultimaChiamataDelWs = null;
-	rc = controlliMonitor.leggiUltimaChiamataWS();
-	if (rc.isrBoolean()) {
-	    ultimaChiamataDelWs = rc.getrDate();
-	} else {
-	    rispostaWs.setEsitoWsError(rc.getCodErr(), rc.getDsErr());
-	    return;
-	}
-	//
-	HostMonitor myEsito = rispostaWs.getIstanzaEsito();
-	// iniziamo con il monitoraggio dei job
-	List<MonitorJob> tmpLstJob = new ArrayList<>();
-	jobStatusMonitor.calcolaStatoJob(rispostaWs, tmpLstJob, ultimaChiamataDelWs);
-	//
-	// monitoraggio degli altri parametri
-	List<MonitorAltro> tmpLstAltro = new ArrayList<>();
-	// if (rispostaWs.getSeverity() != IRispostaWS.SeverityEnum.ERROR) {
-	// altriStatusMonitor.calcolaStatoDatabase(tmpLstAltro);
-	// }
+        // determino il timestamp dell'ultima esecuzione oppure 24 ore da questo istante
+        // se non è mai stato eseguito.
+        // la data mi serve per verificare se dall'ultima verifica dello stato
+        // si sono verificati degli allarmi su un job
+        Date ultimaChiamataDelWs = null;
+        rc = controlliMonitor.leggiUltimaChiamataWS();
+        if (rc.isrBoolean()) {
+            ultimaChiamataDelWs = rc.getrDate();
+        } else {
+            rispostaWs.setEsitoWsError(rc.getCodErr(), rc.getDsErr());
+            return;
+        }
+        //
+        HostMonitor myEsito = rispostaWs.getIstanzaEsito();
+        // iniziamo con il monitoraggio dei job
+        List<MonitorJob> tmpLstJob = new ArrayList<>();
+        jobStatusMonitor.calcolaStatoJob(rispostaWs, tmpLstJob, ultimaChiamataDelWs);
+        //
+        // monitoraggio degli altri parametri
+        List<MonitorAltro> tmpLstAltro = new ArrayList<>();
+        // if (rispostaWs.getSeverity() != IRispostaWS.SeverityEnum.ERROR) {
+        // altriStatusMonitor.calcolaStatoDatabase(tmpLstAltro);
+        // }
 
-	//
-	if (rispostaWs.getSeverity() != IRispostaWS.SeverityEnum.ERROR) {
-	    // tutto OK, aggancio all'oggetto di risposta i due array di parametri
-	    if (!tmpLstJob.isEmpty()) {
-		myEsito.setJob(tmpLstJob);
-	    }
-	    if (!tmpLstAltro.isEmpty()) {
-		myEsito.setAltri(tmpLstAltro);
-	    }
-	}
+        //
+        if (rispostaWs.getSeverity() != IRispostaWS.SeverityEnum.ERROR) {
+            // tutto OK, aggancio all'oggetto di risposta i due array di parametri
+            if (!tmpLstJob.isEmpty()) {
+                myEsito.setJob(tmpLstJob);
+            }
+            if (!tmpLstAltro.isEmpty()) {
+                myEsito.setAltri(tmpLstAltro);
+            }
+        }
     }
 
 }
