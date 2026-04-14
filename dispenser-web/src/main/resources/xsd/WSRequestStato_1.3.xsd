@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           elementFormDefault="qualified" attributeFormDefault="unqualified">
+  
+    <xs:complexType name="VersatoreType">
+        <xs:sequence>
+            <xs:element name="Ambiente" type="TokenNonVuotoType" minOccurs="0" maxOccurs="1"/>
+            <xs:element name="Ente" type="TokenNonVuotoType" minOccurs="0" maxOccurs="1"/>
+            <xs:element name="Struttura" type="TokenNonVuotoType" minOccurs="0" maxOccurs="1"/>
+            <xs:element name="UserID" type="TokenNonVuotoType" />
+            <xs:element name="Utente" type="TokenNonVuotoType" minOccurs="0" maxOccurs="1"/>
+        </xs:sequence>
+    </xs:complexType>
+    <!-- -->
+    <xs:complexType name="ParametriType">
+        <xs:sequence>
+            <xs:element name="TipoNomeFile" type="TokenFileNameType"
+                        minOccurs="0" maxOccurs="1" />
+            <!-- MEV#34239 - Estensione servizio per recupero file sbustati -->
+            <xs:element name="FileSbustato" type="xs:boolean" 
+                        minOccurs="0" maxOccurs="1" />
+            <!-- MEV#38961 - Recupero componente unzippato -->
+            <xs:element name="FileUnzippato" type="xs:boolean" 
+                        minOccurs="0" maxOccurs="1" />
+        </xs:sequence>
+    </xs:complexType>
+    <!-- -->
+    <xs:complexType name="ChiaveType">
+        <xs:sequence>
+            <xs:element name="Urn" type="TokenNVMax254Type" minOccurs="0" maxOccurs="1" />
+            <xs:element name="Numero" type="TokenNonVuotoType" minOccurs="0" maxOccurs="1"/>
+            <xs:element name="Anno" type="xs:nonNegativeInteger" minOccurs="0" maxOccurs="1"/>
+            <xs:element name="TipoRegistro" type="TokenNonVuotoType" minOccurs="0" maxOccurs="1"/>
+            <xs:element name="IDDocumento" type="TokenNVMax100Type"
+                        minOccurs="0" maxOccurs="1" />
+            <xs:element name="OrdinePresentazioneComponente" type="IntMax5DgtType"
+                        minOccurs="0" maxOccurs="1" />
+            <xs:element name="TipoDocumento" type="TokenNonVuotoType"
+                        minOccurs="0" maxOccurs="1" />
+        </xs:sequence>
+    </xs:complexType>
+
+<!-- MEV#34239 - Estensione servizio per recupero file sbustati -->
+    <!-- -->
+    <xs:simpleType name="TokenNonVuotoType">
+        <xs:restriction base="xs:string">
+            <xs:minLength value="1" />
+        </xs:restriction>
+    </xs:simpleType>
+    <!-- -->
+    <xs:simpleType name="TokenNVMax100Type">
+        <xs:restriction base="xs:token">
+            <xs:minLength value="1" />
+            <xs:maxLength value="100" />
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="TokenNVMax254Type">
+        <xs:restriction base="xs:token">
+            <xs:minLength value="1" />
+            <xs:maxLength value="254" />
+        </xs:restriction>
+    </xs:simpleType>
+    <!-- -->
+    <xs:simpleType name="IntMax5DgtType">
+        <xs:restriction base="xs:integer">
+            <xs:minInclusive value="0" />
+            <xs:maxInclusive value="99999" />
+        </xs:restriction>
+    </xs:simpleType>
+    <!-- -->
+    <xs:simpleType name="TokenFileNameType">
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="NOME_FILE_VERSATO" />
+            <xs:enumeration value="NOME_FILE_URN_SACER" />
+            <xs:enumeration value="NOME_FILE_URN_VERSATO" />
+        </xs:restriction>
+    </xs:simpleType>
+    <!-- -->
+    <xs:element name="Recupero">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="Versione" type="xs:string" />
+                <xs:element name="Versatore" type="VersatoreType" />
+                <xs:element name="Chiave" type="ChiaveType" />
+                <xs:element name="Parametri" type="ParametriType"
+                        minOccurs="0" maxOccurs="1" />
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+</xs:schema>
+  
+  
+  
+  
+  
+  
+  
+  
+  

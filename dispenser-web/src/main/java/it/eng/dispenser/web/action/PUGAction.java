@@ -54,6 +54,7 @@ import it.eng.dispenser.ws.dto.RichiestaWSInput.TipoRichiesta;
 import it.eng.dispenser.ws.util.RichiestaWSClient;
 import it.eng.parer.dispenser.util.DataSourcePropertiesFactoryBean;
 import it.eng.parer.ws.xml.versReqStato.ChiaveType;
+import it.eng.parer.ws.xml.versReqStato.ParametriType;
 import it.eng.parer.ws.xml.versReqStato.Recupero;
 import it.eng.parer.ws.xml.versReqStato.TokenFileNameType;
 import it.eng.parer.ws.xml.versReqStato.VersatoreType;
@@ -723,6 +724,7 @@ public class PUGAction extends PUGAbstractAction {
             Recupero recXml = new Recupero();
             recXml.setChiave(new ChiaveType());
             recXml.setVersatore(new VersatoreType());
+            recXml.setParametri(new ParametriType());
             recXml.setVersione(versioneParam);
 
             recXml.getVersatore().setAmbiente(strut.getAmbiente());
@@ -741,12 +743,12 @@ public class PUGAction extends PUGAbstractAction {
                             : null);
             recXml.getChiave().setTipoDocumento(strut.getTipoDocumento());
             // MEV#22921 Parametrizzazione servizi di recupero
-            recXml.getChiave().setTipoNomeFile(TokenFileNameType.NOME_FILE_URN_VERSATO);
+            recXml.getParametri().setTipoNomeFile(TokenFileNameType.NOME_FILE_URN_VERSATO);
             // MEV#34466 - Ricerca strumenti urbanistici: introduzione del recupero dei file
             // sbustati
             String sbustamento = System.getProperty("sacerdips-sbustamento", "false");
             if (sbustamento.equalsIgnoreCase("true")) {
-                recXml.getChiave().setFileSbustato(true);
+                recXml.getParametri().setFileSbustato(true);
             }
             marshaller.marshal(recXml, writer);
             xmlRequest = writer.toString();

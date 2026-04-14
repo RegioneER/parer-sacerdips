@@ -55,6 +55,7 @@ import it.eng.dispenser.ws.dto.RichiestaWSInput.TipoRichiesta;
 import it.eng.dispenser.ws.util.RichiestaWSClient;
 import it.eng.parer.dispenser.util.DataSourcePropertiesFactoryBean;
 import it.eng.parer.ws.xml.versReqStato.ChiaveType;
+import it.eng.parer.ws.xml.versReqStato.ParametriType;
 import it.eng.parer.ws.xml.versReqStato.Recupero;
 import it.eng.parer.ws.xml.versReqStato.TokenFileNameType;
 import it.eng.parer.ws.xml.versReqStato.VersatoreType;
@@ -650,6 +651,7 @@ public class SISMAAction extends SISMAAbstractAction {
             Recupero recXml = new Recupero();
             recXml.setChiave(new ChiaveType());
             recXml.setVersatore(new VersatoreType());
+            recXml.setParametri(new ParametriType());
             recXml.setVersione(versioneParam);
 
             recXml.getVersatore().setAmbiente(strut.getAmbiente());
@@ -668,7 +670,7 @@ public class SISMAAction extends SISMAAbstractAction {
                             : null);
             recXml.getChiave().setTipoDocumento(strut.getTipoDocumento());
             // MEV#22921 Parametrizzazione servizi di recupero
-            recXml.getChiave().setTipoNomeFile(TokenFileNameType.NOME_FILE_URN_VERSATO);
+            recXml.getParametri().setTipoNomeFile(TokenFileNameType.NOME_FILE_URN_VERSATO);
 
             marshaller.marshal(recXml, writer);
             xmlRequest = writer.toString();
