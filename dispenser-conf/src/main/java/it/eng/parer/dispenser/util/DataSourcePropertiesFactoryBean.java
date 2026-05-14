@@ -115,5 +115,4 @@ public class DataSourcePropertiesFactoryBean implements FactoryBean<Properties> 
         return str;
     }
 
-
 }
