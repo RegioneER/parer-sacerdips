@@ -1,4 +1,4 @@
-## 6.6.0 (14-05-2026)
+## 6.7.0 (23-06-2026)
 
 ### Novità: 1
-- [#40543](https://parermine.regione.emilia-romagna.it/issues/40543) Patch di sicurezza per interventi legati a CVE
+- [#40706](https://parermine.regione.emilia-romagna.it/issues/40706) Introdurre il nuovo framework con la modifica per l'accesso tramite CIE/SPID

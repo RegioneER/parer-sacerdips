@@ -1,7 +1,7 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
     <artifactId>sacerdips-jboss</artifactId>
-    <version>6.6.1-SNAPSHOT</version>
+    <version>6.7.0</version>
     <packaging>pom</packaging>
     <name>dispenser</name>
     <description>Progetto DIPS</description>
@@ -12,25 +12,25 @@
         <version>7.2.0</version>
     </parent>
 
-<distributionManagement>
-        <repository>
-          <id>github</id>
-          <url>https://maven.pkg.github.com/RegioneER/parer-sacerdips</url>
-        </repository>      
-    </distributionManagement>
+  <distributionManagement>
+    <repository>
+      <id>github</id>
+      <url>https://maven.pkg.github.com/RegioneER/parer-sacerdips</url>
+    </repository>
+  </distributionManagement>
 
-<repositories>
-        <repository>
-            <id>github</id>
-            <url>https://maven.pkg.github.com/RegioneER/parer-framework-parerpom</url>           
-        </repository>          
-     </repositories>
+  <repositories>
+    <repository>
+      <id>github</id>
+      <url>https://maven.pkg.github.com/RegioneER/parer-framework-parerpom</url>
+    </repository>
+  </repositories>
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
         <!-- spagofat bom -->
-        <spagofat.version>7.5.0</spagofat.version>
+        <spagofat.version>7.6.0</spagofat.version>
         <cxf-buildtools.version>4.1.0</cxf-buildtools.version>        
         <!-- jaxp-jdk11 -->
         <jaxp-jdk11.version>0.0.3</jaxp-jdk11.version>     
@@ -167,10 +167,10 @@
         <module>dispenser-web</module>
     </modules>
 
-<scm>
-        <developerConnection>scm:git:https://github.com/RegioneER/parer-sacerdips.git</developerConnection>
-        <tag>HEAD</tag>
-   </scm>
+  <scm>
+    <developerConnection>scm:git:https://github.com/RegioneER/parer-sacerdips.git</developerConnection>
+    <tag>HEAD</tag>
+  </scm>
 
     <build>
         <pluginManagement>
