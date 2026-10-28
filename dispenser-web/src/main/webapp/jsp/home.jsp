@@ -73,20 +73,26 @@
 
                 <p>Benvenuto!</p>
                 <table class="listaNews" style="table-layout: fixed; width: 100%" >
-                    <c:forEach items="${news}" var="current">
+                    <c:forEach items="${news}" var="current" varStatus="newsStatus">
                         <tr class="news" >
 
                             <td style="width:15px;cursor:pointer"><img alt="Leggi News"  class="apriChiudi" src="./img/window/chiuso.png" /></td>
-                            <td><p style="text-align:left; word-wrap: break-word;"><c:out value="${current.dsOggetto }" escapeXml="false" /></p></td>
-                                <%-- <td><c:out value="${current.dtIniPubblic}" /><td> --%>
-                        </tr>
-                        <tr class="nascondiRiga">
-                            <td>&nbsp;</td>
-                            <%-- <td><p style="text-align:left"><c:out value="${current.dlTesto}" /></p><td> --%>
-                            <td style="word-wrap:break-word; "><c:out value="${current.dlTesto}" escapeXml="false"/></td>
+                                <td>
+                                    <p style="text-align:left; word-wrap: break-word;" data-html-preview="news-oggetto-${newsStatus.index}"></p>
+                                    <textarea class="displayNone" data-html-source="news-oggetto-${newsStatus.index}" aria-hidden="true"><c:out value="${current.dsOggetto }" /></textarea>
+                                </td>
+                                    <%-- <td><c:out value="${current.dtIniPubblic}" /><td> --%>
+                            </tr>
+                            <tr class="nascondiRiga">
+                                <td>&nbsp;</td>
+                                <%-- <td><p style="text-align:left"><c:out value="${current.dlTesto}" /></p><td> --%>
+                                <td style="word-wrap:break-word; ">
+                                    <div data-html-preview="news-testo-${newsStatus.index}"></div>
+                                    <textarea class="displayNone" data-html-source="news-testo-${newsStatus.index}" aria-hidden="true"><c:out value="${current.dlTesto}" /></textarea>
+                                </td>
 
-                        </tr>
-                    </c:forEach>
+                            </tr>
+                        </c:forEach>
                 </table>
             </slf:fieldSet>
 

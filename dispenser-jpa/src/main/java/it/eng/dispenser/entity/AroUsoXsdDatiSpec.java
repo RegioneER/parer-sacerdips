@@ -35,10 +35,6 @@ public class AroUsoXsdDatiSpec implements Serializable {
     private static final long serialVersionUID = 1L;
 
     @Id
-    // @SequenceGenerator(name = "ARO_USO_XSD_DATI_SPEC_IDUSOXSDDATISPEC_GENERATOR", sequenceName =
-    // "SARO_USO_XSD_DATI_SPEC", allocationSize = 1, schema = "SACER")
-    // @GeneratedValue(strategy = GenerationType.SEQUENCE, generator =
-    // "ARO_USO_XSD_DATI_SPEC_IDUSOXSDDATISPEC_GENERATOR")
     @Column(name = "ID_USO_XSD_DATI_SPEC")
     private long idUsoXsdDatiSpec;
 
@@ -67,9 +63,9 @@ public class AroUsoXsdDatiSpec implements Serializable {
     @JoinColumn(name = "ID_UNITA_DOC")
     private AroUnitaDoc aroUnitaDoc;
 
-    // bi-directional many-to-one association to AroValoreAttribDatiSpec
+    // bi-directional many-to-one association to AroValoreAttribDatiSpecRicDs
     @OneToMany(mappedBy = "aroUsoXsdDatiSpec")
-    private List<AroValoreAttribDatiSpec> aroValoreAttribDatiSpecs;
+    private List<AroValoreAttribDatiSpecRicDs> aroValoreAttribDatiSpecRicDss;
 
     public AroUsoXsdDatiSpec() {
     }
@@ -138,29 +134,29 @@ public class AroUsoXsdDatiSpec implements Serializable {
         this.aroUnitaDoc = aroUnitaDoc;
     }
 
-    public List<AroValoreAttribDatiSpec> getAroValoreAttribDatiSpecs() {
-        return this.aroValoreAttribDatiSpecs;
+    public List<AroValoreAttribDatiSpecRicDs> getAroValoreAttribDatiSpecRicDss() {
+        return this.aroValoreAttribDatiSpecRicDss;
     }
 
-    public void setAroValoreAttribDatiSpecs(
-            List<AroValoreAttribDatiSpec> aroValoreAttribDatiSpecs) {
-        this.aroValoreAttribDatiSpecs = aroValoreAttribDatiSpecs;
+    public void setAroValoreAttribDatiSpecRicDss(
+            List<AroValoreAttribDatiSpecRicDs> aroValoreAttribDatiSpecRicDss) {
+        this.aroValoreAttribDatiSpecRicDss = aroValoreAttribDatiSpecRicDss;
     }
 
-    public AroValoreAttribDatiSpec addAroValoreAttribDatiSpec(
-            AroValoreAttribDatiSpec aroValoreAttribDatiSpec) {
-        getAroValoreAttribDatiSpecs().add(aroValoreAttribDatiSpec);
-        aroValoreAttribDatiSpec.setAroUsoXsdDatiSpec(this);
+    public AroValoreAttribDatiSpecRicDs addAroValoreAttribDatiSpecRicDs(
+            AroValoreAttribDatiSpecRicDs aroValoreAttribDatiSpecRicDs) {
+        getAroValoreAttribDatiSpecRicDss().add(aroValoreAttribDatiSpecRicDs);
+        aroValoreAttribDatiSpecRicDs.setAroUsoXsdDatiSpec(this);
 
-        return aroValoreAttribDatiSpec;
+        return aroValoreAttribDatiSpecRicDs;
     }
 
-    public AroValoreAttribDatiSpec removeAroValoreAttribDatiSpec(
-            AroValoreAttribDatiSpec aroValoreAttribDatiSpec) {
-        getAroValoreAttribDatiSpecs().remove(aroValoreAttribDatiSpec);
-        aroValoreAttribDatiSpec.setAroUsoXsdDatiSpec(null);
+    public AroValoreAttribDatiSpecRicDs removeAroValoreAttribDatiSpecRicDs(
+            AroValoreAttribDatiSpecRicDs aroValoreAttribDatiSpecRicDs) {
+        getAroValoreAttribDatiSpecRicDss().remove(aroValoreAttribDatiSpecRicDs);
+        aroValoreAttribDatiSpecRicDs.setAroUsoXsdDatiSpec(null);
 
-        return aroValoreAttribDatiSpec;
+        return aroValoreAttribDatiSpecRicDs;
     }
 
 }

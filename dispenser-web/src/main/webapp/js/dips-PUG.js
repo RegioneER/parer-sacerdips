@@ -42,7 +42,7 @@ function scriviTitoloPaginaDettaglio() {
     var anno = $('#ANNO_hidden').attr("value");
     var numero = $('#NUMERO_hidden').attr("value");
     var tipoEnte = $('#ENTE_CONVENZIONATO_hidden').attr("value");
-    $('.contentTitle h2').html("Dettaglio dello Strumento Urbanistico " + registro + "/" + anno + "/" + numero + " - " + tipoEnte);
+    $('.contentTitle h2').text("Dettaglio dello Strumento Urbanistico " + registro + "/" + anno + "/" + numero + " - " + tipoEnte);
 }
 
 function scriviTitoloPaginaDettaglioTipoDoc() {
@@ -51,7 +51,7 @@ function scriviTitoloPaginaDettaglioTipoDoc() {
     var anno = $('#ANNO_hidden').attr("value");
     var numero = $('#NUMERO_hidden').attr("value");
     var tipoEnte = $('#ENTE_CONVENZIONATO_hidden').attr("value");
-    $('.contentTitle h2').html("Dettaglio del tipo documento " + tipoDoc + " dello Strumento Urbanistico " + registro + "/" + anno + "/" + numero + " - " + tipoEnte);
+    $('.contentTitle h2').text("Dettaglio del tipo documento " + tipoDoc + " dello Strumento Urbanistico " + registro + "/" + anno + "/" + numero + " - " + tipoEnte);
 }
 
 function loadDettaglioStrumentoUrbanistico() {

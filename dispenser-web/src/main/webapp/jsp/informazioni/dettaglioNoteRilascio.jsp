@@ -56,7 +56,8 @@
                 </c:when>
                 <c:otherwise>
                     <slf:fieldSet legend="${legend}">
-                        <p style="text-align:left; word-wrap: break-word;"><c:out value="${infoDaMostrare}" escapeXml="false" />                   
+                        <p style="text-align:left; word-wrap: break-word;" data-html-preview="info-da-mostrare"></p>
+                        <textarea class="displayNone" data-html-source="info-da-mostrare" aria-hidden="true"><c:out value="${infoDaMostrare}" /></textarea>
                     </slf:fieldSet>
                 </c:otherwise>
             </c:choose>

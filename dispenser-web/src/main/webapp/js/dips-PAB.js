@@ -75,10 +75,10 @@ function creaLinkDownloadComponente() {
 }
 
 function scriviTitoloPaginaDettaglio() {
-    $('.contentTitle h2').html("Dettaglio della UD Documento di Gara");
+    $('.contentTitle h2').text("Dettaglio della UD Documento di Gara");
 }
 
 function scriviTitoloPaginaDettaglioTipoDoc() {
     var tipoDoc = $('#Nm_tipo_doc_hidden').attr("value");
-    $('.contentTitle h2').html("Dettaglio del tipo documento " + tipoDoc );
+    $('.contentTitle h2').text("Dettaglio del tipo documento " + tipoDoc );
 }

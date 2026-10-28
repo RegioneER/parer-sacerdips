@@ -220,7 +220,7 @@ public class SacerSyncroJob {
 
     // METODI PER METADATI UNITA DOCUMENTARIE
     /**
-     * Restituisce i <code>MetadatoUD</code> delle UnitÃƒÂ  Documentarie inserite da
+     * Restituisce i <code>MetadatoUD</code> delle Unità  Documentarie inserite da
      * <code>dateFrom</code> (inclusa) a <code>dateTo</code> (esclusa) per la
      * <code>structureID</code>.
      *
@@ -234,18 +234,17 @@ public class SacerSyncroJob {
             Date dateTo) {
         // MAC#31007 - Correzione logica di caricamento dati dei versamenti per le dimensioni di
         // prod
-        String query = "SELECT NEW  it.eng.dispenser.bean.MetadatoUD(ads.idAttribDatiSpec, ud.idUnitaDoc, vad.dlValore, ads.tiAttribDatiSpec) "
-                + "FROM AroUnitaDoc ud, VrsSessioneVers ses " + "JOIN ud.aroUsoXsdDatiSpecs da "
-                + "JOIN da.aroValoreAttribDatiSpecs vad " + "JOIN vad.decAttribDatiSpec ads "
-                + "WHERE ses.idStrut = :structureID " + "AND ses.dtChiusura >= :dateFrom "
-                + "AND ses.dtChiusura < :dateTo " + "AND da.tiEntitaSacer = 'UNI_DOC' "
-                + "AND ads.tiAttribDatiSpec IS NOT NULL " + "AND vad.dlValore IS NOT NULL "
-                + "AND ud.orgStrut.idStrut=ses.idStrut " + "AND ud.idUnitaDoc=ses.idUnitaDoc "
-                // MAC#31066 - correzione estrazione dati UD in caso di aggiunta documenti
-                + "AND ses.tiSessioneVers='VERSAMENTO' "
-                + "AND ses.tiStatoSessioneVers='CHIUSA_OK' ";
+        String query = "SELECT NEW it.eng.dispenser.bean.MetadatoUD(ads.idAttribDatiSpec, ud.idUnitaDoc, vad.dlValore, ads.tiAttribDatiSpec) "
+                +
+                "FROM AroUnitaDoc ud JOIN VrsSessioneVers ses ON ses.idUnitaDoc = ud.idUnitaDoc " +
+                "JOIN AroValoreAttribDatiSpecRicDs vad ON vad.idUnitaDoc = ud.idUnitaDoc " +
+                "JOIN vad.decAttribDatiSpec ads " + "WHERE ses.idStrut = :structureID " +
+                "AND ud.orgStrut.idStrut = vad.idStrut " +
+                "AND vad.aaKeyUnitaDoc = ud.aaKeyUnitaDoc " +
+                "AND ses.dtChiusura >= :dateFrom " + "AND ses.dtChiusura < :dateTo " +
+                "AND vad.tiEntitaSacer = 'UNI_DOC' " + "AND ads.tiAttribDatiSpec IS NOT NULL " +
+                "AND ses.tiSessioneVers = 'VERSAMENTO' ";
 
-        ;
         Query q = em.createQuery(query);
         q.setParameter(STRUCTURE_ID, structID.longValue());
         q.setParameter(DATE_FROM, dateFrom);
@@ -326,17 +325,21 @@ public class SacerSyncroJob {
      * @return
      */
     private List<MetadatoUD> getMetadatiUDAnnul(BigDecimal structID, Date dateFrom, Date dateTo) {
-        String query = "select new  it.eng.dispenser.bean.MetadatoUD(ads.idAttribDatiSpec, ud.idUnitaDoc, vad.dlValore, ads.tiAttribDatiSpec) "
-                + "from AroRichAnnulVer rich " + "join rich.aroStatoRichAnnulVersCor  stato "
-                + "join rich.aroItemRichAnnulVers item " + "join item.aroUnitaDoc ud "
-                + "join ud.aroUsoXsdDatiSpecs da " + "join da.aroValoreAttribDatiSpecs vad "
-                + "join vad.decAttribDatiSpec ads " + "where rich.orgStrut.idStrut = :structureID "
-                + "and stato.tiStatoRichAnnulVers='EVASA' "
-                + "and stato.dtRegStatoRichAnnulVers >= :dateFrom "
-                + "and stato.dtRegStatoRichAnnulVers < :dateTo "
-                + "and da.tiEntitaSacer = 'UNI_DOC' " + "and ads.tiAttribDatiSpec IS NOT NULL "
-                + "and vad.dlValore IS NOT NULL " + "and item.tiItemRichAnnulVers = 'UNI_DOC' "
-                + "and item.tiStatoItem='ANNULLATO' ";
+        String query = "SELECT NEW it.eng.dispenser.bean.MetadatoUD(ads.idAttribDatiSpec, ud.idUnitaDoc, vad.dlValore, ads.tiAttribDatiSpec) "
+                +
+                "FROM AroRichAnnulVer rich JOIN rich.aroStatoRichAnnulVersCor stato " +
+                "JOIN rich.aroItemRichAnnulVers item JOIN item.aroUnitaDoc ud " +
+                "JOIN AroValoreAttribDatiSpecRicDs vad ON vad.idUnitaDoc = ud.idUnitaDoc " +
+                "JOIN vad.decAttribDatiSpec ads " + "WHERE rich.orgStrut.idStrut = :structureID " +
+                "AND vad.aaKeyUnitaDoc = ud.aaKeyUnitaDoc " +
+                "AND vad.idStrut = ud.orgStrut.idStrut " +
+                "AND stato.tiStatoRichAnnulVers = 'EVASA' " +
+                "AND stato.dtRegStatoRichAnnulVers >= :dateFrom " +
+                "AND stato.dtRegStatoRichAnnulVers < :dateTo " +
+                "AND vad.tiEntitaSacer = 'UNI_DOC' " +
+                "AND ads.tiAttribDatiSpec IS NOT NULL " +
+                "AND item.tiItemRichAnnulVers = 'UNI_DOC' " +
+                "AND item.tiStatoItem = 'ANNULLATO' ";
         Query q = em.createQuery(query);
         q.setParameter(STRUCTURE_ID, structID.longValue());
         q.setParameter(DATE_FROM, dateFrom);
@@ -410,15 +413,17 @@ public class SacerSyncroJob {
             Date dateTo) {
         // MAC#31007 - Correzione logica di caricamento dati dei versamenti per le dimensioni di
         // prod
-        String query = "SELECT NEW  it.eng.dispenser.bean.MetadatoDoc(ads.idAttribDatiSpec, doc.idDoc, ud.idUnitaDoc, vad.dlValore, ads.tiAttribDatiSpec) "
-                + "FROM AroUnitaDoc ud, VrsSessioneVers ses " + "JOIN ud.aroUsoXsdDatiSpecs da "
-                + "JOIN da.aroValoreAttribDatiSpecs vad " + "JOIN vad.decAttribDatiSpec ads "
-                + "JOIN da.aroDoc doc " + "WHERE (ses.idStrut = :structureID) "
-                + "AND (ses.dtChiusura >= :dateFrom " + "AND ses.dtChiusura < :dateTo) "
-                + "AND (da.tiEntitaSacer = 'DOC') " + "AND (ads.tiAttribDatiSpec IS NOT NULL) "
-                + "AND (vad.dlValore IS NOT NULL)" + "AND ud.orgStrut.idStrut=ses.idStrut "
-                + "AND ud.idUnitaDoc=ses.idUnitaDoc " + "AND ses.tiSessioneVers='VERSAMENTO' "
-                + "AND ses.tiStatoSessioneVers='CHIUSA_OK' ";
+        String query = "SELECT NEW it.eng.dispenser.bean.MetadatoDoc(ads.idAttribDatiSpec, doc.idDoc, ud.idUnitaDoc, vad.dlValore, ads.tiAttribDatiSpec) "
+                +
+                "FROM AroUnitaDoc ud, VrsSessioneVers ses, AroValoreAttribDatiSpecRicDs vad JOIN vad.decAttribDatiSpec ads, AroDoc doc "
+                +
+                "WHERE ses.idUnitaDoc = ud.idUnitaDoc " + "AND vad.idUnitaDoc = ud.idUnitaDoc " +
+                "AND vad.idStrut = ud.orgStrut.idStrut "
+                + "AND vad.aaKeyUnitaDoc = ud.aaKeyUnitaDoc " +
+                "AND doc.idDoc = vad.idDoc " + "AND ses.idStrut = :structureID " +
+                "AND ses.dtChiusura >= :dateFrom " + "AND ses.dtChiusura < :dateTo " +
+                "AND vad.tiEntitaSacer = 'DOC' " + "AND ads.tiAttribDatiSpec IS NOT NULL " +
+                "AND ses.tiSessioneVers = 'VERSAMENTO' ";
 
         Query q = em.createQuery(query);
         q.setParameter(STRUCTURE_ID, structID.longValue());
@@ -503,18 +508,22 @@ public class SacerSyncroJob {
      * @return
      */
     private List<MetadatoDoc> getMetadatiDocAnnul(BigDecimal structID, Date dateFrom, Date dateTo) {
+        String query = "SELECT NEW it.eng.dispenser.bean.MetadatoDoc(ads.idAttribDatiSpec, doc.idDoc, ud.idUnitaDoc, vad.dlValore, ads.tiAttribDatiSpec) "
+                +
+                "FROM AroRichAnnulVer rich JOIN rich.aroStatoRichAnnulVersCor stato " +
+                "JOIN rich.aroItemRichAnnulVers item JOIN item.aroUnitaDoc ud, " +
+                "AroValoreAttribDatiSpecRicDs vad JOIN vad.decAttribDatiSpec ads, AroDoc doc " +
+                "WHERE rich.orgStrut.idStrut = :structureID "
+                + "AND ud.orgStrut.idStrut = rich.orgStrut.idStrut " +
+                "AND vad.idUnitaDoc = ud.idUnitaDoc " + "AND vad.idStrut = ud.orgStrut.idStrut " +
+                "AND vad.aaKeyUnitaDoc = ud.aaKeyUnitaDoc " + "AND doc.idDoc = vad.idDoc " +
+                "AND stato.tiStatoRichAnnulVers = 'EVASA' "
+                + "AND stato.dtRegStatoRichAnnulVers >= :dateFrom " +
+                "AND stato.dtRegStatoRichAnnulVers < :dateTo " + "AND vad.tiEntitaSacer = 'DOC' " +
+                "AND ads.tiAttribDatiSpec IS NOT NULL "
+                + "AND item.tiItemRichAnnulVers = 'UNI_DOC' " +
+                "AND item.tiStatoItem = 'ANNULLATO' ";
 
-        String query = "select NEW it.eng.dispenser.bean.MetadatoDoc(ads.idAttribDatiSpec, doc.idDoc, ud.idUnitaDoc, vad.dlValore, ads.tiAttribDatiSpec) "
-                + "from AroRichAnnulVer rich " + "join rich.aroStatoRichAnnulVersCor  stato "
-                + "join rich.aroItemRichAnnulVers item " + "join item.aroUnitaDoc ud "
-                + "join ud.aroUsoXsdDatiSpecs da " + "join da.aroValoreAttribDatiSpecs vad "
-                + "join vad.decAttribDatiSpec ads " + "join da.aroDoc doc "
-                + "where rich.orgStrut.idStrut = :structureID "
-                + "and stato.tiStatoRichAnnulVers = 'EVASA' "
-                + "and stato.dtRegStatoRichAnnulVers >= :dateFrom and stato.dtRegStatoRichAnnulVers< :dateTo "
-                + "and da.tiEntitaSacer = 'DOC' " + "and ads.tiAttribDatiSpec IS NOT NULL "
-                + "and vad.dlValore IS NOT NULL " + "and item.tiItemRichAnnulVers = 'UNI_DOC' "
-                + "and item.tiStatoItem ='ANNULLATO' ";
         Query q = em.createQuery(query);
         q.setParameter(STRUCTURE_ID, structID.longValue());
         q.setParameter(DATE_FROM, dateFrom);
@@ -612,13 +621,12 @@ public class SacerSyncroJob {
         }
         // MAC#31007 - Correzione logica di caricamento dati dei versamenti per le dimensioni di
         // prod
-        String query = "SELECT ud FROM AroUnitaDoc ud, VrsSessioneVers ses "
+        String query = "SELECT DISTINCT ud FROM AroUnitaDoc ud, VrsSessioneVers ses "
                 + "WHERE (ses.idStrut = :structureID) " + "AND (ses.dtChiusura >= :dateFrom "
                 + "AND ses.dtChiusura < :dateTo) " + "AND ud.orgStrut.idStrut=ses.idStrut "
                 + "AND ud.idUnitaDoc=ses.idUnitaDoc "
                 // MAC#31066 - correzione estrazione dati UD in caso di aggiunta documenti
-                + "AND ses.tiSessioneVers='VERSAMENTO' "
-                + "AND ses.tiStatoSessioneVers='CHIUSA_OK' ";
+                + "AND ses.tiSessioneVers='VERSAMENTO' ";
         Query q = em.createQuery(query);
         q.setParameter(STRUCTURE_ID, structID.longValue());
         q.setParameter(DATE_FROM, dateFrom);
@@ -997,13 +1005,12 @@ public class SacerSyncroJob {
     private long getNumUDInserted(BigDecimal structID, Date dateFrom, Date dateTo) {
         // MAC#31007 - Correzione logica di caricamento dati dei versamenti per le dimensioni di
         // prod
-        String query = "SELECT COUNT(DISTINCT ud.idUnitaDoc) "
-                + "FROM AroUnitaDoc ud, VrsSessioneVers ses " + "WHERE ses.idStrut = :structureID "
+        String query = "SELECT COUNT(1) "
+                + "FROM VrsSessioneVers ses " + "WHERE ses.idStrut = :structureID "
                 + "AND (ses.dtChiusura >= :dateFrom " + "AND ses.dtChiusura < :dateTo) "
-                + "AND ud.orgStrut.idStrut=ses.idStrut " + "AND ses.idUnitaDoc=ud.idUnitaDoc "
                 // MAC#31066 - correzione estrazione dati UD in caso di aggiunta documenti
-                + "AND ses.tiSessioneVers='VERSAMENTO' "
-                + "AND ses.tiStatoSessioneVers='CHIUSA_OK' ";
+                + "AND ses.tiSessioneVers='VERSAMENTO' ";
+
         Query q = em.createQuery(query);
         q.setParameter(STRUCTURE_ID, structID.longValue());
         q.setParameter(DATE_FROM, dateFrom);
@@ -1023,15 +1030,16 @@ public class SacerSyncroJob {
      */
     private long getNumUDDeleted(BigDecimal structID, Date dateFrom, Date dateTo) {
 
-        String query = "select count(distinct ud.idUnitaDoc) " + "from AroRichAnnulVer rich "
-                + "join rich.aroStatoRichAnnulVersCor  stato "
-                + "join rich.aroItemRichAnnulVers item " + "join item.aroUnitaDoc ud "
-                + "where rich.orgStrut.idStrut = :structureID "
-                + "and stato.tiStatoRichAnnulVers = 'EVASA' "
-                + "and stato.dtRegStatoRichAnnulVers >= :dateFrom "
-                + "and stato.dtRegStatoRichAnnulVers < :dateTo "
-                + "and item.tiItemRichAnnulVers = 'UNI_DOC' "
-                + "and item.tiStatoItem = 'ANNULLATO' ";
+        String query = "SELECT COUNT(ud) FROM AroUnitaDoc ud " +
+                "WHERE EXISTS (SELECT 1 FROM AroItemRichAnnulVer item " +
+                "JOIN item.aroRichAnnulVer rich JOIN rich.aroStatoRichAnnulVersCor stato " +
+                "WHERE item.aroUnitaDoc.idUnitaDoc = ud.idUnitaDoc "
+                + "AND rich.orgStrut.idStrut = :structureID " +
+                "AND stato.tiStatoRichAnnulVers = 'EVASA' "
+                + "AND stato.dtRegStatoRichAnnulVers >= :dateFrom " +
+                "AND stato.dtRegStatoRichAnnulVers < :dateTo "
+                + "AND item.tiItemRichAnnulVers = 'UNI_DOC' " +
+                "AND item.tiStatoItem = 'ANNULLATO') ";
 
         Query q = em.createQuery(query);
         q.setParameter(STRUCTURE_ID, structID.longValue());
@@ -1053,15 +1061,18 @@ public class SacerSyncroJob {
     private long getNumDocInserted(BigDecimal structID, Date dateFrom, Date dateTo) {
         // MAC#31007 - Correzione logica di caricamento dati dei versamenti per le dimensioni di
         // prod
-        String query = "SELECT COUNT(DISTINCT doc.idDoc) "
-                + "FROM AroUnitaDoc ud, VrsSessioneVers ses " + "JOIN ud.aroUsoXsdDatiSpecs da "
-                + "JOIN da.aroValoreAttribDatiSpecs vad " + "JOIN vad.decAttribDatiSpec ads "
-                + "JOIN da.aroDoc doc " + "WHERE (ses.idStrut = :structureID) "
-                + "AND (ses.dtChiusura >= :dateFrom " + "AND ses.dtChiusura < :dateTo) "
-                + "AND (da.tiEntitaSacer = 'DOC') " + "AND (ads.tiAttribDatiSpec IS NOT NULL) "
-                + "AND (vad.dlValore IS NOT NULL) " + "AND ud.orgStrut.idStrut=ses.idStrut "
-                + "AND ses.idUnitaDoc=ud.idUnitaDoc " + "AND ses.tiSessioneVers='VERSAMENTO' "
-                + "AND ses.tiStatoSessioneVers='CHIUSA_OK' ";
+        String query = "SELECT COUNT(doc) FROM AroDoc doc " +
+                "WHERE EXISTS (SELECT 1 FROM AroUsoXsdDatiSpec da JOIN da.aroUnitaDoc ud " +
+                "JOIN VrsSessioneVers ses ON ses.idUnitaDoc = ud.idUnitaDoc " +
+                "AND ses.idStrut = ud.orgStrut.idStrut " +
+                "JOIN AroValoreAttribDatiSpecRicDs vad ON vad.idUsoXsdDatiSpec = da.idUsoXsdDatiSpec "
+                +
+                "AND vad.idStrut = ud.orgStrut.idStrut AND vad.aaKeyUnitaDoc = ud.aaKeyUnitaDoc " +
+                "JOIN vad.decAttribDatiSpec ads WHERE da.aroDoc.idDoc = doc.idDoc " +
+                "AND ses.idStrut = :structureID AND ses.dtChiusura >= :dateFrom AND ses.dtChiusura < :dateTo "
+                +
+                "AND ses.tiSessioneVers = 'VERSAMENTO' " + "AND da.tiEntitaSacer = 'DOC' "
+                + "AND ads.tiAttribDatiSpec IS NOT NULL) ";
 
         Query q = em.createQuery(query);
         q.setParameter(STRUCTURE_ID, structID.longValue());
@@ -1082,17 +1093,22 @@ public class SacerSyncroJob {
      * @return
      */
     private long getNumDocDeleted(BigDecimal structID, Date dateFrom, Date dateTo) {
-
-        String query = "select count(distinct doc.idDoc) " + "from AroRichAnnulVer rich "
-                + "join rich.aroStatoRichAnnulVersCor  stato "
-                + "join rich.aroItemRichAnnulVers item " + "join item.aroUnitaDoc ud "
-                + "join ud.aroUsoXsdDatiSpecs da " + "join da.aroValoreAttribDatiSpecs vad "
-                + "join vad.decAttribDatiSpec ads " + "join da.aroDoc doc "
-                + "where rich.orgStrut.idStrut = :structureID "
-                + "and stato.tiStatoRichAnnulVers = 'EVASA' "
-                + "and stato.dtRegStatoRichAnnulVers >= :dateFrom and stato.dtRegStatoRichAnnulVers < :dateTo "
-                + "and item.tiItemRichAnnulVers = 'UNI_DOC' "
-                + "and item.tiStatoItem = 'ANNULLATO' ";
+        String query = "SELECT COUNT(doc) FROM AroDoc doc " +
+                "WHERE EXISTS (SELECT da.idUsoXsdDatiSpec " +
+                "    FROM AroRichAnnulVer rich " +
+                "    JOIN rich.aroStatoRichAnnulVersCor stato " +
+                "    JOIN rich.aroItemRichAnnulVers item " +
+                "    JOIN item.aroUnitaDoc ud " +
+                "    JOIN ud.aroUsoXsdDatiSpecs da, " +
+                "         AroValoreAttribDatiSpecRicDs vad " +
+                "    WHERE da.aroDoc.idDoc = doc.idDoc " +
+                "      AND vad.idUsoXsdDatiSpec = da.idUsoXsdDatiSpec " +
+                "      AND rich.orgStrut.idStrut = :structureID " +
+                "      AND stato.tiStatoRichAnnulVers = 'EVASA' " +
+                "      AND stato.dtRegStatoRichAnnulVers >= :dateFrom " +
+                "      AND stato.dtRegStatoRichAnnulVers < :dateTo " +
+                "      AND item.tiItemRichAnnulVers = 'UNI_DOC' " +
+                "      AND item.tiStatoItem = 'ANNULLATO' ) ";
 
         Query q = em.createQuery(query);
         q.setParameter(STRUCTURE_ID, structID.longValue());

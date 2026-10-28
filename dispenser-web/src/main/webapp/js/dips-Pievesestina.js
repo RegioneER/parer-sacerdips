@@ -86,7 +86,7 @@ function deleteCookie() {
 function scriviTitoloPaginaDettaglio() {
     var idReferto = $('#NUMERO_hidden').attr("value");
     var dataReferto = $('#DATA_REG_hidden').attr("value");
-    $('.contentTitle h2').html("Dettaglio sul referto ID " + idReferto + " del " + dataReferto);
+    $('.contentTitle h2').text("Dettaglio sul referto ID " + idReferto + " del " + dataReferto);
 
 }
 
@@ -162,7 +162,7 @@ function calcolaStrutturaPrescrCalc() {
     if(medico != null && medico != "" && medico != "Non Specificato")
     	calc += " (medico " + medico + ")";
 
-    $('#STRUT_PRESCRITTRICE_CALC').html(calc);
+    $('#STRUT_PRESCRITTRICE_CALC').text(calc);
 }
 
 function nascondiCampiNonValorizzati() {

@@ -68,9 +68,9 @@ public class DecAttribDatiSpec implements Serializable {
     @Column(name = "TI_USO_ATTRIB")
     private String tiUsoAttrib;
 
-    // bi-directional many-to-one association to AroValoreAttribDatiSpec
+    // bi-directional many-to-one association to AroValoreAttribDatiSpecRicDs
     @OneToMany(mappedBy = "decAttribDatiSpec")
-    private List<AroValoreAttribDatiSpec> aroValoreAttribDatiSpecs;
+    private List<AroValoreAttribDatiSpecRicDs> aroValoreAttribDatiSpecRicDss;
 
     // bi-directional many-to-one association to OrgStrut
     @ManyToOne
@@ -160,29 +160,29 @@ public class DecAttribDatiSpec implements Serializable {
         this.tiUsoAttrib = tiUsoAttrib;
     }
 
-    public List<AroValoreAttribDatiSpec> getAroValoreAttribDatiSpecs() {
-        return this.aroValoreAttribDatiSpecs;
+    public List<AroValoreAttribDatiSpecRicDs> getAroValoreAttribDatiSpecRicDss() {
+        return this.aroValoreAttribDatiSpecRicDss;
     }
 
-    public void setAroValoreAttribDatiSpecs(
-            List<AroValoreAttribDatiSpec> aroValoreAttribDatiSpecs) {
-        this.aroValoreAttribDatiSpecs = aroValoreAttribDatiSpecs;
+    public void setAroValoreAttribDatiSpecRicDss(
+            List<AroValoreAttribDatiSpecRicDs> aroValoreAttribDatiSpecRicDss) {
+        this.aroValoreAttribDatiSpecRicDss = aroValoreAttribDatiSpecRicDss;
     }
 
-    public AroValoreAttribDatiSpec addAroValoreAttribDatiSpec(
-            AroValoreAttribDatiSpec aroValoreAttribDatiSpec) {
-        getAroValoreAttribDatiSpecs().add(aroValoreAttribDatiSpec);
-        aroValoreAttribDatiSpec.setDecAttribDatiSpec(this);
+    public AroValoreAttribDatiSpecRicDs addAroValoreAttribDatiSpecRicDs(
+            AroValoreAttribDatiSpecRicDs aroValoreAttribDatiSpecRicDs) {
+        getAroValoreAttribDatiSpecRicDss().add(aroValoreAttribDatiSpecRicDs);
+        aroValoreAttribDatiSpecRicDs.setDecAttribDatiSpec(this);
 
-        return aroValoreAttribDatiSpec;
+        return aroValoreAttribDatiSpecRicDs;
     }
 
-    public AroValoreAttribDatiSpec removeAroValoreAttribDatiSpec(
-            AroValoreAttribDatiSpec aroValoreAttribDatiSpec) {
-        getAroValoreAttribDatiSpecs().remove(aroValoreAttribDatiSpec);
-        aroValoreAttribDatiSpec.setDecAttribDatiSpec(null);
+    public AroValoreAttribDatiSpecRicDs removeAroValoreAttribDatiSpecRicDs(
+            AroValoreAttribDatiSpecRicDs aroValoreAttribDatiSpecRicDs) {
+        getAroValoreAttribDatiSpecRicDss().remove(aroValoreAttribDatiSpecRicDs);
+        aroValoreAttribDatiSpecRicDs.setDecAttribDatiSpec(null);
 
-        return aroValoreAttribDatiSpec;
+        return aroValoreAttribDatiSpecRicDs;
     }
 
     public OrgStrut getOrgStrut() {

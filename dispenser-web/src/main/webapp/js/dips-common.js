@@ -7,10 +7,14 @@
 (function ($) {
     $.fn.infoStyle = function (newHtml) {
         this.html(function (i, oldHtml) {
+            // newHtml e' testo semplice proveniente da dati AJAX: viene sempre
+            // escapato prima di essere iniettato nel markup del wrapper per
+            // prevenire DOM XSS anche qualora contenga caratteri speciali HTML.
+            var escapedText = $("<div/>").text(newHtml).html();
             var StyledInfo = "<div class=\"ui-state-highlight ui-corner-all\" style=\"padding: 0 .7em;\">";
             StyledInfo += "<p><span class=\"ui-icon ui-icon-info\" style=\"float: left; margin-right: .3em;\">";
             StyledInfo += "</span>";
-            StyledInfo += newHtml;
+            StyledInfo += escapedText;
             StyledInfo += "</p></div>";
             return StyledInfo;
         });
